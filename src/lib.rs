@@ -1,19 +1,18 @@
+use lru::LruCache;
 use slint::{Brush, Color, ModelRc, SharedString, VecModel};
-use std::collections::HashMap;
-use std::sync::{Arc, Mutex};
+use std::{num::NonZeroUsize, sync::{Arc, Mutex}};
 
 mod service;
 slint::include_modules!(); // App, PokemonRow, PokemonDetail, TypeTag, StatBar...
 
 type StateHandle = Arc<Mutex<State>>;
 
-#[derive(Default)]
 struct State {
-    full: Vec<String>,                         // todos os nomes
-    view: Vec<String>,                         // nomes filtrados (lista)
-    details: HashMap<String, service::Detail>, // cache de detalhes
-    sprites: HashMap<String, Vec<u8>>,         // cache de bytes da sprite
-    selected: i32,                             // índice selecionado
+    full: Vec<String>,                              // todos os nomes
+    view: Vec<String>,                              // nomes filtrados (lista)
+    details: LruCache<String, service::Detail>,    // cache detalhes
+    sprites: LruCache<String, Vec<u8>>,             // cache de bytes da sprite
+    selected: i32,                                  // índice selecionado
 }
 
 /* ---------- helpers ---------- */
@@ -208,7 +207,14 @@ fn set_detail_error(app: &App, msg: &str) {
 /* ---------- estado base ---------- */
 
 fn wire_app_common(app: &App) -> StateHandle {
-    let state = Arc::new(Mutex::new(State { selected: -1, ..Default::default() }));
+    let cap = NonZeroUsize::new(50).unwrap();
+    let state = Arc::new(Mutex::new(State {
+        full: Vec::new(),
+        view: Vec::new(),
+        details: LruCache::new(cap),
+        sprites: LruCache::new(cap),
+        selected: -1,
+    }));
     app.set_loading(false);
     app.set_filter(SharedString::from(""));
     app.set_selected_index(-1);
@@ -262,7 +268,7 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
 
         if let Some(app) = app_w.upgrade() {
             let (maybe_d, maybe_bytes) = {
-                let st = state_sel.lock().unwrap();
+                let mut st = state_sel.lock().unwrap();
                 (st.details.get(&name).cloned(), st.sprites.get(&name).cloned())
             };
             if let Some(d) = maybe_d {
@@ -294,9 +300,9 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
                         Some(d) => {
                             {
                                 let mut st = state_sel2.lock().unwrap();
-                                st.details.insert(name.clone(), d.clone());
+                                st.details.put(name.clone(), d.clone());
                                 if let Some(b) = &sprite_bytes {
-                                    st.sprites.insert(name.clone(), b.clone());
+                                    st.sprites.put(name.clone(), b.clone());
                                 }
                             }
                             let ui_detail = make_detail_for_ui(&d, sprite_bytes.as_deref());
@@ -379,7 +385,7 @@ pub fn start_wasm() {
 
         if let Some(app) = app_w.upgrade() {
             let (maybe_d, maybe_bytes) = {
-                let st = state_sel.lock().unwrap();
+                let mut st = state_sel.lock().unwrap();
                 (st.details.get(&name).cloned(), st.sprites.get(&name).cloned())
             };
             if let Some(d) = maybe_d {
@@ -411,9 +417,9 @@ pub fn start_wasm() {
                         Some(d) => {
                             {
                                 let mut st = state_sel2.lock().unwrap();
-                                st.details.insert(name.clone(), d.clone());
+                                st.details.put(name.clone(), d.clone());
                                 if let Some(b) = &sprite_bytes {
-                                    st.sprites.insert(name.clone(), b.clone());
+                                    st.sprites.put(name.clone(), b.clone());
                                 }
                             }
                             let ui_detail = make_detail_for_ui(&d, sprite_bytes.as_deref());
