@@ -16,28 +16,26 @@ struct State {
 }
 
 /* ---------- helpers ---------- */
+fn cap_words_and_spaces(s: &str) -> String {
+    let mut out = String::with_capacity(s.len());
+    let mut cap_next = true; // capitalizar o próximo caractere não-separador
 
-fn cap_first(s: &str) -> String {
-    let mut it = s.chars();
-    match it.next() {
-        None => String::new(),
-        Some(f) => f.to_uppercase().collect::<String>() + it.as_str(),
-    }
-}
-
-fn cap_first_and_spaces(s: &str) -> String {
-    let mut it = s.chars();
-    match it.next() {
-        None => String::new(),
-        Some(first) => {
-            let mut out = String::new();
-            out.extend(first.to_uppercase()); // 1ª maiúscula (Unicode-safe)
-            for c in it {
-                out.push(if c == '-' { ' ' } else { c });
-            }
-            out
+    for ch in s.chars() {
+        if ch == '-' {
+            out.push(' ');
+            cap_next = true;
+        } else if ch.is_whitespace() {
+            out.push(ch);
+            cap_next = true;
+        } else if cap_next {
+            out.extend(ch.to_uppercase()); // Unicode-safe (pode render 1+ chars)
+            cap_next = false;
+        } else {
+            out.push(ch);
         }
     }
+
+    out
 }
 
 // cores por tipo (chips)
@@ -108,7 +106,7 @@ fn stat_color(k: &str) -> Brush {
 fn set_rows_from_names(app: &App, names: &[String]) {
     let rows: Vec<PokemonRow> = names
         .iter()
-        .map(|n| PokemonRow { name: cap_first(n).into() })
+        .map(|n| PokemonRow { name: cap_words_and_spaces(n).into() })
         .collect();
     app.set_rows(ModelRc::new(VecModel::from(rows)));
 }
@@ -184,7 +182,7 @@ fn make_detail_for_ui(
         .unwrap_or_default();
 
     PokemonDetail {
-        name: cap_first(&d.name).into(),
+        name: cap_words_and_spaces(&d.name).into(),
         id: d.id as i32,
         height: d.height as i32,
         weight: d.weight as i32,
@@ -192,9 +190,9 @@ fn make_detail_for_ui(
         stats: stats_model,
         artwork: artwork_img,
         total,
-        ability1: cap_first_and_spaces(&d.ability1).into(),
-        ability2: cap_first_and_spaces(&d.ability2).into(),
-        hiddenAbility: cap_first_and_spaces(&d.hidden_ability).into(),
+        ability1: cap_words_and_spaces(&d.ability1).into(),
+        ability2: cap_words_and_spaces(&d.ability2).into(),
+        hiddenAbility: cap_words_and_spaces(&d.hidden_ability).into(),
         error: "".into(),
     }
 }
