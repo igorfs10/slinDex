@@ -17,6 +17,18 @@ struct PokemonApiDetail {
     types: Vec<PokemonTypeEntry>,
     stats: Vec<StatEntry>,
     sprites: Sprites,
+    abilities: Vec<Ability>
+}
+
+#[derive(Debug, Deserialize)]
+pub struct Ability{
+    ability: Option<AbilityInfo>,
+    is_hidden: bool,
+}
+
+#[derive(Debug, Deserialize)]
+pub struct AbilityInfo {
+    name: String,
 }
 
 #[derive(Debug, Deserialize)]
@@ -40,10 +52,14 @@ pub struct Detail {
     pub types: Vec<String>,
     pub stats: Vec<(String, u32)>,
     pub artwork_url: Option<String>,
+    pub ability1: String,
+    pub ability2: String,
+    pub hidden_ability: String,
 }
 
 impl From<PokemonApiDetail> for Detail {
     fn from(v: PokemonApiDetail) -> Self {
+        let (ab1, ab2, hidden) = split_abilities_str(&v);
         Self {
             id: v.id,
             name: v.name,
@@ -54,8 +70,30 @@ impl From<PokemonApiDetail> for Detail {
             artwork_url: v.sprites.other.as_ref()
                 .and_then(|o| o.official_artwork.as_ref())
                 .and_then(|oa| oa.front_default.clone()),
+            ability1: ab1,
+            ability2: ab2,
+            hidden_ability: hidden
         }
     }
+}
+
+fn split_abilities_str(v: &PokemonApiDetail) -> (String, String, String) {
+    let mut normals = v.abilities
+        .iter()
+        .filter(|a| !a.is_hidden)
+        .filter_map(|a| a.ability.as_ref().map(|abi| abi.name.as_str()));
+
+    let ab1 = normals.next().unwrap_or("").to_string();
+    let ab2 = normals.next().unwrap_or("").to_string();
+
+    let hidden = v.abilities
+        .iter()
+        .find(|a| a.is_hidden)
+        .and_then(|a| a.ability.as_ref().map(|abi| abi.name.as_str()))
+        .unwrap_or("")
+        .to_string();
+
+    (ab1, ab2, hidden)
 }
 
 const BASE: &str = "https://pokeapi.co/api/v2";

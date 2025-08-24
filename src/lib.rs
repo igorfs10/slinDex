@@ -186,6 +186,9 @@ fn make_detail_for_ui(
         stats: stats_model,
         artwork: artwork_img,
         total,
+        ability1: cap_first(&d.ability1).into(),
+        ability2: cap_first(&d.ability2).into(),
+        hiddenAbility: cap_first(&d.hidden_ability).into(),
         error: "".into(),
     }
 }
@@ -200,6 +203,9 @@ fn set_detail_error(app: &App, msg: &str) {
         stats: ModelRc::new(VecModel::from(Vec::<StatBar>::new())),
         artwork: slint::Image::default(),
         total: 0,
+        ability1: "".into(),
+        ability2: "".into(),
+        hiddenAbility: "".into(),
         error: msg.into(),
     });
 }

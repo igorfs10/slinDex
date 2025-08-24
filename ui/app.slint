@@ -16,12 +16,15 @@ export struct PokemonDetail {
     stats: [StatBar],
     artwork: image,
     total: int,
+    ability1: string,
+    ability2: string,
+    hiddenAbility: string,
     error: string,
 }
 
 export component App inherits Window {
-    width: 900px;
-    height: 600px;
+    width: 850px;
+    height: 650px;
     title: "SlinDex";
 
     in-out property <string> filter;
@@ -80,7 +83,7 @@ export component App inherits Window {
 
                 // Lista de nomes
                 ListView {
-                    width: 320px;
+                    width: 200px;
                     y: 0px;
                     height: parent.height;   // <- altura total
 
@@ -172,6 +175,12 @@ export component App inherits Window {
                     VerticalBox {
                         spacing: 6px;
 
+                        HorizontalBox {
+                            spacing: 8px;
+                            Text { text: "Habilidade: " + (detail.ability1 == "" ? "-" : detail.ability1); color: #e5e7eb; }
+                            Text { text: "Habilidade 2: " + (detail.ability2 == "" ? "-" : detail.ability2); color: #e5e7eb; }
+                            Text { text: "Hidden: " + (detail.hiddenAbility == "" ? "-" : detail.hiddenAbility); color: #e5e7eb; }
+                        }
                         for s in detail.stats: HorizontalBox {
                             spacing: 8px;
 
@@ -197,7 +206,7 @@ export component App inherits Window {
                             spacing: 8px;
                             Text { text: "Total"; width: 120px; color: #d1d5db; }
                             Rectangle {
-                                height: 14px; border-radius: 7px; background: #111827; horizontal-stretch: 1;
+                                height: 14px; border-radius: 7px; background: #1f2937; horizontal-stretch: 1;
                                 Rectangle {
                                     height: 14px; border-radius: 7px;
                                     x: 0px;
@@ -208,8 +217,6 @@ export component App inherits Window {
                             Text { text: detail.total; width: 44px; color: #fef3c7; }
                         }
                     }
-
-                    Rectangle { height: 1px; background: #1f2937; }
                 }
             }
         }
