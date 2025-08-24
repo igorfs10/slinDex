@@ -1,0 +1,212 @@
+import { LineEdit, ListView, VerticalBox, HorizontalBox, Button, Spinner } from "std-widgets.slint";
+
+// lista (esquerda): apenas nome
+export struct PokemonRow { name: string }
+
+// detalhe (direita): tipos coloridos, barras por stat, sprite e total
+export struct TypeTag { label: string, bg: brush }
+export struct StatBar { name: string, value: int, bg: brush }
+
+export struct PokemonDetail {
+    name: string,
+    id: int,
+    height: int,
+    weight: int,
+    types: [TypeTag],
+    stats: [StatBar],
+    sprite: image,
+    total: int,
+    error: string,
+}
+
+export component App inherits Window {
+    width: 900px;
+    height: 600px;
+    title: "Pokédex (Rust + Slint)";
+
+    in-out property <string> filter;
+    in-out property <int> selected_index; // mantém seleção na lista
+    in property <[PokemonRow]> rows;
+    in property <PokemonDetail> detail;
+    in property <bool> loading;
+
+    callback request-load();
+    callback select(index: int);
+    callback apply-filter(text: string);
+
+    VerticalBox {
+        spacing: 12px;
+        padding: 12px;
+
+        // Top bar estável
+        HorizontalBox {
+            spacing: 8px;
+
+            LineEdit {
+                placeholder-text: "Buscar Pokémon";
+                text <=> root.filter;
+                horizontal-stretch: 1;
+                min-width: 240px;
+            }
+
+            Button { text: "Filtrar";  clicked => { root.apply-filter(root.filter); } }
+            Button { text: "Recarregar lista"; clicked => { root.request-load(); } }
+
+            Rectangle {
+                width: 24px; height: 24px;
+                Spinner {
+                    width: 20px; height: 20px;
+                    visible: root.loading;
+                    x: (parent.width - self.width) / 2;
+                    y: (parent.height - self.height) / 2;
+                }
+            }
+        }
+
+        // ====== CONTAINER DO MIolo (pega 100% da altura) ======
+        Rectangle {
+            vertical-stretch: 1;
+
+            // Conteúdo: lista (esq) + detalhes (dir)
+            HorizontalBox {
+                spacing: 12px;
+                y: 0px;
+                height: parent.height;   // <- garante altura total
+
+                // Lista de nomes
+                ListView {
+                    width: 320px;
+                    y: 0px;
+                    height: parent.height;   // <- altura total
+
+                    for row[i] in root.rows: Rectangle {
+                        height: 36px;
+                        border-radius: 6px;
+                        background: (i == root.selected_index)
+                            ? #1e293b
+                            : ((Math.mod(i, 2) == 0) ? #10141c : #0b0f17);
+
+                        // borda sutil no selecionado
+                        Rectangle {
+                            x: 0px; y: 0px; width: parent.width; height: parent.height;
+                            border-radius: 6px;
+                            border-width: (i == root.selected_index) ? 1px : 0px;
+                            border-color: #60a5fa;
+                            background: transparent;
+                        }
+
+                        Text {
+                            text: row.name;
+                            color: (i == root.selected_index) ? #e2e8f0 : #e5e7eb;
+                            x: 8px;
+                            y: (parent.height - self.preferred-height) / 2;
+                        }
+
+                        TouchArea {
+                            clicked => {
+                                root.selected_index = i; // mantém selecionado
+                                root.select(i);          // notifica o Rust
+                            }
+                        }
+                    }
+                }
+
+                // Painel de detalhes
+                VerticalBox {
+                    spacing: 10px;
+                    horizontal-stretch: 1;
+                    y: 0px;
+                    height: parent.height;    // <- altura total
+
+                    Rectangle { height: 1px; background: #1f2937; }
+
+                    // Cabeçalho + sprite
+                    HorizontalBox {
+                        spacing: 16px;
+
+                        Rectangle { // sprite card
+                            width: 120px; height: 120px; border-radius: 10px; background: #0f172a;
+                            Image { source: detail.sprite; width: 120px; height: 120px; }
+                        }
+
+                        VerticalBox {
+                            spacing: 6px; horizontal-stretch: 1;
+
+                            Text {
+                                text: detail.name == "" ? "Selecione um Pokémon" : detail.name;
+                                font-size: 24px; color: #f9fafb;
+                            }
+
+                            // chips de tipos (coloridos)
+                            HorizontalBox {
+                                spacing: 6px;
+                                for t in detail.types: Rectangle {
+                                    border-radius: 8px; background: t.bg;
+                                    HorizontalBox {
+                                        spacing: 4px;
+                                        Rectangle { width: 8px; height: 1px; } // margem
+                                        Text { text: t.label; color: #0f172a; }
+                                        Rectangle { width: 8px; height: 1px; } // margem
+                                    }
+                                }
+                            }
+
+                            // infos básicas
+                            HorizontalBox {
+                                spacing: 16px;
+                                Text { text: "ID: " + (detail.id == 0 ? "-" : detail.id); color: #e5e7eb; }
+                                Text { text: "Altura: " + (detail.height == 0 ? "-" : (detail.height / 10.0) + " m"); color: #e5e7eb; }
+                                Text { text: "Peso: " + (detail.weight == 0 ? "-" : (detail.weight / 10.0) + " kg"); color: #e5e7eb; }
+                            }
+                        }
+                    }
+
+                    if (detail.error != "") : Text { text: detail.error; color: #ef4444; }
+
+                    // Barras dos base stats (esquerda -> direita, cores por stat)
+                    VerticalBox {
+                        spacing: 6px;
+
+                        for s in detail.stats: HorizontalBox {
+                            spacing: 8px;
+
+                            // largura maior para caber nomes completos
+                            Text { text: s.name; width: 120px; color: #9ca3af; }
+
+                            Rectangle { // trilho
+                                height: 12px; border-radius: 6px; background: #1f2937; horizontal-stretch: 1;
+
+                                Rectangle { // preenchimento
+                                    height: 12px; border-radius: 6px;
+                                    x: 0px; // garante início à esquerda
+                                    width: parent.width * Math.min((s.value / 255.0), 1.0);
+                                    background: s.bg;
+                                }
+                            }
+
+                            Text { text: s.value; width: 44px; color: #e5e7eb; }
+                        }
+
+                        // Barra TOTAL
+                        HorizontalBox {
+                            spacing: 8px;
+                            Text { text: "Total"; width: 120px; color: #d1d5db; }
+                            Rectangle {
+                                height: 14px; border-radius: 7px; background: #111827; horizontal-stretch: 1;
+                                Rectangle {
+                                    height: 14px; border-radius: 7px;
+                                    x: 0px;
+                                    width: parent.width * Math.min((detail.total / 780.0), 1.0);
+                                    background: #f59e0b; // âmbar para o total
+                                }
+                            }
+                            Text { text: detail.total; width: 44px; color: #fef3c7; }
+                        }
+                    }
+
+                    Rectangle { height: 1px; background: #1f2937; }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pokédex (Slint + Rust)</title>
+    <style>
+      html, body { margin: 0; height: 100%; background: #0b0f17; }
+      /* o Slint renderiza neste canvas */
+      #canvas { display: block; width: 100vw; height: 100vh; }
+    </style>
+  </head>
+  <body>
+    <!-- canvas obrigatório para o Slint no WASM -->
+    <canvas id="canvas"></canvas>
+
+    <script type="module">
+      import init from "./pkg/slint_pokedex.js";
+      // só inicia depois que o módulo carregar
+      await init();
+      // nada mais é necessário: o #[wasm_bindgen(start)] no Rust chama app.run()
+    </script>
+  </body>
+</html>
