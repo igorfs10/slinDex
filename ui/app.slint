@@ -4,7 +4,7 @@ import { LineEdit, ListView, VerticalBox, HorizontalBox, Button, Spinner } from 
 export struct PokemonRow { name: string }
 
 // detalhe (direita): tipos coloridos, barras por stat, sprite e total
-export struct TypeTag { label: string, bg: brush }
+export struct TypeTag { label: string, bg: brush, fg: brush }
 export struct StatBar { name: string, value: int, bg: brush }
 
 export struct PokemonDetail {
@@ -150,7 +150,7 @@ export component App inherits Window {
                                     HorizontalBox {
                                         spacing: 4px;
                                         Rectangle { width: 8px; height: 1px; } // margem
-                                        Text { text: t.label; color: #0f172a; }
+                                        Text { text: t.label; color: t.fg; }
                                         Rectangle { width: 8px; height: 1px; } // margem
                                     }
                                 }
@@ -201,7 +201,7 @@ export component App inherits Window {
                                 Rectangle {
                                     height: 14px; border-radius: 7px;
                                     x: 0px;
-                                    width: parent.width * Math.min((detail.total / 780.0), 1.0);
+                                    width: parent.width * Math.min((detail.total / 1200.0), 1.0);
                                     background: #f59e0b; // âmbar para o total
                                 }
                             }

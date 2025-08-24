@@ -52,6 +52,14 @@ fn type_color(t: &str) -> Brush {
     Brush::from(c)
 }
 
+// texto branco para fundos escuros específicos
+fn type_fg_color(t: &str) -> Brush {
+    match t {
+        "ghost" | "dark" | "poison" => Brush::from(Color::from_rgb_u8(255, 255, 255)), // branco
+        _ => Brush::from(Color::from_rgb_u8(15, 23, 42)), // azul-bem-escuro (como antes)
+    }
+}
+
 // rótulo PT-BR dos tipos (com acento)
 fn type_label_pt(t: &str) -> &'static str {
     match t {
@@ -138,6 +146,7 @@ fn make_detail_for_ui(
         .map(|t| TypeTag {
             label: type_label_pt(t).into(),
             bg: type_color(t),
+            fg: type_fg_color(t),
         })
         .collect();
     let types_model = ModelRc::new(VecModel::from(types_vec));
@@ -387,7 +396,7 @@ pub fn start_wasm() {
             let dres = service::fetch_pokemon_detail(&name).await;
             let (detail, sprite_bytes): (Option<service::Detail>, Option<Vec<u8>>) = match dres {
                 Ok(d) => {
-                    let bytes = match d.sprite_url.as_deref() {
+                    let bytes = match d.artwork_url.as_deref() {
                         Some(url) => service::fetch_image(url).await.ok(),
                         None => None,
                     };
