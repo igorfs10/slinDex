@@ -66,14 +66,6 @@ fn type_color(t: &str) -> Brush {
     Brush::from(c)
 }
 
-// texto branco para fundos escuros específicos
-fn type_fg_color(t: &str) -> Brush {
-    match t {
-        "ghost" | "dark" | "poison" | "rock" => Brush::from(Color::from_rgb_u8(255, 255, 255)), // branco
-        _ => Brush::from(Color::from_rgb_u8(0, 0, 0)), // azul-bem-escuro (como antes)
-    }
-}
-
 // rótulo PT-BR dos tipos (com acento)
 fn type_label_pt(t: &str) -> &'static str {
     match t {
@@ -159,8 +151,7 @@ fn make_detail_for_ui(
         .iter()
         .map(|t| TypeTag {
             label: type_label_pt(t).into(),
-            bg: type_color(t),
-            fg: type_fg_color(t),
+            bg: type_color(t)
         })
         .collect();
     let types_model = ModelRc::new(VecModel::from(types_vec));

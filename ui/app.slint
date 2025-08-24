@@ -4,7 +4,7 @@ import { LineEdit, ListView, VerticalBox, HorizontalBox, Button, Spinner } from 
 export struct PokemonRow { name: string }
 
 // detalhe (direita): tipos coloridos, barras por stat, sprite e total
-export struct TypeTag { label: string, bg: brush, fg: brush }
+export struct TypeTag { label: string, bg: brush}
 export struct StatBar { name: string, value: int, bg: brush }
 
 export struct PokemonDetail {
@@ -21,6 +21,52 @@ export struct PokemonDetail {
     hiddenAbility: string,
     error: string,
 }
+
+// Texto com contorno (stroke fake via múltiplas camadas)
+component OutlinedText inherits Rectangle {
+    // propriedades de entrada
+    in property <string> value;
+    in property <brush>  fill: #ffffff;      // cor do texto
+    in property <brush>  outline: #000000;   // cor do contorno
+    in property <length> w: 1px;             // espessura do contorno
+    in property <length> font-size: 14px;
+    in property <int>    font-weight: 400;
+
+    // mede o texto principal pra dimensionar o componente
+    base := Text {
+        text: root.value;
+        font-size: root.font-size;
+        font-weight: root.font-weight;
+        color: root.fill;
+        visible: false;      // só para medir preferred-*
+    }
+
+    preferred-width:  base.preferred-width  + 2*root.w;
+    preferred-height: base.preferred-height + 2*root.w;
+
+    // 8 sombras (contorno) atrás
+    Text { x: root.w - root.w; y: root.w;           text: root.value; font-size: root.font-size; font-weight: root.font-weight; color: root.outline; }
+    Text { x: root.w + root.w; y: root.w;           text: root.value; font-size: root.font-size; font-weight: root.font-weight; color: root.outline; }
+    Text { x: root.w;           y: root.w - root.w; text: root.value; font-size: root.font-size; font-weight: root.font-weight; color: root.outline; }
+    Text { x: root.w;           y: root.w + root.w; text: root.value; font-size: root.font-size; font-weight: root.font-weight; color: root.outline; }
+    Text { x: root.w - root.w; y: root.w - root.w;  text: root.value; font-size: root.font-size; font-weight: root.font-weight; color: root.outline; }
+    Text { x: root.w + root.w; y: root.w - root.w;  text: root.value; font-size: root.font-size; font-weight: root.font-weight; color: root.outline; }
+    Text { x: root.w - root.w; y: root.w + root.w;  text: root.value; font-size: root.font-size; font-weight: root.font-weight; color: root.outline; }
+    Text { x: root.w + root.w; y: root.w + root.w;  text: root.value; font-size: root.font-size; font-weight: root.font-weight; color: root.outline; }
+
+    // texto “limpo” por cima, centralizado
+    Text {
+        text: root.value;
+        font-size: root.font-size;
+        font-weight: root.font-weight;
+        color: root.fill;
+
+        x: (parent.width  - self.preferred-width)  / 2;
+        y: (parent.height - self.preferred-height) / 2;
+    }
+}
+
+
 
 export component App inherits Window {
     width: 650px;
@@ -183,7 +229,17 @@ export component App inherits Window {
 
                                             // mede o texto pra dar largura + padding (8px de cada lado)
                                             label := Text { 
-                                                text: t.label; color: t.fg; 
+                                                text:= OutlinedText {
+                                                    value: t.label;
+                                                    fill: #ffffff;
+                                                    outline: #000000;   // cor do contorno
+                                                    w: 1px;             // espessura (pode por 1.5px/2px)
+                                                    font-size: 14px;
+
+                                                    // centraliza dentro do chip
+                                                    width: parent.width;
+                                                    height: parent.height;
+                                                }
                                                 x: (parent.width - self.preferred-width) / 2;
                                                 y: (parent.height - self.preferred-height) / 2;
                                             }
