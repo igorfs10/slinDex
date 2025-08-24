@@ -118,110 +118,121 @@ export component App inherits Window {
                     }
                 }
 
-                // Painel de detalhes
-                VerticalBox {
-                    spacing: 10px;
+                // Painel de detalhes (com rolagem)
+                Rectangle {
                     horizontal-stretch: 1;
-                    y: 0px;
-                    height: parent.height;    // <- altura total
+                    height: parent.height;
 
-                    Rectangle { height: 1px; background: #1f2937; }
+                    Flickable {
+                        width: parent.width;
+                        height: parent.height;
 
-                    // sprite
-                    HorizontalBox {
-                        spacing: 16px;
+                        // o conteúdo real do painel
+                        VerticalBox {
+                            width: parent.width;   // ocupa toda a largura do flickable
+                            spacing: 10px;
 
-                        Rectangle { // sprite card
-                            width: 250px; height: 250px; border-radius: 10px; background: transparent;
-                            Image { source: detail.artwork; width: 250px; height: 250px; }
-                        }     
-                    }
+                            Rectangle { height: 1px; background: #1f2937; }
 
-                    VerticalBox {
-                        spacing: 6px;
-                        Text {
-                            text: detail.name == "" ? "Selecione um Pokémon" : detail.name;
-                            font-size: 24px; color: #f9fafb;
-                        }
-                        // chips de tipos (coloridos)
-                        HorizontalBox {
-                            spacing: 6px;
-                            for t in detail.types: Rectangle {
-                                border-radius: 8px; background: t.bg;
+                            // sprite
+                            HorizontalBox {
+                                spacing: 16px;
+
+                                Rectangle { // sprite card
+                                    width: 250px; height: 250px; border-radius: 10px; background: transparent;
+                                    Image { source: detail.artwork; width: 250px; height: 250px; }
+                                }
+                            }
+
+                            VerticalBox {
+                                spacing: 6px;
                                 HorizontalBox {
-                                    spacing: 4px;
-                                    Rectangle { width: 8px; height: 1px; } // margem
-                                    Text { text: t.label; color: t.fg; }
-                                    Rectangle { width: 8px; height: 1px; } // margem
+                                    Text {
+                                        text: detail.name == "" ? "Selecione um Pokémon" : detail.name;
+                                        font-size: 24px; color: #f9fafb;
+                                    }
                                 }
-                            }
-                        }
-                        // infos básicas
-                        HorizontalBox {
-                            spacing: 16px;
-                            Text { text: "ID: " + (detail.id == 0 ? "-" : detail.id); color: #e5e7eb; }
-                            Text { text: "Altura: " + (detail.height == 0 ? "-" : (detail.height / 10.0) + " m"); color: #e5e7eb; }
-                            Text { text: "Peso: " + (detail.weight == 0 ? "-" : (detail.weight / 10.0) + " kg"); color: #e5e7eb; }
-                        }
-                    }
+                                
+                                // chips de tipos (coloridos)
+                                HorizontalBox {
+                                    spacing: 6px;
+                                    for t in detail.types: Rectangle {
+                                        border-radius: 8px; background: t.bg;
+                                        HorizontalBox {
+                                            spacing: 4px;
+                                            Rectangle { width: 8px; height: 1px; } // margem
+                                            Text { text: t.label; color: t.fg; }
+                                            Rectangle { width: 8px; height: 1px; } // margem
+                                        }
+                                    }
+                                }
+                                // infos básicas
+                                HorizontalBox {
+                                    spacing: 16px;
+                                    Text { text: "ID: " + (detail.id == 0 ? "-" : detail.id); color: #e5e7eb; }
+                                    Text { text: "Altura: " + (detail.height == 0 ? "-" : (detail.height / 10.0) + " m"); color: #e5e7eb; }
+                                    Text { text: "Peso: " + (detail.weight == 0 ? "-" : (detail.weight / 10.0) + " kg"); color: #e5e7eb; }
+                                }
 
-                    if (detail.error != "") : Text { text: detail.error; color: #ef4444; }
-
-                    // Barras dos base stats (esquerda -> direita, cores por stat)
-                    VerticalBox {
-                        spacing: 6px;
-
-                        HorizontalBox {
-                            spacing: 8px;
-                            Text { text: "Habilidade: " + (detail.ability1 == "" ? "-" : detail.ability1); color: #e5e7eb; }
-                        }
-
-                        HorizontalBox {
-                            spacing: 8px;
-                            Text { text: "Habilidade 2: " + (detail.ability2 == "" ? "-" : detail.ability2); color: #e5e7eb; }
-                        }
-
-                        HorizontalBox {
-                            spacing: 8px;
-                            Text { text: "Hidden: " + (detail.hiddenAbility == "" ? "-" : detail.hiddenAbility); color: #e5e7eb; }
-                        }
-                        for s in detail.stats: HorizontalBox {
-                            spacing: 8px;
-
-                            // largura maior para caber nomes completos
-                            Text { text: s.name; width: 120px; color: #9ca3af; }
-
-                            Rectangle { // trilho
-                                height: 12px; border-radius: 6px; background: #1f2937; horizontal-stretch: 1;
-
-                                Rectangle { // preenchimento
-                                    height: 12px; border-radius: 6px;
-                                    x: 0px; // garante início à esquerda
-                                    width: parent.width * Math.min((s.value / 255.0), 1.0);
-                                    background: s.bg;
+                                HorizontalBox {
+                                    spacing: 8px;
+                                    Text { text: "Habilidade: " + (detail.ability1 == "" ? "-" : detail.ability1); color: #e5e7eb; }
+                                    Text { text: "Habilidade 2: " + (detail.ability2 == "" ? "-" : detail.ability2); color: #e5e7eb; }
+                                }
+                                HorizontalBox {
+                                    spacing: 8px;
+                                    Text { text: "Hidden: " + (detail.hiddenAbility == "" ? "-" : detail.hiddenAbility); color: #e5e7eb; }
                                 }
                             }
 
-                            Text { text: s.value; width: 44px; color: #e5e7eb; }
-                        }
+                            if (detail.error != "") : Text { text: detail.error; color: #ef4444; }
 
-                        // Barra TOTAL
-                        HorizontalBox {
-                            spacing: 8px;
-                            Text { text: "Total"; width: 120px; color: #d1d5db; }
-                            Rectangle {
-                                height: 14px; border-radius: 7px; background: #1f2937; horizontal-stretch: 1;
-                                Rectangle {
-                                    height: 14px; border-radius: 7px;
-                                    x: 0px;
-                                    width: parent.width * Math.min((detail.total / 1200.0), 1.0);
-                                    background: #ffffff;
+                            // Habilidades + barras
+                            VerticalBox {
+                                spacing: 6px;
+
+                                for s in detail.stats: HorizontalBox {
+                                    spacing: 8px;
+
+                                    Text { text: s.name; width: 120px; color: #9ca3af; }
+
+                                    Rectangle { // trilho
+                                        height: 12px; border-radius: 6px; background: #1f2937; horizontal-stretch: 1;
+
+                                        Rectangle { // preenchimento
+                                            height: 12px; border-radius: 6px;
+                                            x: 0px;
+                                            width: parent.width * Math.min((s.value / 255.0), 1.0);
+                                            background: s.bg;
+                                        }
+                                    }
+
+                                    Text { text: s.value; width: 44px; color: #e5e7eb; }
+                                }
+
+                                // Barra TOTAL
+                                HorizontalBox {
+                                    spacing: 8px;
+                                    Text { text: "Total"; width: 120px; color: #d1d5db; }
+                                    Rectangle {
+                                        height: 14px; border-radius: 7px; background: #1f2937; horizontal-stretch: 1;
+                                        Rectangle {
+                                            height: 14px; border-radius: 7px;
+                                            x: 0px;
+                                            width: parent.width * Math.min((detail.total / 1200.0), 1.0);
+                                            background: #ffffff;
+                                        }
+                                    }
+                                    Text { text: detail.total; width: 44px; color: #fef3c7; }
                                 }
                             }
-                            Text { text: detail.total; width: 44px; color: #fef3c7; }
+
+                            // um espacinho no fim ajuda o scroll a "respirar"
+                            Rectangle { height: 12px; background: transparent; }
                         }
                     }
                 }
+
             }
         }
     }

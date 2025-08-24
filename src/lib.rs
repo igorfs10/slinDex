@@ -107,7 +107,7 @@ fn stat_color(k: &str) -> Brush {
         "defense" => Color::from_rgb_u8(232, 100, 18),
         "special-attack" => Color::from_rgb_u8(20, 195, 241),
         "special-defense" => Color::from_rgb_u8(74, 106, 223),
-        "speed" => Color::from_rgb_u8(234, 15, 15),
+        "speed" => Color::from_rgb_u8(239, 99, 200),
         _ => Color::from_rgb_u8(213, 29, 173),
     };
     Brush::from(c)
