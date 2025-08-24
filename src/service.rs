@@ -20,7 +20,16 @@ struct PokemonApiDetail {
 }
 
 #[derive(Debug, Deserialize)]
-struct Sprites { front_default: Option<String> }
+struct Sprites { other: Option<Other> }
+
+#[derive(Debug, Deserialize)]
+struct Other {
+    #[serde(rename = "official-artwork")]
+    official_artwork: Option<OfficialArtwork>
+}
+
+#[derive(Debug, Deserialize)]
+struct OfficialArtwork { front_default: Option<String> }
 
 #[derive(Debug, Clone)]
 pub struct Detail {
@@ -30,7 +39,7 @@ pub struct Detail {
     pub weight: u32,
     pub types: Vec<String>,
     pub stats: Vec<(String, u32)>,
-    pub sprite_url: Option<String>,
+    pub artwork_url: Option<String>,
 }
 
 impl From<PokemonApiDetail> for Detail {
@@ -42,7 +51,9 @@ impl From<PokemonApiDetail> for Detail {
             weight: v.weight,
             types: v.types.into_iter().map(|t| t.typ.name).collect(),
             stats: v.stats.into_iter().map(|s| (s.stat.name, s.base_stat)).collect(),
-            sprite_url: v.sprites.front_default,
+            artwork_url: v.sprites.other.as_ref()
+                .and_then(|o| o.official_artwork.as_ref())
+                .and_then(|oa| oa.front_default.clone()),
         }
     }
 }

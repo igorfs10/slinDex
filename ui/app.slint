@@ -14,7 +14,7 @@ export struct PokemonDetail {
     weight: int,
     types: [TypeTag],
     stats: [StatBar],
-    sprite: image,
+    artwork: image,
     total: int,
     error: string,
 }
@@ -68,7 +68,7 @@ export component App inherits Window {
             }
         }
 
-        // ====== CONTAINER DO MIolo (pega 100% da altura) ======
+        // ====== CONTAINER DO MIOLO (pega 100% da altura) ======
         Rectangle {
             vertical-stretch: 1;
 
@@ -130,8 +130,8 @@ export component App inherits Window {
                         spacing: 16px;
 
                         Rectangle { // sprite card
-                            width: 120px; height: 120px; border-radius: 10px; background: #0f172a;
-                            Image { source: detail.sprite; width: 120px; height: 120px; }
+                            width: 200px; height: 200px; border-radius: 10px; background: #0f172aff;
+                            Image { source: detail.artwork; width: 200px; height: 200px; }
                         }
 
                         VerticalBox {

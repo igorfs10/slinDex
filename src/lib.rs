@@ -129,7 +129,7 @@ fn png_to_image(bytes: &[u8]) -> Result<slint::Image, String> {
 // Monta o `PokemonDetail` para a UI (tipos traduzidos, barras com cor, sprite e total)
 fn make_detail_for_ui(
     d: &service::Detail,
-    sprite_bytes: Option<&[u8]>,
+    artwork_bytes: Option<&[u8]>,
 ) -> PokemonDetail {
     // chips de tipo (tradução + cor)
     let types_vec: Vec<TypeTag> = d
@@ -164,8 +164,8 @@ fn make_detail_for_ui(
     }
     let stats_model = ModelRc::new(VecModel::from(stats_v));
 
-    // sprite
-    let sprite_img = sprite_bytes
+    // artwork
+    let artwork_img = artwork_bytes
         .and_then(|b| png_to_image(b).ok())
         .unwrap_or_default();
 
@@ -176,7 +176,7 @@ fn make_detail_for_ui(
         weight: d.weight as i32,
         types: types_model,
         stats: stats_model,
-        sprite: sprite_img,
+        artwork: artwork_img,
         total,
         error: "".into(),
     }
@@ -190,7 +190,7 @@ fn set_detail_error(app: &App, msg: &str) {
         weight: 0,
         types: ModelRc::new(VecModel::from(Vec::<TypeTag>::new())),
         stats: ModelRc::new(VecModel::from(Vec::<StatBar>::new())),
-        sprite: slint::Image::default(),
+        artwork: slint::Image::default(),
         total: 0,
         error: msg.into(),
     });
@@ -270,7 +270,7 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
             let dres = service::fetch_pokemon_detail_blocking(&name);
             let (detail, sprite_bytes): (Option<service::Detail>, Option<Vec<u8>>) = match dres {
                 Ok(d) => {
-                    let bytes = match d.sprite_url.as_deref() {
+                    let bytes = match d.artwork_url.as_deref() {
                         Some(url) => service::fetch_image_blocking(url).ok(),
                         None => None,
                     };
