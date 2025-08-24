@@ -1,6 +1,7 @@
 # Slint Pokédex — Rust (desktop + WASM)
 
 Pequena Pokédex com **Rust + Slint** que roda em desktop e WebAssembly, consumindo a **PokeAPI**.
+Versão web https://igorfs10.github.io/slint_pokedex/web/ .
 
 ## Pré-requisitos
 - Rust estável (via rustup)
