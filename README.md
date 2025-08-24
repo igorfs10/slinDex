@@ -9,7 +9,7 @@ Pequena Pokédex com **Rust + Slint** que roda em desktop e WebAssembly, consumi
 ## Executar (Desktop)
 ```bash
 # Linux/macOS/Windows
-cargo run --bin slint_pokedex_app
+cargo run
 ```
 
 ## Executar (WebAssembly)
