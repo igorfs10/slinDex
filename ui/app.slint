@@ -126,43 +126,96 @@ export component App inherits Window {
                 y: 0px;
                 height: parent.height;   // <- garante altura total
 
-                // Lista de nomes
-                ListView {
+                // Lista de nomes + navegação por setas (FocusScope cuida do teclado)
+                list_scope := FocusScope {
                     width: 200px;
-                    y: 0px;
-                    height: parent.height;   // <- altura total
+                    height: parent.height;
+                    // recebe foco ao clicar (padrão do FocusScope já faz isso)
 
-                    for row[i] in root.rows: Rectangle {
-                        height: 36px;
-                        border-radius: 6px;
-                        background: (i == root.selected_index)
-                            ? #1e293b
-                            : ((Math.mod(i, 2) == 0) ? #10141c : #0b0f17);
+                    // seta ↑ ↓ Home End e Enter
+                    key-pressed(event) => {
+                        if (event.text == Key.UpArrow) {
+                            if (root.selected_index <= 0) {
+                                root.selected_index = 0;
+                            } else {
+                                root.selected_index = root.selected_index - 1;
+                            }
+                            root.select(root.selected_index);
+                            accept
+                        }
+                        if (event.text == Key.DownArrow) {
+                            if (root.rows.length > 0) {
+                                if (root.selected_index < 0) {
+                                    root.selected_index = 0;
+                                } else if (root.selected_index < root.rows.length - 1) {
+                                    root.selected_index = root.selected_index + 1;
+                                }
+                                root.select(root.selected_index);
+                            }
+                            accept
+                        }
+                        if (event.text == Key.Home) {
+                            if (root.rows.length > 0) {
+                                root.selected_index = 0;
+                                root.select(root.selected_index);
+                            }
+                            accept
+                        }
+                        if (event.text == Key.End) {
+                            if (root.rows.length > 0) {
+                                root.selected_index = root.rows.length - 1;
+                                root.select(root.selected_index);
+                            }
+                            accept
+                        }
+                        if (event.text == Key.Return) {
+                            // Reaplica a seleção (útil após filtrar)
+                            if (root.selected_index >= 0) {
+                                root.select(root.selected_index);
+                            }
+                            accept
+                        }
+                        reject
+                    }
 
-                        // borda sutil no selecionado
-                        Rectangle {
-                            x: 0px; y: 0px; width: parent.width; height: parent.height;
+                    ListView {
+                        width: parent.width;
+                        height: parent.height;
+
+                        for row[i] in root.rows: Rectangle {
+                            height: 36px;
                             border-radius: 6px;
-                            border-width: (i == root.selected_index) ? 1px : 0px;
-                            border-color: #60a5fa;
-                            background: transparent;
-                        }
+                            background: (i == root.selected_index)
+                                ? #1e293b
+                                : ((Math.mod(i, 2) == 0) ? #10141c : #0b0f17);
 
-                        Text {
-                            text: row.name;
-                            color: (i == root.selected_index) ? #e2e8f0 : #e5e7eb;
-                            x: 8px;
-                            y: (parent.height - self.preferred-height) / 2;
-                        }
+                            Rectangle {
+                                x: 0px; y: 0px; width: parent.width; height: parent.height;
+                                border-radius: 6px;
+                                border-width: (i == root.selected_index) ? 1px : 0px;
+                                border-color: #60a5fa;
+                                background: transparent;
+                            }
 
-                        TouchArea {
-                            clicked => {
-                                root.selected_index = i; // mantém selecionado
-                                root.select(i);          // notifica o Rust
+                            Text {
+                                text: row.name;
+                                color: (i == root.selected_index) ? #e2e8f0 : #e5e7eb;
+                                x: 8px;
+                                y: (parent.height - self.preferred-height) / 2;
+                            }
+
+                            TouchArea {
+                                clicked => {
+                                    // garante que as setas funcionem depois do clique
+                                    list_scope.focus();
+                                    root.selected_index = i;
+                                    root.select(i);
+                                }
                             }
                         }
                     }
                 }
+
 
                 // Painel de detalhes (com rolagem)
                 Rectangle {
