@@ -69,9 +69,9 @@ component OutlinedText inherits Rectangle {
 
 
 export component App inherits Window {
-    width: 650px;
-    height: 600px;
     title: "SlinDex";
+    min-width:  650px; max-width:  650px;
+    min-height: 670px; max-height: 670px;
 
     in-out property <string> filter;
     in-out property <int> selected_index; // mantém seleção na lista
@@ -204,11 +204,18 @@ export component App inherits Window {
                             VerticalBox {
                                 spacing: 6px;
                                 HorizontalBox {
+                                    width: parent.width;
+
                                     Text {
                                         text: detail.name == "" ? "Selecione um Pokémon" : detail.name;
                                         font-size: 24px; color: #f9fafb;
+
+                                        width: parent.width;                   // ocupa a largura do painel
+                                        horizontal-alignment: center;          // centraliza horizontalmente
+                                        // opcional: vertical-alignment: center;
                                     }
                                 }
+
                                 
                                 // chips de tipos (coloridos) — linha centralizada
                                 HorizontalBox {
