@@ -1,0 +1,15 @@
+{
+  "name": "slint_pokedex",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "slint_pokedex_bg.wasm",
+    "slint_pokedex.js",
+    "slint_pokedex.d.ts"
+  ],
+  "main": "slint_pokedex.js",
+  "types": "slint_pokedex.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
