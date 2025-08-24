@@ -22,7 +22,7 @@ export struct PokemonDetail {
 export component App inherits Window {
     width: 900px;
     height: 600px;
-    title: "Pokédex (Rust + Slint)";
+    title: "SlinDex";
 
     in-out property <string> filter;
     in-out property <int> selected_index; // mantém seleção na lista
@@ -130,7 +130,7 @@ export component App inherits Window {
                         spacing: 16px;
 
                         Rectangle { // sprite card
-                            width: 200px; height: 200px; border-radius: 10px; background: #0f172aff;
+                            width: 200px; height: 200px; border-radius: 10px; background: transparent;
                             Image { source: detail.artwork; width: 200px; height: 200px; }
                         }
 

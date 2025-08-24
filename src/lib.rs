@@ -55,8 +55,8 @@ fn type_color(t: &str) -> Brush {
 // texto branco para fundos escuros específicos
 fn type_fg_color(t: &str) -> Brush {
     match t {
-        "ghost" | "dark" | "poison" => Brush::from(Color::from_rgb_u8(255, 255, 255)), // branco
-        _ => Brush::from(Color::from_rgb_u8(15, 23, 42)), // azul-bem-escuro (como antes)
+        "ghost" | "dark" | "poison" | "rock" => Brush::from(Color::from_rgb_u8(255, 255, 255)), // branco
+        _ => Brush::from(Color::from_rgb_u8(0, 0, 0)), // azul-bem-escuro (como antes)
     }
 }
 
