@@ -168,13 +168,6 @@ export component App inherits Window {
                             }
                             accept
                         }
-                        if (event.text == Key.Return) {
-                            // Reaplica a seleção (útil após filtrar)
-                            if (root.selected_index >= 0) {
-                                root.select(root.selected_index);
-                            }
-                            accept
-                        }
                         reject
                     }
 
