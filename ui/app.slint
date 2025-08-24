@@ -47,6 +47,11 @@ export component App inherits Window {
                 text <=> root.filter;
                 horizontal-stretch: 1;
                 min-width: 240px;
+
+                // chamado quando pressiona Enter dentro do LineEdit
+                accepted(text) => {        // ✅ existe mesmo em versões antigas
+                    root.apply-filter(text);
+                }
             }
 
             Button { text: "Filtrar";  clicked => { root.apply-filter(root.filter); } }

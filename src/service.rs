@@ -1,14 +1,9 @@
 use serde::Deserialize;
 
 #[derive(Debug, Deserialize)]
-struct PokemonListResponse { results: Vec<NameUrl>, }
-#[derive(Debug, Deserialize)]
-struct NameUrl { name: String, url: String }
-
-#[derive(Debug, Deserialize)]
 struct PokemonTypeEntry { #[serde(rename = "type")] typ: NamedResource }
 #[derive(Debug, Deserialize)]
-struct NamedResource { name: String, url: String }
+struct NamedResource { name: String}
 
 #[derive(Debug, Deserialize)]
 struct StatEntry { base_stat: u32, stat: NamedResource }
@@ -94,8 +89,7 @@ pub async fn fetch_pokemon_list() -> Result<Vec<String>, String> {
 #[cfg(target_arch = "wasm32")]
 pub async fn fetch_pokemon_detail(name: &str) -> Result<Detail, String> {
     let url = format!("{BASE}/pokemon/{name}");
-    let resp = gloo_net::http::Request::get(&url)
-        .send().await.map_err(|e| e.to_string())?;
+    let resp = reqwest::get(url).await.map_err(|e| e.to_string())?;
     let data: PokemonApiDetail = resp.json().await.map_err(|e| e.to_string())?;
     Ok(data.into())
 }
@@ -108,8 +102,7 @@ pub fn fetch_image_blocking(url: &str) -> Result<Vec<u8>, String> {
 
 #[cfg(target_arch = "wasm32")]
 pub async fn fetch_image(url: &str) -> Result<Vec<u8>, String> {
-    let resp = gloo_net::http::Request::get(url)
-        .send().await.map_err(|e| e.to_string())?;
-    let bytes = resp.binary().await.map_err(|e| e.to_string())?;
-    Ok(bytes)
+    let resp = reqwest::get(url).await.map_err(|e| e.to_string())?;
+    let bytes = resp.bytes().await.map_err(|e| e.to_string()).map(|b| b.to_vec());
+    bytes
 }
