@@ -25,6 +25,21 @@ fn cap_first(s: &str) -> String {
     }
 }
 
+fn cap_first_and_spaces(s: &str) -> String {
+    let mut it = s.chars();
+    match it.next() {
+        None => String::new(),
+        Some(first) => {
+            let mut out = String::new();
+            out.extend(first.to_uppercase()); // 1ª maiúscula (Unicode-safe)
+            for c in it {
+                out.push(if c == '-' { ' ' } else { c });
+            }
+            out
+        }
+    }
+}
+
 // cores por tipo (chips)
 fn type_color(t: &str) -> Brush {
     let c = match t {
@@ -87,13 +102,13 @@ fn type_label_pt(t: &str) -> &'static str {
 // cores por stat (barras)
 fn stat_color(k: &str) -> Brush {
     let c = match k {
-        "hp" => Color::from_rgb_u8(239, 68, 68),              // vermelho
-        "attack" => Color::from_rgb_u8(245, 158, 11),         // âmbar
-        "defense" => Color::from_rgb_u8(59, 130, 246),        // azul
-        "special-attack" => Color::from_rgb_u8(16, 185, 129), // verde
-        "special-defense" => Color::from_rgb_u8(139, 92, 246),// roxo
-        "speed" => Color::from_rgb_u8(234, 179, 8),           // amarelo
-        _ => Color::from_rgb_u8(107, 114, 128),               // cinza
+        "hp" => Color::from_rgb_u8(105, 220, 18),
+        "attack" => Color::from_rgb_u8(239, 204, 24),
+        "defense" => Color::from_rgb_u8(232, 100, 18),
+        "special-attack" => Color::from_rgb_u8(20, 195, 241),
+        "special-defense" => Color::from_rgb_u8(74, 106, 223),
+        "speed" => Color::from_rgb_u8(234, 15, 15),
+        _ => Color::from_rgb_u8(213, 29, 173),
     };
     Brush::from(c)
 }
@@ -186,9 +201,9 @@ fn make_detail_for_ui(
         stats: stats_model,
         artwork: artwork_img,
         total,
-        ability1: cap_first(&d.ability1).into(),
-        ability2: cap_first(&d.ability2).into(),
-        hiddenAbility: cap_first(&d.hidden_ability).into(),
+        ability1: cap_first_and_spaces(&d.ability1).into(),
+        ability2: cap_first_and_spaces(&d.ability2).into(),
+        hiddenAbility: cap_first_and_spaces(&d.hidden_ability).into(),
         error: "".into(),
     }
 }
