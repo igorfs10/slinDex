@@ -135,12 +135,23 @@ export component App inherits Window {
                             Rectangle { height: 1px; background: #1f2937; }
 
                             // sprite
-                            HorizontalBox {
-                                spacing: 16px;
+                            Rectangle {
+                                width: parent.width;
+                                height: 260px; // respiro vertical; ajuste se quiser
 
-                                Rectangle { // sprite card
-                                    width: 250px; height: 250px; border-radius: 10px; background: transparent;
-                                    Image { source: detail.artwork; width: 250px; height: 250px; }
+                                // card da sprite centralizado
+                                Rectangle {
+                                    width: 250px; height: 250px;
+                                    x: (parent.width - self.width) / 2;
+                                    y: (parent.height - self.height) / 2;
+                                    border-radius: 10px; background: transparent;
+
+                                    // preenche o card
+                                    Image {
+                                        source: detail.artwork;
+                                        width: parent.width;
+                                        height: parent.height;
+                                    }
                                 }
                             }
 
@@ -153,19 +164,36 @@ export component App inherits Window {
                                     }
                                 }
                                 
-                                // chips de tipos (coloridos)
+                                // chips de tipos (coloridos) — linha centralizada
                                 HorizontalBox {
-                                    spacing: 6px;
-                                    for t in detail.types: Rectangle {
-                                        border-radius: 8px; background: t.bg;
-                                        HorizontalBox {
-                                            spacing: 4px;
-                                            Rectangle { width: 8px; height: 1px; } // margem
-                                            Text { text: t.label; color: t.fg; }
-                                            Rectangle { width: 8px; height: 1px; } // margem
+                                    width: parent.width;
+
+                                    // spacers para centralizar a linha de chips
+                                    Rectangle { horizontal-stretch: 1; }
+
+                                    // linha dos chips
+                                    HorizontalBox {
+                                        spacing: 6px;
+
+                                        // cada chip
+                                        for t in detail.types: Rectangle {
+                                            border-radius: 8px;
+                                            background: t.bg;
+                                            height: 24px;
+
+                                            // mede o texto pra dar largura + padding (8px de cada lado)
+                                            label := Text { 
+                                                text: t.label; color: t.fg; 
+                                                x: (parent.width - self.preferred-width) / 2;
+                                                y: (parent.height - self.preferred-height) / 2;
+                                            }
+                                            width: label.preferred-width + 16px;
                                         }
                                     }
+
+                                    Rectangle { horizontal-stretch: 1; }
                                 }
+
                                 // infos básicas
                                 HorizontalBox {
                                     spacing: 16px;
