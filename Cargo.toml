@@ -11,11 +11,17 @@ name = "slint_pokedex_app"
 path = "src/main.rs"
 
 [dependencies]
-slint = "1.12"
+slint = { version = "1.12", features = [
+    "std",                 # reabilita std (resolve o 'Box' etc.)
+    "compat-1-2",
+    ] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 image = { version = "0.25", default-features = false, features = ["png", "jpeg"] }
 lru = "0.16"
+
+[target.'cfg(target_os = "android")'.dependencies]
+slint = { version = "1.12", default-features = false, features = ["backend-android-activity-06"] }
 
 [target.'cfg(not(target_arch = "wasm32"))'.dependencies]
 reqwest = { version = "0.12", default-features = false, features = ["blocking", "json", "rustls-tls"] }
@@ -28,3 +34,15 @@ reqwest = { version = "0.12", default-features = false, features = ["json"] }
 
 [build-dependencies]
 slint-build = "1.12"
+
+[package.metadata.android]
+package = "com.seuapp.slint_pokedex"
+apk_name = "Slint Pokedex"
+# API 26+ é um bom mínimo hoje
+min_sdk_version = 26
+target_sdk_version = 34
+
+
+# cada permissão é uma tabela separada
+[[package.metadata.android.uses_permission]]
+name = "android.permission.INTERNET"

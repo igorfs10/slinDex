@@ -460,3 +460,16 @@ pub fn start_wasm() {
 
     app.run().expect("run app");
 }
+
+#[cfg(target_os = "android")]
+#[unsafe(no_mangle)]
+fn android_main(app: slint::android::AndroidApp) {
+    // inicializa o backend Android do Slint antes de qualquer uso da UI
+    slint::android::init(app).expect("falha ao inicializar Slint no Android");
+
+    // reaproveita sua lógica já existente (usa threads, timers etc)
+    if let Err(e) = crate::start_desktop() {
+        // vai para o logcat
+        eprintln!("erro ao iniciar app: {e}");
+    }
+}
