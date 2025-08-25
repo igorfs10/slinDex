@@ -1,12 +1,9 @@
 import { LineEdit, ListView, VerticalBox, HorizontalBox, Button, Spinner, ScrollView } from "std-widgets.slint";
 
-// lista (esquerda): apenas nome
+// ====== MODELOS ======
 export struct PokemonRow { name: string }
-
-// detalhe (direita): tipos coloridos, barras por stat, sprite e total
-export struct TypeTag { label: string, bg: brush}
+export struct TypeTag { label: string, bg: brush }
 export struct StatBar { name: string, value: int, bg: brush }
-
 export struct PokemonDetail {
     name: string,
     id: int,
@@ -22,29 +19,28 @@ export struct PokemonDetail {
     error: string,
 }
 
-// Texto com contorno (stroke fake via múltiplas camadas)
 component OutlinedText inherits Rectangle {
-    // propriedades de entrada
     in property <string> value;
-    in property <brush>  fill: #ffffff;      // cor do texto
-    in property <brush>  outline: #000000;   // cor do contorno
-    in property <length> w: 1px;             // espessura do contorno
-    in property <length> font-size: 14px;
-    in property <int>    font-weight: 400;
+    in property <brush>  fill: #ffffff;
+    in property <brush>  outline: #000000;
+    in property <length> w: 1px;
+    in property <length> font-size: 18px;
+    in property <int>    font-weight: 700;
 
-    // mede o texto principal pra dimensionar o componente
+    // mede o texto para preferred-*
     base := Text {
         text: root.value;
         font-size: root.font-size;
         font-weight: root.font-weight;
-        color: root.fill;
-        visible: false;      // só para medir preferred-*
+        visible: false;
     }
 
     preferred-width:  base.preferred-width  + 2*root.w;
     preferred-height: base.preferred-height + 2*root.w;
+    width: base.preferred-width;     // trava ao tamanho preferido
+    height: base.preferred-height;
 
-    // 8 sombras (contorno) atrás
+    // 8 “sombras” (contorno) em volta do ponto (w, w)
     Text { x: root.w - root.w; y: root.w;           text: root.value; font-size: root.font-size; font-weight: root.font-weight; color: root.outline; }
     Text { x: root.w + root.w; y: root.w;           text: root.value; font-size: root.font-size; font-weight: root.font-weight; color: root.outline; }
     Text { x: root.w;           y: root.w - root.w; text: root.value; font-size: root.font-size; font-weight: root.font-weight; color: root.outline; }
@@ -54,24 +50,263 @@ component OutlinedText inherits Rectangle {
     Text { x: root.w - root.w; y: root.w + root.w;  text: root.value; font-size: root.font-size; font-weight: root.font-weight; color: root.outline; }
     Text { x: root.w + root.w; y: root.w + root.w;  text: root.value; font-size: root.font-size; font-weight: root.font-weight; color: root.outline; }
 
-    // texto “limpo” por cima, centralizado
+    // texto “limpo” ancorado em (w, w) — sem centralizar
     Text {
+        x: root.w; y: root.w;
         text: root.value;
         font-size: root.font-size;
         font-weight: root.font-weight;
         color: root.fill;
-
-        x: (parent.width  - self.preferred-width)  / 2;
-        y: (parent.height - self.preferred-height) / 2;
     }
 }
 
+// ====== LISTA COM TECLADO + SCROLL AUTO ======
+component PokemonList inherits Rectangle {
+    in property <[PokemonRow]> rows;
+    in-out property <int> selected-index: -1;
+    in-out property <length> item-height: 36px;
+    in-out property <int> center-count: 7; // qtd de itens "antes" e "depois" para centralizar
 
+    callback selected(index: int);
 
+    background: transparent;
+    border-radius: 6px;
+
+    fs := FocusScope {
+        // navegação por teclado + rolagem automática
+        key-pressed(event) => {
+            if (event.text == Key.UpArrow) {
+                if (rows.length > 0) {
+                    selected_index = Math.max(0, selected_index - 1);
+                    root.selected(selected_index);
+                    list.viewport-y = (selected_index - center_count) * item_height * (-1);
+                }
+                accept
+            }
+            if (event.text == Key.DownArrow) {
+                if (rows.length > 0) {
+                    if (selected_index < 0) { selected_index = 0; }
+                    else { selected_index = Math.min(rows.length - 1, selected_index + 1); }
+                    root.selected(selected_index);
+                    list.viewport-y = (selected_index - center_count) * item_height * (-1);
+                }
+                accept
+            }
+            if (event.text == Key.Home) {
+                if (rows.length > 0) {
+                    selected_index = 0;
+                    root.selected(selected_index);
+                    list.viewport-y = (selected_index - center_count) * item_height * (-1);
+                }
+                accept
+            }
+            if (event.text == Key.End) {
+                if (rows.length > 0) {
+                    selected_index = rows.length - 1;
+                    root.selected(selected_index);
+                    list.viewport-y = (selected_index - center_count) * item_height * (-1);
+                }
+                accept
+            }
+            reject
+        }
+    }
+
+    list-scope := FocusScope {
+        width: parent.width;
+        height: parent.height;
+
+        // lista visual
+        // dentro do seu componente PokemonList
+        list := ListView {
+            width: parent.width;
+            height: parent.height;
+            mouse-drag-pan-enabled: true;
+
+            for row[i] in rows: Rectangle {
+                height: item_height;
+                border-radius: 6px;
+                background: (i == selected_index)
+                    ? #1e293b
+                    : ((Math.mod(i, 2) == 0) ? #10141c : #0b0f17);
+
+                // borda de seleção
+                Rectangle {
+                    width: parent.width; height: parent.height;
+                    border-radius: 6px;
+                    border-width: (i == selected_index) ? 1px : 0px;
+                    border-color: #60a5fa;
+                    background: transparent;
+                }
+
+                // Linha com padding e alinhamento vertical central
+                HorizontalBox {
+                    width: parent.width;
+                    height: parent.height;
+                    spacing: 0px;
+                    alignment: center;    // centraliza VERTICALMENTE os filhos
+
+                    // "padding" à esquerda de 8px
+                    Rectangle { width: 8px; height: 1px; }
+
+                    Text {
+                        text: row.name;
+                        color: (i == selected_index) ? #e2e8f0 : #e5e7eb;
+                        horizontal-stretch: 1;
+                    }
+                }
+
+                TouchArea {
+                    clicked => {
+                        fs.focus();
+                        selected_index = i;
+                        root.selected(i);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ====== PAINEL DE DETALHES ======
+component DetailPanel inherits Rectangle {
+    in property <PokemonDetail> detail;
+    in property <bool> loading;
+
+    background: transparent;
+
+    ScrollView {
+        width: parent.width;
+        height: parent.height;
+        viewport-width: parent.width;
+        mouse-drag-pan-enabled: true;
+
+        VerticalBox {
+            width: parent.width;
+            spacing: 10px;
+
+            Rectangle { height: 1px; background: #1f2937; }
+
+            // sprite centralizada
+            Rectangle {
+                width: parent.width;
+                height: 260px;
+                Rectangle {
+                    width: 250px; height: 250px;
+                    x: (parent.width - self.width) / 2;
+                    y: (parent.height - self.height) / 2;
+                    border-radius: 10px; background: transparent;
+                    Image { source: root.detail.artwork; width: parent.width; height: parent.height; }
+                }
+            }
+
+            // chips de tipos + nome + infos
+            VerticalBox {
+                spacing: 6px;
+
+                // chips (centralizados)
+                HorizontalBox {
+                    width: parent.width;
+                    Rectangle { horizontal-stretch: 1; }
+                    HorizontalBox {
+                        spacing: 6px;
+                        for t in root.detail.types: Rectangle {
+                            border-radius: 8px;
+                            background: t.bg;
+                            height: 32px;
+
+                            // label com contorno
+                            label := OutlinedText {
+                                value: t.label;
+                                fill: #ffffff;
+                                outline: #000000;
+                                w: 1px;                // se quiser mais forte: 1.5px
+                                font-size: 18px;
+                                font-weight: 700;
+
+                                // padding à esquerda + centralização vertical
+                                x: 8px;
+                                y: (parent.height - self.preferred-height) / 2;
+                            }
+
+                            // largura do chip = texto + padding (8px de cada lado)
+                            width: label.preferred-width + 16px;
+                        }
+                    }
+                    Rectangle { horizontal-stretch: 1; }
+                }
+
+                Text {
+                    text: root.detail.name == "" ? "Selecione um Pokémon" : root.detail.name;
+                    font-size: 24px; color: #f9fafb;
+                    width: parent.width; horizontal-alignment: left;
+                }
+
+                // infos básicas
+                HorizontalBox { spacing: 16px;
+                    Text { text: "ID: " + (root.detail.id == 0 ? "-" : root.detail.id); color: #e5e7eb; }
+                    Text { text: "Altura: " + (root.detail.height == 0 ? "-" : (root.detail.height / 10.0) + " m"); color: #e5e7eb; }
+                    Text { text: "Peso: " + (root.detail.weight == 0 ? "-" : (root.detail.weight / 10.0) + " kg"); color: #e5e7eb; }
+                }
+
+                HorizontalBox { spacing: 8px;
+                    Text { text: "Habilidade: " + (root.detail.ability1 == "" ? "-" : root.detail.ability1); color: #e5e7eb; }
+                    Text { text: "Habilidade 2: " + (root.detail.ability2 == "" ? "-" : root.detail.ability2); color: #e5e7eb; }
+                }
+                HorizontalBox { spacing: 8px;
+                    Text { text: "Hidden: " + (root.detail.hiddenAbility == "" ? "-" : root.detail.hiddenAbility); color: #e5e7eb; }
+                }
+            }
+
+            if (root.detail.error != "") : Text { text: root.detail.error; color: #ef4444; }
+
+            // barras
+            VerticalBox {
+                spacing: 6px;
+
+                for s in root.detail.stats: HorizontalBox {
+                    spacing: 8px;
+                    Text { text: s.name; width: 120px; color: #9ca3af; }
+                    Rectangle { // trilho
+                        height: 12px; border-radius: 6px; background: #1f2937; horizontal-stretch: 1;
+                        Rectangle { // preenchimento
+                            height: 12px; border-radius: 6px; x: 0px;
+                            // limita entre 0 e 1
+                            width: parent.width * min((s.value / 255.0), 1.0);
+                            background: s.bg;
+                        }
+                    }
+                    Text { text: s.value; width: 44px; color: #e5e7eb; }
+                }
+
+                // total
+                HorizontalBox { spacing: 8px;
+                    Text { text: "Total"; width: 120px; color: #d1d5db; }
+                    Rectangle {
+                        height: 14px; border-radius: 7px; background: #1f2937; horizontal-stretch: 1;
+                        Rectangle {
+                            height: 14px; border-radius: 7px; x: 0px;
+                            width: parent.width * min((root.detail.total / 1200.0), 1.0);
+                            background: #ffffff;
+                        }
+                    }
+                    Text { text: root.detail.total; width: 44px; color: #fef3c7; }
+                }
+            }
+
+            Rectangle { height: 12px; background: transparent; }
+        }
+    }
+}
+
+// ====== APP RESPONSIVO ======
 export component App inherits Window {
     title: "SlinDex";
-    min-width:  650px; max-width:  650px;
-    min-height: 670px; max-height: 670px;
+    // tamanhos mínimos pra mobile
+    min-width: 320px; min-height: 480px;
+
+    preferred-width: 900px;
+    preferred-height: 700px;
 
     in-out property <string> filter;
     in-out property <int> selected_index; // mantém seleção na lista
@@ -85,300 +320,76 @@ export component App inherits Window {
     callback select(index: int);
     callback apply-filter(text: string);
 
+    // breakpoint simples
+    property <bool> compact: self.width < 720px;
+
     VerticalBox {
-        spacing: 12px;
-        padding: 12px;
+        spacing: 12px; padding: 12px;
 
-        // Top bar estável
-        HorizontalBox {
-            spacing: 8px;
-
+        // --- top bar (igual ao seu) ---
+        HorizontalBox { spacing: 8px;
             LineEdit {
                 placeholder-text: "Buscar Pokémon";
                 text <=> root.filter;
                 horizontal-stretch: 1;
-
-                // chamado quando pressiona Enter dentro do LineEdit
-                accepted(text) => {        // ✅ existe mesmo em versões antigas
-                    root.apply-filter(text);
-                }
+                accepted(text) => { root.apply-filter(text); }
             }
-
-            Button { text: "Filtrar";  clicked => { root.apply-filter(root.filter); } }
+            Button { text: "Filtrar"; clicked => { root.apply-filter(root.filter); } }
             Button { text: "Recarregar lista"; clicked => { root.request-load(); } }
-
             Rectangle {
                 width: 24px; height: 24px;
-                Spinner {
-                    width: 20px; height: 20px;
-                    visible: root.loading;
-                    x: (parent.width - self.width) / 2;
-                    y: (parent.height - self.height) / 2;
-                }
+                Spinner { width: 20px; height: 20px; visible: root.loading;
+                    x: (parent.width - self.width)/2; y: (parent.height - self.height)/2; }
             }
         }
 
-        // ====== CONTAINER DO MIOLO (pega 100% da altura) ======
+        // --- conteúdo ocupa o resto, sem amarrar width/height ---
         Rectangle {
+            horizontal-stretch: 1;
             vertical-stretch: 1;
 
-            // Conteúdo: lista (esq) + detalhes (dir)
-            HorizontalBox {
+            // Compacto (empilhado)
+            if (root.compact) : VerticalBox {
                 spacing: 12px;
-                y: 0px;
-                height: parent.height;   // <- garante altura total
+                horizontal-stretch: 1;
+                vertical-stretch: 1;
 
-                // Lista de nomes + navegação por setas (FocusScope cuida do teclado)
-                list_scope := FocusScope {
-                    width: 200px;
-                    height: parent.height;
-                    // recebe foco ao clicar (padrão do FocusScope já faz isso)
-
-                    // seta ↑ ↓ Home End e Enter
-                    key-pressed(event) => {
-                        if (event.text == Key.UpArrow) {
-                            if (root.selected_index <= 0) {
-                                root.selected_index = 0;
-                            } else {
-                                root.selected_index = root.selected_index - 1;
-                            }
-                            root.select(root.selected_index);
-                            list.viewport-y = (root.selected_index - qtd_centro_item_lista) * altura_item_lista * (-1);
-                            accept
-                        }
-                        if (event.text == Key.DownArrow) {
-                            if (root.rows.length > 0) {
-                                if (root.selected_index < 0) {
-                                    root.selected_index = 0;
-                                } else if (root.selected_index < root.rows.length - 1) {
-                                    root.selected_index = root.selected_index + 1;
-                                }
-                                root.select(root.selected_index);
-                                list.viewport-y = (root.selected_index - qtd_centro_item_lista) * altura_item_lista * (-1);
-                            }
-                            accept
-                        }
-                        if (event.text == Key.Home) {
-                            if (root.rows.length > 0) {
-                                root.selected_index = 0;
-                                root.select(root.selected_index);
-                                list.viewport-y = (root.selected_index - qtd_centro_item_lista) * altura_item_lista * (-1);
-                            }
-                            accept
-                        }
-                        if (event.text == Key.End) {
-                            if (root.rows.length > 0) {
-                                root.selected_index = root.rows.length - 1;
-                                root.select(root.selected_index);
-                                list.viewport-y = (root.selected_index - qtd_centro_item_lista) * altura_item_lista * (-1);
-                            }
-                            accept
-                        }
-                        reject
-                    }
-
-                    list := ListView {
-                        width: parent.width;
-                        height: parent.height;
-                        mouse-drag-pan-enabled: true;
-
-                        for row[i] in root.rows: Rectangle {
-                            height: 36px;
-                            border-radius: 6px;
-                            background: (i == root.selected_index)
-                                ? #1e293b
-                                : ((Math.mod(i, 2) == 0) ? #10141c : #0b0f17);
-
-                            Rectangle {
-                                x: 0px; y: 0px; width: parent.width; height: parent.height;
-                                border-radius: 6px;
-                                border-width: (i == root.selected_index) ? 1px : 0px;
-                                border-color: #60a5fa;
-                                background: transparent;
-                            }
-
-                            Text {
-                                text: row.name;
-                                color: (i == root.selected_index) ? #e2e8f0 : #e5e7eb;
-                                x: 8px;
-                                y: (parent.height - self.preferred-height) / 2;
-                            }
-
-                            TouchArea {
-                                clicked => {
-                                    // garante que as setas funcionem depois do clique
-                                    list_scope.focus();
-                                    root.selected_index = i;
-                                    root.select(i);
-                                }
-                            }
-                        }
-                    }
+                PokemonList {
+                    horizontal-stretch: 1; vertical-stretch: 1;
+                    rows: root.rows;
+                    selected-index <=> root.selected_index;
+                    item-height: root.altura_item_lista;
+                    center-count: 1;
+                    selected(i) => { root.select(i); }
                 }
 
+                DetailPanel {
+                    horizontal-stretch: 1; vertical-stretch: 4; // ~2/3 da altura
+                    detail: root.detail; loading: root.loading;
+                }
+            }
 
-                // Painel de detalhes (com rolagem)
-                Rectangle {
-                    horizontal-stretch: 1;
-                    height: parent.height;
+            // Amplo (lado a lado)
+            if (!root.compact) : HorizontalBox {
+                spacing: 12px;
+                horizontal-stretch: 1;
+                vertical-stretch: 1;
 
-                    ScrollView {
-                        width: parent.width;
-                        height: parent.height;
-                        viewport-width: parent.width;
-                        mouse-drag-pan-enabled: true; 
-
-                        // o conteúdo real do painel
-                        VerticalBox {
-                            width: parent.width;   // ocupa toda a largura do flickable
-                            spacing: 10px;
-
-                            Rectangle { height: 1px; background: #1f2937; }
-
-                            // sprite
-                            Rectangle {
-                                width: parent.width;
-                                height: 260px; // respiro vertical; ajuste se quiser
-
-                                // card da sprite centralizado
-                                Rectangle {
-                                    width: 250px; height: 250px;
-                                    x: (parent.width - self.width) / 2;
-                                    y: (parent.height - self.height) / 2;
-                                    border-radius: 10px; background: transparent;
-
-                                    // preenche o card
-                                    Image {
-                                        source: detail.artwork;
-                                        width: parent.width;
-                                        height: parent.height;
-                                    }
-                                }
-                            }
-
-                            VerticalBox {
-                                spacing: 6px;
-
-                                // chips de tipos (coloridos) — linha centralizada
-                                HorizontalBox {
-                                    width: parent.width;
-
-                                    // spacers para centralizar a linha de chips
-                                    Rectangle { horizontal-stretch: 1; }
-
-                                    // linha dos chips
-                                    HorizontalBox {
-                                        spacing: 6px;
-
-                                        // cada chip
-                                        for t in detail.types: Rectangle {
-                                            border-radius: 8px;
-                                            background: t.bg;
-                                            height: 32px;
-
-                                            // mede o texto pra dar largura + padding (8px de cada lado)
-                                            label := Text { 
-                                                text:= OutlinedText {
-                                                    value: t.label;
-                                                    fill: #ffffff;
-                                                    outline: #000000;   // cor do contorno
-                                                    w: 1px;             // espessura (pode por 1.5px/2px)
-                                                    font-size: 20px;
-
-                                                    // centraliza dentro do chip
-                                                    width: parent.width;
-                                                    height: parent.height;
-                                                }
-                                                x: (parent.width - self.preferred-width) / 2;
-                                                y: (parent.height - self.preferred-height) / 2;
-                                            }
-                                            width: label.preferred-width + 16px;
-                                        }
-                                    }
-
-                                    Rectangle { horizontal-stretch: 1; }
-                                }
-
-                                HorizontalBox {
-                                    width: parent.width;
-
-                                    Text {
-                                        text: detail.name == "" ? "Selecione um Pokémon" : detail.name;
-                                        font-size: 24px; color: #f9fafb;
-
-                                        width: parent.width;                   // ocupa a largura do painel
-                                        horizontal-alignment: left;          // centraliza horizontalmente
-                                        // opcional: vertical-alignment: center;
-                                    }
-                                }
-
-                                // infos básicas
-                                HorizontalBox {
-                                    spacing: 16px;
-                                    Text { text: "ID: " + (detail.id == 0 ? "-" : detail.id); color: #e5e7eb; }
-                                    Text { text: "Altura: " + (detail.height == 0 ? "-" : (detail.height / 10.0) + " m"); color: #e5e7eb; }
-                                    Text { text: "Peso: " + (detail.weight == 0 ? "-" : (detail.weight / 10.0) + " kg"); color: #e5e7eb; }
-                                }
-
-                                HorizontalBox {
-                                    spacing: 8px;
-                                    Text { text: "Habilidade: " + (detail.ability1 == "" ? "-" : detail.ability1); color: #e5e7eb; }
-                                    Text { text: "Habilidade 2: " + (detail.ability2 == "" ? "-" : detail.ability2); color: #e5e7eb; }
-                                }
-                                HorizontalBox {
-                                    spacing: 8px;
-                                    Text { text: "Hidden: " + (detail.hiddenAbility == "" ? "-" : detail.hiddenAbility); color: #e5e7eb; }
-                                }
-                            }
-
-                            if (detail.error != "") : Text { text: detail.error; color: #ef4444; }
-
-                            // Habilidades + barras
-                            VerticalBox {
-                                spacing: 6px;
-
-                                for s in detail.stats: HorizontalBox {
-                                    spacing: 8px;
-
-                                    Text { text: s.name; width: 120px; color: #9ca3af; }
-
-                                    Rectangle { // trilho
-                                        height: 12px; border-radius: 6px; background: #1f2937; horizontal-stretch: 1;
-
-                                        Rectangle { // preenchimento
-                                            height: 12px; border-radius: 6px;
-                                            x: 0px;
-                                            width: parent.width * Math.min((s.value / 255.0), 1.0);
-                                            background: s.bg;
-                                        }
-                                    }
-
-                                    Text { text: s.value; width: 44px; color: #e5e7eb; }
-                                }
-
-                                // Barra TOTAL
-                                HorizontalBox {
-                                    spacing: 8px;
-                                    Text { text: "Total"; width: 120px; color: #d1d5db; }
-                                    Rectangle {
-                                        height: 14px; border-radius: 7px; background: #1f2937; horizontal-stretch: 1;
-                                        Rectangle {
-                                            height: 14px; border-radius: 7px;
-                                            x: 0px;
-                                            width: parent.width * Math.min((detail.total / 1200.0), 1.0);
-                                            background: #ffffff;
-                                        }
-                                    }
-                                    Text { text: detail.total; width: 44px; color: #fef3c7; }
-                                }
-                            }
-
-                            // um espacinho no fim ajuda o scroll a "respirar"
-                            Rectangle { height: 12px; background: transparent; }
-                        }
-                    }
+                PokemonList {
+                    width: 220px;           // largura fixa da lista
+                    vertical-stretch: 1;    // altura toda
+                    rows: root.rows;
+                    selected-index <=> root.selected_index;
+                    item-height: root.altura_item_lista;
+                    center-count: root.qtd_centro_item_lista;
+                    selected(i) => { root.select(i); }
                 }
 
+                DetailPanel {
+                    horizontal-stretch: 1;  // ocupa o restante
+                    vertical-stretch: 1;
+                    detail: root.detail; loading: root.loading;
+                }
             }
         }
     }
