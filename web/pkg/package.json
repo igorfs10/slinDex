@@ -1,7 +1,7 @@
 {
   "name": "slint_pokedex",
   "type": "module",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "files": [
     "slint_pokedex_bg.wasm",
     "slint_pokedex.js",

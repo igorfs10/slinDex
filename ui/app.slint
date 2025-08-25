@@ -1,4 +1,4 @@
-import { LineEdit, ListView, VerticalBox, HorizontalBox, Button, Spinner } from "std-widgets.slint";
+import { LineEdit, ListView, VerticalBox, HorizontalBox, Button, Spinner, ScrollView } from "std-widgets.slint";
 
 // lista (esquerda): apenas nome
 export struct PokemonRow { name: string }
@@ -75,6 +75,8 @@ export component App inherits Window {
 
     in-out property <string> filter;
     in-out property <int> selected_index; // mantém seleção na lista
+    in-out property <length> altura_item_lista: 36px;
+    in-out property <int> qtd_centro_item_lista: 7;
     in property <[PokemonRow]> rows;
     in property <PokemonDetail> detail;
     in property <bool> loading;
@@ -141,6 +143,7 @@ export component App inherits Window {
                                 root.selected_index = root.selected_index - 1;
                             }
                             root.select(root.selected_index);
+                            list.viewport-y = (root.selected_index - qtd_centro_item_lista) * altura_item_lista * (-1);
                             accept
                         }
                         if (event.text == Key.DownArrow) {
@@ -151,6 +154,7 @@ export component App inherits Window {
                                     root.selected_index = root.selected_index + 1;
                                 }
                                 root.select(root.selected_index);
+                                list.viewport-y = (root.selected_index - qtd_centro_item_lista) * altura_item_lista * (-1);
                             }
                             accept
                         }
@@ -158,6 +162,7 @@ export component App inherits Window {
                             if (root.rows.length > 0) {
                                 root.selected_index = 0;
                                 root.select(root.selected_index);
+                                list.viewport-y = (root.selected_index - qtd_centro_item_lista) * altura_item_lista * (-1);
                             }
                             accept
                         }
@@ -165,15 +170,17 @@ export component App inherits Window {
                             if (root.rows.length > 0) {
                                 root.selected_index = root.rows.length - 1;
                                 root.select(root.selected_index);
+                                list.viewport-y = (root.selected_index - qtd_centro_item_lista) * altura_item_lista * (-1);
                             }
                             accept
                         }
                         reject
                     }
 
-                    ListView {
+                    list := ListView {
                         width: parent.width;
                         height: parent.height;
+                        mouse-drag-pan-enabled: true;
 
                         for row[i] in root.rows: Rectangle {
                             height: 36px;
@@ -215,9 +222,11 @@ export component App inherits Window {
                     horizontal-stretch: 1;
                     height: parent.height;
 
-                    Flickable {
+                    ScrollView {
                         width: parent.width;
                         height: parent.height;
+                        viewport-width: parent.width;
+                        mouse-drag-pan-enabled: true; 
 
                         // o conteúdo real do painel
                         VerticalBox {
@@ -249,20 +258,7 @@ export component App inherits Window {
 
                             VerticalBox {
                                 spacing: 6px;
-                                HorizontalBox {
-                                    width: parent.width;
 
-                                    Text {
-                                        text: detail.name == "" ? "Selecione um Pokémon" : detail.name;
-                                        font-size: 24px; color: #f9fafb;
-
-                                        width: parent.width;                   // ocupa a largura do painel
-                                        horizontal-alignment: center;          // centraliza horizontalmente
-                                        // opcional: vertical-alignment: center;
-                                    }
-                                }
-
-                                
                                 // chips de tipos (coloridos) — linha centralizada
                                 HorizontalBox {
                                     width: parent.width;
@@ -278,7 +274,7 @@ export component App inherits Window {
                                         for t in detail.types: Rectangle {
                                             border-radius: 8px;
                                             background: t.bg;
-                                            height: 24px;
+                                            height: 32px;
 
                                             // mede o texto pra dar largura + padding (8px de cada lado)
                                             label := Text { 
@@ -287,7 +283,7 @@ export component App inherits Window {
                                                     fill: #ffffff;
                                                     outline: #000000;   // cor do contorno
                                                     w: 1px;             // espessura (pode por 1.5px/2px)
-                                                    font-size: 14px;
+                                                    font-size: 20px;
 
                                                     // centraliza dentro do chip
                                                     width: parent.width;
@@ -301,6 +297,19 @@ export component App inherits Window {
                                     }
 
                                     Rectangle { horizontal-stretch: 1; }
+                                }
+
+                                HorizontalBox {
+                                    width: parent.width;
+
+                                    Text {
+                                        text: detail.name == "" ? "Selecione um Pokémon" : detail.name;
+                                        font-size: 24px; color: #f9fafb;
+
+                                        width: parent.width;                   // ocupa a largura do painel
+                                        horizontal-alignment: left;          // centraliza horizontalmente
+                                        // opcional: vertical-alignment: center;
+                                    }
                                 }
 
                                 // infos básicas
