@@ -70,12 +70,44 @@ component PokemonList inherits Rectangle {
 
     callback selected(index: int);
     callback request-focus();
-    request-focus() => { fs.focus(); }
+    request-focus() => { list-scope.focus(); }
 
     background: transparent;
     border-radius: 6px;
 
-    fs := FocusScope {
+    list-scope := FocusScope {
+        width: parent.width;
+        height: parent.height;
+
+        // lista visual
+        list := ListView {
+            width: parent.width;
+            height: parent.height;
+            mouse-drag-pan-enabled: true;
+
+            for row[i] in rows: Rectangle {
+                height: item_height;
+                border-radius: 6px;
+                background: (i == selected_index)
+                    ? #60a5fa
+                    : ((Math.mod(i, 2) == 0) ? #10141c : #0b0f17);
+
+                Text {
+                        text: row.name;
+                        color: (i == selected_index) ? #202020 : #e5e7eb;
+                        horizontal-stretch: 1;
+                    }
+
+                TouchArea {
+                    clicked => {
+                        list-scope.focus();
+                        selected_index = i;
+                        root.selected(i);
+                    }
+                }
+            }
+        }
+
         // navegação por teclado + rolagem automática
         key-pressed(event) => {
             if(!compact){
@@ -115,40 +147,6 @@ component PokemonList inherits Rectangle {
                 reject
             } else {
                 reject
-            }
-        }
-    }
-
-    list-scope := FocusScope {
-        width: parent.width;
-        height: parent.height;
-
-        // lista visual
-        list := ListView {
-            width: parent.width;
-            height: parent.height;
-            mouse-drag-pan-enabled: true;
-
-            for row[i] in rows: Rectangle {
-                height: item_height;
-                border-radius: 6px;
-                background: (i == selected_index)
-                    ? #60a5fa
-                    : ((Math.mod(i, 2) == 0) ? #10141c : #0b0f17);
-
-                Text {
-                        text: row.name;
-                        color: (i == selected_index) ? #202020 : #e5e7eb;
-                        horizontal-stretch: 1;
-                    }
-
-                TouchArea {
-                    clicked => {
-                        fs.focus();
-                        selected_index = i;
-                        root.selected(i);
-                    }
-                }
             }
         }
     }
