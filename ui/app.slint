@@ -80,29 +80,32 @@ component PokemonList inherits Rectangle {
         height: parent.height;
 
         // lista visual
-        list := ListView {
+        list := ScrollView  {
             width: parent.width;
             height: parent.height;
             mouse-drag-pan-enabled: true;
+            VerticalBox {
+                width: parent.width;
+                spacing: 0px;
+                for row[i] in rows: Rectangle {
+                    height: item_height;
+                    border-radius: 6px;
+                    background: (i == selected_index)
+                        ? #60a5fa
+                        : ((Math.mod(i, 2) == 0) ? #10141c : #0b0f17);
 
-            for row[i] in rows: Rectangle {
-                height: item_height;
-                border-radius: 6px;
-                background: (i == selected_index)
-                    ? #60a5fa
-                    : ((Math.mod(i, 2) == 0) ? #10141c : #0b0f17);
+                    Text {
+                            text: row.name;
+                            color: (i == selected_index) ? #202020 : #e5e7eb;
+                            horizontal-stretch: 1;
+                        }
 
-                Text {
-                        text: row.name;
-                        color: (i == selected_index) ? #202020 : #e5e7eb;
-                        horizontal-stretch: 1;
-                    }
-
-                TouchArea {
-                    clicked => {
-                        list-scope.focus();
-                        selected_index = i;
-                        root.selected(i);
+                    TouchArea {
+                        clicked => {
+                            list-scope.focus();
+                            selected_index = i;
+                            root.selected(i);
+                        }
                     }
                 }
             }
