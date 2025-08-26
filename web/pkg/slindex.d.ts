@@ -21,11 +21,11 @@ export interface InitOutput {
   readonly __wbindgen_free: (a: number, b: number, c: number) => void;
   readonly __wbindgen_export_6: WebAssembly.Table;
   readonly _dyn_core__ops__function__FnMut_____Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__hd495cfc746a0bee7: (a: number, b: number) => void;
-  readonly closure1473_externref_shim: (a: number, b: number, c: any) => void;
-  readonly closure1988_externref_shim: (a: number, b: number, c: any) => void;
+  readonly closure1475_externref_shim: (a: number, b: number, c: any) => void;
+  readonly closure1990_externref_shim: (a: number, b: number, c: any) => void;
   readonly _dyn_core__ops__function__FnMut_____Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__h7ccde088e79f39b6: (a: number, b: number) => void;
-  readonly closure1985_externref_shim: (a: number, b: number, c: any, d: any) => void;
-  readonly closure2172_externref_shim: (a: number, b: number, c: any) => void;
+  readonly closure1987_externref_shim: (a: number, b: number, c: any, d: any) => void;
+  readonly closure2174_externref_shim: (a: number, b: number, c: any) => void;
   readonly __wbindgen_start: () => void;
 }
 
