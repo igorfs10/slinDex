@@ -60,14 +60,17 @@ component OutlinedText inherits Rectangle {
     }
 }
 
-// ====== LISTA COM TECLADO + SCROLL AUTO ======
+// ====== Componene lista de pokémon ======
 component PokemonList inherits Rectangle {
     in property <[PokemonRow]> rows;
     in-out property <int> selected-index: -1;
     in-out property <length> item-height: 36px;
     in-out property <int> center-count: 7; // qtd de itens "antes" e "depois" para centralizar
+    in property <bool> compact;
 
     callback selected(index: int);
+    callback request-focus();
+    request-focus() => { fs.focus(); }
 
     background: transparent;
     border-radius: 6px;
@@ -75,40 +78,44 @@ component PokemonList inherits Rectangle {
     fs := FocusScope {
         // navegação por teclado + rolagem automática
         key-pressed(event) => {
-            if (event.text == Key.UpArrow) {
-                if (rows.length > 0) {
-                    selected_index = Math.max(0, selected_index - 1);
-                    root.selected(selected_index);
-                    list.viewport-y = (selected_index - center_count) * item_height * (-1);
+            if(!compact){
+                if (event.text == Key.UpArrow) {
+                    if (rows.length > 0) {
+                        selected_index = Math.max(0, selected_index - 1);
+                        root.selected(selected_index);
+                        list.viewport-y = (selected_index - center_count) * item_height * (-1);
+                    }
+                    accept
                 }
-                accept
-            }
-            if (event.text == Key.DownArrow) {
-                if (rows.length > 0) {
-                    if (selected_index < 0) { selected_index = 0; }
-                    else { selected_index = Math.min(rows.length - 1, selected_index + 1); }
-                    root.selected(selected_index);
-                    list.viewport-y = (selected_index - center_count) * item_height * (-1);
+                if (event.text == Key.DownArrow) {
+                    if (rows.length > 0) {
+                        if (selected_index < 0) { selected_index = 0; }
+                        else { selected_index = Math.min(rows.length - 1, selected_index + 1); }
+                        root.selected(selected_index);
+                        list.viewport-y = (selected_index - center_count) * item_height * (-1);
+                    }
+                    accept
                 }
-                accept
-            }
-            if (event.text == Key.Home) {
-                if (rows.length > 0) {
-                    selected_index = 0;
-                    root.selected(selected_index);
-                    list.viewport-y = (selected_index - center_count) * item_height * (-1);
+                if (event.text == Key.Home) {
+                    if (rows.length > 0) {
+                        selected_index = 0;
+                        root.selected(selected_index);
+                        list.viewport-y = (selected_index - center_count) * item_height * (-1);
+                    }
+                    accept
                 }
-                accept
-            }
-            if (event.text == Key.End) {
-                if (rows.length > 0) {
-                    selected_index = rows.length - 1;
-                    root.selected(selected_index);
-                    list.viewport-y = (selected_index - center_count) * item_height * (-1);
+                if (event.text == Key.End) {
+                    if (rows.length > 0) {
+                        selected_index = rows.length - 1;
+                        root.selected(selected_index);
+                        list.viewport-y = (selected_index - center_count) * item_height * (-1);
+                    }
+                    accept
                 }
-                accept
+                reject
+            } else {
+                reject
             }
-            reject
         }
     }
 
@@ -117,7 +124,6 @@ component PokemonList inherits Rectangle {
         height: parent.height;
 
         // lista visual
-        // dentro do seu componente PokemonList
         list := ListView {
             width: parent.width;
             height: parent.height;
@@ -127,34 +133,14 @@ component PokemonList inherits Rectangle {
                 height: item_height;
                 border-radius: 6px;
                 background: (i == selected_index)
-                    ? #1e293b
+                    ? #60a5fa
                     : ((Math.mod(i, 2) == 0) ? #10141c : #0b0f17);
 
-                // borda de seleção
-                Rectangle {
-                    width: parent.width; height: parent.height;
-                    border-radius: 6px;
-                    border-width: (i == selected_index) ? 1px : 0px;
-                    border-color: #60a5fa;
-                    background: transparent;
-                }
-
-                // Linha com padding e alinhamento vertical central
-                HorizontalBox {
-                    width: parent.width;
-                    height: parent.height;
-                    spacing: 0px;
-                    alignment: center;    // centraliza VERTICALMENTE os filhos
-
-                    // "padding" à esquerda de 8px
-                    Rectangle { width: 8px; height: 1px; }
-
-                    Text {
+                Text {
                         text: row.name;
-                        color: (i == selected_index) ? #e2e8f0 : #e5e7eb;
+                        color: (i == selected_index) ? #202020 : #e5e7eb;
                         horizontal-stretch: 1;
                     }
-                }
 
                 TouchArea {
                     clicked => {
@@ -320,13 +306,18 @@ export component App inherits Window {
     callback select(index: int);
     callback apply-filter(text: string);
 
+    callback back-to-list();
+    back-to-list() => {
+        root.visualiza_pokemon = false;
+    }
+
     // breakpoint simples
     property <bool> compact: self.width < 720px;
 
     VerticalBox {
         spacing: 12px; padding: 12px;
 
-        // --- top bar SEM loop de layout ---
+        // --- top bar ---
         Rectangle {
             // altura fixa evita que o layout-info da barra dependa dos filhos
             height: 44px;
@@ -353,58 +344,51 @@ export component App inherits Window {
                 spacing: 8px;
                 Button {
                     text: "← Voltar";
-                    clicked => { root.visualiza_pokemon = false; }
+                    clicked => { root.back-to-list(); }
                 }
             }
         }
 
-        // --- conteúdo ocupa o resto, sem amarrar width/height ---
+        // --- conteúdo ---
         Rectangle {
             horizontal-stretch: 1;
             vertical-stretch: 1;
 
-            // Compacto (empilhado)
-            if (root.compact) : VerticalBox {
-                spacing: 12px;
-                horizontal-stretch: 1;
-                vertical-stretch: 1;
+            // LISTA
+            list_pane := PokemonList {
+                // geometria muda com o breakpoint
+                x: 0px;
+                y: 0px;
+                width: root.compact ? parent.width : 220px;
+                height: parent.height;
 
-                if(!visualiza_pokemon) : PokemonList {
-                    horizontal-stretch: 1; vertical-stretch: 1;
-                    rows: root.rows;
-                    selected-index <=> root.selected_index;
-                    item-height: root.altura_item_lista;
-                    center-count: 1;
-                    selected(i) => { root.select(i); }
+                rows: root.rows;
+                selected-index <=> root.selected_index;
+                item-height: root.altura_item_lista;
+                center-count: root.qtd_centro_item_lista;
+                compact: compact;
+
+                // no compacto, ao selecionar já navega para o detalhe
+                selected(i) => {
+                    root.select(i);
+                    if (root.compact) { root.visualiza_pokemon = true; }
                 }
 
-                if(visualiza_pokemon) :DetailPanel {
-                    horizontal-stretch: 1; vertical-stretch: 4;
-                    detail: root.detail;
-                }
+                // visibilidade: no compacto alterna com o detalhe; no amplo fica sempre visível
+                visible: root.compact ? !root.visualiza_pokemon : true;
             }
 
-            // Amplo (lado a lado)
-            if (!root.compact) : HorizontalBox {
-                spacing: 12px;
-                horizontal-stretch: 1;
-                vertical-stretch: 1;
+            // DETALHE
+            detail_pane := DetailPanel {
+                y: 0px;
+                x: root.compact ? 0px : (list_pane.width + 12px);
+                width: root.compact ? parent.width : (parent.width - (list_pane.width + 12px));
+                height: parent.height;
 
-                PokemonList {
-                    width: 220px;           // largura fixa da lista
-                    vertical-stretch: 1;    // altura toda
-                    rows: root.rows;
-                    selected-index <=> root.selected_index;
-                    item-height: root.altura_item_lista;
-                    center-count: root.qtd_centro_item_lista;
-                    selected(i) => { root.select(i); }
-                }
+                detail: root.detail;
 
-                DetailPanel {
-                    horizontal-stretch: 1;  // ocupa o restante
-                    vertical-stretch: 1;
-                    detail: root.detail;
-                }
+                // visibilidade: no compacto alterna com a lista; no amplo fica sempre visível
+                visible: root.compact ? root.visualiza_pokemon : true;
             }
         }
     }
