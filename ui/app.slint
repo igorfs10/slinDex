@@ -326,18 +326,38 @@ export component App inherits Window {
     VerticalBox {
         spacing: 12px; padding: 12px;
 
-        // --- top bar (igual ao seu) ---
-        HorizontalBox { spacing: 8px;
-            if(!root.compact || !root.visualiza_pokemon) : LineEdit {
-                placeholder-text: "Buscar Pokémon";
-                text <=> root.filter;
-                horizontal-stretch: 1;
-                accepted(text) => { root.apply-filter(text); }
+        // --- top bar SEM loop de layout ---
+        Rectangle {
+            // altura fixa evita que o layout-info da barra dependa dos filhos
+            height: 44px;
+            horizontal-stretch: 1;
+
+            // Versão normal (busca + botões)
+            if (!(root.compact && root.visualiza_pokemon)) : HorizontalBox {
+                x: 0px; y: 0px; width: parent.width; height: parent.height;
+                spacing: 8px;
+
+                LineEdit {
+                    placeholder-text: "Buscar Pokémon";
+                    text <=> root.filter;
+                    horizontal-stretch: 1;
+                    accepted(text) => { root.apply-filter(text); }
+                }
+                Button { text: "Filtrar";          clicked => { root.apply-filter(root.filter); } }
+                Button { text: "Recarregar lista"; clicked => { root.request-load(); } }
             }
-            if(!root.compact || !root.visualiza_pokemon) :Button { text: "Filtrar"; clicked => { root.apply-filter(root.filter); } }
-            if(!root.compact || !root.visualiza_pokemon) :Button { text: "Recarregar lista"; clicked => { root.request-load(); } }
-            if(root.compact && root.visualiza_pokemon) :Button { text: "Voltar"; clicked => { root.visualiza_pokemon = false; } }
+
+            // Versão compacta com "Voltar"
+            if (root.compact && root.visualiza_pokemon) : HorizontalBox {
+                x: 0px; y: 0px; width: parent.width; height: parent.height;
+                spacing: 8px;
+                Button {
+                    text: "Voltar";
+                    clicked => { root.visualiza_pokemon = false; }
+                }
+            }
         }
+
 
         // --- conteúdo ocupa o resto, sem amarrar width/height ---
         Rectangle {
