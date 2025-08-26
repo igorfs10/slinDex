@@ -171,7 +171,6 @@ component PokemonList inherits Rectangle {
 // ====== PAINEL DE DETALHES ======
 component DetailPanel inherits Rectangle {
     in property <PokemonDetail> detail;
-    in property <bool> loading;
 
     background: transparent;
 
@@ -313,9 +312,9 @@ export component App inherits Window {
     in-out property <int> selected_index; // mantém seleção na lista
     in-out property <length> altura_item_lista: 36px;
     in-out property <int> qtd_centro_item_lista: 7;
+    in-out property <bool> visualiza_pokemon: false;
     in property <[PokemonRow]> rows;
     in property <PokemonDetail> detail;
-    in property <bool> loading;
 
     callback request-load();
     callback select(index: int);
@@ -329,19 +328,15 @@ export component App inherits Window {
 
         // --- top bar (igual ao seu) ---
         HorizontalBox { spacing: 8px;
-            LineEdit {
+            if(!root.compact || !root.visualiza_pokemon) : LineEdit {
                 placeholder-text: "Buscar Pokémon";
                 text <=> root.filter;
                 horizontal-stretch: 1;
                 accepted(text) => { root.apply-filter(text); }
             }
-            Button { text: "Filtrar"; clicked => { root.apply-filter(root.filter); } }
-            Button { text: "Recarregar lista"; clicked => { root.request-load(); } }
-            Rectangle {
-                width: 24px; height: 24px;
-                Spinner { width: 20px; height: 20px; visible: root.loading;
-                    x: (parent.width - self.width)/2; y: (parent.height - self.height)/2; }
-            }
+            if(!root.compact || !root.visualiza_pokemon) :Button { text: "Filtrar"; clicked => { root.apply-filter(root.filter); } }
+            if(!root.compact || !root.visualiza_pokemon) :Button { text: "Recarregar lista"; clicked => { root.request-load(); } }
+            if(root.compact && root.visualiza_pokemon) :Button { text: "Voltar"; clicked => { root.visualiza_pokemon = false; } }
         }
 
         // --- conteúdo ocupa o resto, sem amarrar width/height ---
@@ -355,7 +350,7 @@ export component App inherits Window {
                 horizontal-stretch: 1;
                 vertical-stretch: 1;
 
-                PokemonList {
+                if(!visualiza_pokemon) : PokemonList {
                     horizontal-stretch: 1; vertical-stretch: 1;
                     rows: root.rows;
                     selected-index <=> root.selected_index;
@@ -364,9 +359,9 @@ export component App inherits Window {
                     selected(i) => { root.select(i); }
                 }
 
-                DetailPanel {
-                    horizontal-stretch: 1; vertical-stretch: 4; // ~2/3 da altura
-                    detail: root.detail; loading: root.loading;
+                if(visualiza_pokemon) :DetailPanel {
+                    horizontal-stretch: 1; vertical-stretch: 4;
+                    detail: root.detail;
                 }
             }
 
@@ -389,7 +384,7 @@ export component App inherits Window {
                 DetailPanel {
                     horizontal-stretch: 1;  // ocupa o restante
                     vertical-stretch: 1;
-                    detail: root.detail; loading: root.loading;
+                    detail: root.detail;
                 }
             }
         }

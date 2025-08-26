@@ -225,7 +225,6 @@ fn wire_app_common(app: &App) -> StateHandle {
         sprites: LruCache::new(cap),
         selected: -1,
     }));
-    app.set_loading(false);
     app.set_filter(SharedString::from(""));
     app.set_selected_index(-1);
     set_detail_error(app, "");
@@ -243,7 +242,7 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
     let app_w = app.as_weak();
     let state_list = state.clone();
     app.on_request_load(move || {
-        if let Some(app) = app_w.upgrade() { app.set_loading(true); }
+        if let Some(_app) = app_w.upgrade() { }
         let app_w = app_w.clone();
         let state_list = state_list.clone();
         std::thread::spawn(move || {
@@ -259,7 +258,6 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
                         }
                         Err(e) => set_detail_error(&app, &e),
                     }
-                    app.set_loading(false);
                 }
             }).ok();
         });
@@ -271,7 +269,7 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
     app.on_select(move |idx| {
         if idx < 0 { return; }
         { state_sel.lock().unwrap().selected = idx; }
-        if let Some(app) = app_w.upgrade() { app.set_selected_index(idx); }
+        if let Some(app) = app_w.upgrade() { app.set_selected_index(idx);}
 
         let name = { let st = state_sel.lock().unwrap(); st.view.get(idx as usize).cloned() };
         let Some(name) = name else { return };
@@ -284,9 +282,9 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
             if let Some(d) = maybe_d {
                 let ui_detail = make_detail_for_ui(&d, maybe_bytes.as_deref());
                 app.set_detail(ui_detail);
+                app.set_visualiza_pokemon(true);
                 return;
             }
-            app.set_loading(true);
         }
 
         let app_w2 = app_w.clone();
@@ -317,10 +315,13 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
                             }
                             let ui_detail = make_detail_for_ui(&d, sprite_bytes.as_deref());
                             app.set_detail(ui_detail);
+                            app.set_visualiza_pokemon(true);
                         }
-                        None => set_detail_error(&app, "Falha ao carregar detalhes"),
+                        None => {
+                            set_detail_error(&app, "Falha ao carregar detalhes");
+                            app.set_visualiza_pokemon(true);
+                        },
                     }
-                    app.set_loading(false);
                 }
             }).ok();
         });
@@ -360,7 +361,7 @@ pub fn start_wasm() {
     let app_w = app.as_weak();
     let state_list = state.clone();
     app.on_request_load(move || {
-        if let Some(app) = app_w.upgrade() { app.set_loading(true); }
+        if let Some(_app) = app_w.upgrade() { }
         let app_w = app_w.clone();
         let state_list = state_list.clone();
         wasm_bindgen_futures::spawn_local(async move {
@@ -376,7 +377,6 @@ pub fn start_wasm() {
                         }
                         Err(e) => set_detail_error(&app, &e),
                     }
-                    app.set_loading(false);
                 }
             }).ok();
         });
@@ -388,7 +388,7 @@ pub fn start_wasm() {
     app.on_select(move |idx| {
         if idx < 0 { return; }
         { state_sel.lock().unwrap().selected = idx; }
-        if let Some(app) = app_w.upgrade() { app.set_selected_index(idx); }
+        if let Some(app) = app_w.upgrade() { app.set_selected_index(idx);}
 
         let name = { let st = state_sel.lock().unwrap(); st.view.get(idx as usize).cloned() };
         let Some(name) = name else { return };
@@ -401,9 +401,9 @@ pub fn start_wasm() {
             if let Some(d) = maybe_d {
                 let ui_detail = make_detail_for_ui(&d, maybe_bytes.as_deref());
                 app.set_detail(ui_detail);
+                app.set_visualiza_pokemon(true);
                 return;
             }
-            app.set_loading(true);
         }
 
         let app_w2 = app_w.clone();
@@ -434,10 +434,13 @@ pub fn start_wasm() {
                             }
                             let ui_detail = make_detail_for_ui(&d, sprite_bytes.as_deref());
                             app.set_detail(ui_detail);
+                            app.set_visualiza_pokemon(true);
                         }
-                        None => set_detail_error(&app, "Falha ao carregar detalhes"),
+                        None =>{
+                            set_detail_error(&app, "Falha ao carregar detalhes");
+                            app.set_visualiza_pokemon(true);
+                        },
                     }
-                    app.set_loading(false);
                 }
             }).ok();
         });
