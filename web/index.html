@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <title>SlinDex</title>
     <style>
       html, body { margin: 0; height: 100%; background: #0b0f17; }
@@ -15,7 +16,7 @@
     <canvas id="canvas"></canvas>
 
     <script type="module">
-      import init from "./pkg/slint_pokedex.js";
+      import init from "./pkg/slindex.js";
       // só inicia depois que o módulo carregar
       await init();
       // nada mais é necessário: o #[wasm_bindgen(start)] no Rust chama app.run()

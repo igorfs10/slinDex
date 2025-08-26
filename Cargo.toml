@@ -1,13 +1,13 @@
 [package]
-name = "slint_pokedex"
-version = "1.0.1"
+name = "slindex"
+version = "1.0.2"
 edition = "2024"
 
 [lib]
 crate-type = ["rlib", "cdylib"]
 
 [[bin]]
-name = "slint_pokedex_app"
+name = "slindex_app"
 path = "src/main.rs"
 
 [dependencies]
@@ -34,15 +34,21 @@ reqwest = { version = "0.12", default-features = false, features = ["json"] }
 
 [build-dependencies]
 slint-build = "1.12"
+winres = "0.1"
 
 [package.metadata.android]
-package = "com.seuapp.slint_pokedex"
-apk_name = "Slint Pokedex"
+package = "com.seuapp.slindex"
+apk_name = "SlinDex"
 # API 26+ é um bom mínimo hoje
 min_sdk_version = 26
 target_sdk_version = 34
+resources  = "android/res"
 
 
 # cada permissão é uma tabela separada
 [[package.metadata.android.uses_permission]]
 name = "android.permission.INTERNET"
+
+[package.metadata.android.application]
+label = "SlinDex"
+icon  = "@mipmap/ic_launcher"                 # este nome bate com o ic_launcher.xml

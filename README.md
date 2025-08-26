@@ -21,11 +21,11 @@ Versão web: https://igorfs10.github.io/slint_pokedex/web/
 
 ## Executar (Desktop)
 ```bash
-cargo run --bin slint_pokedex_app
+cargo run --bin slindex_app
 ```
 ## Build (Desktop)
 ```bash
-cargo build --release --bin slint_pokedex_app
+cargo build --release --bin slindex_app
 ```
 
 ## Executar-build (WebAssembly)

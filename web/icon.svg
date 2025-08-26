@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1024" height="1024" fill="#0b0f17"/>
+  <!-- outer ring -->
+  <circle cx="512" cy="512" r="320" fill="none" stroke="#ffffff" stroke-width="60" />
+  <!-- center circle -->
+  <circle cx="512" cy="512" r="90" fill="#ffffff"/>
+  <!-- horizontal band -->
+  <rect x="192" y="472" width="640" height="80" fill="#ffffff" rx="40" ry="40"/>
+</svg>

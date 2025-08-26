@@ -1,14 +1,14 @@
 {
-  "name": "slint_pokedex",
+  "name": "slindex",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "files": [
-    "slint_pokedex_bg.wasm",
-    "slint_pokedex.js",
-    "slint_pokedex.d.ts"
+    "slindex_bg.wasm",
+    "slindex.js",
+    "slindex.d.ts"
   ],
-  "main": "slint_pokedex.js",
-  "types": "slint_pokedex.d.ts",
+  "main": "slindex.js",
+  "types": "slindex.d.ts",
   "sideEffects": [
     "./snippets/*"
   ]
