@@ -1,7 +1,7 @@
 {
   "name": "slindex",
   "type": "module",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "files": [
     "slindex_bg.wasm",
     "slindex.js",
