@@ -216,7 +216,7 @@ fn set_detail_error(app: &App, msg: &str) {
 
 fn set_detail_empty(app: &App) {
     app.set_detail(PokemonDetail {
-        name: "".into(),
+        name: "Carregando...".into(),
         id: 0,
         height: 0,
         weight: 0,
