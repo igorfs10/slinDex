@@ -64,8 +64,7 @@ component OutlinedText inherits Rectangle {
 component PokemonList inherits Rectangle {
     in property <[PokemonRow]> rows;
     in-out property <int> selected-index: -1;
-    in-out property <length> item-height: 36px;
-    in-out property <int> center-count: 7; // qtd de itens "antes" e "depois" para centralizar
+    property <length> item-height: 40px;
     in property <bool> compact;
 
     callback selected(index: int);
@@ -88,7 +87,7 @@ component PokemonList inherits Rectangle {
                 width: parent.width;
                 spacing: 0px;
                 for row[i] in rows: Rectangle {
-                    height: item_height;
+                    height: item-height;
                     border-radius: 6px;
                     background: (i == selected_index)
                         ? #60a5fa
@@ -118,7 +117,7 @@ component PokemonList inherits Rectangle {
                     if (rows.length > 0) {
                         selected_index = Math.max(0, selected_index - 1);
                         root.selected(selected_index);
-                        list.viewport-y = (selected_index - center_count) * item_height * (-1);
+                        list.viewport-y = (((selected_index + 1) * item-height) - (list.height / 2)) * (-1);
                     }
                     accept
                 }
@@ -127,7 +126,7 @@ component PokemonList inherits Rectangle {
                         if (selected_index < 0) { selected_index = 0; }
                         else { selected_index = Math.min(rows.length - 1, selected_index + 1); }
                         root.selected(selected_index);
-                        list.viewport-y = (selected_index - center_count) * item_height * (-1);
+                        list.viewport-y = (((selected_index + 1) * item-height) - (list.height / 2)) * (-1);
                     }
                     accept
                 }
@@ -135,7 +134,7 @@ component PokemonList inherits Rectangle {
                     if (rows.length > 0) {
                         selected_index = 0;
                         root.selected(selected_index);
-                        list.viewport-y = (selected_index - center_count) * item_height * (-1);
+                        list.viewport-y = (((selected_index + 1) * item-height) - (list.height / 2)) * (-1);
                     }
                     accept
                 }
@@ -143,7 +142,7 @@ component PokemonList inherits Rectangle {
                     if (rows.length > 0) {
                         selected_index = rows.length - 1;
                         root.selected(selected_index);
-                        list.viewport-y = (selected_index - center_count) * item_height * (-1);
+                        list.viewport-y = (((selected_index + 1) * item-height) - (list.height / 2)) * (-1);
                     }
                     accept
                 }
@@ -297,8 +296,6 @@ export component App inherits Window {
 
     in-out property <string> filter;
     in-out property <int> selected_index; // mantém seleção na lista
-    in-out property <length> altura_item_lista: 36px;
-    in-out property <int> qtd_centro_item_lista: 7;
     in-out property <bool> visualiza_pokemon: false;
     in property <[PokemonRow]> rows;
     in property <PokemonDetail> detail;
@@ -321,7 +318,7 @@ export component App inherits Window {
         // --- top bar ---
         Rectangle {
             // altura fixa evita que o layout-info da barra dependa dos filhos
-            height: 44px;
+            height: 60px;
             horizontal-stretch: 1;
 
             // Versão normal (busca + botões)
@@ -365,8 +362,6 @@ export component App inherits Window {
 
                 rows: root.rows;
                 selected-index <=> root.selected_index;
-                item-height: root.altura_item_lista;
-                center-count: root.qtd_centro_item_lista;
                 compact: compact;
 
                 // no compacto, ao selecionar já navega para o detalhe
