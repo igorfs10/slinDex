@@ -287,6 +287,7 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
         if idx < 0 { return; }
         { state_sel.lock().unwrap().selected = idx; }
         if let Some(app) = app_w.upgrade() {
+            app.set_carregando(true);
             set_detail_empty(&app);
             app.set_visualiza_pokemon(true);
             app.set_selected_index(idx);
@@ -303,7 +304,7 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
             if let Some(d) = maybe_d {
                 let ui_detail = make_detail_for_ui(&d, maybe_bytes.as_deref());
                 app.set_detail(ui_detail);
-
+                app.set_carregando(false);
                 return;
             }
         }
@@ -336,9 +337,11 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
                             }
                             let ui_detail = make_detail_for_ui(&d, sprite_bytes.as_deref());
                             app.set_detail(ui_detail);
+                            app.set_carregando(false);
                         }
                         None => {
                             set_detail_error(&app, "Falha ao carregar detalhes");
+                            app.set_carregando(false);
                         },
                     }
                 }
@@ -408,6 +411,7 @@ pub fn start_wasm() {
         if idx < 0 { return; }
         { state_sel.lock().unwrap().selected = idx; }
         if let Some(app) = app_w.upgrade() {
+            app.set_carregando(true);
             set_detail_empty(&app);
             app.set_visualiza_pokemon(true);
             app.set_selected_index(idx);
@@ -424,6 +428,7 @@ pub fn start_wasm() {
             if let Some(d) = maybe_d {
                 let ui_detail = make_detail_for_ui(&d, maybe_bytes.as_deref());
                 app.set_detail(ui_detail);
+                app.set_carregando(false);
                 return;
             }
         }
@@ -456,9 +461,11 @@ pub fn start_wasm() {
                             }
                             let ui_detail = make_detail_for_ui(&d, sprite_bytes.as_deref());
                             app.set_detail(ui_detail);
+                            app.set_carregando(false);
                         }
                         None =>{
                             set_detail_error(&app, "Falha ao carregar detalhes");
+                            app.set_carregando(false);
                         },
                     }
                 }

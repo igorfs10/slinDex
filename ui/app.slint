@@ -66,6 +66,7 @@ component PokemonList inherits Rectangle {
     in-out property <int> selected-index: -1;
     property <length> item-height: 40px;
     in property <bool> compact;
+    in property <bool> carregando;
 
     callback selected(index: int);
     callback request-focus();
@@ -101,9 +102,11 @@ component PokemonList inherits Rectangle {
 
                     TouchArea {
                         clicked => {
-                            list-scope.focus();
-                            selected_index = i;
-                            root.selected(i);
+                            if(!carregando){
+                                list-scope.focus();
+                                selected_index = i;
+                                root.selected(i);
+                            }
                         }
                     }
                 }
@@ -112,7 +115,7 @@ component PokemonList inherits Rectangle {
 
         // navegação por teclado + rolagem automática
         key-pressed(event) => {
-            if(!compact){
+            if(!compact && !carregando){
                 if (event.text == Key.UpArrow) {
                     if (rows.length > 0) {
                         selected_index = Math.max(0, selected_index - 1);
@@ -297,6 +300,7 @@ export component App inherits Window {
     in-out property <string> filter;
     in-out property <int> selected_index; // mantém seleção na lista
     in-out property <bool> visualiza_pokemon: false;
+    in-out property <bool> carregando: false;
     in property <[PokemonRow]> rows;
     in property <PokemonDetail> detail;
 
@@ -306,7 +310,9 @@ export component App inherits Window {
 
     callback back-to-list();
     back-to-list() => {
-        root.visualiza_pokemon = false;
+        if(!carregando){
+            root.visualiza_pokemon = false;
+        }
     }
 
     // breakpoint simples
@@ -363,6 +369,8 @@ export component App inherits Window {
                 rows: root.rows;
                 selected-index <=> root.selected_index;
                 compact: compact;
+
+                carregando: carregando;
 
                 // no compacto, ao selecionar já navega para o detalhe
                 selected(i) => {
