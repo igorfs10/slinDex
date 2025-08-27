@@ -249,9 +249,15 @@ fn wire_app_common(app: &App) -> StateHandle {
 }
 
 /* =================== Desktop =================== */
-
 #[cfg(not(target_arch = "wasm32"))]
 pub fn start_desktop() -> Result<(), slint::PlatformError> {
+    let rt = tokio::runtime::Builder::new_multi_thread()
+        .enable_all()
+        .build()
+        .unwrap();
+    
+    let _rt_guard = rt.enter();
+
     let app = App::new()?;
     let state = wire_app_common(&app);
 
@@ -259,11 +265,10 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
     let app_w = app.as_weak();
     let state_list = state.clone();
     app.on_request_load(move || {
-        if let Some(_app) = app_w.upgrade() { }
         let app_w = app_w.clone();
         let state_list = state_list.clone();
-        std::thread::spawn(move || {
-            let res = service::fetch_pokemon_list_blocking();
+    tokio::spawn(async move {
+            let res = service::fetch_pokemon_list().await;
             slint::invoke_from_event_loop(move || {
                 if let Some(app) = app_w.upgrade() {
                     match res {
@@ -311,12 +316,12 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
 
         let app_w2 = app_w.clone();
         let state_sel2 = state_sel.clone();
-        std::thread::spawn(move || {
-            let dres = service::fetch_pokemon_detail_blocking(&name);
+        tokio::spawn(async move {
+            let dres = service::fetch_pokemon_detail(&name).await;
             let (detail, sprite_bytes): (Option<service::Detail>, Option<Vec<u8>>) = match dres {
                 Ok(d) => {
                     let bytes = match d.artwork_url.as_deref() {
-                        Some(url) => service::fetch_image_blocking(url).ok(),
+                        Some(url) => service::fetch_image(url).await.ok(),
                         None => None,
                     };
                     (Some(d), bytes)
@@ -383,7 +388,6 @@ pub fn start_wasm() {
     let app_w = app.as_weak();
     let state_list = state.clone();
     app.on_request_load(move || {
-        if let Some(_app) = app_w.upgrade() { }
         let app_w = app_w.clone();
         let state_list = state_list.clone();
         wasm_bindgen_futures::spawn_local(async move {

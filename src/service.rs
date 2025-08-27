@@ -1,5 +1,7 @@
 use serde::Deserialize;
 
+const BASE: &str = "https://pokeapi.co/api/v2";
+
 #[derive(Debug, Deserialize)]
 struct PokemonTypeEntry { #[serde(rename = "type")] typ: NamedResource }
 #[derive(Debug, Deserialize)]
@@ -96,34 +98,9 @@ fn split_abilities_str(v: &PokemonApiDetail) -> (String, String, String) {
     (ab1, ab2, hidden)
 }
 
-const BASE: &str = "https://pokeapi.co/api/v2";
 
-#[cfg(not(target_arch = "wasm32"))]
-pub fn fetch_pokemon_list_blocking() -> Result<Vec<String>, String> {
-    let url = "https://pokeapi.co/api/v2/pokemon?limit=10000"; // todos
-    let resp = reqwest::blocking::get(url).map_err(|e| e.to_string())?;
-    let json: serde_json::Value = resp.json().map_err(|e| e.to_string())?;
-    let results = json["results"]
-        .as_array()
-        .ok_or("lista inválida")?;
-    Ok(results
-        .iter()
-        .filter_map(|v| v["name"].as_str().map(|s| s.to_string()))
-        .collect())
-}
-
-
-#[cfg(not(target_arch = "wasm32"))]
-pub fn fetch_pokemon_detail_blocking(name: &str) -> Result<Detail, String> {
-    let url = format!("{BASE}/pokemon/{name}");
-    let resp = reqwest::blocking::get(&url).map_err(|e| e.to_string())?;
-    let data: PokemonApiDetail = resp.json().map_err(|e| e.to_string())?;
-    Ok(data.into())
-}
-
-#[cfg(target_arch = "wasm32")]
 pub async fn fetch_pokemon_list() -> Result<Vec<String>, String> {
-    let url = "https://pokeapi.co/api/v2/pokemon?limit=10000"; // todos
+    let url = format!("{BASE}/pokemon?limit=10000");
     let resp = reqwest::get(url).await.map_err(|e| e.to_string())?;
     let json: serde_json::Value = resp.json().await.map_err(|e| e.to_string())?;
     let results = json["results"]
@@ -135,7 +112,6 @@ pub async fn fetch_pokemon_list() -> Result<Vec<String>, String> {
         .collect())
 }
 
-#[cfg(target_arch = "wasm32")]
 pub async fn fetch_pokemon_detail(name: &str) -> Result<Detail, String> {
     let url = format!("{BASE}/pokemon/{name}");
     let resp = reqwest::get(url).await.map_err(|e| e.to_string())?;
@@ -143,13 +119,6 @@ pub async fn fetch_pokemon_detail(name: &str) -> Result<Detail, String> {
     Ok(data.into())
 }
 
-#[cfg(not(target_arch = "wasm32"))]
-pub fn fetch_image_blocking(url: &str) -> Result<Vec<u8>, String> {
-    let resp = reqwest::blocking::get(url).map_err(|e| e.to_string())?;
-    resp.bytes().map(|b| b.to_vec()).map_err(|e| e.to_string())
-}
-
-#[cfg(target_arch = "wasm32")]
 pub async fn fetch_image(url: &str) -> Result<Vec<u8>, String> {
     let resp = reqwest::get(url).await.map_err(|e| e.to_string())?;
     let bytes = resp.bytes().await.map_err(|e| e.to_string()).map(|b| b.to_vec());
