@@ -214,6 +214,23 @@ fn set_detail_error(app: &App, msg: &str) {
     });
 }
 
+fn set_detail_empty(app: &App) {
+    app.set_detail(PokemonDetail {
+        name: "".into(),
+        id: 0,
+        height: 0,
+        weight: 0,
+        types: ModelRc::new(VecModel::from(Vec::<TypeTag>::new())),
+        stats: ModelRc::new(VecModel::from(Vec::<StatBar>::new())),
+        artwork: slint::Image::default(),
+        total: 0,
+        ability1: "".into(),
+        ability2: "".into(),
+        hiddenAbility: "".into(),
+        error: "".into(),
+    });
+}
+
 /* ---------- estado base ---------- */
 
 fn wire_app_common(app: &App) -> StateHandle {
@@ -269,7 +286,11 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
     app.on_select(move |idx| {
         if idx < 0 { return; }
         { state_sel.lock().unwrap().selected = idx; }
-        if let Some(app) = app_w.upgrade() { app.set_selected_index(idx);}
+        if let Some(app) = app_w.upgrade() {
+            set_detail_empty(&app);
+            app.set_visualiza_pokemon(true);
+            app.set_selected_index(idx);
+        }
 
         let name = { let st = state_sel.lock().unwrap(); st.view.get(idx as usize).cloned() };
         let Some(name) = name else { return };
@@ -282,7 +303,7 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
             if let Some(d) = maybe_d {
                 let ui_detail = make_detail_for_ui(&d, maybe_bytes.as_deref());
                 app.set_detail(ui_detail);
-                app.set_visualiza_pokemon(true);
+
                 return;
             }
         }
@@ -315,11 +336,9 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
                             }
                             let ui_detail = make_detail_for_ui(&d, sprite_bytes.as_deref());
                             app.set_detail(ui_detail);
-                            app.set_visualiza_pokemon(true);
                         }
                         None => {
                             set_detail_error(&app, "Falha ao carregar detalhes");
-                            app.set_visualiza_pokemon(true);
                         },
                     }
                 }
@@ -388,7 +407,11 @@ pub fn start_wasm() {
     app.on_select(move |idx| {
         if idx < 0 { return; }
         { state_sel.lock().unwrap().selected = idx; }
-        if let Some(app) = app_w.upgrade() { app.set_selected_index(idx);}
+        if let Some(app) = app_w.upgrade() {
+            set_detail_empty(&app);
+            app.set_visualiza_pokemon(true);
+            app.set_selected_index(idx);
+        }
 
         let name = { let st = state_sel.lock().unwrap(); st.view.get(idx as usize).cloned() };
         let Some(name) = name else { return };
@@ -401,7 +424,6 @@ pub fn start_wasm() {
             if let Some(d) = maybe_d {
                 let ui_detail = make_detail_for_ui(&d, maybe_bytes.as_deref());
                 app.set_detail(ui_detail);
-                app.set_visualiza_pokemon(true);
                 return;
             }
         }
@@ -434,11 +456,9 @@ pub fn start_wasm() {
                             }
                             let ui_detail = make_detail_for_ui(&d, sprite_bytes.as_deref());
                             app.set_detail(ui_detail);
-                            app.set_visualiza_pokemon(true);
                         }
                         None =>{
                             set_detail_error(&app, "Falha ao carregar detalhes");
-                            app.set_visualiza_pokemon(true);
                         },
                     }
                 }
