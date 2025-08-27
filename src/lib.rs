@@ -255,29 +255,34 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
         .enable_all()
         .build()
         .unwrap();
-    
-    let _rt_guard = rt.enter();
 
+    let handle = rt.handle().clone();
+
+    let poke_service = service::PokemonService::new();
+    
     let app = App::new()?;
     let state = wire_app_common(&app);
 
     // Carrega apenas a lista de nomes
     let app_w = app.as_weak();
     let state_list = state.clone();
+    let pkclone = poke_service.clone();
+    let h = handle.clone();
     app.on_request_load(move || {
         let app_w = app_w.clone();
         let state_list = state_list.clone();
-    tokio::spawn(async move {
-            let res = service::fetch_pokemon_list().await;
+        let pkclone = pkclone.clone();
+        h.spawn(async move {
+            let res = pkclone.fetch_pokemon_list().await;
             slint::invoke_from_event_loop(move || {
                 if let Some(app) = app_w.upgrade() {
                     match res {
                         Ok(full) => {
-                            { let mut st = state_list.lock().unwrap(); st.full = full.clone(); st.view = full.clone(); st.selected = -1; }
-                            app.set_selected_index(-1);
-                            let snapshot = { state_list.lock().unwrap().view.clone() };
-                            set_rows_from_names(&app, &snapshot);
-                        }
+                        { let mut st = state_list.lock().unwrap(); st.full = full.clone(); st.view = full.clone(); st.selected = -1; }
+                        app.set_selected_index(-1);
+                        let snapshot = { state_list.lock().unwrap().view.clone() };
+                        set_rows_from_names(&app, &snapshot);
+                    }
                         Err(e) => set_detail_error(&app, &e),
                     }
                 }
@@ -313,15 +318,16 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
                 return;
             }
         }
-
         let app_w2 = app_w.clone();
         let state_sel2 = state_sel.clone();
-        tokio::spawn(async move {
-            let dres = service::fetch_pokemon_detail(&name).await;
+        let pkclone = poke_service.clone();
+        let h = handle.clone();
+        h.spawn(async move {
+            let dres = pkclone.fetch_pokemon_detail(&name).await;
             let (detail, sprite_bytes): (Option<service::Detail>, Option<Vec<u8>>) = match dres {
                 Ok(d) => {
                     let bytes = match d.artwork_url.as_deref() {
-                        Some(url) => service::fetch_image(url).await.ok(),
+                        Some(url) => pkclone.fetch_image(url).await.ok(),
                         None => None,
                     };
                     (Some(d), bytes)
@@ -359,7 +365,7 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
     let app_c = app.as_weak();
     app.on_apply_filter(move |f: SharedString| {
         if let Some(app) = app_c.upgrade() {
-            apply_filter(&app, &state_filter, &f.as_str().to_string());
+            apply_filter(&app, &state_filter, f.as_str());
         }
     });
 
@@ -383,15 +389,18 @@ pub fn start_wasm() {
     console_error_panic_hook::set_once();
     let app = App::new().expect("create app");
     let state = wire_app_common(&app);
+    let poke_service = service::PokemonService::new();
 
     // Carrega só a lista de nomes
     let app_w = app.as_weak();
     let state_list = state.clone();
+    let pkclone = poke_service.clone();
     app.on_request_load(move || {
         let app_w = app_w.clone();
         let state_list = state_list.clone();
+        let pkclone = pkclone.clone();
         wasm_bindgen_futures::spawn_local(async move {
-            let res = service::fetch_pokemon_list().await;
+            let res = pkclone.fetch_pokemon_list().await;
             slint::invoke_from_event_loop(move || {
                 if let Some(app) = app_w.upgrade() {
                     match res {
@@ -411,6 +420,7 @@ pub fn start_wasm() {
     // Clique: baixa detalhes + sprite (async) e mantém seleção
     let app_w = app.as_weak();
     let state_sel = state.clone();
+    let pkclone = poke_service.clone();
     app.on_select(move |idx| {
         if idx < 0 { return; }
         { state_sel.lock().unwrap().selected = idx; }
@@ -439,12 +449,13 @@ pub fn start_wasm() {
 
         let app_w2 = app_w.clone();
         let state_sel2 = state_sel.clone();
+        let pkclone = pkclone.clone();
         wasm_bindgen_futures::spawn_local(async move {
-            let dres = service::fetch_pokemon_detail(&name).await;
+            let dres = pkclone.fetch_pokemon_detail(&name).await;
             let (detail, sprite_bytes): (Option<service::Detail>, Option<Vec<u8>>) = match dres {
                 Ok(d) => {
                     let bytes = match d.artwork_url.as_deref() {
-                        Some(url) => service::fetch_image(url).await.ok(),
+                        Some(url) => pkclone.fetch_image(url).await.ok(),
                         None => None,
                     };
                     (Some(d), bytes)
@@ -482,7 +493,7 @@ pub fn start_wasm() {
     let app_c = app.as_weak();
     app.on_apply_filter(move |f: SharedString| {
         if let Some(app) = app_c.upgrade() {
-            apply_filter(&app, &state_filter, &f.as_str().to_string());
+            apply_filter(&app, &state_filter, f.as_str());
         }
     });
 
