@@ -377,9 +377,7 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
 
     // Inicial
     let app_c = app.as_weak();
-    slint::Timer::single_shot(std::time::Duration::from_millis(50), move || {
-        if let Some(app) = app_c.upgrade() { app.invoke_request_load(); }
-    });
+    if let Some(app) = app_c.upgrade() { app.invoke_request_load(); }
 
     app.run()
     
@@ -513,9 +511,7 @@ pub fn start_wasm() {
 
     // Inicial
     let app_c = app.as_weak();
-    slint::Timer::single_shot(std::time::Duration::from_millis(50), move || {
-        if let Some(app) = app_c.upgrade() { app.invoke_request_load(); }
-    });
+    if let Some(app) = app_c.upgrade() { app.invoke_request_load(); }
 
     app.run().expect("run app");
 }
