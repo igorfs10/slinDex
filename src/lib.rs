@@ -1,6 +1,6 @@
 use lru::LruCache;
-use slint::{Brush, Color, ModelRc, SharedString, VecModel};
-use std::{num::NonZeroUsize, sync::{Arc, Mutex}};
+use slint::{Brush, Color, Image, ModelRc, SharedString, VecModel};
+use std::{num::NonZeroUsize, path::Path, sync::{Arc, Mutex}};
 
 mod service;
 slint::include_modules!(); // App, PokemonRow, PokemonDetail, TypeTag, StatBar...
@@ -89,6 +89,11 @@ fn type_label_pt(t: &str) -> &'static str {
     }
 }
 
+// ícones dos tipos
+fn type_icon(t: &str) -> Image {
+    Image::load_from_path(Path::new(&format!("ui/imagens/tipos/{t}.png"))).unwrap()
+}
+
 // cores por stat (barras)
 fn stat_color(k: &str) -> Brush {
     let c = match k {
@@ -149,7 +154,8 @@ fn make_detail_for_ui(
         .iter()
         .map(|t| TypeTag {
             label: type_label_pt(t).into(),
-            bg: type_color(t)
+            bg: type_color(t),
+            icon: type_icon(t)
         })
         .collect();
     let types_model = ModelRc::new(VecModel::from(types_vec));

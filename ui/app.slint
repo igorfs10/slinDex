@@ -2,7 +2,7 @@ import { LineEdit, ListView, VerticalBox, HorizontalBox, Button, Spinner, Scroll
 
 // ====== MODELOS ======
 export struct PokemonRow { name: string }
-export struct TypeTag { label: string, bg: brush }
+export struct TypeTag { label: string, bg: brush, icon:  image}
 export struct StatBar { name: string, value: int, bg: brush }
 export struct PokemonDetail {
     name: string,
@@ -17,47 +17,6 @@ export struct PokemonDetail {
     ability2: string,
     hiddenAbility: string,
     error: string,
-}
-
-component OutlinedText inherits Rectangle {
-    in property <string> value;
-    in property <brush>  fill: #ffffff;
-    in property <brush>  outline: #000000;
-    in property <length> w: 1px;
-    in property <length> font-size: 18px;
-    in property <int>    font-weight: 700;
-
-    // mede o texto para preferred-*
-    base := Text {
-        text: root.value;
-        font-size: root.font-size;
-        font-weight: root.font-weight;
-        visible: false;
-    }
-
-    preferred-width:  base.preferred-width  + 2*root.w;
-    preferred-height: base.preferred-height + 2*root.w;
-    width: base.preferred-width;     // trava ao tamanho preferido
-    height: base.preferred-height;
-
-    // 8 “sombras” (contorno) em volta do ponto (w, w)
-    Text { x: root.w - root.w; y: root.w;           text: root.value; font-size: root.font-size; font-weight: root.font-weight; color: root.outline; }
-    Text { x: root.w + root.w; y: root.w;           text: root.value; font-size: root.font-size; font-weight: root.font-weight; color: root.outline; }
-    Text { x: root.w;           y: root.w - root.w; text: root.value; font-size: root.font-size; font-weight: root.font-weight; color: root.outline; }
-    Text { x: root.w;           y: root.w + root.w; text: root.value; font-size: root.font-size; font-weight: root.font-weight; color: root.outline; }
-    Text { x: root.w - root.w; y: root.w - root.w;  text: root.value; font-size: root.font-size; font-weight: root.font-weight; color: root.outline; }
-    Text { x: root.w + root.w; y: root.w - root.w;  text: root.value; font-size: root.font-size; font-weight: root.font-weight; color: root.outline; }
-    Text { x: root.w - root.w; y: root.w + root.w;  text: root.value; font-size: root.font-size; font-weight: root.font-weight; color: root.outline; }
-    Text { x: root.w + root.w; y: root.w + root.w;  text: root.value; font-size: root.font-size; font-weight: root.font-weight; color: root.outline; }
-
-    // texto “limpo” ancorado em (w, w) — sem centralizar
-    Text {
-        x: root.w; y: root.w;
-        text: root.value;
-        font-size: root.font-size;
-        font-weight: root.font-weight;
-        color: root.fill;
-    }
 }
 
 // ====== Componene lista de pokémon ======
@@ -196,33 +155,44 @@ component DetailPanel inherits Rectangle {
                 HorizontalBox {
                     width: parent.width;
                     Rectangle { horizontal-stretch: 1; }
+
                     HorizontalBox {
                         spacing: 6px;
+
                         for t in root.detail.types: Rectangle {
+                            height: 32px;
                             border-radius: 8px;
                             background: t.bg;
-                            height: 32px;
 
-                            // label com contorno
-                            label := OutlinedText {
-                                value: t.label;
-                                fill: #ffffff;
-                                outline: #000000;
-                                w: 1px;                // se quiser mais forte: 1.5px
-                                font-size: 18px;
-                                font-weight: 700;
+                            VerticalBox {
+                                height: parent.height;
+                                width: parent.width;
+                                alignment:LayoutAlignment.center;
+                                HorizontalBox {
+                                    padding-left: 8px;
+                                    padding-right: 8px;
+                                    spacing: 4px;
 
-                                // padding à esquerda + centralização vertical
-                                x: 8px;
-                                y: (parent.height - self.preferred-height) / 2;
+                                    Image {
+                                        source: t.icon;
+                                        width: 30px;
+                                        height: 30px;
+                                    }
+                                    Text {
+                                        text: t.label;
+                                        color: #ffffff;
+                                        font-size: 18px;
+                                    }
+                                }
                             }
-
-                            // largura do chip = texto + padding (8px de cada lado)
-                            width: label.preferred-width + 16px;
                         }
                     }
+
                     Rectangle { horizontal-stretch: 1; }
                 }
+
+
+
 
                 Text {
                     text: root.detail.name == "" ? "Selecione um Pokémon" : root.detail.name;
