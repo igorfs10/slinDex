@@ -268,6 +268,12 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
     let state_list = state.clone();
     let pkclone = poke_service.clone();
     let h = handle.clone();
+    let app_w_2 = app_w.clone();
+    slint::Timer::single_shot(std::time::Duration::from_secs(2), move || {
+        if let Some(s) = app_w_2.upgrade() {
+            s.set_splash(false);
+        }
+    });
     app.on_request_load(move || {
         let app_w = app_w.clone();
         let state_list = state_list.clone();
@@ -376,6 +382,7 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
     });
 
     app.run()
+    
 }
 
 /* =================== WebAssembly =================== */
@@ -387,6 +394,7 @@ use wasm_bindgen::prelude::*;
 #[wasm_bindgen(start)]
 pub fn start_wasm() {
     console_error_panic_hook::set_once();
+
     let app = App::new().expect("create app");
     let state = wire_app_common(&app);
     let poke_service = service::PokemonService::new();
@@ -395,6 +403,12 @@ pub fn start_wasm() {
     let app_w = app.as_weak();
     let state_list = state.clone();
     let pkclone = poke_service.clone();
+    let app_w_2 = app_w.clone();
+    slint::Timer::single_shot(std::time::Duration::from_secs(2), move || {
+        if let Some(s) = app_w_2.upgrade() {
+            s.set_splash(false);
+        }
+    });
     app.on_request_load(move || {
         let app_w = app_w.clone();
         let state_list = state_list.clone();

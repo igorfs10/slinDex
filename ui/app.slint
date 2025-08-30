@@ -1,4 +1,4 @@
-import { LineEdit, ListView, VerticalBox, HorizontalBox, Button, Spinner, ScrollView } from "std-widgets.slint";
+import { LineEdit, ListView, VerticalBox, HorizontalBox, Button, Spinner, ScrollView, AboutSlint } from "std-widgets.slint";
 
 // ====== MODELOS ======
 export struct PokemonRow { name: string }
@@ -287,6 +287,44 @@ component DetailPanel inherits Rectangle {
     }
 }
 
+component Splash inherits Rectangle {
+    height: 100%;
+    width: 100%;
+    background: #0B0F17;
+    HorizontalLayout {
+        height: 100%;
+        width: 100%;
+        alignment: LayoutAlignment.center;
+        VerticalLayout {
+            spacing: 10px;
+            alignment: LayoutAlignment.center;
+            height: 50%;
+            width: 50%;
+
+            Text { 
+                text: "Slindex";
+                font-size: 24px;
+                horizontal-alignment: TextHorizontalAlignment.center;
+            }
+            Image {
+                source: @image-url("app.png");
+                width: 50%;
+                height: 50%;
+            }
+            Text { 
+                text: "Dados fornecidos por PokéAPI";
+                font-size: 15px;
+                horizontal-alignment: TextHorizontalAlignment.center;
+            }
+
+            AboutSlint {
+                height: 20%;
+                width: 20%;
+            }
+        }
+    }
+}
+
 // ====== APP RESPONSIVO ======
 export component App inherits Window {
     title: "SlinDex";
@@ -304,6 +342,8 @@ export component App inherits Window {
     in property <[PokemonRow]> rows;
     in property <PokemonDetail> detail;
 
+    in-out property <bool> splash: true;
+
     callback request-load();
     callback select(index: int);
     callback apply-filter(text: string);
@@ -318,7 +358,11 @@ export component App inherits Window {
     // breakpoint simples
     property <bool> compact: self.width < 720px;
 
-    VerticalBox {
+    if(splash):Splash{
+
+    }
+
+    if(!splash):VerticalBox {
         spacing: 12px; padding: 12px;
 
         // --- top bar ---
