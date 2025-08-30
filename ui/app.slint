@@ -160,29 +160,25 @@ component DetailPanel inherits Rectangle {
                         spacing: 6px;
 
                         for t in root.detail.types: Rectangle {
-                            height: 32px;
+                            height: 20px;
                             border-radius: 8px;
                             background: t.bg;
 
-                            VerticalBox {
-                                height: parent.height;
-                                width: parent.width;
-                                alignment:LayoutAlignment.center;
-                                HorizontalBox {
-                                    padding-left: 8px;
-                                    padding-right: 8px;
-                                    spacing: 4px;
-
-                                    Image {
-                                        source: t.icon;
-                                        width: 30px;
-                                        height: 30px;
-                                    }
-                                    Text {
-                                        text: t.label;
-                                        color: #ffffff;
-                                        font-size: 18px;
-                                    }
+                            HorizontalLayout {
+                                padding-left: 8px;
+                                padding-right: 8px;
+                                Image {
+                                    source: t.icon;
+                                    y:parent.y + ((parent.height - self.height) / 2);
+                                    width: 18px;
+                                    height: 18px;
+                                }
+                                Text {
+                                    text: t.label;
+                                    color: #ffffff;
+                                    font-size: 14px;
+                                    vertical-alignment: center;
+                                    font-weight: 700;
                                 }
                             }
                         }
@@ -191,12 +187,10 @@ component DetailPanel inherits Rectangle {
                     Rectangle { horizontal-stretch: 1; }
                 }
 
-
-
-
                 Text {
                     text: root.detail.name == "" ? "Selecione um Pokémon" : root.detail.name;
                     font-size: 24px; color: #f9fafb;
+                    font-weight: 700;
                     width: parent.width; horizontal-alignment: left;
                 }
 
