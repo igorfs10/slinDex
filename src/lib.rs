@@ -110,79 +110,79 @@ fn type_icon(t: &str) -> slint::Image {
     match t {
         "normal" => load_icon(include_bytes!(concat!(
             env!("CARGO_MANIFEST_DIR"),
-            "/ui/imagens/tipos/normal.png"
+            "/imagens/tipos/normal.png"
         ))),
         "fire" => load_icon(include_bytes!(concat!(
             env!("CARGO_MANIFEST_DIR"),
-            "/ui/imagens/tipos/fire.png"
+            "/imagens/tipos/fire.png"
         ))),
         "water" => load_icon(include_bytes!(concat!(
             env!("CARGO_MANIFEST_DIR"),
-            "/ui/imagens/tipos/water.png"
+            "/imagens/tipos/water.png"
         ))),
         "electric" => load_icon(include_bytes!(concat!(
             env!("CARGO_MANIFEST_DIR"),
-            "/ui/imagens/tipos/electric.png"
+            "/imagens/tipos/electric.png"
         ))),
         "grass" => load_icon(include_bytes!(concat!(
             env!("CARGO_MANIFEST_DIR"),
-            "/ui/imagens/tipos/grass.png"
+            "/imagens/tipos/grass.png"
         ))),
         "ice" => load_icon(include_bytes!(concat!(
             env!("CARGO_MANIFEST_DIR"),
-            "/ui/imagens/tipos/ice.png"
+            "/imagens/tipos/ice.png"
         ))),
         "fighting" => load_icon(include_bytes!(concat!(
             env!("CARGO_MANIFEST_DIR"),
-            "/ui/imagens/tipos/fighting.png"
+            "/imagens/tipos/fighting.png"
         ))),
         "poison" => load_icon(include_bytes!(concat!(
             env!("CARGO_MANIFEST_DIR"),
-            "/ui/imagens/tipos/poison.png"
+            "/imagens/tipos/poison.png"
         ))),
         "ground" => load_icon(include_bytes!(concat!(
             env!("CARGO_MANIFEST_DIR"),
-            "/ui/imagens/tipos/ground.png"
+            "/imagens/tipos/ground.png"
         ))),
         "flying" => load_icon(include_bytes!(concat!(
             env!("CARGO_MANIFEST_DIR"),
-            "/ui/imagens/tipos/flying.png"
+            "/imagens/tipos/flying.png"
         ))),
         "psychic" => load_icon(include_bytes!(concat!(
             env!("CARGO_MANIFEST_DIR"),
-            "/ui/imagens/tipos/psychic.png"
+            "/imagens/tipos/psychic.png"
         ))),
         "bug" => load_icon(include_bytes!(concat!(
             env!("CARGO_MANIFEST_DIR"),
-            "/ui/imagens/tipos/bug.png"
+            "/imagens/tipos/bug.png"
         ))),
         "rock" => load_icon(include_bytes!(concat!(
             env!("CARGO_MANIFEST_DIR"),
-            "/ui/imagens/tipos/rock.png"
+            "/imagens/tipos/rock.png"
         ))),
         "ghost" => load_icon(include_bytes!(concat!(
             env!("CARGO_MANIFEST_DIR"),
-            "/ui/imagens/tipos/ghost.png"
+            "/imagens/tipos/ghost.png"
         ))),
         "dragon" => load_icon(include_bytes!(concat!(
             env!("CARGO_MANIFEST_DIR"),
-            "/ui/imagens/tipos/dragon.png"
+            "/imagens/tipos/dragon.png"
         ))),
         "dark" => load_icon(include_bytes!(concat!(
             env!("CARGO_MANIFEST_DIR"),
-            "/ui/imagens/tipos/dark.png"
+            "/imagens/tipos/dark.png"
         ))),
         "steel" => load_icon(include_bytes!(concat!(
             env!("CARGO_MANIFEST_DIR"),
-            "/ui/imagens/tipos/steel.png"
+            "/imagens/tipos/steel.png"
         ))),
         "fairy" => load_icon(include_bytes!(concat!(
             env!("CARGO_MANIFEST_DIR"),
-            "/ui/imagens/tipos/fairy.png"
+            "/imagens/tipos/fairy.png"
         ))),
         _ => load_icon(include_bytes!(concat!(
             env!("CARGO_MANIFEST_DIR"),
-            "/ui/imagens/tipos/normal.png"
+            "/imagens/tipos/normal.png"
         ))),
     }
 }
