@@ -1,4 +1,3 @@
-#![windows_subsystem = "windows"]
 #[cfg(not(target_arch = "wasm32"))]
 fn main() -> Result<(), slint::PlatformError> {
     slindex::start_desktop()

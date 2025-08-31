@@ -13,6 +13,7 @@ include!(concat!(env!("OUT_DIR"), "/pokemon_list.rs")); // add lista constante c
 type StateHandle = Arc<Mutex<State>>;
 
 struct State {
+    view: Vec<(u32, &'static str)>,
     details: LruCache<u32, service::Detail>, // cache detalhes
     sprites: LruCache<u32, Vec<u8>>,         // cache de bytes da sprite
     selected: i32,                           // índice selecionado
@@ -107,28 +108,84 @@ fn type_icon(t: &str) -> slint::Image {
     // Carrega bytes embutidos em compile-time e cria a imagem; sem panic se faltar.
     // (Se faltar o arquivo, o compilador já erra na macro `include_bytes!`)
     match t {
-        "normal"   => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/normal.png"))),
-        "fire"     => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/fire.png"))),
-        "water"    => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/water.png"))),
-        "electric" => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/electric.png"))),
-        "grass"    => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/grass.png"))),
-        "ice"      => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/ice.png"))),
-        "fighting" => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/fighting.png"))),
-        "poison"   => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/poison.png"))),
-        "ground"   => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/ground.png"))),
-        "flying"   => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/flying.png"))),
-        "psychic"  => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/psychic.png"))),
-        "bug"      => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/bug.png"))),
-        "rock"     => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/rock.png"))),
-        "ghost"    => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/ghost.png"))),
-        "dragon"   => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/dragon.png"))),
-        "dark"     => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/dark.png"))),
-        "steel"    => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/steel.png"))),
-        "fairy"    => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/fairy.png"))),
-        _          => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/normal.png"))),
+        "normal" => load_icon(include_bytes!(concat!(
+            env!("CARGO_MANIFEST_DIR"),
+            "/ui/imagens/tipos/normal.png"
+        ))),
+        "fire" => load_icon(include_bytes!(concat!(
+            env!("CARGO_MANIFEST_DIR"),
+            "/ui/imagens/tipos/fire.png"
+        ))),
+        "water" => load_icon(include_bytes!(concat!(
+            env!("CARGO_MANIFEST_DIR"),
+            "/ui/imagens/tipos/water.png"
+        ))),
+        "electric" => load_icon(include_bytes!(concat!(
+            env!("CARGO_MANIFEST_DIR"),
+            "/ui/imagens/tipos/electric.png"
+        ))),
+        "grass" => load_icon(include_bytes!(concat!(
+            env!("CARGO_MANIFEST_DIR"),
+            "/ui/imagens/tipos/grass.png"
+        ))),
+        "ice" => load_icon(include_bytes!(concat!(
+            env!("CARGO_MANIFEST_DIR"),
+            "/ui/imagens/tipos/ice.png"
+        ))),
+        "fighting" => load_icon(include_bytes!(concat!(
+            env!("CARGO_MANIFEST_DIR"),
+            "/ui/imagens/tipos/fighting.png"
+        ))),
+        "poison" => load_icon(include_bytes!(concat!(
+            env!("CARGO_MANIFEST_DIR"),
+            "/ui/imagens/tipos/poison.png"
+        ))),
+        "ground" => load_icon(include_bytes!(concat!(
+            env!("CARGO_MANIFEST_DIR"),
+            "/ui/imagens/tipos/ground.png"
+        ))),
+        "flying" => load_icon(include_bytes!(concat!(
+            env!("CARGO_MANIFEST_DIR"),
+            "/ui/imagens/tipos/flying.png"
+        ))),
+        "psychic" => load_icon(include_bytes!(concat!(
+            env!("CARGO_MANIFEST_DIR"),
+            "/ui/imagens/tipos/psychic.png"
+        ))),
+        "bug" => load_icon(include_bytes!(concat!(
+            env!("CARGO_MANIFEST_DIR"),
+            "/ui/imagens/tipos/bug.png"
+        ))),
+        "rock" => load_icon(include_bytes!(concat!(
+            env!("CARGO_MANIFEST_DIR"),
+            "/ui/imagens/tipos/rock.png"
+        ))),
+        "ghost" => load_icon(include_bytes!(concat!(
+            env!("CARGO_MANIFEST_DIR"),
+            "/ui/imagens/tipos/ghost.png"
+        ))),
+        "dragon" => load_icon(include_bytes!(concat!(
+            env!("CARGO_MANIFEST_DIR"),
+            "/ui/imagens/tipos/dragon.png"
+        ))),
+        "dark" => load_icon(include_bytes!(concat!(
+            env!("CARGO_MANIFEST_DIR"),
+            "/ui/imagens/tipos/dark.png"
+        ))),
+        "steel" => load_icon(include_bytes!(concat!(
+            env!("CARGO_MANIFEST_DIR"),
+            "/ui/imagens/tipos/steel.png"
+        ))),
+        "fairy" => load_icon(include_bytes!(concat!(
+            env!("CARGO_MANIFEST_DIR"),
+            "/ui/imagens/tipos/fairy.png"
+        ))),
+        _ => load_icon(include_bytes!(concat!(
+            env!("CARGO_MANIFEST_DIR"),
+            "/ui/imagens/tipos/normal.png"
+        ))),
     }
 }
-
 
 // cores por stat (barras)
 fn stat_color(k: &str) -> Brush {
@@ -163,6 +220,11 @@ fn apply_filter(app: &App, state: &StateHandle, filter: &str) {
     {
         let mut st = state.lock().unwrap();
         st.selected = -1; // limpamos seleção ao filtrar
+        st.view = POKEMON_LIST
+            .iter()
+            .copied()
+            .filter(|item| item.0.to_string().contains(&f) || item.1.to_lowercase().contains(&f))
+            .collect();
     }
     let lista: Vec<(u32, &'static str)> = POKEMON_LIST
         .iter()
@@ -279,6 +341,7 @@ fn set_detail_empty(app: &App) {
 fn wire_app_common(app: &App) -> StateHandle {
     let cap = NonZeroUsize::new(50).unwrap();
     let state = Arc::new(Mutex::new(State {
+        view: POKEMON_LIST.iter().copied().collect(),
         details: LruCache::new(cap),
         sprites: LruCache::new(cap),
         selected: -1,
@@ -344,7 +407,13 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
             app.set_selected_index(idx);
         }
 
-        let id_pokemon = POKEMON_LIST[idx as usize].0;
+        let id_pokemon = {
+            let st = state_sel.lock().unwrap();
+            match st.view.get(idx as usize) {
+                Some(&(id, _)) => id, // copia o id enquanto o lock está ativo
+                None => return,
+            }
+        };
 
         if let Some(app) = app_w.upgrade() {
             let (maybe_d, maybe_bytes) = {
@@ -477,7 +546,13 @@ pub fn start_wasm() {
             app.set_selected_index(idx);
         }
 
-        let id_pokemon = POKEMON_LIST[idx as usize].0;
+        let id_pokemon = {
+            let st = state_sel.lock().unwrap();
+            match st.view.get(idx as usize) {
+                Some(&(id, _)) => id, // copia o id enquanto o lock está ativo
+                None => return,
+            }
+        };
 
         if let Some(app) = app_w.upgrade() {
             let (maybe_d, maybe_bytes) = {
