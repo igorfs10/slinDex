@@ -3,13 +3,21 @@ use serde::Deserialize;
 const BASE: &str = "https://pokeapi.co/api/v2";
 
 #[derive(Debug, Deserialize)]
-struct NamedResource { name: String }
+struct NamedResource {
+    name: String,
+}
 
 #[derive(Debug, Deserialize)]
-struct PokemonTypeEntry { #[serde(rename = "type")] typ: NamedResource }
+struct PokemonTypeEntry {
+    #[serde(rename = "type")]
+    typ: NamedResource,
+}
 
 #[derive(Debug, Deserialize)]
-struct StatEntry { base_stat: u32, stat: NamedResource }
+struct StatEntry {
+    base_stat: u32,
+    stat: NamedResource,
+}
 
 #[derive(Debug, Deserialize)]
 struct PokemonApiDetail {
@@ -30,10 +38,14 @@ pub struct Ability {
 }
 
 #[derive(Debug, Deserialize)]
-pub struct AbilityInfo { name: String }
+pub struct AbilityInfo {
+    name: String,
+}
 
 #[derive(Debug, Deserialize)]
-struct Sprites { other: Option<Other> }
+struct Sprites {
+    other: Option<Other>,
+}
 
 #[derive(Debug, Deserialize)]
 struct Other {
@@ -42,7 +54,9 @@ struct Other {
 }
 
 #[derive(Debug, Deserialize)]
-struct FrontDefault { front_default: Option<String> }
+struct FrontDefault {
+    front_default: Option<String>,
+}
 
 #[derive(Debug, Clone)]
 pub struct Detail {
@@ -62,11 +76,12 @@ impl From<PokemonApiDetail> for Detail {
     fn from(v: PokemonApiDetail) -> Self {
         let (ab1, ab2, hidden) = split_abilities_str(&v);
 
-        let artwork_url =
-            v.sprites.other
-                .as_ref()
-                .and_then(|o| o.official_artwork.as_ref())
-                .and_then(|oa| oa.front_default.clone());
+        let artwork_url = v
+            .sprites
+            .other
+            .as_ref()
+            .and_then(|o| o.official_artwork.as_ref())
+            .and_then(|oa| oa.front_default.clone());
 
         Self {
             id: v.id,
@@ -74,7 +89,11 @@ impl From<PokemonApiDetail> for Detail {
             height: v.height,
             weight: v.weight,
             types: v.types.into_iter().map(|t| t.typ.name).collect(),
-            stats: v.stats.into_iter().map(|s| (s.stat.name, s.base_stat)).collect(),
+            stats: v
+                .stats
+                .into_iter()
+                .map(|s| (s.stat.name, s.base_stat))
+                .collect(),
             artwork_url,
             ability1: ab1,
             ability2: ab2,
@@ -84,7 +103,8 @@ impl From<PokemonApiDetail> for Detail {
 }
 
 fn split_abilities_str(v: &PokemonApiDetail) -> (String, String, String) {
-    let mut normals = v.abilities
+    let mut normals = v
+        .abilities
         .iter()
         .filter(|a| !a.is_hidden)
         .filter_map(|a| a.ability.as_ref().map(|abi| abi.name.as_str()));
@@ -92,7 +112,8 @@ fn split_abilities_str(v: &PokemonApiDetail) -> (String, String, String) {
     let ab1 = normals.next().unwrap_or("").to_string();
     let ab2 = normals.next().unwrap_or("").to_string();
 
-    let hidden = v.abilities
+    let hidden = v
+        .abilities
         .iter()
         .find(|a| a.is_hidden)
         .and_then(|a| a.ability.as_ref().map(|abi| abi.name.as_str()))
@@ -108,11 +129,9 @@ pub struct PokemonService {
 }
 
 impl PokemonService {
-    pub fn new() -> Self { 
-        Self { 
-            client: reqwest::Client::builder()
-            .build()
-            .expect("reqwest client")
+    pub fn new() -> Self {
+        Self {
+            client: reqwest::Client::builder().build().expect("reqwest client"),
         }
     }
 
@@ -132,4 +151,6 @@ impl PokemonService {
     }
 }
 
-fn err(e: impl std::fmt::Display) -> String { e.to_string() }
+fn err(e: impl std::fmt::Display) -> String {
+    e.to_string()
+}

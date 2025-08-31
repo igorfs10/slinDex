@@ -12,8 +12,7 @@ fn main() {
         }
     }
 
-    let cfg = slint_build::CompilerConfiguration::new()
-        .with_style("cosmic-dark".into());
+    let cfg = slint_build::CompilerConfiguration::new().with_style("cosmic-dark".into());
     slint_build::compile_with_config("ui/app.slint", cfg).expect("Failed to compile Slint UI");
 
     let csv_path = "data/pokemon.csv"; // ajuste se necessário
@@ -34,6 +33,5 @@ fn main() {
 
     // gera em OUT_DIR
     let out_dir = std::env::var("OUT_DIR").unwrap();
-    std::fs::write(std::path::Path::new(&out_dir).join("pokemon_list.rs"), out)
-        .unwrap();
+    std::fs::write(std::path::Path::new(&out_dir).join("pokemon_list.rs"), out).unwrap();
 }

@@ -1,6 +1,10 @@
 use lru::LruCache;
 use slint::{Brush, Color, Image, ModelRc, SharedString, VecModel};
-use std::{num::NonZeroUsize, path::Path, sync::{Arc, Mutex}};
+use std::{
+    num::NonZeroUsize,
+    path::Path,
+    sync::{Arc, Mutex},
+};
 
 mod service;
 slint::include_modules!(); // App, PokemonRow, PokemonDetail, TypeTag, StatBar...
@@ -10,9 +14,9 @@ include!(concat!(env!("OUT_DIR"), "/pokemon_list.rs")); // add lista constante c
 type StateHandle = Arc<Mutex<State>>;
 
 struct State {
-    details: LruCache<u32, service::Detail>,        // cache detalhes
-    sprites: LruCache<u32, Vec<u8>>,                // cache de bytes da sprite
-    selected: i32,                                  // índice selecionado
+    details: LruCache<u32, service::Detail>, // cache detalhes
+    sprites: LruCache<u32, Vec<u8>>,         // cache de bytes da sprite
+    selected: i32,                           // índice selecionado
 }
 
 /* ---------- helpers ---------- */
@@ -114,7 +118,9 @@ fn set_rows_from_names(app: &App, pokemons: &[(u32, &str)]) {
         .map(|n| {
             let id = n.0;
             let nome = cap_words_and_spaces(n.1);
-            PokemonRow { name: format!("{id} - {nome}").into() }
+            PokemonRow {
+                name: format!("{id} - {nome}").into(),
+            }
         })
         .collect();
     app.set_rows(ModelRc::new(VecModel::from(rows)));
@@ -128,8 +134,8 @@ fn apply_filter(app: &App, state: &StateHandle, filter: &str) {
     }
     let lista: Vec<(u32, &'static str)> = POKEMON_LIST
         .iter()
-        .copied() 
-        .filter(|item|item.0.to_string().contains(&f) || item.1.to_lowercase().contains(&f))
+        .copied()
+        .filter(|item| item.0.to_string().contains(&f) || item.1.to_lowercase().contains(&f))
         .collect();
     app.set_selected_index(-1);
     set_rows_from_names(app, &lista);
@@ -146,10 +152,7 @@ fn png_to_image(bytes: &[u8]) -> Result<slint::Image, String> {
 }
 
 // Monta o `PokemonDetail` para a UI (tipos traduzidos, barras com cor, sprite e total)
-fn make_detail_for_ui(
-    d: &service::Detail,
-    artwork_bytes: Option<&[u8]>,
-) -> PokemonDetail {
+fn make_detail_for_ui(d: &service::Detail, artwork_bytes: Option<&[u8]>) -> PokemonDetail {
     // chips de tipo (tradução + cor)
     let types_vec: Vec<TypeTag> = d
         .types
@@ -157,7 +160,7 @@ fn make_detail_for_ui(
         .map(|t| TypeTag {
             label: type_label_pt(t).into(),
             bg: type_color(t),
-            icon: type_icon(t)
+            icon: type_icon(t),
         })
         .collect();
     let types_model = ModelRc::new(VecModel::from(types_vec));
@@ -265,7 +268,7 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
     let handle = rt.handle().clone();
 
     let poke_service = service::PokemonService::new();
-    
+
     let app = App::new()?;
     let state = wire_app_common(&app);
 
@@ -288,15 +291,20 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
                 app.set_selected_index(-1);
                 set_rows_from_names(&app, &POKEMON_LIST);
             }
-        }).ok();
+        })
+        .ok();
     });
 
     // Clique: baixa detalhes e sprite, mostra no painel (com cache) e mantém seleção
     let app_w = app.as_weak();
     let state_sel = state.clone();
     app.on_select(move |idx| {
-        if idx < 0 { return; }
-        { state_sel.lock().unwrap().selected = idx; }
+        if idx < 0 {
+            return;
+        }
+        {
+            state_sel.lock().unwrap().selected = idx;
+        }
         if let Some(app) = app_w.upgrade() {
             app.set_carregando(true);
             set_detail_empty(&app);
@@ -309,7 +317,10 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
         if let Some(app) = app_w.upgrade() {
             let (maybe_d, maybe_bytes) = {
                 let mut st = state_sel.lock().unwrap();
-                (st.details.get(&id_pokemon).cloned(), st.sprites.get(&id_pokemon).cloned())
+                (
+                    st.details.get(&id_pokemon).cloned(),
+                    st.sprites.get(&id_pokemon).cloned(),
+                )
             };
             if let Some(d) = maybe_d {
                 let ui_detail = make_detail_for_ui(&d, maybe_bytes.as_deref());
@@ -353,10 +364,11 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
                         None => {
                             set_detail_error(&app, "Falha ao carregar detalhes");
                             app.set_carregando(false);
-                        },
+                        }
                     }
                 }
-            }).ok();
+            })
+            .ok();
         });
     });
 
@@ -371,10 +383,11 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
 
     // Inicial
     let app_c = app.as_weak();
-    if let Some(app) = app_c.upgrade() { app.invoke_request_load(); }
+    if let Some(app) = app_c.upgrade() {
+        app.invoke_request_load();
+    }
 
     app.run()
-    
 }
 
 /* =================== WebAssembly =================== */
@@ -410,7 +423,8 @@ pub fn start_wasm() {
                 app.set_selected_index(-1);
                 set_rows_from_names(&app, &POKEMON_LIST);
             }
-        }).ok();
+        })
+        .ok();
     });
 
     // Clique: baixa detalhes + sprite (async) e mantém seleção
@@ -418,8 +432,12 @@ pub fn start_wasm() {
     let state_sel = state.clone();
     let pkclone = poke_service.clone();
     app.on_select(move |idx| {
-        if idx < 0 { return; }
-        { state_sel.lock().unwrap().selected = idx; }
+        if idx < 0 {
+            return;
+        }
+        {
+            state_sel.lock().unwrap().selected = idx;
+        }
         if let Some(app) = app_w.upgrade() {
             app.set_carregando(true);
             set_detail_empty(&app);
@@ -432,7 +450,10 @@ pub fn start_wasm() {
         if let Some(app) = app_w.upgrade() {
             let (maybe_d, maybe_bytes) = {
                 let mut st = state_sel.lock().unwrap();
-                (st.details.get(&id_pokemon).cloned(), st.sprites.get(&id_pokemon).cloned())
+                (
+                    st.details.get(&id_pokemon).cloned(),
+                    st.sprites.get(&id_pokemon).cloned(),
+                )
             };
             if let Some(d) = maybe_d {
                 let ui_detail = make_detail_for_ui(&d, maybe_bytes.as_deref());
@@ -473,13 +494,14 @@ pub fn start_wasm() {
                             app.set_detail(ui_detail);
                             app.set_carregando(false);
                         }
-                        None =>{
+                        None => {
                             set_detail_error(&app, "Falha ao carregar detalhes");
                             app.set_carregando(false);
-                        },
+                        }
                     }
                 }
-            }).ok();
+            })
+            .ok();
         });
     });
 
@@ -494,7 +516,9 @@ pub fn start_wasm() {
 
     // Inicial
     let app_c = app.as_weak();
-    if let Some(app) = app_c.upgrade() { app.invoke_request_load(); }
+    if let Some(app) = app_c.upgrade() {
+        app.invoke_request_load();
+    }
 
     app.run().expect("run app");
 }
