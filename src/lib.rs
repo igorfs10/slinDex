@@ -201,7 +201,7 @@ fn stat_color(k: &str) -> Brush {
     Brush::from(c)
 }
 
-fn set_rows_from_names(app: &App, pokemons: &[(u32, &str)]) {
+fn set_rows_from_pokemon(app: &App, pokemons: &[(u32, &str)]) {
     let rows: Vec<PokemonRow> = pokemons
         .iter()
         .map(|n| {
@@ -232,7 +232,7 @@ fn apply_filter(app: &App, state: &StateHandle, filter: &str) {
         .filter(|item| item.0.to_string().contains(&f) || item.1.to_lowercase().contains(&f))
         .collect();
     app.set_selected_index(-1);
-    set_rows_from_names(app, &lista);
+    set_rows_from_pokemon(app, &lista);
 }
 
 // Converte bytes PNG -> Image (feito na thread da UI)
@@ -384,7 +384,7 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
                 let mut st = state_list.lock().unwrap();
                 st.selected = -1;
                 app.set_selected_index(-1);
-                set_rows_from_names(&app, &POKEMON_LIST);
+                set_rows_from_pokemon(&app, &POKEMON_LIST);
             }
         })
         .ok();
@@ -522,7 +522,7 @@ pub fn start_wasm() {
                 let mut st = state_list.lock().unwrap();
                 st.selected = -1;
                 app.set_selected_index(-1);
-                set_rows_from_names(&app, &POKEMON_LIST);
+                set_rows_from_pokemon(&app, &POKEMON_LIST);
             }
         })
         .ok();
