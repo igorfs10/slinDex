@@ -5,13 +5,13 @@ use std::{num::NonZeroUsize, path::Path, sync::{Arc, Mutex}};
 mod service;
 slint::include_modules!(); // App, PokemonRow, PokemonDetail, TypeTag, StatBar...
 
+include!(concat!(env!("OUT_DIR"), "/pokemon_list.rs")); // add lista constante com todos os pokémons
+
 type StateHandle = Arc<Mutex<State>>;
 
 struct State {
-    full: Vec<String>,                              // todos os nomes
-    view: Vec<String>,                              // nomes filtrados (lista)
-    details: LruCache<String, service::Detail>,    // cache detalhes
-    sprites: LruCache<String, Vec<u8>>,             // cache de bytes da sprite
+    details: LruCache<u32, service::Detail>,        // cache detalhes
+    sprites: LruCache<u32, Vec<u8>>,                // cache de bytes da sprite
     selected: i32,                                  // índice selecionado
 }
 
@@ -108,10 +108,14 @@ fn stat_color(k: &str) -> Brush {
     Brush::from(c)
 }
 
-fn set_rows_from_names(app: &App, names: &[String]) {
-    let rows: Vec<PokemonRow> = names
+fn set_rows_from_names(app: &App, pokemons: &[(u32, &str)]) {
+    let rows: Vec<PokemonRow> = pokemons
         .iter()
-        .map(|n| PokemonRow { name: cap_words_and_spaces(n).into() })
+        .map(|n| {
+            let id = n.0;
+            let nome = cap_words_and_spaces(n.1);
+            PokemonRow { name: format!("{id} - {nome}").into() }
+        })
         .collect();
     app.set_rows(ModelRc::new(VecModel::from(rows)));
 }
@@ -120,17 +124,15 @@ fn apply_filter(app: &App, state: &StateHandle, filter: &str) {
     let f = filter.to_lowercase();
     {
         let mut st = state.lock().unwrap();
-        st.view = st
-            .full
-            .iter()
-            .filter(|n| n.to_lowercase().contains(&f))
-            .cloned()
-            .collect();
         st.selected = -1; // limpamos seleção ao filtrar
     }
+    let lista: Vec<(u32, &'static str)> = POKEMON_LIST
+        .iter()
+        .copied() 
+        .filter(|item|item.0.to_string().contains(&f) || item.1.to_lowercase().contains(&f))
+        .collect();
     app.set_selected_index(-1);
-    let snapshot = { state.lock().unwrap().view.clone() };
-    set_rows_from_names(app, &snapshot);
+    set_rows_from_names(app, &lista);
 }
 
 // Converte bytes PNG -> Image (feito na thread da UI)
@@ -242,8 +244,6 @@ fn set_detail_empty(app: &App) {
 fn wire_app_common(app: &App) -> StateHandle {
     let cap = NonZeroUsize::new(50).unwrap();
     let state = Arc::new(Mutex::new(State {
-        full: Vec::new(),
-        view: Vec::new(),
         details: LruCache::new(cap),
         sprites: LruCache::new(cap),
         selected: -1,
@@ -272,8 +272,6 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
     // Carrega apenas a lista de nomes
     let app_w = app.as_weak();
     let state_list = state.clone();
-    let pkclone = poke_service.clone();
-    let h = handle.clone();
     let app_w_2 = app_w.clone();
     slint::Timer::single_shot(std::time::Duration::from_secs(2), move || {
         if let Some(s) = app_w_2.upgrade() {
@@ -283,23 +281,14 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
     app.on_request_load(move || {
         let app_w = app_w.clone();
         let state_list = state_list.clone();
-        let pkclone = pkclone.clone();
-        h.spawn(async move {
-            let res = pkclone.fetch_pokemon_list().await;
-            slint::invoke_from_event_loop(move || {
-                if let Some(app) = app_w.upgrade() {
-                    match res {
-                        Ok(full) => {
-                        { let mut st = state_list.lock().unwrap(); st.full = full.clone(); st.view = full.clone(); st.selected = -1; }
-                        app.set_selected_index(-1);
-                        let snapshot = { state_list.lock().unwrap().view.clone() };
-                        set_rows_from_names(&app, &snapshot);
-                    }
-                        Err(e) => set_detail_error(&app, &e),
-                    }
-                }
-            }).ok();
-        });
+        slint::invoke_from_event_loop(move || {
+            if let Some(app) = app_w.upgrade() {
+                let mut st = state_list.lock().unwrap();
+                st.selected = -1;
+                app.set_selected_index(-1);
+                set_rows_from_names(&app, &POKEMON_LIST);
+            }
+        }).ok();
     });
 
     // Clique: baixa detalhes e sprite, mostra no painel (com cache) e mantém seleção
@@ -315,13 +304,12 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
             app.set_selected_index(idx);
         }
 
-        let name = { let st = state_sel.lock().unwrap(); st.view.get(idx as usize).cloned() };
-        let Some(name) = name else { return };
+        let id_pokemon = POKEMON_LIST[idx as usize].0;
 
         if let Some(app) = app_w.upgrade() {
             let (maybe_d, maybe_bytes) = {
                 let mut st = state_sel.lock().unwrap();
-                (st.details.get(&name).cloned(), st.sprites.get(&name).cloned())
+                (st.details.get(&id_pokemon).cloned(), st.sprites.get(&id_pokemon).cloned())
             };
             if let Some(d) = maybe_d {
                 let ui_detail = make_detail_for_ui(&d, maybe_bytes.as_deref());
@@ -335,7 +323,7 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
         let pkclone = poke_service.clone();
         let h = handle.clone();
         h.spawn(async move {
-            let dres = pkclone.fetch_pokemon_detail(&name).await;
+            let dres = pkclone.fetch_pokemon_detail(id_pokemon).await;
             let (detail, sprite_bytes): (Option<service::Detail>, Option<Vec<u8>>) = match dres {
                 Ok(d) => {
                     let bytes = match d.artwork_url.as_deref() {
@@ -353,9 +341,9 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
                         Some(d) => {
                             {
                                 let mut st = state_sel2.lock().unwrap();
-                                st.details.put(name.clone(), d.clone());
+                                st.details.put(id_pokemon, d.clone());
                                 if let Some(b) = &sprite_bytes {
-                                    st.sprites.put(name.clone(), b.clone());
+                                    st.sprites.put(id_pokemon, b.clone());
                                 }
                             }
                             let ui_detail = make_detail_for_ui(&d, sprite_bytes.as_deref());
@@ -406,7 +394,6 @@ pub fn start_wasm() {
     // Carrega só a lista de nomes
     let app_w = app.as_weak();
     let state_list = state.clone();
-    let pkclone = poke_service.clone();
     let app_w_2 = app_w.clone();
     slint::Timer::single_shot(std::time::Duration::from_secs(2), move || {
         if let Some(s) = app_w_2.upgrade() {
@@ -416,23 +403,14 @@ pub fn start_wasm() {
     app.on_request_load(move || {
         let app_w = app_w.clone();
         let state_list = state_list.clone();
-        let pkclone = pkclone.clone();
-        wasm_bindgen_futures::spawn_local(async move {
-            let res = pkclone.fetch_pokemon_list().await;
-            slint::invoke_from_event_loop(move || {
-                if let Some(app) = app_w.upgrade() {
-                    match res {
-                        Ok(full) => {
-                            { let mut st = state_list.lock().unwrap(); st.full = full.clone(); st.view = full.clone(); st.selected = -1; }
-                            app.set_selected_index(-1);
-                            let snapshot = { state_list.lock().unwrap().view.clone() };
-                            set_rows_from_names(&app, &snapshot);
-                        }
-                        Err(e) => set_detail_error(&app, &e),
-                    }
-                }
-            }).ok();
-        });
+        slint::invoke_from_event_loop(move || {
+            if let Some(app) = app_w.upgrade() {
+                let mut st = state_list.lock().unwrap();
+                st.selected = -1;
+                app.set_selected_index(-1);
+                set_rows_from_names(&app, &POKEMON_LIST);
+            }
+        }).ok();
     });
 
     // Clique: baixa detalhes + sprite (async) e mantém seleção
@@ -449,13 +427,12 @@ pub fn start_wasm() {
             app.set_selected_index(idx);
         }
 
-        let name = { let st = state_sel.lock().unwrap(); st.view.get(idx as usize).cloned() };
-        let Some(name) = name else { return };
+        let id_pokemon = POKEMON_LIST[idx as usize].0;
 
         if let Some(app) = app_w.upgrade() {
             let (maybe_d, maybe_bytes) = {
                 let mut st = state_sel.lock().unwrap();
-                (st.details.get(&name).cloned(), st.sprites.get(&name).cloned())
+                (st.details.get(&id_pokemon).cloned(), st.sprites.get(&id_pokemon).cloned())
             };
             if let Some(d) = maybe_d {
                 let ui_detail = make_detail_for_ui(&d, maybe_bytes.as_deref());
@@ -469,7 +446,7 @@ pub fn start_wasm() {
         let state_sel2 = state_sel.clone();
         let pkclone = pkclone.clone();
         wasm_bindgen_futures::spawn_local(async move {
-            let dres = pkclone.fetch_pokemon_detail(&name).await;
+            let dres = pkclone.fetch_pokemon_detail(id_pokemon).await;
             let (detail, sprite_bytes): (Option<service::Detail>, Option<Vec<u8>>) = match dres {
                 Ok(d) => {
                     let bytes = match d.artwork_url.as_deref() {
@@ -487,9 +464,9 @@ pub fn start_wasm() {
                         Some(d) => {
                             {
                                 let mut st = state_sel2.lock().unwrap();
-                                st.details.put(name.clone(), d.clone());
+                                st.details.put(id_pokemon, d.clone());
                                 if let Some(b) = &sprite_bytes {
-                                    st.sprites.put(name.clone(), b.clone());
+                                    st.sprites.put(id_pokemon, b.clone());
                                 }
                             }
                             let ui_detail = make_detail_for_ui(&d, sprite_bytes.as_deref());

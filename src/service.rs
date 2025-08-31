@@ -6,9 +6,6 @@ const BASE: &str = "https://pokeapi.co/api/v2";
 struct NamedResource { name: String }
 
 #[derive(Debug, Deserialize)]
-struct ListResp { results: Vec<NamedResource> }
-
-#[derive(Debug, Deserialize)]
 struct PokemonTypeEntry { #[serde(rename = "type")] typ: NamedResource }
 
 #[derive(Debug, Deserialize)]
@@ -119,16 +116,8 @@ impl PokemonService {
         }
     }
 
-    pub async fn fetch_pokemon_list(&self) -> Result<Vec<String>, String> {
-        let url = format!("{BASE}/pokemon?limit=10000");
-        let resp = self.client.get(url).send().await.map_err(err)?;
-        let resp = resp.error_for_status().map_err(err)?;
-        let json: ListResp = resp.json().await.map_err(err)?;
-        Ok(json.results.into_iter().map(|r| r.name).collect())
-    }
-
-    pub async fn fetch_pokemon_detail(&self, name: &str) -> Result<Detail, String> {
-        let url = format!("{BASE}/pokemon/{name}");
+    pub async fn fetch_pokemon_detail(&self, id: u32) -> Result<Detail, String> {
+        let url = format!("{BASE}/pokemon/{id}");
         let resp = self.client.get(url).send().await.map_err(err)?;
         let resp = resp.error_for_status().map_err(err)?;
         let data: PokemonApiDetail = resp.json().await.map_err(err)?;
