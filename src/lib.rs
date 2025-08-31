@@ -1,8 +1,7 @@
 use lru::LruCache;
-use slint::{Brush, Color, Image, ModelRc, SharedString, VecModel};
+use slint::{Brush, Color, ModelRc, SharedString, VecModel};
 use std::{
     num::NonZeroUsize,
-    path::Path,
     sync::{Arc, Mutex},
 };
 
@@ -93,10 +92,43 @@ fn type_label_pt(t: &str) -> &'static str {
     }
 }
 
-// ícones dos tipos
-fn type_icon(t: &str) -> Image {
-    Image::load_from_path(Path::new(&format!("ui/imagens/tipos/{t}.png"))).unwrap()
+fn load_icon(bytes: &'static [u8]) -> slint::Image {
+    // usa crate `image` para decodificar PNG dos bytes embutidos
+    let img = image::load_from_memory(bytes).unwrap();
+    let rgba = img.to_rgba8();
+    let (w, h) = rgba.dimensions();
+    let mut buf = slint::SharedPixelBuffer::<slint::Rgba8Pixel>::new(w, h);
+    buf.make_mut_bytes().copy_from_slice(rgba.as_raw());
+    slint::Image::from_rgba8(buf)
 }
+
+// ícones dos tipos
+fn type_icon(t: &str) -> slint::Image {
+    // Carrega bytes embutidos em compile-time e cria a imagem; sem panic se faltar.
+    // (Se faltar o arquivo, o compilador já erra na macro `include_bytes!`)
+    match t {
+        "normal"   => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/normal.png"))),
+        "fire"     => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/fire.png"))),
+        "water"    => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/water.png"))),
+        "electric" => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/electric.png"))),
+        "grass"    => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/grass.png"))),
+        "ice"      => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/ice.png"))),
+        "fighting" => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/fighting.png"))),
+        "poison"   => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/poison.png"))),
+        "ground"   => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/ground.png"))),
+        "flying"   => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/flying.png"))),
+        "psychic"  => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/psychic.png"))),
+        "bug"      => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/bug.png"))),
+        "rock"     => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/rock.png"))),
+        "ghost"    => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/ghost.png"))),
+        "dragon"   => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/dragon.png"))),
+        "dark"     => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/dark.png"))),
+        "steel"    => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/steel.png"))),
+        "fairy"    => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/fairy.png"))),
+        _          => load_icon(include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "/ui/imagens/tipos/normal.png"))),
+    }
+}
+
 
 // cores por stat (barras)
 fn stat_color(k: &str) -> Brush {
