@@ -1,4 +1,12 @@
+use rust_embed::Embed;
 use slint::{Brush, Color};
+
+// ÍCONES DE TIPOS
+#[derive(Embed)]
+#[folder = "imagens/tipos/"]     // embute toda a pasta
+struct TypeIcons;
+
+
 /// Capitaliza palavras e substitui hífens por espaço
 pub fn cap_words_and_spaces(s: &str) -> String {
     let mut out = String::with_capacity(s.len());
@@ -71,95 +79,17 @@ pub fn type_label_pt(t: &str) -> &'static str {
     }
 }
 
-/// Decodifica PNG dos bytes embutidos
-pub fn load_icon(bytes: &'static [u8]) -> slint::Image {
-    let img = image::load_from_memory(bytes).unwrap();
-    let rgba = img.to_rgba8();
-    let (w, h) = rgba.dimensions();
-    let mut buf = slint::SharedPixelBuffer::<slint::Rgba8Pixel>::new(w, h);
-    buf.make_mut_bytes().copy_from_slice(rgba.as_raw());
-    slint::Image::from_rgba8(buf)
+fn load_embedded_image(bytes: &[u8]) -> slint::Image {
+    // usa seu png_to_image; se quiser suportar .webp também, o `image` já lida
+    png_to_image(bytes).unwrap_or_default()
 }
 
-/// Ícone por tipo
+// carrega um ícone de tipo pelo nome (ex.: "poison" -> "poison.png")
 pub fn type_icon(t: &str) -> slint::Image {
-    match t {
-        "normal" => load_icon(include_bytes!(concat!(
-            env!("CARGO_MANIFEST_DIR"),
-            "/imagens/tipos/normal.png"
-        ))),
-        "fire" => load_icon(include_bytes!(concat!(
-            env!("CARGO_MANIFEST_DIR"),
-            "/imagens/tipos/fire.png"
-        ))),
-        "water" => load_icon(include_bytes!(concat!(
-            env!("CARGO_MANIFEST_DIR"),
-            "/imagens/tipos/water.png"
-        ))),
-        "electric" => load_icon(include_bytes!(concat!(
-            env!("CARGO_MANIFEST_DIR"),
-            "/imagens/tipos/electric.png"
-        ))),
-        "grass" => load_icon(include_bytes!(concat!(
-            env!("CARGO_MANIFEST_DIR"),
-            "/imagens/tipos/grass.png"
-        ))),
-        "ice" => load_icon(include_bytes!(concat!(
-            env!("CARGO_MANIFEST_DIR"),
-            "/imagens/tipos/ice.png"
-        ))),
-        "fighting" => load_icon(include_bytes!(concat!(
-            env!("CARGO_MANIFEST_DIR"),
-            "/imagens/tipos/fighting.png"
-        ))),
-        "poison" => load_icon(include_bytes!(concat!(
-            env!("CARGO_MANIFEST_DIR"),
-            "/imagens/tipos/poison.png"
-        ))),
-        "ground" => load_icon(include_bytes!(concat!(
-            env!("CARGO_MANIFEST_DIR"),
-            "/imagens/tipos/ground.png"
-        ))),
-        "flying" => load_icon(include_bytes!(concat!(
-            env!("CARGO_MANIFEST_DIR"),
-            "/imagens/tipos/flying.png"
-        ))),
-        "psychic" => load_icon(include_bytes!(concat!(
-            env!("CARGO_MANIFEST_DIR"),
-            "/imagens/tipos/psychic.png"
-        ))),
-        "bug" => load_icon(include_bytes!(concat!(
-            env!("CARGO_MANIFEST_DIR"),
-            "/imagens/tipos/bug.png"
-        ))),
-        "rock" => load_icon(include_bytes!(concat!(
-            env!("CARGO_MANIFEST_DIR"),
-            "/imagens/tipos/rock.png"
-        ))),
-        "ghost" => load_icon(include_bytes!(concat!(
-            env!("CARGO_MANIFEST_DIR"),
-            "/imagens/tipos/ghost.png"
-        ))),
-        "dragon" => load_icon(include_bytes!(concat!(
-            env!("CARGO_MANIFEST_DIR"),
-            "/imagens/tipos/dragon.png"
-        ))),
-        "dark" => load_icon(include_bytes!(concat!(
-            env!("CARGO_MANIFEST_DIR"),
-            "/imagens/tipos/dark.png"
-        ))),
-        "steel" => load_icon(include_bytes!(concat!(
-            env!("CARGO_MANIFEST_DIR"),
-            "/imagens/tipos/steel.png"
-        ))),
-        "fairy" => load_icon(include_bytes!(concat!(
-            env!("CARGO_MANIFEST_DIR"),
-            "/imagens/tipos/fairy.png"
-        ))),
-        _ => load_icon(include_bytes!(concat!(
-            env!("CARGO_MANIFEST_DIR"),
-            "/imagens/tipos/normal.png"
-        ))),
+    if let Some(embeded_file) = TypeIcons::get(&format!("{t}.png")) {
+        load_embedded_image(embeded_file.data.as_ref())
+    } else {
+        slint::Image::default() // fallback
     }
 }
 
