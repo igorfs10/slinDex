@@ -322,9 +322,7 @@ export component App inherits Window {
     // breakpoint simples
     property <bool> compact: self.width < 720px;
 
-    if(splash):Splash{
-
-    }
+    if(splash):Splash{}
 
     if(!splash):VerticalBox {
         spacing: 12px; padding: 12px;
@@ -370,7 +368,7 @@ export component App inherits Window {
                 // geometria muda com o breakpoint
                 x: 0px;
                 y: 0px;
-                width: root.compact ? parent.width : 220px;
+                width: root.compact ? parent.width : 300px;
                 height: parent.height;
 
                 rows: root.rows;
