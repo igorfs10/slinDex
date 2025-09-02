@@ -3,30 +3,8 @@ use slint::{Brush, Color};
 
 // ÍCONES DE TIPOS
 #[derive(Embed)]
-#[folder = "imagens/tipos/"]     // embute toda a pasta
+#[folder = "imagens/tipos/"] // embute toda a pasta
 struct TypeIcons;
-
-
-/// Capitaliza palavras e substitui hífens por espaço
-pub fn cap_words_and_spaces(s: &str) -> String {
-    let mut out = String::with_capacity(s.len());
-    let mut cap_next = true;
-    for ch in s.chars() {
-        if ch == '-' {
-            out.push(' ');
-            cap_next = true;
-        } else if ch.is_whitespace() {
-            out.push(ch);
-            cap_next = true;
-        } else if cap_next {
-            out.extend(ch.to_uppercase());
-            cap_next = false;
-        } else {
-            out.push(ch);
-        }
-    }
-    out
-}
 
 /// Cor por tipo
 pub fn type_color(t: &str) -> Brush {
@@ -107,6 +85,24 @@ pub fn stat_color(k: &str) -> Brush {
     Brush::from(c)
 }
 
+/// Cor pokemon
+pub fn pokemon_color(k: &str) -> Brush {
+    let c = match k {
+        "1" => Color::from_rgb_u8(43, 43, 43),    // Black
+        "2" => Color::from_rgb_u8(0, 149, 217),   // Blue
+        "3" => Color::from_rgb_u8(150, 80, 66),   // Brown
+        "4" => Color::from_rgb_u8(125, 125, 125), // Gray
+        "5" => Color::from_rgb_u8(62, 179, 112),  // Green
+        "6" => Color::from_rgb_u8(227, 134, 152), // Pink
+        "7" => Color::from_rgb_u8(136, 72, 152),  // Purple
+        "8" => Color::from_rgb_u8(230, 0, 51),    // Red
+        "9" => Color::from_rgb_u8(255, 255, 255), // White
+        "10" => Color::from_rgb_u8(255, 217, 0),  // Yellow
+        _ => Color::from_rgb_u8(0, 0, 0),         // Default: Black
+    };
+    Brush::from(c)
+}
+
 /// Converte bytes PNG -> Image
 pub fn png_to_image(bytes: &[u8]) -> Result<slint::Image, String> {
     let img = image::load_from_memory(bytes).map_err(|e| e.to_string())?;
@@ -115,4 +111,25 @@ pub fn png_to_image(bytes: &[u8]) -> Result<slint::Image, String> {
     let mut buf = slint::SharedPixelBuffer::<slint::Rgba8Pixel>::new(w, h);
     buf.make_mut_bytes().copy_from_slice(rgba.as_raw());
     Ok(slint::Image::from_rgba8(buf))
+}
+
+/// Capitaliza palavras e substitui hífens por espaço
+pub fn cap_words_and_spaces(s: &str) -> String {
+    let mut out = String::with_capacity(s.len());
+    let mut cap_next = true;
+    for ch in s.chars() {
+        if ch == '-' {
+            out.push(' ');
+            cap_next = true;
+        } else if ch.is_whitespace() {
+            out.push(ch);
+            cap_next = true;
+        } else if cap_next {
+            out.extend(ch.to_uppercase());
+            cap_next = false;
+        } else {
+            out.push(ch);
+        }
+    }
+    out
 }

@@ -17,6 +17,7 @@ export struct PokemonDetail {
     ability2: string,
     hiddenAbility: string,
     error: string,
+    color: brush,
 }
 
 // ====== Componene lista de pokémon ======
@@ -132,8 +133,6 @@ component DetailPanel inherits Rectangle {
             width: parent.width;
             spacing: 10px;
 
-            Rectangle { height: 1px; background: #1f2937; }
-
             // sprite centralizada
             Rectangle {
                 width: parent.width;
@@ -142,8 +141,19 @@ component DetailPanel inherits Rectangle {
                     width: 250px; height: 250px;
                     x: (parent.width - self.width) / 2;
                     y: (parent.height - self.height) / 2;
-                    border-radius: 10px; background: transparent;
-                    Image { source: root.detail.artwork; width: parent.width; height: parent.height; }
+                    border-radius: 10px; 
+                    background: @radial-gradient(circle,
+                        detail.color 0%,
+                        detail.color 20%, 
+                        detail.color 20%,
+                        detail.color 30%,
+                        transparent 75%,
+                        transparent 100%);
+                    Image {
+                        source: root.detail.artwork;
+                        width: parent.width;
+                        height: parent.height;
+                    }
                 }
             }
 
@@ -245,8 +255,6 @@ component DetailPanel inherits Rectangle {
                     Text { text: root.detail.total; width: 44px; color: #fef3c7; }
                 }
             }
-
-            Rectangle { height: 12px; background: transparent; }
         }
     }
 }

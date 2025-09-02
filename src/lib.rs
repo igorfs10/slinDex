@@ -1,6 +1,6 @@
 use helpers::*;
 use lru::LruCache;
-use slint::{ModelRc, SharedString, VecModel};
+use slint::{Brush, Color, ModelRc, SharedString, VecModel};
 use std::{
     num::NonZeroUsize,
     sync::{Arc, Mutex},
@@ -16,18 +16,18 @@ type StateHandle = Arc<Mutex<State>>;
 
 /// Estado compartilhado da aplicação
 struct State {
-    view: Vec<(u32, &'static str)>,
+    view: Vec<Pokemon>,
     details: LruCache<u32, service::Detail>, // cache detalhes
     sprites: LruCache<u32, Vec<u8>>,         // cache de bytes da sprite
     selected: i32,                           // índice selecionado
 }
 
 // =================== UI Utils ===================
-fn set_rows_from_pokemon(app: &App, pokemons: &[(u32, &str)]) {
+fn set_rows_from_pokemon(app: &App, pokemons: &[Pokemon]) {
     let rows: Vec<PokemonRow> = pokemons
         .iter()
-        .map(|&(id, name)| PokemonRow {
-            name: format!("{id} - {}", cap_words_and_spaces(name)).into(),
+        .map(|pokemon| PokemonRow {
+            name: format!("{} - {}", pokemon.id, pokemon.name).into(),
         })
         .collect();
     app.set_rows(ModelRc::new(VecModel::from(rows)));
@@ -42,17 +42,17 @@ fn apply_filter(app: &App, state: &StateHandle, filter: &str) {
             .iter()
             .copied()
             .filter(|item| {
-                item.0.to_string().contains(&filter_lower)
-                    || item.1.to_lowercase().contains(&filter_lower)
+                item.id.to_string().contains(&filter_lower)
+                    || item.name.to_lowercase().contains(&filter_lower)
             })
             .collect();
     }
-    let filtered_list: Vec<(u32, &'static str)> = POKEMON_LIST
+    let filtered_list: Vec<Pokemon> = POKEMON_LIST
         .iter()
         .copied()
         .filter(|item| {
-            item.0.to_string().contains(&filter_lower)
-                || item.1.to_lowercase().contains(&filter_lower)
+            item.id.to_string().contains(&filter_lower)
+                || item.name.to_lowercase().contains(&filter_lower)
         })
         .collect();
     app.set_selected_index(-1);
@@ -100,7 +100,12 @@ fn make_detail_for_ui(detail: &service::Detail, artwork_bytes: Option<&[u8]>) ->
         .unwrap_or_default();
 
     PokemonDetail {
-        name: cap_words_and_spaces(&detail.name).into(),
+        name: POKEMON_LIST
+            .iter()
+            .find(|p| p.id == detail.id)
+            .map(|p| p.name)
+            .unwrap_or_default()
+            .into(),
         id: detail.id as i32,
         height: detail.height as i32,
         weight: detail.weight as i32,
@@ -112,6 +117,13 @@ fn make_detail_for_ui(detail: &service::Detail, artwork_bytes: Option<&[u8]>) ->
         ability2: cap_words_and_spaces(&detail.ability2).into(),
         hiddenAbility: cap_words_and_spaces(&detail.hidden_ability).into(),
         error: "".into(),
+        color: pokemon_color(
+            POKEMON_LIST
+                .iter()
+                .find(|p| p.id == detail.id)
+                .map(|p| p.color)
+                .unwrap_or("11"),
+        ), // default
     }
 }
 
@@ -129,6 +141,7 @@ fn set_detail_error(app: &App, msg: &str) {
         ability2: "".into(),
         hiddenAbility: "".into(),
         error: msg.into(),
+        color: Brush::from(Color::from_argb_encoded(0x00000000)),
     });
 }
 
@@ -146,6 +159,7 @@ fn set_detail_empty(app: &App) {
         ability2: "".into(),
         hiddenAbility: "".into(),
         error: "".into(),
+        color: Brush::from(Color::from_argb_encoded(0x00000000)),
     });
 }
 
@@ -218,7 +232,7 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
         let id_pokemon = {
             let state = state_sel.lock().unwrap();
             match state.view.get(idx as usize) {
-                Some(&(id, _)) => id,
+                Some(&pokemon) => pokemon.id,
                 None => return,
             }
         };
@@ -351,7 +365,7 @@ pub fn start_wasm() {
         let id_pokemon = {
             let state = state_sel.lock().unwrap();
             match state.view.get(idx as usize) {
-                Some(&(id, _)) => id,
+                Some(&pokemon) => pokemon.id,
                 None => return,
             }
         };

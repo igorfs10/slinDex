@@ -22,7 +22,6 @@ struct StatEntry {
 #[derive(Debug, Deserialize)]
 struct PokemonApiDetail {
     id: u32,
-    name: String,
     height: u32,
     weight: u32,
     types: Vec<PokemonTypeEntry>,
@@ -61,7 +60,6 @@ struct FrontDefault {
 #[derive(Debug, Clone)]
 pub struct Detail {
     pub id: u32,
-    pub name: String,
     pub height: u32,
     pub weight: u32,
     pub types: Vec<String>,
@@ -85,7 +83,6 @@ impl From<PokemonApiDetail> for Detail {
 
         Self {
             id: v.id,
-            name: v.name,
             height: v.height,
             weight: v.weight,
             types: v.types.into_iter().map(|t| t.typ.name).collect(),
