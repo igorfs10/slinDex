@@ -1,4 +1,4 @@
-import { LineEdit, ListView, Button, Spinner, ScrollView, AboutSlint } from "std-widgets.slint";
+import { LineEdit, ListView, Button, ScrollView, AboutSlint, VerticalBox } from "std-widgets.slint";
 
 // ====== MODELOS ======
 export struct PokemonRow { name: string }
@@ -44,7 +44,7 @@ component PokemonList inherits Rectangle {
             width: parent.width;
             height: parent.height;
             mouse-drag-pan-enabled: true;
-            VerticalLayout {
+            VerticalBox {
                 width: parent.width;
                 spacing: 0px;
                 for row[i] in rows: Rectangle {
@@ -129,7 +129,7 @@ component DetailPanel inherits Rectangle {
         viewport-width: parent.width;
         mouse-drag-pan-enabled: true;
 
-        VerticalLayout {
+        VerticalBox {
             width: parent.width;
             alignment: LayoutAlignment.start;
             spacing: 10px;
@@ -379,7 +379,7 @@ export component App inherits Window {
                 // geometria muda com o breakpoint
                 x: 0px;
                 y: 0px;
-                width: root.compact ? parent.width : 300px;
+                width: root.compact ? parent.width : 250px;
                 height: parent.height;
 
                 rows: root.rows;
