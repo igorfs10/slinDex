@@ -54,3 +54,7 @@ strip = true
 lto = true
 codegen-units = 1
 panic = "abort"
+opt-level = 3
+
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = ["-O3", "--enable-bulk-memory", "--enable-nontrapping-float-to-int", "--strip-debug"]

@@ -162,7 +162,7 @@ component DetailPanel inherits Rectangle {
             VerticalLayout {
                 visible: true;
                 alignment: LayoutAlignment.start;
-                spacing: 8px;
+                spacing: 15px;
 
                 // chips (centralizados)
                 HorizontalLayout {
@@ -226,7 +226,8 @@ component DetailPanel inherits Rectangle {
 
             // barras
             VerticalLayout {
-                spacing: 8px;
+                padding-top: 10px;
+                spacing: 10px;
 
                 for s in root.detail.stats: HorizontalLayout {
                     spacing: 8px;

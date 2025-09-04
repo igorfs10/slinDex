@@ -204,15 +204,12 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
     app.on_request_load(move || {
         let app_w = app_w.clone();
         let state_list = state_list.clone();
-        slint::invoke_from_event_loop(move || {
-            if let Some(app) = app_w.upgrade() {
-                let mut state = state_list.lock().unwrap();
-                state.selected = -1;
-                app.set_selected_index(-1);
-                set_rows_from_pokemon(&app, &POKEMON_LIST);
-            }
-        })
-        .ok();
+        if let Some(app) = app_w.upgrade() {
+            let mut state = state_list.lock().unwrap();
+            state.selected = -1;
+            app.set_selected_index(-1);
+            set_rows_from_pokemon(&app, &POKEMON_LIST);
+        }
     });
 
     // Seleção
@@ -336,15 +333,12 @@ pub fn start_wasm() {
     app.on_request_load(move || {
         let app_w = app_w.clone();
         let state_list = state_list.clone();
-        slint::invoke_from_event_loop(move || {
-            if let Some(app) = app_w.upgrade() {
-                let mut state = state_list.lock().unwrap();
-                state.selected = -1;
-                app.set_selected_index(-1);
-                set_rows_from_pokemon(&app, &POKEMON_LIST);
-            }
-        })
-        .ok();
+        if let Some(app) = app_w.upgrade() {
+            let mut state = state_list.lock().unwrap();
+            state.selected = -1;
+            app.set_selected_index(-1);
+            set_rows_from_pokemon(&app, &POKEMON_LIST);
+        }
     });
 
     // Seleção
