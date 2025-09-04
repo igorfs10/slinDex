@@ -1,4 +1,4 @@
-import { LineEdit, ListView, VerticalBox, HorizontalBox, Button, Spinner, ScrollView, AboutSlint } from "std-widgets.slint";
+import { LineEdit, ListView, Button, Spinner, ScrollView, AboutSlint } from "std-widgets.slint";
 
 // ====== MODELOS ======
 export struct PokemonRow { name: string }
@@ -44,7 +44,7 @@ component PokemonList inherits Rectangle {
             width: parent.width;
             height: parent.height;
             mouse-drag-pan-enabled: true;
-            VerticalBox {
+            VerticalLayout {
                 width: parent.width;
                 spacing: 0px;
                 for row[i] in rows: Rectangle {
@@ -129,8 +129,9 @@ component DetailPanel inherits Rectangle {
         viewport-width: parent.width;
         mouse-drag-pan-enabled: true;
 
-        VerticalBox {
+        VerticalLayout {
             width: parent.width;
+            alignment: LayoutAlignment.start;
             spacing: 10px;
 
             // sprite centralizada
@@ -158,17 +159,18 @@ component DetailPanel inherits Rectangle {
             }
 
             // chips de tipos + nome + infos
-            VerticalBox {
-                spacing: 6px;
+            VerticalLayout {
+                visible: true;
+                alignment: LayoutAlignment.start;
+                spacing: 8px;
 
                 // chips (centralizados)
-                HorizontalBox {
+                HorizontalLayout {
                     width: parent.width;
                     Rectangle { horizontal-stretch: 1; }
 
-                    HorizontalBox {
+                    HorizontalLayout {
                         spacing: 6px;
-
                         for t in root.detail.types: Rectangle {
                             height: 20px;
                             border-radius: 8px;
@@ -205,28 +207,28 @@ component DetailPanel inherits Rectangle {
                 }
 
                 // infos básicas
-                HorizontalBox { spacing: 16px;
-                    Text { text: "ID: " + (root.detail.id == 0 ? "-" : root.detail.id); color: #e5e7eb; }
-                    Text { text: "Altura: " + (root.detail.height == 0 ? "-" : (root.detail.height / 10.0) + " m"); color: #e5e7eb; }
-                    Text { text: "Peso: " + (root.detail.weight == 0 ? "-" : (root.detail.weight / 10.0) + " kg"); color: #e5e7eb; }
+                HorizontalLayout {
+                    Text { text: "ID: " + (root.detail.id == 0 ? "-" : root.detail.id); color: #e5e7eb;  font-size: 14px; }
+                    Text { text: "Altura: " + (root.detail.height == 0 ? "-" : (root.detail.height / 10.0) + " m"); color: #e5e7eb;  font-size: 14px; }
+                    Text { text: "Peso: " + (root.detail.weight == 0 ? "-" : (root.detail.weight / 10.0) + " kg"); color: #e5e7eb;  font-size: 14px; }
                 }
 
-                HorizontalBox { spacing: 8px;
-                    Text { text: "Habilidade: " + (root.detail.ability1 == "" ? "-" : root.detail.ability1); color: #e5e7eb; }
-                    Text { text: "Habilidade 2: " + (root.detail.ability2 == "" ? "-" : root.detail.ability2); color: #e5e7eb; }
+                HorizontalLayout {
+                    Text { text: "Habilidade: " + (root.detail.ability1 == "" ? "-" : root.detail.ability1); color: #e5e7eb;  font-size: 14px; }
+                    Text { text: "Habilidade 2: " + (root.detail.ability2 == "" ? "-" : root.detail.ability2); color: #e5e7eb;  font-size: 14px; }
                 }
-                HorizontalBox { spacing: 8px;
-                    Text { text: "Hidden: " + (root.detail.hiddenAbility == "" ? "-" : root.detail.hiddenAbility); color: #e5e7eb; }
+                HorizontalLayout {
+                    Text { text: "Hidden: " + (root.detail.hiddenAbility == "" ? "-" : root.detail.hiddenAbility); color: #e5e7eb;  font-size: 14px; }
                 }
             }
 
             if (root.detail.error != "") : Text { text: root.detail.error; color: #ef4444; }
 
             // barras
-            VerticalBox {
-                spacing: 6px;
+            VerticalLayout {
+                spacing: 8px;
 
-                for s in root.detail.stats: HorizontalBox {
+                for s in root.detail.stats: HorizontalLayout {
                     spacing: 8px;
                     Text { text: s.name; width: 120px; color: #9ca3af; }
                     Rectangle { // trilho
@@ -242,7 +244,7 @@ component DetailPanel inherits Rectangle {
                 }
 
                 // total
-                HorizontalBox { spacing: 8px;
+                HorizontalLayout { spacing: 8px;
                     Text { text: "Total"; width: 120px; color: #d1d5db; }
                     Rectangle {
                         height: 14px; border-radius: 7px; background: #1f2937; horizontal-stretch: 1;
@@ -332,7 +334,7 @@ export component App inherits Window {
 
     if(splash):Splash{}
 
-    if(!splash):VerticalBox {
+    if(!splash):VerticalLayout {
         spacing: 12px; padding: 12px;
 
         // --- top bar ---
@@ -342,7 +344,7 @@ export component App inherits Window {
             horizontal-stretch: 1;
 
             // Versão normal (busca + botões)
-            if (!(root.compact && root.visualiza_pokemon)) : HorizontalBox {
+            if (!(root.compact && root.visualiza_pokemon)) : HorizontalLayout {
                 x: 0px; y: 0px; width: parent.width; height: parent.height;
                 spacing: 8px;
 
@@ -356,7 +358,7 @@ export component App inherits Window {
             }
 
             // Versão compacta com "Voltar"
-            if (root.compact && root.visualiza_pokemon) : HorizontalBox {
+            if (root.compact && root.visualiza_pokemon) : HorizontalLayout {
                 x: 0px; y: 0px; width: parent.width; height: parent.height;
                 spacing: 8px;
                 Button {
