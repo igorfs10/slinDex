@@ -15,7 +15,7 @@ fn main() {
     let cfg = slint_build::CompilerConfiguration::new().with_style("cosmic-dark".into());
     slint_build::compile_with_config("ui/app.slint", cfg).expect("Failed to compile Slint UI");
 
-    let csv_path = "data/pokemon.csv"; // ajuste se necessário
+    let csv_path = "data/pokemon_main.csv"; // ajuste se necessário
     let csv = std::fs::read_to_string(csv_path).expect("failed to read CSV");
 
     let mut out = String::new();
