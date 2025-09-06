@@ -1796,7 +1796,7 @@
       {
         "to": 462,
         "name": "Magnezone",
-        "method": "lvl up"
+        "method": "lvl up: local especial: Mt. Coronet"
       }
     ],
     "base_species_id": 81
@@ -2918,12 +2918,12 @@
       {
         "to": 470,
         "name": "Leafeon",
-        "method": "lvl up"
+        "method": "lvl up: local especial: Eterna Forest"
       },
       {
         "to": 471,
         "name": "Glaceon",
-        "method": "lvl up"
+        "method": "lvl up: local especial: Route 217"
       },
       {
         "to": 700,
@@ -6084,7 +6084,7 @@
       {
         "to": 475,
         "name": "Gallade",
-        "method": "item: Dawn Stone, macho"
+        "method": "item: Dawn Stone, só fêmea"
       }
     ],
     "base_species_id": 280
@@ -6473,7 +6473,7 @@
       {
         "to": 476,
         "name": "Probopass",
-        "method": "lvl up"
+        "method": "lvl up: local especial: Mt. Coronet"
       }
     ],
     "base_species_id": 299
@@ -7750,7 +7750,7 @@
       {
         "to": 478,
         "name": "Froslass",
-        "method": "item: Dawn Stone, fêmea"
+        "method": "item: Dawn Stone, só macho"
       }
     ],
     "base_species_id": 361
@@ -8811,12 +8811,12 @@
       {
         "to": 413,
         "name": "Wormadam",
-        "method": "lvl up: lvl 20, fêmea"
+        "method": "lvl up: lvl 20, só macho"
       },
       {
         "to": 414,
         "name": "Mothim",
-        "method": "lvl up: lvl 20, macho"
+        "method": "lvl up: lvl 20, só fêmea"
       }
     ],
     "base_species_id": 412
@@ -8876,7 +8876,7 @@
       {
         "to": 416,
         "name": "Vespiquen",
-        "method": "lvl up: lvl 21, fêmea"
+        "method": "lvl up: lvl 21, só macho"
       }
     ],
     "base_species_id": 415
@@ -15577,7 +15577,7 @@
       {
         "to": 740,
         "name": "Crabominable",
-        "method": "lvl up"
+        "method": "lvl up: local especial: Mount Lanakila"
       }
     ],
     "base_species_id": 739
@@ -15949,7 +15949,7 @@
       {
         "to": 758,
         "name": "Salazzle",
-        "method": "lvl up: lvl 33, fêmea"
+        "method": "lvl up: lvl 33, só macho"
       }
     ],
     "base_species_id": 757

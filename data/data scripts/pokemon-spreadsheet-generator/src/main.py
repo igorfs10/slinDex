@@ -3,7 +3,7 @@ import os
 import json
 
 
-def main():
+def main():    
     print('Iniciando script Pokémon')
     folder_path = r'd:\slinDex\data'
     # Carregar arquivos principais
@@ -20,7 +20,9 @@ def main():
     item_names = pd.read_csv(os.path.join(folder_path, 'item_names.csv'))
     move_names = pd.read_csv(os.path.join(folder_path, 'move_names.csv'))
     type_names = pd.read_csv(os.path.join(folder_path, 'type_names.csv'))
-    # Pega apenas nomes em português (local_language_id == 9)
+    location_names = pd.read_csv(os.path.join(folder_path, 'location_names.csv'))
+    # Pega apenas nomes em ingleês (local_language_id == 9)
+    location_id_to_name = location_names[location_names['local_language_id'] == 9].set_index('location_id')['name'].to_dict()
     type_names_pt = type_names[type_names['local_language_id'] == 9]
     item_id_to_name = item_names[item_names['local_language_id'] == 9].set_index('item_id')['name'].to_dict()
     move_id_to_name = move_names[move_names['local_language_id'] == 9].set_index('move_id')['name'].to_dict()
@@ -96,20 +98,21 @@ def main():
         # Filtra apenas formas padrão (ignora formas alternativas, mega, gigantamax, etc)
         if species_id >= 10000:
             continue
+        # Só processa se species_id for igual ao species_id base (ignora formas alternativas)
+        if 'form' in row and pd.notnull(row['form']) and row['form'] != '':
+            continue
         chain_id = row['evolution_chain_id'] if 'evolution_chain_id' in row else None
         evolutions = []
         base_species_id = None
-        if 'location_id' in evo_row and pd.notnull(evo_row['location_id']):
-            # Se existir location_id, exibe como requisito de local
-            location_id = int(evo_row['location_id'])
-            # Se tiver um mapeamento de location, pode usar aqui. Por enquanto, mostra o id.
-            parts.append(f'local especial (id {location_id})')
         if chain_id and chain_id in chain_to_species:
             chain_species = chain_to_species[chain_id]
             base_species_id = chain_species[0] if chain_species else None
-        # Para cada espécie que evolui a partir do Pokémon atual
+        evol_ids = set()
         for _, evo_species in species[species['evolves_from_species_id'] == species_id].iterrows():
             evo_sid = int(evo_species['id'])
+            if evo_sid in evol_ids:
+                continue
+            evol_ids.add(evo_sid)
             evo_row = evo[evo['evolved_species_id'] == evo_sid]
             method = None
             if not evo_row.empty:
@@ -133,6 +136,10 @@ def main():
                         parts.append(f'afeição {int(evo_row["minimum_affection"])}')
                     if 'minimum_beauty' in evo_row and pd.notnull(evo_row['minimum_beauty']) and int(evo_row['minimum_beauty']) > 0:
                         parts.append(f'beleza {int(evo_row["minimum_beauty"])}')
+                    if 'location_id' in evo_row and pd.notnull(evo_row['location_id']):
+                        location_id = int(evo_row['location_id'])
+                        location_name = location_id_to_name.get(location_id, f'id {location_id}')
+                        parts.append(f'local especial: {location_name}')
                     if 'time_of_day' in evo_row and pd.notnull(evo_row['time_of_day']) and evo_row['time_of_day']:
                         tod = evo_row['time_of_day']
                         if tod == 'day':
@@ -148,15 +155,14 @@ def main():
                     if 'known_move_type_id' in evo_row and pd.notnull(evo_row['known_move_type_id']):
                         type_id = int(evo_row['known_move_type_id'])
                         type_name = type_id_to_name.get(type_id, str(type_id))
-                        # Se vier em inglês, traduz
                         type_name_pt = type_en_to_pt.get(type_name.lower(), type_name)
                         parts.append(f'sabendo golpe tipo {type_name_pt}')
                     if 'gender_id' in evo_row and pd.notnull(evo_row['gender_id']):
                         gender_id = int(evo_row['gender_id'])
                         if gender_id == 1:
-                            parts.append('fêmea')
+                            parts.append('só macho')
                         elif gender_id == 2:
-                            parts.append('macho')
+                            parts.append('só fêmea')
                     if parts:
                         method = 'lvl up: ' + ', '.join(parts)
                     else:
@@ -173,15 +179,15 @@ def main():
                     if 'gender_id' in evo_row and pd.notnull(evo_row['gender_id']):
                         gender_id = int(evo_row['gender_id'])
                         if gender_id == 1:
-                            gender_txt = ', fêmea'
+                            gender_txt = ', só macho'
                         elif gender_id == 2:
-                            gender_txt = ', macho'
+                            gender_txt = ', só fêmea'
                     method = f'item: {item_name}{gender_txt}'
                 else:
                     method = trigger if trigger else 'desconhecido'
             evolutions.append({
                 'to': evo_sid,
-                'name': species_id_to_name.get(evo_sid, species.loc[species['id']==evo_sid, 'identifier'].values[0]),
+                'name': species_id_to_name.get(evo_sid, evo_species['identifier']),
                 'method': method
             })
         poke_obj = {
