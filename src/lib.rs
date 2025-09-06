@@ -27,7 +27,7 @@ fn set_rows_from_pokemon(app: &App, pokemons: &[Pokemon]) {
     let rows: Vec<PokemonRow> = pokemons
         .iter()
         .map(|pokemon| PokemonRow {
-            name: format!("{} - {}", pokemon.id, pokemon.name).into(),
+            name: format!("{} - {}", pokemon.species_id, pokemon.name).into(),
         })
         .collect();
     app.set_rows(ModelRc::new(VecModel::from(rows)));
@@ -42,7 +42,7 @@ fn apply_filter(app: &App, state: &StateHandle, filter: &str) {
             .iter()
             .copied()
             .filter(|item| {
-                item.id.to_string().contains(&filter_lower)
+                item.species_id.to_string().contains(&filter_lower)
                     || item.name.to_lowercase().contains(&filter_lower)
             })
             .collect();
@@ -51,7 +51,7 @@ fn apply_filter(app: &App, state: &StateHandle, filter: &str) {
         .iter()
         .copied()
         .filter(|item| {
-            item.id.to_string().contains(&filter_lower)
+            item.species_id.to_string().contains(&filter_lower)
                 || item.name.to_lowercase().contains(&filter_lower)
         })
         .collect();
@@ -102,7 +102,7 @@ fn make_detail_for_ui(detail: &service::Detail, artwork_bytes: Option<&[u8]>) ->
     PokemonDetail {
         name: POKEMON_LIST
             .iter()
-            .find(|p| p.id == detail.id)
+            .find(|p| p.species_id == detail.id)
             .map(|p| p.name)
             .unwrap_or_default()
             .into(),
@@ -120,7 +120,7 @@ fn make_detail_for_ui(detail: &service::Detail, artwork_bytes: Option<&[u8]>) ->
         color: pokemon_color(
             POKEMON_LIST
                 .iter()
-                .find(|p| p.id == detail.id)
+                .find(|p| p.species_id == detail.id)
                 .map(|p| p.color)
                 .unwrap_or("11"),
         ), // default
@@ -229,7 +229,7 @@ pub fn start_desktop() -> Result<(), slint::PlatformError> {
         let id_pokemon = {
             let state = state_sel.lock().unwrap();
             match state.view.get(idx as usize) {
-                Some(&pokemon) => pokemon.id,
+                Some(&pokemon) => pokemon.species_id,
                 None => return,
             }
         };

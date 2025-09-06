@@ -88,16 +88,16 @@ pub fn stat_color(k: &str) -> Brush {
 /// Cor pokemon
 pub fn pokemon_color(k: &str) -> Brush {
     let c = match k {
-        "1" => Color::from_rgb_u8(43, 43, 43),    // Black
-        "2" => Color::from_rgb_u8(0, 149, 217),   // Blue
-        "3" => Color::from_rgb_u8(150, 80, 66),   // Brown
-        "4" => Color::from_rgb_u8(125, 125, 125), // Gray
-        "5" => Color::from_rgb_u8(62, 179, 112),  // Green
-        "6" => Color::from_rgb_u8(227, 134, 152), // Pink
-        "7" => Color::from_rgb_u8(136, 72, 152),  // Purple
-        "8" => Color::from_rgb_u8(230, 0, 51),    // Red
-        "9" => Color::from_rgb_u8(255, 255, 255), // White
-        "10" => Color::from_rgb_u8(255, 217, 0),  // Yellow
+        "black" => Color::from_rgb_u8(43, 43, 43),    // Black
+        "blue" => Color::from_rgb_u8(0, 149, 217),   // Blue
+        "brown" => Color::from_rgb_u8(150, 80, 66),   // Brown
+        "gray" => Color::from_rgb_u8(125, 125, 125), // Gray
+        "green" => Color::from_rgb_u8(62, 179, 112),  // Green
+        "pink" => Color::from_rgb_u8(227, 134, 152), // Pink
+        "purple" => Color::from_rgb_u8(136, 72, 152),  // Purple
+        "red" => Color::from_rgb_u8(230, 0, 51),    // Red
+        "white" => Color::from_rgb_u8(255, 255, 255), // White
+        "yellow" => Color::from_rgb_u8(255, 217, 0),  // Yellow
         _ => Color::from_rgb_u8(0, 0, 0),         // Default: Black
     };
     Brush::from(c)
