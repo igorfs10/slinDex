@@ -206,9 +206,9 @@ def main():
         result.append(poke_obj)
 
     print('Salvando arquivo JSON...')
-    with open('../../../../data_json/pokemon_planilha.json', 'w', encoding='utf-8') as f:
+    with open('../../../../data_json/pokemons.json', 'w', encoding='utf-8') as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
-    print('JSON gerado: pokemon_planilha.json')
+    print('JSON gerado: pokemons.json')
 
 if __name__ == "__main__":
     main()
