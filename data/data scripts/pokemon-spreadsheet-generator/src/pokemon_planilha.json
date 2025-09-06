@@ -20,8 +20,7 @@
         "name": "Ivysaur",
         "method": "lvl up: lvl 16"
       }
-    ],
-    "base_species_id": 1
+    ]
   },
   {
     "species_id": 2,
@@ -44,8 +43,7 @@
         "name": "Venusaur",
         "method": "lvl up: lvl 32"
       }
-    ],
-    "base_species_id": 1
+    ]
   },
   {
     "species_id": 3,
@@ -62,8 +60,7 @@
     "weight_kg": 100.0,
     "height_m": 2.0,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 1
+    "evolutions": []
   },
   {
     "species_id": 4,
@@ -86,8 +83,7 @@
         "name": "Charmeleon",
         "method": "lvl up: lvl 16"
       }
-    ],
-    "base_species_id": 4
+    ]
   },
   {
     "species_id": 5,
@@ -110,8 +106,7 @@
         "name": "Charizard",
         "method": "lvl up: lvl 36"
       }
-    ],
-    "base_species_id": 4
+    ]
   },
   {
     "species_id": 6,
@@ -128,8 +123,7 @@
     "weight_kg": 90.5,
     "height_m": 1.7,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 4
+    "evolutions": []
   },
   {
     "species_id": 7,
@@ -152,8 +146,7 @@
         "name": "Wartortle",
         "method": "lvl up: lvl 16"
       }
-    ],
-    "base_species_id": 7
+    ]
   },
   {
     "species_id": 8,
@@ -176,8 +169,7 @@
         "name": "Blastoise",
         "method": "lvl up: lvl 36"
       }
-    ],
-    "base_species_id": 7
+    ]
   },
   {
     "species_id": 9,
@@ -194,8 +186,7 @@
     "weight_kg": 85.5,
     "height_m": 1.6,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 7
+    "evolutions": []
   },
   {
     "species_id": 10,
@@ -218,8 +209,7 @@
         "name": "Metapod",
         "method": "lvl up: lvl 7"
       }
-    ],
-    "base_species_id": 10
+    ]
   },
   {
     "species_id": 11,
@@ -242,8 +232,7 @@
         "name": "Butterfree",
         "method": "lvl up: lvl 10"
       }
-    ],
-    "base_species_id": 10
+    ]
   },
   {
     "species_id": 12,
@@ -260,8 +249,7 @@
     "weight_kg": 32.0,
     "height_m": 1.1,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 10
+    "evolutions": []
   },
   {
     "species_id": 13,
@@ -284,8 +272,7 @@
         "name": "Kakuna",
         "method": "lvl up: lvl 7"
       }
-    ],
-    "base_species_id": 13
+    ]
   },
   {
     "species_id": 14,
@@ -308,8 +295,7 @@
         "name": "Beedrill",
         "method": "lvl up: lvl 10"
       }
-    ],
-    "base_species_id": 13
+    ]
   },
   {
     "species_id": 15,
@@ -326,8 +312,7 @@
     "weight_kg": 29.5,
     "height_m": 1.0,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 13
+    "evolutions": []
   },
   {
     "species_id": 16,
@@ -350,8 +335,7 @@
         "name": "Pidgeotto",
         "method": "lvl up: lvl 18"
       }
-    ],
-    "base_species_id": 16
+    ]
   },
   {
     "species_id": 17,
@@ -374,8 +358,7 @@
         "name": "Pidgeot",
         "method": "lvl up: lvl 36"
       }
-    ],
-    "base_species_id": 16
+    ]
   },
   {
     "species_id": 18,
@@ -392,8 +375,7 @@
     "weight_kg": 39.5,
     "height_m": 1.5,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 16
+    "evolutions": []
   },
   {
     "species_id": 19,
@@ -416,8 +398,7 @@
         "name": "Raticate",
         "method": "lvl up: lvl 20"
       }
-    ],
-    "base_species_id": 19
+    ]
   },
   {
     "species_id": 20,
@@ -434,8 +415,7 @@
     "weight_kg": 18.5,
     "height_m": 0.7,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 19
+    "evolutions": []
   },
   {
     "species_id": 21,
@@ -458,8 +438,7 @@
         "name": "Fearow",
         "method": "lvl up: lvl 20"
       }
-    ],
-    "base_species_id": 21
+    ]
   },
   {
     "species_id": 22,
@@ -476,8 +455,7 @@
     "weight_kg": 38.0,
     "height_m": 1.2,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 21
+    "evolutions": []
   },
   {
     "species_id": 23,
@@ -500,8 +478,7 @@
         "name": "Arbok",
         "method": "lvl up: lvl 22"
       }
-    ],
-    "base_species_id": 23
+    ]
   },
   {
     "species_id": 24,
@@ -518,8 +495,7 @@
     "weight_kg": 65.0,
     "height_m": 3.5,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 23
+    "evolutions": []
   },
   {
     "species_id": 25,
@@ -542,8 +518,7 @@
         "name": "Raichu",
         "method": "item: Thunder Stone"
       }
-    ],
-    "base_species_id": 25
+    ]
   },
   {
     "species_id": 26,
@@ -560,8 +535,7 @@
     "weight_kg": 30.0,
     "height_m": 0.8,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 25
+    "evolutions": []
   },
   {
     "species_id": 27,
@@ -584,8 +558,7 @@
         "name": "Sandslash",
         "method": "lvl up: lvl 22"
       }
-    ],
-    "base_species_id": 27
+    ]
   },
   {
     "species_id": 28,
@@ -602,8 +575,7 @@
     "weight_kg": 29.5,
     "height_m": 1.0,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 27
+    "evolutions": []
   },
   {
     "species_id": 29,
@@ -626,8 +598,7 @@
         "name": "Nidorina",
         "method": "lvl up: lvl 16"
       }
-    ],
-    "base_species_id": 29
+    ]
   },
   {
     "species_id": 30,
@@ -650,8 +621,7 @@
         "name": "Nidoqueen",
         "method": "item: Moon Stone"
       }
-    ],
-    "base_species_id": 29
+    ]
   },
   {
     "species_id": 31,
@@ -668,8 +638,7 @@
     "weight_kg": 60.0,
     "height_m": 1.3,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 29
+    "evolutions": []
   },
   {
     "species_id": 32,
@@ -692,8 +661,7 @@
         "name": "Nidorino",
         "method": "lvl up: lvl 16"
       }
-    ],
-    "base_species_id": 32
+    ]
   },
   {
     "species_id": 33,
@@ -716,8 +684,7 @@
         "name": "Nidoking",
         "method": "item: Moon Stone"
       }
-    ],
-    "base_species_id": 32
+    ]
   },
   {
     "species_id": 34,
@@ -734,8 +701,7 @@
     "weight_kg": 62.0,
     "height_m": 1.4,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 32
+    "evolutions": []
   },
   {
     "species_id": 35,
@@ -758,8 +724,7 @@
         "name": "Clefable",
         "method": "item: Moon Stone"
       }
-    ],
-    "base_species_id": 35
+    ]
   },
   {
     "species_id": 36,
@@ -776,8 +741,7 @@
     "weight_kg": 40.0,
     "height_m": 1.3,
     "color": "pink",
-    "evolutions": [],
-    "base_species_id": 35
+    "evolutions": []
   },
   {
     "species_id": 37,
@@ -800,8 +764,7 @@
         "name": "Ninetales",
         "method": "item: Fire Stone"
       }
-    ],
-    "base_species_id": 37
+    ]
   },
   {
     "species_id": 38,
@@ -818,8 +781,7 @@
     "weight_kg": 19.9,
     "height_m": 1.1,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 37
+    "evolutions": []
   },
   {
     "species_id": 39,
@@ -842,8 +804,7 @@
         "name": "Wigglytuff",
         "method": "item: Moon Stone"
       }
-    ],
-    "base_species_id": 39
+    ]
   },
   {
     "species_id": 40,
@@ -860,8 +821,7 @@
     "weight_kg": 12.0,
     "height_m": 1.0,
     "color": "pink",
-    "evolutions": [],
-    "base_species_id": 39
+    "evolutions": []
   },
   {
     "species_id": 41,
@@ -884,8 +844,7 @@
         "name": "Golbat",
         "method": "lvl up: lvl 22"
       }
-    ],
-    "base_species_id": 41
+    ]
   },
   {
     "species_id": 42,
@@ -908,8 +867,7 @@
         "name": "Crobat",
         "method": "lvl up: amizade 160"
       }
-    ],
-    "base_species_id": 41
+    ]
   },
   {
     "species_id": 43,
@@ -932,8 +890,7 @@
         "name": "Gloom",
         "method": "lvl up: lvl 21"
       }
-    ],
-    "base_species_id": 43
+    ]
   },
   {
     "species_id": 44,
@@ -961,8 +918,7 @@
         "name": "Bellossom",
         "method": "item: Sun Stone"
       }
-    ],
-    "base_species_id": 43
+    ]
   },
   {
     "species_id": 45,
@@ -979,8 +935,7 @@
     "weight_kg": 18.6,
     "height_m": 1.2,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 43
+    "evolutions": []
   },
   {
     "species_id": 46,
@@ -1003,8 +958,7 @@
         "name": "Parasect",
         "method": "lvl up: lvl 24"
       }
-    ],
-    "base_species_id": 46
+    ]
   },
   {
     "species_id": 47,
@@ -1021,8 +975,7 @@
     "weight_kg": 29.5,
     "height_m": 1.0,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 46
+    "evolutions": []
   },
   {
     "species_id": 48,
@@ -1045,8 +998,7 @@
         "name": "Venomoth",
         "method": "lvl up: lvl 31"
       }
-    ],
-    "base_species_id": 48
+    ]
   },
   {
     "species_id": 49,
@@ -1063,8 +1015,7 @@
     "weight_kg": 12.5,
     "height_m": 1.5,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 48
+    "evolutions": []
   },
   {
     "species_id": 50,
@@ -1087,8 +1038,7 @@
         "name": "Dugtrio",
         "method": "lvl up: lvl 26"
       }
-    ],
-    "base_species_id": 50
+    ]
   },
   {
     "species_id": 51,
@@ -1105,8 +1055,7 @@
     "weight_kg": 33.3,
     "height_m": 0.7,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 50
+    "evolutions": []
   },
   {
     "species_id": 52,
@@ -1134,8 +1083,7 @@
         "name": "Perrserker",
         "method": "lvl up: lvl 28"
       }
-    ],
-    "base_species_id": 52
+    ]
   },
   {
     "species_id": 53,
@@ -1152,8 +1100,7 @@
     "weight_kg": 32.0,
     "height_m": 1.0,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 52
+    "evolutions": []
   },
   {
     "species_id": 54,
@@ -1176,8 +1123,7 @@
         "name": "Golduck",
         "method": "lvl up: lvl 33"
       }
-    ],
-    "base_species_id": 54
+    ]
   },
   {
     "species_id": 55,
@@ -1194,8 +1140,7 @@
     "weight_kg": 76.6,
     "height_m": 1.7,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 54
+    "evolutions": []
   },
   {
     "species_id": 56,
@@ -1218,8 +1163,7 @@
         "name": "Primeape",
         "method": "lvl up: lvl 28"
       }
-    ],
-    "base_species_id": 56
+    ]
   },
   {
     "species_id": 57,
@@ -1242,8 +1186,7 @@
         "name": "Annihilape",
         "method": "other"
       }
-    ],
-    "base_species_id": 56
+    ]
   },
   {
     "species_id": 58,
@@ -1266,8 +1209,7 @@
         "name": "Arcanine",
         "method": "item: Fire Stone"
       }
-    ],
-    "base_species_id": 58
+    ]
   },
   {
     "species_id": 59,
@@ -1284,8 +1226,7 @@
     "weight_kg": 155.0,
     "height_m": 1.9,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 58
+    "evolutions": []
   },
   {
     "species_id": 60,
@@ -1308,8 +1249,7 @@
         "name": "Poliwhirl",
         "method": "lvl up: lvl 25"
       }
-    ],
-    "base_species_id": 60
+    ]
   },
   {
     "species_id": 61,
@@ -1337,8 +1277,7 @@
         "name": "Politoed",
         "method": "troca segurando King’s Rock"
       }
-    ],
-    "base_species_id": 60
+    ]
   },
   {
     "species_id": 62,
@@ -1355,8 +1294,7 @@
     "weight_kg": 54.0,
     "height_m": 1.3,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 60
+    "evolutions": []
   },
   {
     "species_id": 63,
@@ -1379,8 +1317,7 @@
         "name": "Kadabra",
         "method": "lvl up: lvl 16"
       }
-    ],
-    "base_species_id": 63
+    ]
   },
   {
     "species_id": 64,
@@ -1403,8 +1340,7 @@
         "name": "Alakazam",
         "method": "troca"
       }
-    ],
-    "base_species_id": 63
+    ]
   },
   {
     "species_id": 65,
@@ -1421,8 +1357,7 @@
     "weight_kg": 48.0,
     "height_m": 1.5,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 63
+    "evolutions": []
   },
   {
     "species_id": 66,
@@ -1445,8 +1380,7 @@
         "name": "Machoke",
         "method": "lvl up: lvl 28"
       }
-    ],
-    "base_species_id": 66
+    ]
   },
   {
     "species_id": 67,
@@ -1469,8 +1403,7 @@
         "name": "Machamp",
         "method": "troca"
       }
-    ],
-    "base_species_id": 66
+    ]
   },
   {
     "species_id": 68,
@@ -1487,8 +1420,7 @@
     "weight_kg": 130.0,
     "height_m": 1.6,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 66
+    "evolutions": []
   },
   {
     "species_id": 69,
@@ -1511,8 +1443,7 @@
         "name": "Weepinbell",
         "method": "lvl up: lvl 21"
       }
-    ],
-    "base_species_id": 69
+    ]
   },
   {
     "species_id": 70,
@@ -1535,8 +1466,7 @@
         "name": "Victreebel",
         "method": "item: Leaf Stone"
       }
-    ],
-    "base_species_id": 69
+    ]
   },
   {
     "species_id": 71,
@@ -1553,8 +1483,7 @@
     "weight_kg": 15.5,
     "height_m": 1.7,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 69
+    "evolutions": []
   },
   {
     "species_id": 72,
@@ -1577,8 +1506,7 @@
         "name": "Tentacruel",
         "method": "lvl up: lvl 30"
       }
-    ],
-    "base_species_id": 72
+    ]
   },
   {
     "species_id": 73,
@@ -1595,8 +1523,7 @@
     "weight_kg": 55.0,
     "height_m": 1.6,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 72
+    "evolutions": []
   },
   {
     "species_id": 74,
@@ -1619,8 +1546,7 @@
         "name": "Graveler",
         "method": "lvl up: lvl 25"
       }
-    ],
-    "base_species_id": 74
+    ]
   },
   {
     "species_id": 75,
@@ -1643,8 +1569,7 @@
         "name": "Golem",
         "method": "troca"
       }
-    ],
-    "base_species_id": 74
+    ]
   },
   {
     "species_id": 76,
@@ -1661,8 +1586,7 @@
     "weight_kg": 300.0,
     "height_m": 1.4,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 74
+    "evolutions": []
   },
   {
     "species_id": 77,
@@ -1685,8 +1609,7 @@
         "name": "Rapidash",
         "method": "lvl up: lvl 40"
       }
-    ],
-    "base_species_id": 77
+    ]
   },
   {
     "species_id": 78,
@@ -1703,8 +1626,7 @@
     "weight_kg": 95.0,
     "height_m": 1.7,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 77
+    "evolutions": []
   },
   {
     "species_id": 79,
@@ -1732,8 +1654,7 @@
         "name": "Slowking",
         "method": "troca segurando King’s Rock"
       }
-    ],
-    "base_species_id": 79
+    ]
   },
   {
     "species_id": 80,
@@ -1750,8 +1671,7 @@
     "weight_kg": 78.5,
     "height_m": 1.6,
     "color": "pink",
-    "evolutions": [],
-    "base_species_id": 79
+    "evolutions": []
   },
   {
     "species_id": 81,
@@ -1774,8 +1694,7 @@
         "name": "Magneton",
         "method": "lvl up: lvl 30"
       }
-    ],
-    "base_species_id": 81
+    ]
   },
   {
     "species_id": 82,
@@ -1798,8 +1717,7 @@
         "name": "Magnezone",
         "method": "lvl up: local especial: Mt. Coronet"
       }
-    ],
-    "base_species_id": 81
+    ]
   },
   {
     "species_id": 83,
@@ -1822,8 +1740,7 @@
         "name": "Sirfetch’d",
         "method": "three-critical-hits"
       }
-    ],
-    "base_species_id": 83
+    ]
   },
   {
     "species_id": 84,
@@ -1846,8 +1763,7 @@
         "name": "Dodrio",
         "method": "lvl up: lvl 31"
       }
-    ],
-    "base_species_id": 84
+    ]
   },
   {
     "species_id": 85,
@@ -1864,8 +1780,7 @@
     "weight_kg": 85.2,
     "height_m": 1.8,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 84
+    "evolutions": []
   },
   {
     "species_id": 86,
@@ -1888,8 +1803,7 @@
         "name": "Dewgong",
         "method": "lvl up: lvl 34"
       }
-    ],
-    "base_species_id": 86
+    ]
   },
   {
     "species_id": 87,
@@ -1906,8 +1820,7 @@
     "weight_kg": 120.0,
     "height_m": 1.7,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 86
+    "evolutions": []
   },
   {
     "species_id": 88,
@@ -1930,8 +1843,7 @@
         "name": "Muk",
         "method": "lvl up: lvl 38"
       }
-    ],
-    "base_species_id": 88
+    ]
   },
   {
     "species_id": 89,
@@ -1948,8 +1860,7 @@
     "weight_kg": 30.0,
     "height_m": 1.2,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 88
+    "evolutions": []
   },
   {
     "species_id": 90,
@@ -1972,8 +1883,7 @@
         "name": "Cloyster",
         "method": "item: Water Stone"
       }
-    ],
-    "base_species_id": 90
+    ]
   },
   {
     "species_id": 91,
@@ -1990,8 +1900,7 @@
     "weight_kg": 132.5,
     "height_m": 1.5,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 90
+    "evolutions": []
   },
   {
     "species_id": 92,
@@ -2014,8 +1923,7 @@
         "name": "Haunter",
         "method": "lvl up: lvl 25"
       }
-    ],
-    "base_species_id": 92
+    ]
   },
   {
     "species_id": 93,
@@ -2038,8 +1946,7 @@
         "name": "Gengar",
         "method": "troca"
       }
-    ],
-    "base_species_id": 92
+    ]
   },
   {
     "species_id": 94,
@@ -2056,8 +1963,7 @@
     "weight_kg": 40.5,
     "height_m": 1.5,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 92
+    "evolutions": []
   },
   {
     "species_id": 95,
@@ -2080,8 +1986,7 @@
         "name": "Steelix",
         "method": "troca segurando Metal Coat"
       }
-    ],
-    "base_species_id": 95
+    ]
   },
   {
     "species_id": 96,
@@ -2104,8 +2009,7 @@
         "name": "Hypno",
         "method": "lvl up: lvl 26"
       }
-    ],
-    "base_species_id": 96
+    ]
   },
   {
     "species_id": 97,
@@ -2122,8 +2026,7 @@
     "weight_kg": 75.6,
     "height_m": 1.6,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 96
+    "evolutions": []
   },
   {
     "species_id": 98,
@@ -2146,8 +2049,7 @@
         "name": "Kingler",
         "method": "lvl up: lvl 28"
       }
-    ],
-    "base_species_id": 98
+    ]
   },
   {
     "species_id": 99,
@@ -2164,8 +2066,7 @@
     "weight_kg": 60.0,
     "height_m": 1.3,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 98
+    "evolutions": []
   },
   {
     "species_id": 100,
@@ -2188,8 +2089,7 @@
         "name": "Electrode",
         "method": "lvl up: lvl 30"
       }
-    ],
-    "base_species_id": 100
+    ]
   },
   {
     "species_id": 101,
@@ -2206,8 +2106,7 @@
     "weight_kg": 66.6,
     "height_m": 1.2,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 100
+    "evolutions": []
   },
   {
     "species_id": 102,
@@ -2230,8 +2129,7 @@
         "name": "Exeggutor",
         "method": "item: Leaf Stone"
       }
-    ],
-    "base_species_id": 102
+    ]
   },
   {
     "species_id": 103,
@@ -2248,8 +2146,7 @@
     "weight_kg": 120.0,
     "height_m": 2.0,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 102
+    "evolutions": []
   },
   {
     "species_id": 104,
@@ -2272,8 +2169,7 @@
         "name": "Marowak",
         "method": "lvl up: lvl 28"
       }
-    ],
-    "base_species_id": 104
+    ]
   },
   {
     "species_id": 105,
@@ -2290,8 +2186,7 @@
     "weight_kg": 45.0,
     "height_m": 1.0,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 104
+    "evolutions": []
   },
   {
     "species_id": 106,
@@ -2308,8 +2203,7 @@
     "weight_kg": 49.8,
     "height_m": 1.5,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 106
+    "evolutions": []
   },
   {
     "species_id": 107,
@@ -2326,8 +2220,7 @@
     "weight_kg": 50.2,
     "height_m": 1.4,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 106
+    "evolutions": []
   },
   {
     "species_id": 108,
@@ -2350,8 +2243,7 @@
         "name": "Lickilicky",
         "method": "lvl up: sabendo golpe Rollout"
       }
-    ],
-    "base_species_id": 108
+    ]
   },
   {
     "species_id": 109,
@@ -2374,8 +2266,7 @@
         "name": "Weezing",
         "method": "lvl up: lvl 35"
       }
-    ],
-    "base_species_id": 109
+    ]
   },
   {
     "species_id": 110,
@@ -2392,8 +2283,7 @@
     "weight_kg": 9.5,
     "height_m": 1.2,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 109
+    "evolutions": []
   },
   {
     "species_id": 111,
@@ -2416,8 +2306,7 @@
         "name": "Rhydon",
         "method": "lvl up: lvl 42"
       }
-    ],
-    "base_species_id": 111
+    ]
   },
   {
     "species_id": 112,
@@ -2440,8 +2329,7 @@
         "name": "Rhyperior",
         "method": "troca segurando Protector"
       }
-    ],
-    "base_species_id": 111
+    ]
   },
   {
     "species_id": 113,
@@ -2464,8 +2352,7 @@
         "name": "Blissey",
         "method": "lvl up: amizade 160"
       }
-    ],
-    "base_species_id": 113
+    ]
   },
   {
     "species_id": 114,
@@ -2488,8 +2375,7 @@
         "name": "Tangrowth",
         "method": "lvl up: sabendo golpe Ancient Power"
       }
-    ],
-    "base_species_id": 114
+    ]
   },
   {
     "species_id": 115,
@@ -2506,8 +2392,7 @@
     "weight_kg": 80.0,
     "height_m": 2.2,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 115
+    "evolutions": []
   },
   {
     "species_id": 116,
@@ -2530,8 +2415,7 @@
         "name": "Seadra",
         "method": "lvl up: lvl 32"
       }
-    ],
-    "base_species_id": 116
+    ]
   },
   {
     "species_id": 117,
@@ -2554,8 +2438,7 @@
         "name": "Kingdra",
         "method": "troca segurando Dragon Scale"
       }
-    ],
-    "base_species_id": 116
+    ]
   },
   {
     "species_id": 118,
@@ -2578,8 +2461,7 @@
         "name": "Seaking",
         "method": "lvl up: lvl 33"
       }
-    ],
-    "base_species_id": 118
+    ]
   },
   {
     "species_id": 119,
@@ -2596,8 +2478,7 @@
     "weight_kg": 39.0,
     "height_m": 1.3,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 118
+    "evolutions": []
   },
   {
     "species_id": 120,
@@ -2620,8 +2501,7 @@
         "name": "Starmie",
         "method": "item: Water Stone"
       }
-    ],
-    "base_species_id": 120
+    ]
   },
   {
     "species_id": 121,
@@ -2638,8 +2518,7 @@
     "weight_kg": 80.0,
     "height_m": 1.1,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 120
+    "evolutions": []
   },
   {
     "species_id": 122,
@@ -2662,8 +2541,7 @@
         "name": "Mr. Rime",
         "method": "lvl up: lvl 42"
       }
-    ],
-    "base_species_id": 122
+    ]
   },
   {
     "species_id": 123,
@@ -2691,8 +2569,7 @@
         "name": "Kleavor",
         "method": "item: "
       }
-    ],
-    "base_species_id": 123
+    ]
   },
   {
     "species_id": 124,
@@ -2709,8 +2586,7 @@
     "weight_kg": 40.6,
     "height_m": 1.4,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 124
+    "evolutions": []
   },
   {
     "species_id": 125,
@@ -2733,8 +2609,7 @@
         "name": "Electivire",
         "method": "troca segurando Electirizer"
       }
-    ],
-    "base_species_id": 125
+    ]
   },
   {
     "species_id": 126,
@@ -2757,8 +2632,7 @@
         "name": "Magmortar",
         "method": "troca segurando Magmarizer"
       }
-    ],
-    "base_species_id": 126
+    ]
   },
   {
     "species_id": 127,
@@ -2775,8 +2649,7 @@
     "weight_kg": 55.0,
     "height_m": 1.5,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 127
+    "evolutions": []
   },
   {
     "species_id": 128,
@@ -2793,8 +2666,7 @@
     "weight_kg": 88.4,
     "height_m": 1.4,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 128
+    "evolutions": []
   },
   {
     "species_id": 129,
@@ -2817,8 +2689,7 @@
         "name": "Gyarados",
         "method": "lvl up: lvl 20"
       }
-    ],
-    "base_species_id": 129
+    ]
   },
   {
     "species_id": 130,
@@ -2835,8 +2706,7 @@
     "weight_kg": 235.0,
     "height_m": 6.5,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 129
+    "evolutions": []
   },
   {
     "species_id": 131,
@@ -2853,8 +2723,7 @@
     "weight_kg": 220.0,
     "height_m": 2.5,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 131
+    "evolutions": []
   },
   {
     "species_id": 132,
@@ -2871,8 +2740,7 @@
     "weight_kg": 4.0,
     "height_m": 0.3,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 132
+    "evolutions": []
   },
   {
     "species_id": 133,
@@ -2930,8 +2798,7 @@
         "name": "Sylveon",
         "method": "lvl up: afeição 2, sabendo golpe tipo fada"
       }
-    ],
-    "base_species_id": 133
+    ]
   },
   {
     "species_id": 134,
@@ -2948,8 +2815,7 @@
     "weight_kg": 29.0,
     "height_m": 1.0,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 133
+    "evolutions": []
   },
   {
     "species_id": 135,
@@ -2966,8 +2832,7 @@
     "weight_kg": 24.5,
     "height_m": 0.8,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 133
+    "evolutions": []
   },
   {
     "species_id": 136,
@@ -2984,8 +2849,7 @@
     "weight_kg": 25.0,
     "height_m": 0.9,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 133
+    "evolutions": []
   },
   {
     "species_id": 137,
@@ -3008,8 +2872,7 @@
         "name": "Porygon2",
         "method": "troca segurando Upgrade"
       }
-    ],
-    "base_species_id": 137
+    ]
   },
   {
     "species_id": 138,
@@ -3032,8 +2895,7 @@
         "name": "Omastar",
         "method": "lvl up: lvl 40"
       }
-    ],
-    "base_species_id": 138
+    ]
   },
   {
     "species_id": 139,
@@ -3050,8 +2912,7 @@
     "weight_kg": 35.0,
     "height_m": 1.0,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 138
+    "evolutions": []
   },
   {
     "species_id": 140,
@@ -3074,8 +2935,7 @@
         "name": "Kabutops",
         "method": "lvl up: lvl 40"
       }
-    ],
-    "base_species_id": 140
+    ]
   },
   {
     "species_id": 141,
@@ -3092,8 +2952,7 @@
     "weight_kg": 40.5,
     "height_m": 1.3,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 140
+    "evolutions": []
   },
   {
     "species_id": 142,
@@ -3110,8 +2969,7 @@
     "weight_kg": 59.0,
     "height_m": 1.8,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 142
+    "evolutions": []
   },
   {
     "species_id": 143,
@@ -3128,8 +2986,7 @@
     "weight_kg": 460.0,
     "height_m": 2.1,
     "color": "black",
-    "evolutions": [],
-    "base_species_id": 143
+    "evolutions": []
   },
   {
     "species_id": 144,
@@ -3146,8 +3003,7 @@
     "weight_kg": 55.4,
     "height_m": 1.7,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 144
+    "evolutions": []
   },
   {
     "species_id": 145,
@@ -3164,8 +3020,7 @@
     "weight_kg": 52.6,
     "height_m": 1.6,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 145
+    "evolutions": []
   },
   {
     "species_id": 146,
@@ -3182,8 +3037,7 @@
     "weight_kg": 60.0,
     "height_m": 2.0,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 146
+    "evolutions": []
   },
   {
     "species_id": 147,
@@ -3206,8 +3060,7 @@
         "name": "Dragonair",
         "method": "lvl up: lvl 30"
       }
-    ],
-    "base_species_id": 147
+    ]
   },
   {
     "species_id": 148,
@@ -3230,8 +3083,7 @@
         "name": "Dragonite",
         "method": "lvl up: lvl 55"
       }
-    ],
-    "base_species_id": 147
+    ]
   },
   {
     "species_id": 149,
@@ -3248,8 +3100,7 @@
     "weight_kg": 210.0,
     "height_m": 2.2,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 147
+    "evolutions": []
   },
   {
     "species_id": 150,
@@ -3266,8 +3117,7 @@
     "weight_kg": 122.0,
     "height_m": 2.0,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 150
+    "evolutions": []
   },
   {
     "species_id": 151,
@@ -3284,8 +3134,7 @@
     "weight_kg": 4.0,
     "height_m": 0.4,
     "color": "pink",
-    "evolutions": [],
-    "base_species_id": 151
+    "evolutions": []
   },
   {
     "species_id": 152,
@@ -3308,8 +3157,7 @@
         "name": "Bayleef",
         "method": "lvl up: lvl 16"
       }
-    ],
-    "base_species_id": 152
+    ]
   },
   {
     "species_id": 153,
@@ -3332,8 +3180,7 @@
         "name": "Meganium",
         "method": "lvl up: lvl 32"
       }
-    ],
-    "base_species_id": 152
+    ]
   },
   {
     "species_id": 154,
@@ -3350,8 +3197,7 @@
     "weight_kg": 100.5,
     "height_m": 1.8,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 152
+    "evolutions": []
   },
   {
     "species_id": 155,
@@ -3374,8 +3220,7 @@
         "name": "Quilava",
         "method": "lvl up: lvl 14"
       }
-    ],
-    "base_species_id": 155
+    ]
   },
   {
     "species_id": 156,
@@ -3398,8 +3243,7 @@
         "name": "Typhlosion",
         "method": "lvl up: lvl 36"
       }
-    ],
-    "base_species_id": 155
+    ]
   },
   {
     "species_id": 157,
@@ -3416,8 +3260,7 @@
     "weight_kg": 79.5,
     "height_m": 1.7,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 155
+    "evolutions": []
   },
   {
     "species_id": 158,
@@ -3440,8 +3283,7 @@
         "name": "Croconaw",
         "method": "lvl up: lvl 18"
       }
-    ],
-    "base_species_id": 158
+    ]
   },
   {
     "species_id": 159,
@@ -3464,8 +3306,7 @@
         "name": "Feraligatr",
         "method": "lvl up: lvl 30"
       }
-    ],
-    "base_species_id": 158
+    ]
   },
   {
     "species_id": 160,
@@ -3482,8 +3323,7 @@
     "weight_kg": 88.8,
     "height_m": 2.3,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 158
+    "evolutions": []
   },
   {
     "species_id": 161,
@@ -3506,8 +3346,7 @@
         "name": "Furret",
         "method": "lvl up: lvl 15"
       }
-    ],
-    "base_species_id": 161
+    ]
   },
   {
     "species_id": 162,
@@ -3524,8 +3363,7 @@
     "weight_kg": 32.5,
     "height_m": 1.8,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 161
+    "evolutions": []
   },
   {
     "species_id": 163,
@@ -3548,8 +3386,7 @@
         "name": "Noctowl",
         "method": "lvl up: lvl 20"
       }
-    ],
-    "base_species_id": 163
+    ]
   },
   {
     "species_id": 164,
@@ -3566,8 +3403,7 @@
     "weight_kg": 40.8,
     "height_m": 1.6,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 163
+    "evolutions": []
   },
   {
     "species_id": 165,
@@ -3590,8 +3426,7 @@
         "name": "Ledian",
         "method": "lvl up: lvl 18"
       }
-    ],
-    "base_species_id": 165
+    ]
   },
   {
     "species_id": 166,
@@ -3608,8 +3443,7 @@
     "weight_kg": 35.6,
     "height_m": 1.4,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 165
+    "evolutions": []
   },
   {
     "species_id": 167,
@@ -3632,8 +3466,7 @@
         "name": "Ariados",
         "method": "lvl up: lvl 22"
       }
-    ],
-    "base_species_id": 167
+    ]
   },
   {
     "species_id": 168,
@@ -3650,8 +3483,7 @@
     "weight_kg": 33.5,
     "height_m": 1.1,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 167
+    "evolutions": []
   },
   {
     "species_id": 169,
@@ -3668,8 +3500,7 @@
     "weight_kg": 75.0,
     "height_m": 1.8,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 41
+    "evolutions": []
   },
   {
     "species_id": 170,
@@ -3692,8 +3523,7 @@
         "name": "Lanturn",
         "method": "lvl up: lvl 27"
       }
-    ],
-    "base_species_id": 170
+    ]
   },
   {
     "species_id": 171,
@@ -3710,8 +3540,7 @@
     "weight_kg": 22.5,
     "height_m": 1.2,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 170
+    "evolutions": []
   },
   {
     "species_id": 172,
@@ -3734,8 +3563,7 @@
         "name": "Pikachu",
         "method": "lvl up: amizade 220"
       }
-    ],
-    "base_species_id": 25
+    ]
   },
   {
     "species_id": 173,
@@ -3758,8 +3586,7 @@
         "name": "Clefairy",
         "method": "lvl up: amizade 160"
       }
-    ],
-    "base_species_id": 35
+    ]
   },
   {
     "species_id": 174,
@@ -3782,8 +3609,7 @@
         "name": "Jigglypuff",
         "method": "lvl up: amizade 160"
       }
-    ],
-    "base_species_id": 39
+    ]
   },
   {
     "species_id": 175,
@@ -3806,8 +3632,7 @@
         "name": "Togetic",
         "method": "lvl up: amizade 160"
       }
-    ],
-    "base_species_id": 175
+    ]
   },
   {
     "species_id": 176,
@@ -3830,8 +3655,7 @@
         "name": "Togekiss",
         "method": "item: Shiny Stone"
       }
-    ],
-    "base_species_id": 175
+    ]
   },
   {
     "species_id": 177,
@@ -3854,8 +3678,7 @@
         "name": "Xatu",
         "method": "lvl up: lvl 25"
       }
-    ],
-    "base_species_id": 177
+    ]
   },
   {
     "species_id": 178,
@@ -3872,8 +3695,7 @@
     "weight_kg": 15.0,
     "height_m": 1.5,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 177
+    "evolutions": []
   },
   {
     "species_id": 179,
@@ -3896,8 +3718,7 @@
         "name": "Flaaffy",
         "method": "lvl up: lvl 15"
       }
-    ],
-    "base_species_id": 179
+    ]
   },
   {
     "species_id": 180,
@@ -3920,8 +3741,7 @@
         "name": "Ampharos",
         "method": "lvl up: lvl 30"
       }
-    ],
-    "base_species_id": 179
+    ]
   },
   {
     "species_id": 181,
@@ -3938,8 +3758,7 @@
     "weight_kg": 61.5,
     "height_m": 1.4,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 179
+    "evolutions": []
   },
   {
     "species_id": 182,
@@ -3956,8 +3775,7 @@
     "weight_kg": 5.8,
     "height_m": 0.4,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 43
+    "evolutions": []
   },
   {
     "species_id": 183,
@@ -3980,8 +3798,7 @@
         "name": "Azumarill",
         "method": "lvl up: lvl 18"
       }
-    ],
-    "base_species_id": 183
+    ]
   },
   {
     "species_id": 184,
@@ -3998,8 +3815,7 @@
     "weight_kg": 28.5,
     "height_m": 0.8,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 183
+    "evolutions": []
   },
   {
     "species_id": 185,
@@ -4016,8 +3832,7 @@
     "weight_kg": 38.0,
     "height_m": 1.2,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 185
+    "evolutions": []
   },
   {
     "species_id": 186,
@@ -4034,8 +3849,7 @@
     "weight_kg": 33.9,
     "height_m": 1.1,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 60
+    "evolutions": []
   },
   {
     "species_id": 187,
@@ -4058,8 +3872,7 @@
         "name": "Skiploom",
         "method": "lvl up: lvl 18"
       }
-    ],
-    "base_species_id": 187
+    ]
   },
   {
     "species_id": 188,
@@ -4082,8 +3895,7 @@
         "name": "Jumpluff",
         "method": "lvl up: lvl 27"
       }
-    ],
-    "base_species_id": 187
+    ]
   },
   {
     "species_id": 189,
@@ -4100,8 +3912,7 @@
     "weight_kg": 3.0,
     "height_m": 0.8,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 187
+    "evolutions": []
   },
   {
     "species_id": 190,
@@ -4124,8 +3935,7 @@
         "name": "Ambipom",
         "method": "lvl up: sabendo golpe Double Hit"
       }
-    ],
-    "base_species_id": 190
+    ]
   },
   {
     "species_id": 191,
@@ -4148,8 +3958,7 @@
         "name": "Sunflora",
         "method": "item: Sun Stone"
       }
-    ],
-    "base_species_id": 191
+    ]
   },
   {
     "species_id": 192,
@@ -4166,8 +3975,7 @@
     "weight_kg": 8.5,
     "height_m": 0.8,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 191
+    "evolutions": []
   },
   {
     "species_id": 193,
@@ -4190,8 +3998,7 @@
         "name": "Yanmega",
         "method": "lvl up: sabendo golpe Ancient Power"
       }
-    ],
-    "base_species_id": 193
+    ]
   },
   {
     "species_id": 194,
@@ -4219,8 +4026,7 @@
         "name": "Clodsire",
         "method": "lvl up: lvl 20"
       }
-    ],
-    "base_species_id": 194
+    ]
   },
   {
     "species_id": 195,
@@ -4237,8 +4043,7 @@
     "weight_kg": 75.0,
     "height_m": 1.4,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 194
+    "evolutions": []
   },
   {
     "species_id": 196,
@@ -4255,8 +4060,7 @@
     "weight_kg": 26.5,
     "height_m": 0.9,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 133
+    "evolutions": []
   },
   {
     "species_id": 197,
@@ -4273,8 +4077,7 @@
     "weight_kg": 27.0,
     "height_m": 1.0,
     "color": "black",
-    "evolutions": [],
-    "base_species_id": 133
+    "evolutions": []
   },
   {
     "species_id": 198,
@@ -4297,8 +4100,7 @@
         "name": "Honchkrow",
         "method": "item: Dusk Stone"
       }
-    ],
-    "base_species_id": 198
+    ]
   },
   {
     "species_id": 199,
@@ -4315,8 +4117,7 @@
     "weight_kg": 79.5,
     "height_m": 2.0,
     "color": "pink",
-    "evolutions": [],
-    "base_species_id": 79
+    "evolutions": []
   },
   {
     "species_id": 200,
@@ -4339,8 +4140,7 @@
         "name": "Mismagius",
         "method": "item: Dusk Stone"
       }
-    ],
-    "base_species_id": 200
+    ]
   },
   {
     "species_id": 201,
@@ -4357,8 +4157,7 @@
     "weight_kg": 5.0,
     "height_m": 0.5,
     "color": "black",
-    "evolutions": [],
-    "base_species_id": 201
+    "evolutions": []
   },
   {
     "species_id": 202,
@@ -4375,8 +4174,7 @@
     "weight_kg": 28.5,
     "height_m": 1.3,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 202
+    "evolutions": []
   },
   {
     "species_id": 203,
@@ -4399,8 +4197,7 @@
         "name": "Farigiraf",
         "method": "lvl up: sabendo golpe Twin Beam"
       }
-    ],
-    "base_species_id": 203
+    ]
   },
   {
     "species_id": 204,
@@ -4423,8 +4220,7 @@
         "name": "Forretress",
         "method": "lvl up: lvl 31"
       }
-    ],
-    "base_species_id": 204
+    ]
   },
   {
     "species_id": 205,
@@ -4441,8 +4237,7 @@
     "weight_kg": 125.8,
     "height_m": 1.2,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 204
+    "evolutions": []
   },
   {
     "species_id": 206,
@@ -4465,8 +4260,7 @@
         "name": "Dudunsparce",
         "method": "lvl up: sabendo golpe Hyper Drill"
       }
-    ],
-    "base_species_id": 206
+    ]
   },
   {
     "species_id": 207,
@@ -4489,8 +4283,7 @@
         "name": "Gliscor",
         "method": "lvl up: de noite"
       }
-    ],
-    "base_species_id": 207
+    ]
   },
   {
     "species_id": 208,
@@ -4507,8 +4300,7 @@
     "weight_kg": 400.0,
     "height_m": 9.2,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 95
+    "evolutions": []
   },
   {
     "species_id": 209,
@@ -4531,8 +4323,7 @@
         "name": "Granbull",
         "method": "lvl up: lvl 23"
       }
-    ],
-    "base_species_id": 209
+    ]
   },
   {
     "species_id": 210,
@@ -4549,8 +4340,7 @@
     "weight_kg": 48.7,
     "height_m": 1.4,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 209
+    "evolutions": []
   },
   {
     "species_id": 211,
@@ -4573,8 +4363,7 @@
         "name": "Overqwil",
         "method": "strong-style-move"
       }
-    ],
-    "base_species_id": 211
+    ]
   },
   {
     "species_id": 212,
@@ -4591,8 +4380,7 @@
     "weight_kg": 118.0,
     "height_m": 1.8,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 123
+    "evolutions": []
   },
   {
     "species_id": 213,
@@ -4609,8 +4397,7 @@
     "weight_kg": 20.5,
     "height_m": 0.6,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 213
+    "evolutions": []
   },
   {
     "species_id": 214,
@@ -4627,8 +4414,7 @@
     "weight_kg": 54.0,
     "height_m": 1.5,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 214
+    "evolutions": []
   },
   {
     "species_id": 215,
@@ -4656,8 +4442,7 @@
         "name": "Sneasler",
         "method": "lvl up: de dia"
       }
-    ],
-    "base_species_id": 215
+    ]
   },
   {
     "species_id": 216,
@@ -4680,8 +4465,7 @@
         "name": "Ursaring",
         "method": "lvl up: lvl 30"
       }
-    ],
-    "base_species_id": 216
+    ]
   },
   {
     "species_id": 217,
@@ -4704,8 +4488,7 @@
         "name": "Ursaluna",
         "method": "item: "
       }
-    ],
-    "base_species_id": 216
+    ]
   },
   {
     "species_id": 218,
@@ -4728,8 +4511,7 @@
         "name": "Magcargo",
         "method": "lvl up: lvl 38"
       }
-    ],
-    "base_species_id": 218
+    ]
   },
   {
     "species_id": 219,
@@ -4746,8 +4528,7 @@
     "weight_kg": 55.0,
     "height_m": 0.8,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 218
+    "evolutions": []
   },
   {
     "species_id": 220,
@@ -4770,8 +4551,7 @@
         "name": "Piloswine",
         "method": "lvl up: lvl 33"
       }
-    ],
-    "base_species_id": 220
+    ]
   },
   {
     "species_id": 221,
@@ -4794,8 +4574,7 @@
         "name": "Mamoswine",
         "method": "lvl up: sabendo golpe Ancient Power"
       }
-    ],
-    "base_species_id": 220
+    ]
   },
   {
     "species_id": 222,
@@ -4818,8 +4597,7 @@
         "name": "Cursola",
         "method": "lvl up: lvl 38"
       }
-    ],
-    "base_species_id": 222
+    ]
   },
   {
     "species_id": 223,
@@ -4842,8 +4620,7 @@
         "name": "Octillery",
         "method": "lvl up: lvl 25"
       }
-    ],
-    "base_species_id": 223
+    ]
   },
   {
     "species_id": 224,
@@ -4860,8 +4637,7 @@
     "weight_kg": 28.5,
     "height_m": 0.9,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 223
+    "evolutions": []
   },
   {
     "species_id": 225,
@@ -4878,8 +4654,7 @@
     "weight_kg": 16.0,
     "height_m": 0.9,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 225
+    "evolutions": []
   },
   {
     "species_id": 226,
@@ -4896,8 +4671,7 @@
     "weight_kg": 220.0,
     "height_m": 2.1,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 226
+    "evolutions": []
   },
   {
     "species_id": 227,
@@ -4914,8 +4688,7 @@
     "weight_kg": 50.5,
     "height_m": 1.7,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 227
+    "evolutions": []
   },
   {
     "species_id": 228,
@@ -4938,8 +4711,7 @@
         "name": "Houndoom",
         "method": "lvl up: lvl 24"
       }
-    ],
-    "base_species_id": 228
+    ]
   },
   {
     "species_id": 229,
@@ -4956,8 +4728,7 @@
     "weight_kg": 35.0,
     "height_m": 1.4,
     "color": "black",
-    "evolutions": [],
-    "base_species_id": 228
+    "evolutions": []
   },
   {
     "species_id": 230,
@@ -4974,8 +4745,7 @@
     "weight_kg": 152.0,
     "height_m": 1.8,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 116
+    "evolutions": []
   },
   {
     "species_id": 231,
@@ -4998,8 +4768,7 @@
         "name": "Donphan",
         "method": "lvl up: lvl 25"
       }
-    ],
-    "base_species_id": 231
+    ]
   },
   {
     "species_id": 232,
@@ -5016,8 +4785,7 @@
     "weight_kg": 120.0,
     "height_m": 1.1,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 231
+    "evolutions": []
   },
   {
     "species_id": 233,
@@ -5040,8 +4808,7 @@
         "name": "Porygon-Z",
         "method": "troca segurando Dubious Disc"
       }
-    ],
-    "base_species_id": 137
+    ]
   },
   {
     "species_id": 234,
@@ -5064,8 +4831,7 @@
         "name": "Wyrdeer",
         "method": "agile-style-move"
       }
-    ],
-    "base_species_id": 234
+    ]
   },
   {
     "species_id": 235,
@@ -5082,8 +4848,7 @@
     "weight_kg": 58.0,
     "height_m": 1.2,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 235
+    "evolutions": []
   },
   {
     "species_id": 236,
@@ -5116,8 +4881,7 @@
         "name": "Hitmontop",
         "method": "lvl up: lvl 20"
       }
-    ],
-    "base_species_id": 106
+    ]
   },
   {
     "species_id": 237,
@@ -5134,8 +4898,7 @@
     "weight_kg": 48.0,
     "height_m": 1.4,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 106
+    "evolutions": []
   },
   {
     "species_id": 238,
@@ -5158,8 +4921,7 @@
         "name": "Jynx",
         "method": "lvl up: lvl 30"
       }
-    ],
-    "base_species_id": 124
+    ]
   },
   {
     "species_id": 239,
@@ -5182,8 +4944,7 @@
         "name": "Electabuzz",
         "method": "lvl up: lvl 30"
       }
-    ],
-    "base_species_id": 125
+    ]
   },
   {
     "species_id": 240,
@@ -5206,8 +4967,7 @@
         "name": "Magmar",
         "method": "lvl up: lvl 30"
       }
-    ],
-    "base_species_id": 126
+    ]
   },
   {
     "species_id": 241,
@@ -5224,8 +4984,7 @@
     "weight_kg": 75.5,
     "height_m": 1.2,
     "color": "pink",
-    "evolutions": [],
-    "base_species_id": 241
+    "evolutions": []
   },
   {
     "species_id": 242,
@@ -5242,8 +5001,7 @@
     "weight_kg": 46.8,
     "height_m": 1.5,
     "color": "pink",
-    "evolutions": [],
-    "base_species_id": 113
+    "evolutions": []
   },
   {
     "species_id": 243,
@@ -5260,8 +5018,7 @@
     "weight_kg": 178.0,
     "height_m": 1.9,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 243
+    "evolutions": []
   },
   {
     "species_id": 244,
@@ -5278,8 +5035,7 @@
     "weight_kg": 198.0,
     "height_m": 2.1,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 244
+    "evolutions": []
   },
   {
     "species_id": 245,
@@ -5296,8 +5052,7 @@
     "weight_kg": 187.0,
     "height_m": 2.0,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 245
+    "evolutions": []
   },
   {
     "species_id": 246,
@@ -5320,8 +5075,7 @@
         "name": "Pupitar",
         "method": "lvl up: lvl 30"
       }
-    ],
-    "base_species_id": 246
+    ]
   },
   {
     "species_id": 247,
@@ -5344,8 +5098,7 @@
         "name": "Tyranitar",
         "method": "lvl up: lvl 55"
       }
-    ],
-    "base_species_id": 246
+    ]
   },
   {
     "species_id": 248,
@@ -5362,8 +5115,7 @@
     "weight_kg": 202.0,
     "height_m": 2.0,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 246
+    "evolutions": []
   },
   {
     "species_id": 249,
@@ -5380,8 +5132,7 @@
     "weight_kg": 216.0,
     "height_m": 5.2,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 249
+    "evolutions": []
   },
   {
     "species_id": 250,
@@ -5398,8 +5149,7 @@
     "weight_kg": 199.0,
     "height_m": 3.8,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 250
+    "evolutions": []
   },
   {
     "species_id": 251,
@@ -5416,8 +5166,7 @@
     "weight_kg": 5.0,
     "height_m": 0.6,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 251
+    "evolutions": []
   },
   {
     "species_id": 252,
@@ -5440,8 +5189,7 @@
         "name": "Grovyle",
         "method": "lvl up: lvl 16"
       }
-    ],
-    "base_species_id": 252
+    ]
   },
   {
     "species_id": 253,
@@ -5464,8 +5212,7 @@
         "name": "Sceptile",
         "method": "lvl up: lvl 36"
       }
-    ],
-    "base_species_id": 252
+    ]
   },
   {
     "species_id": 254,
@@ -5482,8 +5229,7 @@
     "weight_kg": 52.2,
     "height_m": 1.7,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 252
+    "evolutions": []
   },
   {
     "species_id": 255,
@@ -5506,8 +5252,7 @@
         "name": "Combusken",
         "method": "lvl up: lvl 16"
       }
-    ],
-    "base_species_id": 255
+    ]
   },
   {
     "species_id": 256,
@@ -5530,8 +5275,7 @@
         "name": "Blaziken",
         "method": "lvl up: lvl 36"
       }
-    ],
-    "base_species_id": 255
+    ]
   },
   {
     "species_id": 257,
@@ -5548,8 +5292,7 @@
     "weight_kg": 52.0,
     "height_m": 1.9,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 255
+    "evolutions": []
   },
   {
     "species_id": 258,
@@ -5572,8 +5315,7 @@
         "name": "Marshtomp",
         "method": "lvl up: lvl 16"
       }
-    ],
-    "base_species_id": 258
+    ]
   },
   {
     "species_id": 259,
@@ -5596,8 +5338,7 @@
         "name": "Swampert",
         "method": "lvl up: lvl 36"
       }
-    ],
-    "base_species_id": 258
+    ]
   },
   {
     "species_id": 260,
@@ -5614,8 +5355,7 @@
     "weight_kg": 81.9,
     "height_m": 1.5,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 258
+    "evolutions": []
   },
   {
     "species_id": 261,
@@ -5638,8 +5378,7 @@
         "name": "Mightyena",
         "method": "lvl up: lvl 18"
       }
-    ],
-    "base_species_id": 261
+    ]
   },
   {
     "species_id": 262,
@@ -5656,8 +5395,7 @@
     "weight_kg": 37.0,
     "height_m": 1.0,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 261
+    "evolutions": []
   },
   {
     "species_id": 263,
@@ -5680,8 +5418,7 @@
         "name": "Linoone",
         "method": "lvl up: lvl 20"
       }
-    ],
-    "base_species_id": 263
+    ]
   },
   {
     "species_id": 264,
@@ -5704,8 +5441,7 @@
         "name": "Obstagoon",
         "method": "lvl up: lvl 35, de noite"
       }
-    ],
-    "base_species_id": 263
+    ]
   },
   {
     "species_id": 265,
@@ -5733,8 +5469,7 @@
         "name": "Cascoon",
         "method": "lvl up: lvl 7"
       }
-    ],
-    "base_species_id": 265
+    ]
   },
   {
     "species_id": 266,
@@ -5757,8 +5492,7 @@
         "name": "Beautifly",
         "method": "lvl up: lvl 10"
       }
-    ],
-    "base_species_id": 265
+    ]
   },
   {
     "species_id": 267,
@@ -5775,8 +5509,7 @@
     "weight_kg": 28.4,
     "height_m": 1.0,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 265
+    "evolutions": []
   },
   {
     "species_id": 268,
@@ -5799,8 +5532,7 @@
         "name": "Dustox",
         "method": "lvl up: lvl 10"
       }
-    ],
-    "base_species_id": 265
+    ]
   },
   {
     "species_id": 269,
@@ -5817,8 +5549,7 @@
     "weight_kg": 31.6,
     "height_m": 1.2,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 265
+    "evolutions": []
   },
   {
     "species_id": 270,
@@ -5841,8 +5572,7 @@
         "name": "Lombre",
         "method": "lvl up: lvl 14"
       }
-    ],
-    "base_species_id": 270
+    ]
   },
   {
     "species_id": 271,
@@ -5865,8 +5595,7 @@
         "name": "Ludicolo",
         "method": "item: Water Stone"
       }
-    ],
-    "base_species_id": 270
+    ]
   },
   {
     "species_id": 272,
@@ -5883,8 +5612,7 @@
     "weight_kg": 55.0,
     "height_m": 1.5,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 270
+    "evolutions": []
   },
   {
     "species_id": 273,
@@ -5907,8 +5635,7 @@
         "name": "Nuzleaf",
         "method": "lvl up: lvl 14"
       }
-    ],
-    "base_species_id": 273
+    ]
   },
   {
     "species_id": 274,
@@ -5931,8 +5658,7 @@
         "name": "Shiftry",
         "method": "item: Leaf Stone"
       }
-    ],
-    "base_species_id": 273
+    ]
   },
   {
     "species_id": 275,
@@ -5949,8 +5675,7 @@
     "weight_kg": 59.6,
     "height_m": 1.3,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 273
+    "evolutions": []
   },
   {
     "species_id": 276,
@@ -5973,8 +5698,7 @@
         "name": "Swellow",
         "method": "lvl up: lvl 22"
       }
-    ],
-    "base_species_id": 276
+    ]
   },
   {
     "species_id": 277,
@@ -5991,8 +5715,7 @@
     "weight_kg": 19.8,
     "height_m": 0.7,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 276
+    "evolutions": []
   },
   {
     "species_id": 278,
@@ -6015,8 +5738,7 @@
         "name": "Pelipper",
         "method": "lvl up: lvl 25"
       }
-    ],
-    "base_species_id": 278
+    ]
   },
   {
     "species_id": 279,
@@ -6033,8 +5755,7 @@
     "weight_kg": 28.0,
     "height_m": 1.2,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 278
+    "evolutions": []
   },
   {
     "species_id": 280,
@@ -6057,8 +5778,7 @@
         "name": "Kirlia",
         "method": "lvl up: lvl 20"
       }
-    ],
-    "base_species_id": 280
+    ]
   },
   {
     "species_id": 281,
@@ -6086,8 +5806,7 @@
         "name": "Gallade",
         "method": "item: Dawn Stone, só fêmea"
       }
-    ],
-    "base_species_id": 280
+    ]
   },
   {
     "species_id": 282,
@@ -6104,8 +5823,7 @@
     "weight_kg": 48.4,
     "height_m": 1.6,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 280
+    "evolutions": []
   },
   {
     "species_id": 283,
@@ -6128,8 +5846,7 @@
         "name": "Masquerain",
         "method": "lvl up: lvl 22"
       }
-    ],
-    "base_species_id": 283
+    ]
   },
   {
     "species_id": 284,
@@ -6146,8 +5863,7 @@
     "weight_kg": 3.6,
     "height_m": 0.8,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 283
+    "evolutions": []
   },
   {
     "species_id": 285,
@@ -6170,8 +5886,7 @@
         "name": "Breloom",
         "method": "lvl up: lvl 23"
       }
-    ],
-    "base_species_id": 285
+    ]
   },
   {
     "species_id": 286,
@@ -6188,8 +5903,7 @@
     "weight_kg": 39.2,
     "height_m": 1.2,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 285
+    "evolutions": []
   },
   {
     "species_id": 287,
@@ -6212,8 +5926,7 @@
         "name": "Vigoroth",
         "method": "lvl up: lvl 18"
       }
-    ],
-    "base_species_id": 287
+    ]
   },
   {
     "species_id": 288,
@@ -6236,8 +5949,7 @@
         "name": "Slaking",
         "method": "lvl up: lvl 36"
       }
-    ],
-    "base_species_id": 287
+    ]
   },
   {
     "species_id": 289,
@@ -6254,8 +5966,7 @@
     "weight_kg": 130.5,
     "height_m": 2.0,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 287
+    "evolutions": []
   },
   {
     "species_id": 290,
@@ -6283,8 +5994,7 @@
         "name": "Shedinja",
         "method": "shed"
       }
-    ],
-    "base_species_id": 290
+    ]
   },
   {
     "species_id": 291,
@@ -6301,8 +6011,7 @@
     "weight_kg": 12.0,
     "height_m": 0.8,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 290
+    "evolutions": []
   },
   {
     "species_id": 292,
@@ -6319,8 +6028,7 @@
     "weight_kg": 1.2,
     "height_m": 0.8,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 290
+    "evolutions": []
   },
   {
     "species_id": 293,
@@ -6343,8 +6051,7 @@
         "name": "Loudred",
         "method": "lvl up: lvl 20"
       }
-    ],
-    "base_species_id": 293
+    ]
   },
   {
     "species_id": 294,
@@ -6367,8 +6074,7 @@
         "name": "Exploud",
         "method": "lvl up: lvl 40"
       }
-    ],
-    "base_species_id": 293
+    ]
   },
   {
     "species_id": 295,
@@ -6385,8 +6091,7 @@
     "weight_kg": 84.0,
     "height_m": 1.5,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 293
+    "evolutions": []
   },
   {
     "species_id": 296,
@@ -6409,8 +6114,7 @@
         "name": "Hariyama",
         "method": "lvl up: lvl 24"
       }
-    ],
-    "base_species_id": 296
+    ]
   },
   {
     "species_id": 297,
@@ -6427,8 +6131,7 @@
     "weight_kg": 253.8,
     "height_m": 2.3,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 296
+    "evolutions": []
   },
   {
     "species_id": 298,
@@ -6451,8 +6154,7 @@
         "name": "Marill",
         "method": "lvl up: amizade 160"
       }
-    ],
-    "base_species_id": 183
+    ]
   },
   {
     "species_id": 299,
@@ -6475,8 +6177,7 @@
         "name": "Probopass",
         "method": "lvl up: local especial: Mt. Coronet"
       }
-    ],
-    "base_species_id": 299
+    ]
   },
   {
     "species_id": 300,
@@ -6499,8 +6200,7 @@
         "name": "Delcatty",
         "method": "item: Moon Stone"
       }
-    ],
-    "base_species_id": 300
+    ]
   },
   {
     "species_id": 301,
@@ -6517,8 +6217,7 @@
     "weight_kg": 32.6,
     "height_m": 1.1,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 300
+    "evolutions": []
   },
   {
     "species_id": 302,
@@ -6535,8 +6234,7 @@
     "weight_kg": 11.0,
     "height_m": 0.5,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 302
+    "evolutions": []
   },
   {
     "species_id": 303,
@@ -6553,8 +6251,7 @@
     "weight_kg": 11.5,
     "height_m": 0.6,
     "color": "black",
-    "evolutions": [],
-    "base_species_id": 303
+    "evolutions": []
   },
   {
     "species_id": 304,
@@ -6577,8 +6274,7 @@
         "name": "Lairon",
         "method": "lvl up: lvl 32"
       }
-    ],
-    "base_species_id": 304
+    ]
   },
   {
     "species_id": 305,
@@ -6601,8 +6297,7 @@
         "name": "Aggron",
         "method": "lvl up: lvl 42"
       }
-    ],
-    "base_species_id": 304
+    ]
   },
   {
     "species_id": 306,
@@ -6619,8 +6314,7 @@
     "weight_kg": 360.0,
     "height_m": 2.1,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 304
+    "evolutions": []
   },
   {
     "species_id": 307,
@@ -6643,8 +6337,7 @@
         "name": "Medicham",
         "method": "lvl up: lvl 37"
       }
-    ],
-    "base_species_id": 307
+    ]
   },
   {
     "species_id": 308,
@@ -6661,8 +6354,7 @@
     "weight_kg": 31.5,
     "height_m": 1.3,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 307
+    "evolutions": []
   },
   {
     "species_id": 309,
@@ -6685,8 +6377,7 @@
         "name": "Manectric",
         "method": "lvl up: lvl 26"
       }
-    ],
-    "base_species_id": 309
+    ]
   },
   {
     "species_id": 310,
@@ -6703,8 +6394,7 @@
     "weight_kg": 40.2,
     "height_m": 1.5,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 309
+    "evolutions": []
   },
   {
     "species_id": 311,
@@ -6721,8 +6411,7 @@
     "weight_kg": 4.2,
     "height_m": 0.4,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 311
+    "evolutions": []
   },
   {
     "species_id": 312,
@@ -6739,8 +6428,7 @@
     "weight_kg": 4.2,
     "height_m": 0.4,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 312
+    "evolutions": []
   },
   {
     "species_id": 313,
@@ -6757,8 +6445,7 @@
     "weight_kg": 17.7,
     "height_m": 0.7,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 313
+    "evolutions": []
   },
   {
     "species_id": 314,
@@ -6775,8 +6462,7 @@
     "weight_kg": 17.7,
     "height_m": 0.6,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 314
+    "evolutions": []
   },
   {
     "species_id": 315,
@@ -6799,8 +6485,7 @@
         "name": "Roserade",
         "method": "item: Shiny Stone"
       }
-    ],
-    "base_species_id": 315
+    ]
   },
   {
     "species_id": 316,
@@ -6823,8 +6508,7 @@
         "name": "Swalot",
         "method": "lvl up: lvl 26"
       }
-    ],
-    "base_species_id": 316
+    ]
   },
   {
     "species_id": 317,
@@ -6841,8 +6525,7 @@
     "weight_kg": 80.0,
     "height_m": 1.7,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 316
+    "evolutions": []
   },
   {
     "species_id": 318,
@@ -6865,8 +6548,7 @@
         "name": "Sharpedo",
         "method": "lvl up: lvl 30"
       }
-    ],
-    "base_species_id": 318
+    ]
   },
   {
     "species_id": 319,
@@ -6883,8 +6565,7 @@
     "weight_kg": 88.8,
     "height_m": 1.8,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 318
+    "evolutions": []
   },
   {
     "species_id": 320,
@@ -6907,8 +6588,7 @@
         "name": "Wailord",
         "method": "lvl up: lvl 40"
       }
-    ],
-    "base_species_id": 320
+    ]
   },
   {
     "species_id": 321,
@@ -6925,8 +6605,7 @@
     "weight_kg": 398.0,
     "height_m": 14.5,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 320
+    "evolutions": []
   },
   {
     "species_id": 322,
@@ -6949,8 +6628,7 @@
         "name": "Camerupt",
         "method": "lvl up: lvl 33"
       }
-    ],
-    "base_species_id": 322
+    ]
   },
   {
     "species_id": 323,
@@ -6967,8 +6645,7 @@
     "weight_kg": 220.0,
     "height_m": 1.9,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 322
+    "evolutions": []
   },
   {
     "species_id": 324,
@@ -6985,8 +6662,7 @@
     "weight_kg": 80.4,
     "height_m": 0.5,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 324
+    "evolutions": []
   },
   {
     "species_id": 325,
@@ -7009,8 +6685,7 @@
         "name": "Grumpig",
         "method": "lvl up: lvl 32"
       }
-    ],
-    "base_species_id": 325
+    ]
   },
   {
     "species_id": 326,
@@ -7027,8 +6702,7 @@
     "weight_kg": 71.5,
     "height_m": 0.9,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 325
+    "evolutions": []
   },
   {
     "species_id": 327,
@@ -7045,8 +6719,7 @@
     "weight_kg": 5.0,
     "height_m": 1.1,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 327
+    "evolutions": []
   },
   {
     "species_id": 328,
@@ -7069,8 +6742,7 @@
         "name": "Vibrava",
         "method": "lvl up: lvl 35"
       }
-    ],
-    "base_species_id": 328
+    ]
   },
   {
     "species_id": 329,
@@ -7093,8 +6765,7 @@
         "name": "Flygon",
         "method": "lvl up: lvl 45"
       }
-    ],
-    "base_species_id": 328
+    ]
   },
   {
     "species_id": 330,
@@ -7111,8 +6782,7 @@
     "weight_kg": 82.0,
     "height_m": 2.0,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 328
+    "evolutions": []
   },
   {
     "species_id": 331,
@@ -7135,8 +6805,7 @@
         "name": "Cacturne",
         "method": "lvl up: lvl 32"
       }
-    ],
-    "base_species_id": 331
+    ]
   },
   {
     "species_id": 332,
@@ -7153,8 +6822,7 @@
     "weight_kg": 77.4,
     "height_m": 1.3,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 331
+    "evolutions": []
   },
   {
     "species_id": 333,
@@ -7177,8 +6845,7 @@
         "name": "Altaria",
         "method": "lvl up: lvl 35"
       }
-    ],
-    "base_species_id": 333
+    ]
   },
   {
     "species_id": 334,
@@ -7195,8 +6862,7 @@
     "weight_kg": 20.6,
     "height_m": 1.1,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 333
+    "evolutions": []
   },
   {
     "species_id": 335,
@@ -7213,8 +6879,7 @@
     "weight_kg": 40.3,
     "height_m": 1.3,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 335
+    "evolutions": []
   },
   {
     "species_id": 336,
@@ -7231,8 +6896,7 @@
     "weight_kg": 52.5,
     "height_m": 2.7,
     "color": "black",
-    "evolutions": [],
-    "base_species_id": 336
+    "evolutions": []
   },
   {
     "species_id": 337,
@@ -7249,8 +6913,7 @@
     "weight_kg": 168.0,
     "height_m": 1.0,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 337
+    "evolutions": []
   },
   {
     "species_id": 338,
@@ -7267,8 +6930,7 @@
     "weight_kg": 154.0,
     "height_m": 1.2,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 338
+    "evolutions": []
   },
   {
     "species_id": 339,
@@ -7291,8 +6953,7 @@
         "name": "Whiscash",
         "method": "lvl up: lvl 30"
       }
-    ],
-    "base_species_id": 339
+    ]
   },
   {
     "species_id": 340,
@@ -7309,8 +6970,7 @@
     "weight_kg": 23.6,
     "height_m": 0.9,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 339
+    "evolutions": []
   },
   {
     "species_id": 341,
@@ -7333,8 +6993,7 @@
         "name": "Crawdaunt",
         "method": "lvl up: lvl 30"
       }
-    ],
-    "base_species_id": 341
+    ]
   },
   {
     "species_id": 342,
@@ -7351,8 +7010,7 @@
     "weight_kg": 32.8,
     "height_m": 1.1,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 341
+    "evolutions": []
   },
   {
     "species_id": 343,
@@ -7375,8 +7033,7 @@
         "name": "Claydol",
         "method": "lvl up: lvl 36"
       }
-    ],
-    "base_species_id": 343
+    ]
   },
   {
     "species_id": 344,
@@ -7393,8 +7050,7 @@
     "weight_kg": 108.0,
     "height_m": 1.5,
     "color": "black",
-    "evolutions": [],
-    "base_species_id": 343
+    "evolutions": []
   },
   {
     "species_id": 345,
@@ -7417,8 +7073,7 @@
         "name": "Cradily",
         "method": "lvl up: lvl 40"
       }
-    ],
-    "base_species_id": 345
+    ]
   },
   {
     "species_id": 346,
@@ -7435,8 +7090,7 @@
     "weight_kg": 60.4,
     "height_m": 1.5,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 345
+    "evolutions": []
   },
   {
     "species_id": 347,
@@ -7459,8 +7113,7 @@
         "name": "Armaldo",
         "method": "lvl up: lvl 40"
       }
-    ],
-    "base_species_id": 347
+    ]
   },
   {
     "species_id": 348,
@@ -7477,8 +7130,7 @@
     "weight_kg": 68.2,
     "height_m": 1.5,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 347
+    "evolutions": []
   },
   {
     "species_id": 349,
@@ -7501,8 +7153,7 @@
         "name": "Milotic",
         "method": "lvl up: beleza 171"
       }
-    ],
-    "base_species_id": 349
+    ]
   },
   {
     "species_id": 350,
@@ -7519,8 +7170,7 @@
     "weight_kg": 162.0,
     "height_m": 6.2,
     "color": "pink",
-    "evolutions": [],
-    "base_species_id": 349
+    "evolutions": []
   },
   {
     "species_id": 351,
@@ -7537,8 +7187,7 @@
     "weight_kg": 0.8,
     "height_m": 0.3,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 351
+    "evolutions": []
   },
   {
     "species_id": 352,
@@ -7555,8 +7204,7 @@
     "weight_kg": 22.0,
     "height_m": 1.0,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 352
+    "evolutions": []
   },
   {
     "species_id": 353,
@@ -7579,8 +7227,7 @@
         "name": "Banette",
         "method": "lvl up: lvl 37"
       }
-    ],
-    "base_species_id": 353
+    ]
   },
   {
     "species_id": 354,
@@ -7597,8 +7244,7 @@
     "weight_kg": 12.5,
     "height_m": 1.1,
     "color": "black",
-    "evolutions": [],
-    "base_species_id": 353
+    "evolutions": []
   },
   {
     "species_id": 355,
@@ -7621,8 +7267,7 @@
         "name": "Dusclops",
         "method": "lvl up: lvl 37"
       }
-    ],
-    "base_species_id": 355
+    ]
   },
   {
     "species_id": 356,
@@ -7645,8 +7290,7 @@
         "name": "Dusknoir",
         "method": "troca segurando Reaper Cloth"
       }
-    ],
-    "base_species_id": 355
+    ]
   },
   {
     "species_id": 357,
@@ -7663,8 +7307,7 @@
     "weight_kg": 100.0,
     "height_m": 2.0,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 357
+    "evolutions": []
   },
   {
     "species_id": 358,
@@ -7681,8 +7324,7 @@
     "weight_kg": 1.0,
     "height_m": 0.6,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 358
+    "evolutions": []
   },
   {
     "species_id": 359,
@@ -7699,8 +7341,7 @@
     "weight_kg": 47.0,
     "height_m": 1.2,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 359
+    "evolutions": []
   },
   {
     "species_id": 360,
@@ -7723,8 +7364,7 @@
         "name": "Wobbuffet",
         "method": "lvl up: lvl 15"
       }
-    ],
-    "base_species_id": 202
+    ]
   },
   {
     "species_id": 361,
@@ -7752,8 +7392,7 @@
         "name": "Froslass",
         "method": "item: Dawn Stone, só macho"
       }
-    ],
-    "base_species_id": 361
+    ]
   },
   {
     "species_id": 362,
@@ -7770,8 +7409,7 @@
     "weight_kg": 256.5,
     "height_m": 1.5,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 361
+    "evolutions": []
   },
   {
     "species_id": 363,
@@ -7794,8 +7432,7 @@
         "name": "Sealeo",
         "method": "lvl up: lvl 32"
       }
-    ],
-    "base_species_id": 363
+    ]
   },
   {
     "species_id": 364,
@@ -7818,8 +7455,7 @@
         "name": "Walrein",
         "method": "lvl up: lvl 44"
       }
-    ],
-    "base_species_id": 363
+    ]
   },
   {
     "species_id": 365,
@@ -7836,8 +7472,7 @@
     "weight_kg": 150.6,
     "height_m": 1.4,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 363
+    "evolutions": []
   },
   {
     "species_id": 366,
@@ -7865,8 +7500,7 @@
         "name": "Gorebyss",
         "method": "troca segurando Deep Sea Scale"
       }
-    ],
-    "base_species_id": 366
+    ]
   },
   {
     "species_id": 367,
@@ -7883,8 +7517,7 @@
     "weight_kg": 27.0,
     "height_m": 1.7,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 366
+    "evolutions": []
   },
   {
     "species_id": 368,
@@ -7901,8 +7534,7 @@
     "weight_kg": 22.6,
     "height_m": 1.8,
     "color": "pink",
-    "evolutions": [],
-    "base_species_id": 366
+    "evolutions": []
   },
   {
     "species_id": 369,
@@ -7919,8 +7551,7 @@
     "weight_kg": 23.4,
     "height_m": 1.0,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 369
+    "evolutions": []
   },
   {
     "species_id": 370,
@@ -7937,8 +7568,7 @@
     "weight_kg": 8.7,
     "height_m": 0.6,
     "color": "pink",
-    "evolutions": [],
-    "base_species_id": 370
+    "evolutions": []
   },
   {
     "species_id": 371,
@@ -7961,8 +7591,7 @@
         "name": "Shelgon",
         "method": "lvl up: lvl 30"
       }
-    ],
-    "base_species_id": 371
+    ]
   },
   {
     "species_id": 372,
@@ -7985,8 +7614,7 @@
         "name": "Salamence",
         "method": "lvl up: lvl 50"
       }
-    ],
-    "base_species_id": 371
+    ]
   },
   {
     "species_id": 373,
@@ -8003,8 +7631,7 @@
     "weight_kg": 102.6,
     "height_m": 1.5,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 371
+    "evolutions": []
   },
   {
     "species_id": 374,
@@ -8027,8 +7654,7 @@
         "name": "Metang",
         "method": "lvl up: lvl 20"
       }
-    ],
-    "base_species_id": 374
+    ]
   },
   {
     "species_id": 375,
@@ -8051,8 +7677,7 @@
         "name": "Metagross",
         "method": "lvl up: lvl 45"
       }
-    ],
-    "base_species_id": 374
+    ]
   },
   {
     "species_id": 376,
@@ -8069,8 +7694,7 @@
     "weight_kg": 550.0,
     "height_m": 1.6,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 374
+    "evolutions": []
   },
   {
     "species_id": 377,
@@ -8087,8 +7711,7 @@
     "weight_kg": 230.0,
     "height_m": 1.7,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 377
+    "evolutions": []
   },
   {
     "species_id": 378,
@@ -8105,8 +7728,7 @@
     "weight_kg": 175.0,
     "height_m": 1.8,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 378
+    "evolutions": []
   },
   {
     "species_id": 379,
@@ -8123,8 +7745,7 @@
     "weight_kg": 205.0,
     "height_m": 1.9,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 379
+    "evolutions": []
   },
   {
     "species_id": 380,
@@ -8141,8 +7762,7 @@
     "weight_kg": 40.0,
     "height_m": 1.4,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 380
+    "evolutions": []
   },
   {
     "species_id": 381,
@@ -8159,8 +7779,7 @@
     "weight_kg": 60.0,
     "height_m": 2.0,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 381
+    "evolutions": []
   },
   {
     "species_id": 382,
@@ -8177,8 +7796,7 @@
     "weight_kg": 352.0,
     "height_m": 4.5,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 382
+    "evolutions": []
   },
   {
     "species_id": 383,
@@ -8195,8 +7813,7 @@
     "weight_kg": 950.0,
     "height_m": 3.5,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 383
+    "evolutions": []
   },
   {
     "species_id": 384,
@@ -8213,8 +7830,7 @@
     "weight_kg": 206.5,
     "height_m": 7.0,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 384
+    "evolutions": []
   },
   {
     "species_id": 385,
@@ -8231,8 +7847,7 @@
     "weight_kg": 1.1,
     "height_m": 0.3,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 385
+    "evolutions": []
   },
   {
     "species_id": 386,
@@ -8249,8 +7864,7 @@
     "weight_kg": 60.8,
     "height_m": 1.7,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 386
+    "evolutions": []
   },
   {
     "species_id": 387,
@@ -8273,8 +7887,7 @@
         "name": "Grotle",
         "method": "lvl up: lvl 18"
       }
-    ],
-    "base_species_id": 387
+    ]
   },
   {
     "species_id": 388,
@@ -8297,8 +7910,7 @@
         "name": "Torterra",
         "method": "lvl up: lvl 32"
       }
-    ],
-    "base_species_id": 387
+    ]
   },
   {
     "species_id": 389,
@@ -8315,8 +7927,7 @@
     "weight_kg": 310.0,
     "height_m": 2.2,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 387
+    "evolutions": []
   },
   {
     "species_id": 390,
@@ -8339,8 +7950,7 @@
         "name": "Monferno",
         "method": "lvl up: lvl 14"
       }
-    ],
-    "base_species_id": 390
+    ]
   },
   {
     "species_id": 391,
@@ -8363,8 +7973,7 @@
         "name": "Infernape",
         "method": "lvl up: lvl 36"
       }
-    ],
-    "base_species_id": 390
+    ]
   },
   {
     "species_id": 392,
@@ -8381,8 +7990,7 @@
     "weight_kg": 55.0,
     "height_m": 1.2,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 390
+    "evolutions": []
   },
   {
     "species_id": 393,
@@ -8405,8 +8013,7 @@
         "name": "Prinplup",
         "method": "lvl up: lvl 16"
       }
-    ],
-    "base_species_id": 393
+    ]
   },
   {
     "species_id": 394,
@@ -8429,8 +8036,7 @@
         "name": "Empoleon",
         "method": "lvl up: lvl 36"
       }
-    ],
-    "base_species_id": 393
+    ]
   },
   {
     "species_id": 395,
@@ -8447,8 +8053,7 @@
     "weight_kg": 84.5,
     "height_m": 1.7,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 393
+    "evolutions": []
   },
   {
     "species_id": 396,
@@ -8471,8 +8076,7 @@
         "name": "Staravia",
         "method": "lvl up: lvl 14"
       }
-    ],
-    "base_species_id": 396
+    ]
   },
   {
     "species_id": 397,
@@ -8495,8 +8099,7 @@
         "name": "Staraptor",
         "method": "lvl up: lvl 34"
       }
-    ],
-    "base_species_id": 396
+    ]
   },
   {
     "species_id": 398,
@@ -8513,8 +8116,7 @@
     "weight_kg": 24.9,
     "height_m": 1.2,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 396
+    "evolutions": []
   },
   {
     "species_id": 399,
@@ -8537,8 +8139,7 @@
         "name": "Bibarel",
         "method": "lvl up: lvl 15"
       }
-    ],
-    "base_species_id": 399
+    ]
   },
   {
     "species_id": 400,
@@ -8555,8 +8156,7 @@
     "weight_kg": 31.5,
     "height_m": 1.0,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 399
+    "evolutions": []
   },
   {
     "species_id": 401,
@@ -8579,8 +8179,7 @@
         "name": "Kricketune",
         "method": "lvl up: lvl 10"
       }
-    ],
-    "base_species_id": 401
+    ]
   },
   {
     "species_id": 402,
@@ -8597,8 +8196,7 @@
     "weight_kg": 25.5,
     "height_m": 1.0,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 401
+    "evolutions": []
   },
   {
     "species_id": 403,
@@ -8621,8 +8219,7 @@
         "name": "Luxio",
         "method": "lvl up: lvl 15"
       }
-    ],
-    "base_species_id": 403
+    ]
   },
   {
     "species_id": 404,
@@ -8645,8 +8242,7 @@
         "name": "Luxray",
         "method": "lvl up: lvl 30"
       }
-    ],
-    "base_species_id": 403
+    ]
   },
   {
     "species_id": 405,
@@ -8663,8 +8259,7 @@
     "weight_kg": 42.0,
     "height_m": 1.4,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 403
+    "evolutions": []
   },
   {
     "species_id": 406,
@@ -8687,8 +8282,7 @@
         "name": "Roselia",
         "method": "lvl up: amizade 160, de dia"
       }
-    ],
-    "base_species_id": 315
+    ]
   },
   {
     "species_id": 407,
@@ -8705,8 +8299,7 @@
     "weight_kg": 14.5,
     "height_m": 0.9,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 315
+    "evolutions": []
   },
   {
     "species_id": 408,
@@ -8729,8 +8322,7 @@
         "name": "Rampardos",
         "method": "lvl up: lvl 30"
       }
-    ],
-    "base_species_id": 408
+    ]
   },
   {
     "species_id": 409,
@@ -8747,8 +8339,7 @@
     "weight_kg": 102.5,
     "height_m": 1.6,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 408
+    "evolutions": []
   },
   {
     "species_id": 410,
@@ -8771,8 +8362,7 @@
         "name": "Bastiodon",
         "method": "lvl up: lvl 30"
       }
-    ],
-    "base_species_id": 410
+    ]
   },
   {
     "species_id": 411,
@@ -8789,8 +8379,7 @@
     "weight_kg": 149.5,
     "height_m": 1.3,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 410
+    "evolutions": []
   },
   {
     "species_id": 412,
@@ -8818,8 +8407,7 @@
         "name": "Mothim",
         "method": "lvl up: lvl 20, só fêmea"
       }
-    ],
-    "base_species_id": 412
+    ]
   },
   {
     "species_id": 413,
@@ -8836,8 +8424,7 @@
     "weight_kg": 6.5,
     "height_m": 0.5,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 412
+    "evolutions": []
   },
   {
     "species_id": 414,
@@ -8854,8 +8441,7 @@
     "weight_kg": 23.3,
     "height_m": 0.9,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 412
+    "evolutions": []
   },
   {
     "species_id": 415,
@@ -8878,8 +8464,7 @@
         "name": "Vespiquen",
         "method": "lvl up: lvl 21, só macho"
       }
-    ],
-    "base_species_id": 415
+    ]
   },
   {
     "species_id": 416,
@@ -8896,8 +8481,7 @@
     "weight_kg": 38.5,
     "height_m": 1.2,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 415
+    "evolutions": []
   },
   {
     "species_id": 417,
@@ -8914,8 +8498,7 @@
     "weight_kg": 3.9,
     "height_m": 0.4,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 417
+    "evolutions": []
   },
   {
     "species_id": 418,
@@ -8938,8 +8521,7 @@
         "name": "Floatzel",
         "method": "lvl up: lvl 26"
       }
-    ],
-    "base_species_id": 418
+    ]
   },
   {
     "species_id": 419,
@@ -8956,8 +8538,7 @@
     "weight_kg": 33.5,
     "height_m": 1.1,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 418
+    "evolutions": []
   },
   {
     "species_id": 420,
@@ -8980,8 +8561,7 @@
         "name": "Cherrim",
         "method": "lvl up: lvl 25"
       }
-    ],
-    "base_species_id": 420
+    ]
   },
   {
     "species_id": 421,
@@ -8998,8 +8578,7 @@
     "weight_kg": 9.3,
     "height_m": 0.5,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 420
+    "evolutions": []
   },
   {
     "species_id": 422,
@@ -9022,8 +8601,7 @@
         "name": "Gastrodon",
         "method": "lvl up: lvl 30"
       }
-    ],
-    "base_species_id": 422
+    ]
   },
   {
     "species_id": 423,
@@ -9040,8 +8618,7 @@
     "weight_kg": 29.9,
     "height_m": 0.9,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 422
+    "evolutions": []
   },
   {
     "species_id": 424,
@@ -9058,8 +8635,7 @@
     "weight_kg": 20.3,
     "height_m": 1.2,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 190
+    "evolutions": []
   },
   {
     "species_id": 425,
@@ -9082,8 +8658,7 @@
         "name": "Drifblim",
         "method": "lvl up: lvl 28"
       }
-    ],
-    "base_species_id": 425
+    ]
   },
   {
     "species_id": 426,
@@ -9100,8 +8675,7 @@
     "weight_kg": 15.0,
     "height_m": 1.2,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 425
+    "evolutions": []
   },
   {
     "species_id": 427,
@@ -9124,8 +8698,7 @@
         "name": "Lopunny",
         "method": "lvl up: amizade 160"
       }
-    ],
-    "base_species_id": 427
+    ]
   },
   {
     "species_id": 428,
@@ -9142,8 +8715,7 @@
     "weight_kg": 33.3,
     "height_m": 1.2,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 427
+    "evolutions": []
   },
   {
     "species_id": 429,
@@ -9160,8 +8732,7 @@
     "weight_kg": 4.4,
     "height_m": 0.9,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 200
+    "evolutions": []
   },
   {
     "species_id": 430,
@@ -9178,8 +8749,7 @@
     "weight_kg": 27.3,
     "height_m": 0.9,
     "color": "black",
-    "evolutions": [],
-    "base_species_id": 198
+    "evolutions": []
   },
   {
     "species_id": 431,
@@ -9202,8 +8772,7 @@
         "name": "Purugly",
         "method": "lvl up: lvl 38"
       }
-    ],
-    "base_species_id": 431
+    ]
   },
   {
     "species_id": 432,
@@ -9220,8 +8789,7 @@
     "weight_kg": 43.8,
     "height_m": 1.0,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 431
+    "evolutions": []
   },
   {
     "species_id": 433,
@@ -9244,8 +8812,7 @@
         "name": "Chimecho",
         "method": "lvl up: amizade 220, de noite"
       }
-    ],
-    "base_species_id": 358
+    ]
   },
   {
     "species_id": 434,
@@ -9268,8 +8835,7 @@
         "name": "Skuntank",
         "method": "lvl up: lvl 34"
       }
-    ],
-    "base_species_id": 434
+    ]
   },
   {
     "species_id": 435,
@@ -9286,8 +8852,7 @@
     "weight_kg": 38.0,
     "height_m": 1.0,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 434
+    "evolutions": []
   },
   {
     "species_id": 436,
@@ -9310,8 +8875,7 @@
         "name": "Bronzong",
         "method": "lvl up: lvl 33"
       }
-    ],
-    "base_species_id": 436
+    ]
   },
   {
     "species_id": 437,
@@ -9328,8 +8892,7 @@
     "weight_kg": 187.0,
     "height_m": 1.3,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 436
+    "evolutions": []
   },
   {
     "species_id": 438,
@@ -9352,8 +8915,7 @@
         "name": "Sudowoodo",
         "method": "lvl up: sabendo golpe Mimic"
       }
-    ],
-    "base_species_id": 185
+    ]
   },
   {
     "species_id": 439,
@@ -9376,8 +8938,7 @@
         "name": "Mr. Mime",
         "method": "lvl up: sabendo golpe Mimic"
       }
-    ],
-    "base_species_id": 122
+    ]
   },
   {
     "species_id": 440,
@@ -9400,8 +8961,7 @@
         "name": "Chansey",
         "method": "lvl up: de dia"
       }
-    ],
-    "base_species_id": 113
+    ]
   },
   {
     "species_id": 441,
@@ -9418,8 +8978,7 @@
     "weight_kg": 1.9,
     "height_m": 0.5,
     "color": "black",
-    "evolutions": [],
-    "base_species_id": 441
+    "evolutions": []
   },
   {
     "species_id": 442,
@@ -9436,8 +8995,7 @@
     "weight_kg": 108.0,
     "height_m": 1.0,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 442
+    "evolutions": []
   },
   {
     "species_id": 443,
@@ -9460,8 +9018,7 @@
         "name": "Gabite",
         "method": "lvl up: lvl 24"
       }
-    ],
-    "base_species_id": 443
+    ]
   },
   {
     "species_id": 444,
@@ -9484,8 +9041,7 @@
         "name": "Garchomp",
         "method": "lvl up: lvl 48"
       }
-    ],
-    "base_species_id": 443
+    ]
   },
   {
     "species_id": 445,
@@ -9502,8 +9058,7 @@
     "weight_kg": 95.0,
     "height_m": 1.9,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 443
+    "evolutions": []
   },
   {
     "species_id": 446,
@@ -9526,8 +9081,7 @@
         "name": "Snorlax",
         "method": "lvl up: amizade 160"
       }
-    ],
-    "base_species_id": 143
+    ]
   },
   {
     "species_id": 447,
@@ -9550,8 +9104,7 @@
         "name": "Lucario",
         "method": "lvl up: amizade 160, de dia"
       }
-    ],
-    "base_species_id": 447
+    ]
   },
   {
     "species_id": 448,
@@ -9568,8 +9121,7 @@
     "weight_kg": 54.0,
     "height_m": 1.2,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 447
+    "evolutions": []
   },
   {
     "species_id": 449,
@@ -9592,8 +9144,7 @@
         "name": "Hippowdon",
         "method": "lvl up: lvl 34"
       }
-    ],
-    "base_species_id": 449
+    ]
   },
   {
     "species_id": 450,
@@ -9610,8 +9161,7 @@
     "weight_kg": 300.0,
     "height_m": 2.0,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 449
+    "evolutions": []
   },
   {
     "species_id": 451,
@@ -9634,8 +9184,7 @@
         "name": "Drapion",
         "method": "lvl up: lvl 40"
       }
-    ],
-    "base_species_id": 451
+    ]
   },
   {
     "species_id": 452,
@@ -9652,8 +9201,7 @@
     "weight_kg": 61.5,
     "height_m": 1.3,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 451
+    "evolutions": []
   },
   {
     "species_id": 453,
@@ -9676,8 +9224,7 @@
         "name": "Toxicroak",
         "method": "lvl up: lvl 37"
       }
-    ],
-    "base_species_id": 453
+    ]
   },
   {
     "species_id": 454,
@@ -9694,8 +9241,7 @@
     "weight_kg": 44.4,
     "height_m": 1.3,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 453
+    "evolutions": []
   },
   {
     "species_id": 455,
@@ -9712,8 +9258,7 @@
     "weight_kg": 27.0,
     "height_m": 1.4,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 455
+    "evolutions": []
   },
   {
     "species_id": 456,
@@ -9736,8 +9281,7 @@
         "name": "Lumineon",
         "method": "lvl up: lvl 31"
       }
-    ],
-    "base_species_id": 456
+    ]
   },
   {
     "species_id": 457,
@@ -9754,8 +9298,7 @@
     "weight_kg": 24.0,
     "height_m": 1.2,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 456
+    "evolutions": []
   },
   {
     "species_id": 458,
@@ -9778,8 +9321,7 @@
         "name": "Mantine",
         "method": "lvl up"
       }
-    ],
-    "base_species_id": 226
+    ]
   },
   {
     "species_id": 459,
@@ -9802,8 +9344,7 @@
         "name": "Abomasnow",
         "method": "lvl up: lvl 40"
       }
-    ],
-    "base_species_id": 459
+    ]
   },
   {
     "species_id": 460,
@@ -9820,8 +9361,7 @@
     "weight_kg": 135.5,
     "height_m": 2.2,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 459
+    "evolutions": []
   },
   {
     "species_id": 461,
@@ -9838,8 +9378,7 @@
     "weight_kg": 34.0,
     "height_m": 1.1,
     "color": "black",
-    "evolutions": [],
-    "base_species_id": 215
+    "evolutions": []
   },
   {
     "species_id": 462,
@@ -9856,8 +9395,7 @@
     "weight_kg": 180.0,
     "height_m": 1.2,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 81
+    "evolutions": []
   },
   {
     "species_id": 463,
@@ -9874,8 +9412,7 @@
     "weight_kg": 140.0,
     "height_m": 1.7,
     "color": "pink",
-    "evolutions": [],
-    "base_species_id": 108
+    "evolutions": []
   },
   {
     "species_id": 464,
@@ -9892,8 +9429,7 @@
     "weight_kg": 282.8,
     "height_m": 2.4,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 111
+    "evolutions": []
   },
   {
     "species_id": 465,
@@ -9910,8 +9446,7 @@
     "weight_kg": 128.6,
     "height_m": 2.0,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 114
+    "evolutions": []
   },
   {
     "species_id": 466,
@@ -9928,8 +9463,7 @@
     "weight_kg": 138.6,
     "height_m": 1.8,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 125
+    "evolutions": []
   },
   {
     "species_id": 467,
@@ -9946,8 +9480,7 @@
     "weight_kg": 68.0,
     "height_m": 1.6,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 126
+    "evolutions": []
   },
   {
     "species_id": 468,
@@ -9964,8 +9497,7 @@
     "weight_kg": 38.0,
     "height_m": 1.5,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 175
+    "evolutions": []
   },
   {
     "species_id": 469,
@@ -9982,8 +9514,7 @@
     "weight_kg": 51.5,
     "height_m": 1.9,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 193
+    "evolutions": []
   },
   {
     "species_id": 470,
@@ -10000,8 +9531,7 @@
     "weight_kg": 25.5,
     "height_m": 1.0,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 133
+    "evolutions": []
   },
   {
     "species_id": 471,
@@ -10018,8 +9548,7 @@
     "weight_kg": 25.9,
     "height_m": 0.8,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 133
+    "evolutions": []
   },
   {
     "species_id": 472,
@@ -10036,8 +9565,7 @@
     "weight_kg": 42.5,
     "height_m": 2.0,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 207
+    "evolutions": []
   },
   {
     "species_id": 473,
@@ -10054,8 +9582,7 @@
     "weight_kg": 291.0,
     "height_m": 2.5,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 220
+    "evolutions": []
   },
   {
     "species_id": 474,
@@ -10072,8 +9599,7 @@
     "weight_kg": 34.0,
     "height_m": 0.9,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 137
+    "evolutions": []
   },
   {
     "species_id": 475,
@@ -10090,8 +9616,7 @@
     "weight_kg": 52.0,
     "height_m": 1.6,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 280
+    "evolutions": []
   },
   {
     "species_id": 476,
@@ -10108,8 +9633,7 @@
     "weight_kg": 340.0,
     "height_m": 1.4,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 299
+    "evolutions": []
   },
   {
     "species_id": 477,
@@ -10126,8 +9650,7 @@
     "weight_kg": 106.6,
     "height_m": 2.2,
     "color": "black",
-    "evolutions": [],
-    "base_species_id": 355
+    "evolutions": []
   },
   {
     "species_id": 478,
@@ -10144,8 +9667,7 @@
     "weight_kg": 26.6,
     "height_m": 1.3,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 361
+    "evolutions": []
   },
   {
     "species_id": 479,
@@ -10162,8 +9684,7 @@
     "weight_kg": 0.3,
     "height_m": 0.3,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 479
+    "evolutions": []
   },
   {
     "species_id": 480,
@@ -10180,8 +9701,7 @@
     "weight_kg": 0.3,
     "height_m": 0.3,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 480
+    "evolutions": []
   },
   {
     "species_id": 481,
@@ -10198,8 +9718,7 @@
     "weight_kg": 0.3,
     "height_m": 0.3,
     "color": "pink",
-    "evolutions": [],
-    "base_species_id": 481
+    "evolutions": []
   },
   {
     "species_id": 482,
@@ -10216,8 +9735,7 @@
     "weight_kg": 0.3,
     "height_m": 0.3,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 482
+    "evolutions": []
   },
   {
     "species_id": 483,
@@ -10234,8 +9752,7 @@
     "weight_kg": 683.0,
     "height_m": 5.4,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 483
+    "evolutions": []
   },
   {
     "species_id": 484,
@@ -10252,8 +9769,7 @@
     "weight_kg": 336.0,
     "height_m": 4.2,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 484
+    "evolutions": []
   },
   {
     "species_id": 485,
@@ -10270,8 +9786,7 @@
     "weight_kg": 430.0,
     "height_m": 1.7,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 485
+    "evolutions": []
   },
   {
     "species_id": 486,
@@ -10288,8 +9803,7 @@
     "weight_kg": 420.0,
     "height_m": 3.7,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 486
+    "evolutions": []
   },
   {
     "species_id": 487,
@@ -10306,8 +9820,7 @@
     "weight_kg": 750.0,
     "height_m": 4.5,
     "color": "black",
-    "evolutions": [],
-    "base_species_id": 487
+    "evolutions": []
   },
   {
     "species_id": 488,
@@ -10324,8 +9837,7 @@
     "weight_kg": 85.6,
     "height_m": 1.5,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 488
+    "evolutions": []
   },
   {
     "species_id": 489,
@@ -10342,8 +9854,7 @@
     "weight_kg": 3.1,
     "height_m": 0.4,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 489
+    "evolutions": []
   },
   {
     "species_id": 490,
@@ -10360,8 +9871,7 @@
     "weight_kg": 1.4,
     "height_m": 0.3,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 489
+    "evolutions": []
   },
   {
     "species_id": 491,
@@ -10378,8 +9888,7 @@
     "weight_kg": 50.5,
     "height_m": 1.5,
     "color": "black",
-    "evolutions": [],
-    "base_species_id": 491
+    "evolutions": []
   },
   {
     "species_id": 492,
@@ -10396,8 +9905,7 @@
     "weight_kg": 2.1,
     "height_m": 0.2,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 492
+    "evolutions": []
   },
   {
     "species_id": 493,
@@ -10414,8 +9922,7 @@
     "weight_kg": 320.0,
     "height_m": 3.2,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 493
+    "evolutions": []
   },
   {
     "species_id": 494,
@@ -10432,8 +9939,7 @@
     "weight_kg": 4.0,
     "height_m": 0.4,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 494
+    "evolutions": []
   },
   {
     "species_id": 495,
@@ -10456,8 +9962,7 @@
         "name": "Servine",
         "method": "lvl up: lvl 17"
       }
-    ],
-    "base_species_id": 495
+    ]
   },
   {
     "species_id": 496,
@@ -10480,8 +9985,7 @@
         "name": "Serperior",
         "method": "lvl up: lvl 36"
       }
-    ],
-    "base_species_id": 495
+    ]
   },
   {
     "species_id": 497,
@@ -10498,8 +10002,7 @@
     "weight_kg": 63.0,
     "height_m": 3.3,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 495
+    "evolutions": []
   },
   {
     "species_id": 498,
@@ -10522,8 +10025,7 @@
         "name": "Pignite",
         "method": "lvl up: lvl 17"
       }
-    ],
-    "base_species_id": 498
+    ]
   },
   {
     "species_id": 499,
@@ -10546,8 +10048,7 @@
         "name": "Emboar",
         "method": "lvl up: lvl 36"
       }
-    ],
-    "base_species_id": 498
+    ]
   },
   {
     "species_id": 500,
@@ -10564,8 +10065,7 @@
     "weight_kg": 150.0,
     "height_m": 1.6,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 498
+    "evolutions": []
   },
   {
     "species_id": 501,
@@ -10588,8 +10088,7 @@
         "name": "Dewott",
         "method": "lvl up: lvl 17"
       }
-    ],
-    "base_species_id": 501
+    ]
   },
   {
     "species_id": 502,
@@ -10612,8 +10111,7 @@
         "name": "Samurott",
         "method": "lvl up: lvl 36"
       }
-    ],
-    "base_species_id": 501
+    ]
   },
   {
     "species_id": 503,
@@ -10630,8 +10128,7 @@
     "weight_kg": 94.6,
     "height_m": 1.5,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 501
+    "evolutions": []
   },
   {
     "species_id": 504,
@@ -10654,8 +10151,7 @@
         "name": "Watchog",
         "method": "lvl up: lvl 20"
       }
-    ],
-    "base_species_id": 504
+    ]
   },
   {
     "species_id": 505,
@@ -10672,8 +10168,7 @@
     "weight_kg": 27.0,
     "height_m": 1.1,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 504
+    "evolutions": []
   },
   {
     "species_id": 506,
@@ -10696,8 +10191,7 @@
         "name": "Herdier",
         "method": "lvl up: lvl 16"
       }
-    ],
-    "base_species_id": 506
+    ]
   },
   {
     "species_id": 507,
@@ -10720,8 +10214,7 @@
         "name": "Stoutland",
         "method": "lvl up: lvl 32"
       }
-    ],
-    "base_species_id": 506
+    ]
   },
   {
     "species_id": 508,
@@ -10738,8 +10231,7 @@
     "weight_kg": 61.0,
     "height_m": 1.2,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 506
+    "evolutions": []
   },
   {
     "species_id": 509,
@@ -10762,8 +10254,7 @@
         "name": "Liepard",
         "method": "lvl up: lvl 20"
       }
-    ],
-    "base_species_id": 509
+    ]
   },
   {
     "species_id": 510,
@@ -10780,8 +10271,7 @@
     "weight_kg": 37.5,
     "height_m": 1.1,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 509
+    "evolutions": []
   },
   {
     "species_id": 511,
@@ -10804,8 +10294,7 @@
         "name": "Simisage",
         "method": "item: Leaf Stone"
       }
-    ],
-    "base_species_id": 511
+    ]
   },
   {
     "species_id": 512,
@@ -10822,8 +10311,7 @@
     "weight_kg": 30.5,
     "height_m": 1.1,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 511
+    "evolutions": []
   },
   {
     "species_id": 513,
@@ -10846,8 +10334,7 @@
         "name": "Simisear",
         "method": "item: Fire Stone"
       }
-    ],
-    "base_species_id": 513
+    ]
   },
   {
     "species_id": 514,
@@ -10864,8 +10351,7 @@
     "weight_kg": 28.0,
     "height_m": 1.0,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 513
+    "evolutions": []
   },
   {
     "species_id": 515,
@@ -10888,8 +10374,7 @@
         "name": "Simipour",
         "method": "item: Water Stone"
       }
-    ],
-    "base_species_id": 515
+    ]
   },
   {
     "species_id": 516,
@@ -10906,8 +10391,7 @@
     "weight_kg": 29.0,
     "height_m": 1.0,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 515
+    "evolutions": []
   },
   {
     "species_id": 517,
@@ -10930,8 +10414,7 @@
         "name": "Musharna",
         "method": "item: Moon Stone"
       }
-    ],
-    "base_species_id": 517
+    ]
   },
   {
     "species_id": 518,
@@ -10948,8 +10431,7 @@
     "weight_kg": 60.5,
     "height_m": 1.1,
     "color": "pink",
-    "evolutions": [],
-    "base_species_id": 517
+    "evolutions": []
   },
   {
     "species_id": 519,
@@ -10972,8 +10454,7 @@
         "name": "Tranquill",
         "method": "lvl up: lvl 21"
       }
-    ],
-    "base_species_id": 519
+    ]
   },
   {
     "species_id": 520,
@@ -10996,8 +10477,7 @@
         "name": "Unfezant",
         "method": "lvl up: lvl 32"
       }
-    ],
-    "base_species_id": 519
+    ]
   },
   {
     "species_id": 521,
@@ -11014,8 +10494,7 @@
     "weight_kg": 29.0,
     "height_m": 1.2,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 519
+    "evolutions": []
   },
   {
     "species_id": 522,
@@ -11038,8 +10517,7 @@
         "name": "Zebstrika",
         "method": "lvl up: lvl 27"
       }
-    ],
-    "base_species_id": 522
+    ]
   },
   {
     "species_id": 523,
@@ -11056,8 +10534,7 @@
     "weight_kg": 79.5,
     "height_m": 1.6,
     "color": "black",
-    "evolutions": [],
-    "base_species_id": 522
+    "evolutions": []
   },
   {
     "species_id": 524,
@@ -11080,8 +10557,7 @@
         "name": "Boldore",
         "method": "lvl up: lvl 25"
       }
-    ],
-    "base_species_id": 524
+    ]
   },
   {
     "species_id": 525,
@@ -11104,8 +10580,7 @@
         "name": "Gigalith",
         "method": "troca"
       }
-    ],
-    "base_species_id": 524
+    ]
   },
   {
     "species_id": 526,
@@ -11122,8 +10597,7 @@
     "weight_kg": 260.0,
     "height_m": 1.7,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 524
+    "evolutions": []
   },
   {
     "species_id": 527,
@@ -11146,8 +10620,7 @@
         "name": "Swoobat",
         "method": "lvl up: amizade 160"
       }
-    ],
-    "base_species_id": 527
+    ]
   },
   {
     "species_id": 528,
@@ -11164,8 +10637,7 @@
     "weight_kg": 10.5,
     "height_m": 0.9,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 527
+    "evolutions": []
   },
   {
     "species_id": 529,
@@ -11188,8 +10660,7 @@
         "name": "Excadrill",
         "method": "lvl up: lvl 31"
       }
-    ],
-    "base_species_id": 529
+    ]
   },
   {
     "species_id": 530,
@@ -11206,8 +10677,7 @@
     "weight_kg": 40.4,
     "height_m": 0.7,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 529
+    "evolutions": []
   },
   {
     "species_id": 531,
@@ -11224,8 +10694,7 @@
     "weight_kg": 31.0,
     "height_m": 1.1,
     "color": "pink",
-    "evolutions": [],
-    "base_species_id": 531
+    "evolutions": []
   },
   {
     "species_id": 532,
@@ -11248,8 +10717,7 @@
         "name": "Gurdurr",
         "method": "lvl up: lvl 25"
       }
-    ],
-    "base_species_id": 532
+    ]
   },
   {
     "species_id": 533,
@@ -11272,8 +10740,7 @@
         "name": "Conkeldurr",
         "method": "troca"
       }
-    ],
-    "base_species_id": 532
+    ]
   },
   {
     "species_id": 534,
@@ -11290,8 +10757,7 @@
     "weight_kg": 87.0,
     "height_m": 1.4,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 532
+    "evolutions": []
   },
   {
     "species_id": 535,
@@ -11314,8 +10780,7 @@
         "name": "Palpitoad",
         "method": "lvl up: lvl 25"
       }
-    ],
-    "base_species_id": 535
+    ]
   },
   {
     "species_id": 536,
@@ -11338,8 +10803,7 @@
         "name": "Seismitoad",
         "method": "lvl up: lvl 36"
       }
-    ],
-    "base_species_id": 535
+    ]
   },
   {
     "species_id": 537,
@@ -11356,8 +10820,7 @@
     "weight_kg": 62.0,
     "height_m": 1.5,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 535
+    "evolutions": []
   },
   {
     "species_id": 538,
@@ -11374,8 +10837,7 @@
     "weight_kg": 55.5,
     "height_m": 1.3,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 538
+    "evolutions": []
   },
   {
     "species_id": 539,
@@ -11392,8 +10854,7 @@
     "weight_kg": 51.0,
     "height_m": 1.4,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 539
+    "evolutions": []
   },
   {
     "species_id": 540,
@@ -11416,8 +10877,7 @@
         "name": "Swadloon",
         "method": "lvl up: lvl 20"
       }
-    ],
-    "base_species_id": 540
+    ]
   },
   {
     "species_id": 541,
@@ -11440,8 +10900,7 @@
         "name": "Leavanny",
         "method": "lvl up: amizade 220"
       }
-    ],
-    "base_species_id": 540
+    ]
   },
   {
     "species_id": 542,
@@ -11458,8 +10917,7 @@
     "weight_kg": 20.5,
     "height_m": 1.2,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 540
+    "evolutions": []
   },
   {
     "species_id": 543,
@@ -11482,8 +10940,7 @@
         "name": "Whirlipede",
         "method": "lvl up: lvl 22"
       }
-    ],
-    "base_species_id": 543
+    ]
   },
   {
     "species_id": 544,
@@ -11506,8 +10963,7 @@
         "name": "Scolipede",
         "method": "lvl up: lvl 30"
       }
-    ],
-    "base_species_id": 543
+    ]
   },
   {
     "species_id": 545,
@@ -11524,8 +10980,7 @@
     "weight_kg": 200.5,
     "height_m": 2.5,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 543
+    "evolutions": []
   },
   {
     "species_id": 546,
@@ -11548,8 +11003,7 @@
         "name": "Whimsicott",
         "method": "item: Sun Stone"
       }
-    ],
-    "base_species_id": 546
+    ]
   },
   {
     "species_id": 547,
@@ -11566,8 +11020,7 @@
     "weight_kg": 6.6,
     "height_m": 0.7,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 546
+    "evolutions": []
   },
   {
     "species_id": 548,
@@ -11590,8 +11043,7 @@
         "name": "Lilligant",
         "method": "item: Sun Stone"
       }
-    ],
-    "base_species_id": 548
+    ]
   },
   {
     "species_id": 549,
@@ -11608,8 +11060,7 @@
     "weight_kg": 16.3,
     "height_m": 1.1,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 548
+    "evolutions": []
   },
   {
     "species_id": 550,
@@ -11632,8 +11083,7 @@
         "name": "Basculegion",
         "method": "recoil-damage"
       }
-    ],
-    "base_species_id": 550
+    ]
   },
   {
     "species_id": 551,
@@ -11656,8 +11106,7 @@
         "name": "Krokorok",
         "method": "lvl up: lvl 29"
       }
-    ],
-    "base_species_id": 551
+    ]
   },
   {
     "species_id": 552,
@@ -11680,8 +11129,7 @@
         "name": "Krookodile",
         "method": "lvl up: lvl 40"
       }
-    ],
-    "base_species_id": 551
+    ]
   },
   {
     "species_id": 553,
@@ -11698,8 +11146,7 @@
     "weight_kg": 96.3,
     "height_m": 1.5,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 551
+    "evolutions": []
   },
   {
     "species_id": 554,
@@ -11722,8 +11169,7 @@
         "name": "Darmanitan",
         "method": "lvl up: lvl 35"
       }
-    ],
-    "base_species_id": 554
+    ]
   },
   {
     "species_id": 555,
@@ -11740,8 +11186,7 @@
     "weight_kg": 92.9,
     "height_m": 1.3,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 554
+    "evolutions": []
   },
   {
     "species_id": 556,
@@ -11758,8 +11203,7 @@
     "weight_kg": 28.0,
     "height_m": 1.0,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 556
+    "evolutions": []
   },
   {
     "species_id": 557,
@@ -11782,8 +11226,7 @@
         "name": "Crustle",
         "method": "lvl up: lvl 34"
       }
-    ],
-    "base_species_id": 557
+    ]
   },
   {
     "species_id": 558,
@@ -11800,8 +11243,7 @@
     "weight_kg": 200.0,
     "height_m": 1.4,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 557
+    "evolutions": []
   },
   {
     "species_id": 559,
@@ -11824,8 +11266,7 @@
         "name": "Scrafty",
         "method": "lvl up: lvl 39"
       }
-    ],
-    "base_species_id": 559
+    ]
   },
   {
     "species_id": 560,
@@ -11842,8 +11283,7 @@
     "weight_kg": 30.0,
     "height_m": 1.1,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 559
+    "evolutions": []
   },
   {
     "species_id": 561,
@@ -11860,8 +11300,7 @@
     "weight_kg": 14.0,
     "height_m": 1.4,
     "color": "black",
-    "evolutions": [],
-    "base_species_id": 561
+    "evolutions": []
   },
   {
     "species_id": 562,
@@ -11889,8 +11328,7 @@
         "name": "Runerigus",
         "method": "take-damage"
       }
-    ],
-    "base_species_id": 562
+    ]
   },
   {
     "species_id": 563,
@@ -11907,8 +11345,7 @@
     "weight_kg": 76.5,
     "height_m": 1.7,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 562
+    "evolutions": []
   },
   {
     "species_id": 564,
@@ -11931,8 +11368,7 @@
         "name": "Carracosta",
         "method": "lvl up: lvl 37"
       }
-    ],
-    "base_species_id": 564
+    ]
   },
   {
     "species_id": 565,
@@ -11949,8 +11385,7 @@
     "weight_kg": 81.0,
     "height_m": 1.2,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 564
+    "evolutions": []
   },
   {
     "species_id": 566,
@@ -11973,8 +11408,7 @@
         "name": "Archeops",
         "method": "lvl up: lvl 37"
       }
-    ],
-    "base_species_id": 566
+    ]
   },
   {
     "species_id": 567,
@@ -11991,8 +11425,7 @@
     "weight_kg": 32.0,
     "height_m": 1.4,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 566
+    "evolutions": []
   },
   {
     "species_id": 568,
@@ -12015,8 +11448,7 @@
         "name": "Garbodor",
         "method": "lvl up: lvl 36"
       }
-    ],
-    "base_species_id": 568
+    ]
   },
   {
     "species_id": 569,
@@ -12033,8 +11465,7 @@
     "weight_kg": 107.3,
     "height_m": 1.9,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 568
+    "evolutions": []
   },
   {
     "species_id": 570,
@@ -12057,8 +11488,7 @@
         "name": "Zoroark",
         "method": "lvl up: lvl 30"
       }
-    ],
-    "base_species_id": 570
+    ]
   },
   {
     "species_id": 571,
@@ -12075,8 +11505,7 @@
     "weight_kg": 81.1,
     "height_m": 1.6,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 570
+    "evolutions": []
   },
   {
     "species_id": 572,
@@ -12099,8 +11528,7 @@
         "name": "Cinccino",
         "method": "item: Shiny Stone"
       }
-    ],
-    "base_species_id": 572
+    ]
   },
   {
     "species_id": 573,
@@ -12117,8 +11545,7 @@
     "weight_kg": 7.5,
     "height_m": 0.5,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 572
+    "evolutions": []
   },
   {
     "species_id": 574,
@@ -12141,8 +11568,7 @@
         "name": "Gothorita",
         "method": "lvl up: lvl 32"
       }
-    ],
-    "base_species_id": 574
+    ]
   },
   {
     "species_id": 575,
@@ -12165,8 +11591,7 @@
         "name": "Gothitelle",
         "method": "lvl up: lvl 41"
       }
-    ],
-    "base_species_id": 574
+    ]
   },
   {
     "species_id": 576,
@@ -12183,8 +11608,7 @@
     "weight_kg": 44.0,
     "height_m": 1.5,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 574
+    "evolutions": []
   },
   {
     "species_id": 577,
@@ -12207,8 +11631,7 @@
         "name": "Duosion",
         "method": "lvl up: lvl 32"
       }
-    ],
-    "base_species_id": 577
+    ]
   },
   {
     "species_id": 578,
@@ -12231,8 +11654,7 @@
         "name": "Reuniclus",
         "method": "lvl up: lvl 41"
       }
-    ],
-    "base_species_id": 577
+    ]
   },
   {
     "species_id": 579,
@@ -12249,8 +11671,7 @@
     "weight_kg": 20.1,
     "height_m": 1.0,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 577
+    "evolutions": []
   },
   {
     "species_id": 580,
@@ -12273,8 +11694,7 @@
         "name": "Swanna",
         "method": "lvl up: lvl 35"
       }
-    ],
-    "base_species_id": 580
+    ]
   },
   {
     "species_id": 581,
@@ -12291,8 +11711,7 @@
     "weight_kg": 24.2,
     "height_m": 1.3,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 580
+    "evolutions": []
   },
   {
     "species_id": 582,
@@ -12315,8 +11734,7 @@
         "name": "Vanillish",
         "method": "lvl up: lvl 35"
       }
-    ],
-    "base_species_id": 582
+    ]
   },
   {
     "species_id": 583,
@@ -12339,8 +11757,7 @@
         "name": "Vanilluxe",
         "method": "lvl up: lvl 47"
       }
-    ],
-    "base_species_id": 582
+    ]
   },
   {
     "species_id": 584,
@@ -12357,8 +11774,7 @@
     "weight_kg": 57.5,
     "height_m": 1.3,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 582
+    "evolutions": []
   },
   {
     "species_id": 585,
@@ -12381,8 +11797,7 @@
         "name": "Sawsbuck",
         "method": "lvl up: lvl 34"
       }
-    ],
-    "base_species_id": 585
+    ]
   },
   {
     "species_id": 586,
@@ -12399,8 +11814,7 @@
     "weight_kg": 92.5,
     "height_m": 1.9,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 585
+    "evolutions": []
   },
   {
     "species_id": 587,
@@ -12417,8 +11831,7 @@
     "weight_kg": 5.0,
     "height_m": 0.4,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 587
+    "evolutions": []
   },
   {
     "species_id": 588,
@@ -12441,8 +11854,7 @@
         "name": "Escavalier",
         "method": "troca"
       }
-    ],
-    "base_species_id": 588
+    ]
   },
   {
     "species_id": 589,
@@ -12459,8 +11871,7 @@
     "weight_kg": 33.0,
     "height_m": 1.0,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 588
+    "evolutions": []
   },
   {
     "species_id": 590,
@@ -12483,8 +11894,7 @@
         "name": "Amoonguss",
         "method": "lvl up: lvl 39"
       }
-    ],
-    "base_species_id": 590
+    ]
   },
   {
     "species_id": 591,
@@ -12501,8 +11911,7 @@
     "weight_kg": 10.5,
     "height_m": 0.6,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 590
+    "evolutions": []
   },
   {
     "species_id": 592,
@@ -12525,8 +11934,7 @@
         "name": "Jellicent",
         "method": "lvl up: lvl 40"
       }
-    ],
-    "base_species_id": 592
+    ]
   },
   {
     "species_id": 593,
@@ -12543,8 +11951,7 @@
     "weight_kg": 135.0,
     "height_m": 2.2,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 592
+    "evolutions": []
   },
   {
     "species_id": 594,
@@ -12561,8 +11968,7 @@
     "weight_kg": 31.6,
     "height_m": 1.2,
     "color": "pink",
-    "evolutions": [],
-    "base_species_id": 594
+    "evolutions": []
   },
   {
     "species_id": 595,
@@ -12585,8 +11991,7 @@
         "name": "Galvantula",
         "method": "lvl up: lvl 36"
       }
-    ],
-    "base_species_id": 595
+    ]
   },
   {
     "species_id": 596,
@@ -12603,8 +12008,7 @@
     "weight_kg": 14.3,
     "height_m": 0.8,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 595
+    "evolutions": []
   },
   {
     "species_id": 597,
@@ -12627,8 +12031,7 @@
         "name": "Ferrothorn",
         "method": "lvl up: lvl 40"
       }
-    ],
-    "base_species_id": 597
+    ]
   },
   {
     "species_id": 598,
@@ -12645,8 +12048,7 @@
     "weight_kg": 110.0,
     "height_m": 1.0,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 597
+    "evolutions": []
   },
   {
     "species_id": 599,
@@ -12669,8 +12071,7 @@
         "name": "Klang",
         "method": "lvl up: lvl 38"
       }
-    ],
-    "base_species_id": 599
+    ]
   },
   {
     "species_id": 600,
@@ -12693,8 +12094,7 @@
         "name": "Klinklang",
         "method": "lvl up: lvl 49"
       }
-    ],
-    "base_species_id": 599
+    ]
   },
   {
     "species_id": 601,
@@ -12711,8 +12111,7 @@
     "weight_kg": 81.0,
     "height_m": 0.6,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 599
+    "evolutions": []
   },
   {
     "species_id": 602,
@@ -12735,8 +12134,7 @@
         "name": "Eelektrik",
         "method": "lvl up: lvl 39"
       }
-    ],
-    "base_species_id": 602
+    ]
   },
   {
     "species_id": 603,
@@ -12759,8 +12157,7 @@
         "name": "Eelektross",
         "method": "item: Thunder Stone"
       }
-    ],
-    "base_species_id": 602
+    ]
   },
   {
     "species_id": 604,
@@ -12777,8 +12174,7 @@
     "weight_kg": 80.5,
     "height_m": 2.1,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 602
+    "evolutions": []
   },
   {
     "species_id": 605,
@@ -12801,8 +12197,7 @@
         "name": "Beheeyem",
         "method": "lvl up: lvl 42"
       }
-    ],
-    "base_species_id": 605
+    ]
   },
   {
     "species_id": 606,
@@ -12819,8 +12214,7 @@
     "weight_kg": 34.5,
     "height_m": 1.0,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 605
+    "evolutions": []
   },
   {
     "species_id": 607,
@@ -12843,8 +12237,7 @@
         "name": "Lampent",
         "method": "lvl up: lvl 41"
       }
-    ],
-    "base_species_id": 607
+    ]
   },
   {
     "species_id": 608,
@@ -12867,8 +12260,7 @@
         "name": "Chandelure",
         "method": "item: Dusk Stone"
       }
-    ],
-    "base_species_id": 607
+    ]
   },
   {
     "species_id": 609,
@@ -12885,8 +12277,7 @@
     "weight_kg": 34.3,
     "height_m": 1.0,
     "color": "black",
-    "evolutions": [],
-    "base_species_id": 607
+    "evolutions": []
   },
   {
     "species_id": 610,
@@ -12909,8 +12300,7 @@
         "name": "Fraxure",
         "method": "lvl up: lvl 38"
       }
-    ],
-    "base_species_id": 610
+    ]
   },
   {
     "species_id": 611,
@@ -12933,8 +12323,7 @@
         "name": "Haxorus",
         "method": "lvl up: lvl 48"
       }
-    ],
-    "base_species_id": 610
+    ]
   },
   {
     "species_id": 612,
@@ -12951,8 +12340,7 @@
     "weight_kg": 105.5,
     "height_m": 1.8,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 610
+    "evolutions": []
   },
   {
     "species_id": 613,
@@ -12975,8 +12363,7 @@
         "name": "Beartic",
         "method": "lvl up: lvl 37"
       }
-    ],
-    "base_species_id": 613
+    ]
   },
   {
     "species_id": 614,
@@ -12993,8 +12380,7 @@
     "weight_kg": 260.0,
     "height_m": 2.6,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 613
+    "evolutions": []
   },
   {
     "species_id": 615,
@@ -13011,8 +12397,7 @@
     "weight_kg": 148.0,
     "height_m": 1.1,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 615
+    "evolutions": []
   },
   {
     "species_id": 616,
@@ -13035,8 +12420,7 @@
         "name": "Accelgor",
         "method": "troca"
       }
-    ],
-    "base_species_id": 616
+    ]
   },
   {
     "species_id": 617,
@@ -13053,8 +12437,7 @@
     "weight_kg": 25.3,
     "height_m": 0.8,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 616
+    "evolutions": []
   },
   {
     "species_id": 618,
@@ -13071,8 +12454,7 @@
     "weight_kg": 11.0,
     "height_m": 0.7,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 618
+    "evolutions": []
   },
   {
     "species_id": 619,
@@ -13095,8 +12477,7 @@
         "name": "Mienshao",
         "method": "lvl up: lvl 50"
       }
-    ],
-    "base_species_id": 619
+    ]
   },
   {
     "species_id": 620,
@@ -13113,8 +12494,7 @@
     "weight_kg": 35.5,
     "height_m": 1.4,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 619
+    "evolutions": []
   },
   {
     "species_id": 621,
@@ -13131,8 +12511,7 @@
     "weight_kg": 139.0,
     "height_m": 1.6,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 621
+    "evolutions": []
   },
   {
     "species_id": 622,
@@ -13155,8 +12534,7 @@
         "name": "Golurk",
         "method": "lvl up: lvl 43"
       }
-    ],
-    "base_species_id": 622
+    ]
   },
   {
     "species_id": 623,
@@ -13173,8 +12551,7 @@
     "weight_kg": 330.0,
     "height_m": 2.8,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 622
+    "evolutions": []
   },
   {
     "species_id": 624,
@@ -13197,8 +12574,7 @@
         "name": "Bisharp",
         "method": "lvl up: lvl 52"
       }
-    ],
-    "base_species_id": 624
+    ]
   },
   {
     "species_id": 625,
@@ -13221,8 +12597,7 @@
         "name": "Kingambit",
         "method": "other"
       }
-    ],
-    "base_species_id": 624
+    ]
   },
   {
     "species_id": 626,
@@ -13239,8 +12614,7 @@
     "weight_kg": 94.6,
     "height_m": 1.6,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 626
+    "evolutions": []
   },
   {
     "species_id": 627,
@@ -13263,8 +12637,7 @@
         "name": "Braviary",
         "method": "lvl up: lvl 54"
       }
-    ],
-    "base_species_id": 627
+    ]
   },
   {
     "species_id": 628,
@@ -13281,8 +12654,7 @@
     "weight_kg": 41.0,
     "height_m": 1.5,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 627
+    "evolutions": []
   },
   {
     "species_id": 629,
@@ -13305,8 +12677,7 @@
         "name": "Mandibuzz",
         "method": "lvl up: lvl 54"
       }
-    ],
-    "base_species_id": 629
+    ]
   },
   {
     "species_id": 630,
@@ -13323,8 +12694,7 @@
     "weight_kg": 39.5,
     "height_m": 1.2,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 629
+    "evolutions": []
   },
   {
     "species_id": 631,
@@ -13341,8 +12711,7 @@
     "weight_kg": 58.0,
     "height_m": 1.4,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 631
+    "evolutions": []
   },
   {
     "species_id": 632,
@@ -13359,8 +12728,7 @@
     "weight_kg": 33.0,
     "height_m": 0.3,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 632
+    "evolutions": []
   },
   {
     "species_id": 633,
@@ -13383,8 +12751,7 @@
         "name": "Zweilous",
         "method": "lvl up: lvl 50"
       }
-    ],
-    "base_species_id": 633
+    ]
   },
   {
     "species_id": 634,
@@ -13407,8 +12774,7 @@
         "name": "Hydreigon",
         "method": "lvl up: lvl 64"
       }
-    ],
-    "base_species_id": 633
+    ]
   },
   {
     "species_id": 635,
@@ -13425,8 +12791,7 @@
     "weight_kg": 160.0,
     "height_m": 1.8,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 633
+    "evolutions": []
   },
   {
     "species_id": 636,
@@ -13449,8 +12814,7 @@
         "name": "Volcarona",
         "method": "lvl up: lvl 59"
       }
-    ],
-    "base_species_id": 636
+    ]
   },
   {
     "species_id": 637,
@@ -13467,8 +12831,7 @@
     "weight_kg": 46.0,
     "height_m": 1.6,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 636
+    "evolutions": []
   },
   {
     "species_id": 638,
@@ -13485,8 +12848,7 @@
     "weight_kg": 250.0,
     "height_m": 2.1,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 638
+    "evolutions": []
   },
   {
     "species_id": 639,
@@ -13503,8 +12865,7 @@
     "weight_kg": 260.0,
     "height_m": 1.9,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 639
+    "evolutions": []
   },
   {
     "species_id": 640,
@@ -13521,8 +12882,7 @@
     "weight_kg": 200.0,
     "height_m": 2.0,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 640
+    "evolutions": []
   },
   {
     "species_id": 641,
@@ -13539,8 +12899,7 @@
     "weight_kg": 63.0,
     "height_m": 1.5,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 641
+    "evolutions": []
   },
   {
     "species_id": 642,
@@ -13557,8 +12916,7 @@
     "weight_kg": 61.0,
     "height_m": 1.5,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 642
+    "evolutions": []
   },
   {
     "species_id": 643,
@@ -13575,8 +12933,7 @@
     "weight_kg": 330.0,
     "height_m": 3.2,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 643
+    "evolutions": []
   },
   {
     "species_id": 644,
@@ -13593,8 +12950,7 @@
     "weight_kg": 345.0,
     "height_m": 2.9,
     "color": "black",
-    "evolutions": [],
-    "base_species_id": 644
+    "evolutions": []
   },
   {
     "species_id": 645,
@@ -13611,8 +12967,7 @@
     "weight_kg": 68.0,
     "height_m": 1.5,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 645
+    "evolutions": []
   },
   {
     "species_id": 646,
@@ -13629,8 +12984,7 @@
     "weight_kg": 325.0,
     "height_m": 3.0,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 646
+    "evolutions": []
   },
   {
     "species_id": 647,
@@ -13647,8 +13001,7 @@
     "weight_kg": 48.5,
     "height_m": 1.4,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 647
+    "evolutions": []
   },
   {
     "species_id": 648,
@@ -13665,8 +13018,7 @@
     "weight_kg": 6.5,
     "height_m": 0.6,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 648
+    "evolutions": []
   },
   {
     "species_id": 649,
@@ -13683,8 +13035,7 @@
     "weight_kg": 82.5,
     "height_m": 1.5,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 649
+    "evolutions": []
   },
   {
     "species_id": 650,
@@ -13707,8 +13058,7 @@
         "name": "Quilladin",
         "method": "lvl up: lvl 16"
       }
-    ],
-    "base_species_id": 650
+    ]
   },
   {
     "species_id": 651,
@@ -13731,8 +13081,7 @@
         "name": "Chesnaught",
         "method": "lvl up: lvl 36"
       }
-    ],
-    "base_species_id": 650
+    ]
   },
   {
     "species_id": 652,
@@ -13749,8 +13098,7 @@
     "weight_kg": 90.0,
     "height_m": 1.6,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 650
+    "evolutions": []
   },
   {
     "species_id": 653,
@@ -13773,8 +13121,7 @@
         "name": "Braixen",
         "method": "lvl up: lvl 16"
       }
-    ],
-    "base_species_id": 653
+    ]
   },
   {
     "species_id": 654,
@@ -13797,8 +13144,7 @@
         "name": "Delphox",
         "method": "lvl up: lvl 36"
       }
-    ],
-    "base_species_id": 653
+    ]
   },
   {
     "species_id": 655,
@@ -13815,8 +13161,7 @@
     "weight_kg": 39.0,
     "height_m": 1.5,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 653
+    "evolutions": []
   },
   {
     "species_id": 656,
@@ -13839,8 +13184,7 @@
         "name": "Frogadier",
         "method": "lvl up: lvl 16"
       }
-    ],
-    "base_species_id": 656
+    ]
   },
   {
     "species_id": 657,
@@ -13863,8 +13207,7 @@
         "name": "Greninja",
         "method": "lvl up: lvl 36"
       }
-    ],
-    "base_species_id": 656
+    ]
   },
   {
     "species_id": 658,
@@ -13881,8 +13224,7 @@
     "weight_kg": 40.0,
     "height_m": 1.5,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 656
+    "evolutions": []
   },
   {
     "species_id": 659,
@@ -13905,8 +13247,7 @@
         "name": "Diggersby",
         "method": "lvl up: lvl 20"
       }
-    ],
-    "base_species_id": 659
+    ]
   },
   {
     "species_id": 660,
@@ -13923,8 +13264,7 @@
     "weight_kg": 42.4,
     "height_m": 1.0,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 659
+    "evolutions": []
   },
   {
     "species_id": 661,
@@ -13947,8 +13287,7 @@
         "name": "Fletchinder",
         "method": "lvl up: lvl 17"
       }
-    ],
-    "base_species_id": 661
+    ]
   },
   {
     "species_id": 662,
@@ -13971,8 +13310,7 @@
         "name": "Talonflame",
         "method": "lvl up: lvl 35"
       }
-    ],
-    "base_species_id": 661
+    ]
   },
   {
     "species_id": 663,
@@ -13989,8 +13327,7 @@
     "weight_kg": 24.5,
     "height_m": 1.2,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 661
+    "evolutions": []
   },
   {
     "species_id": 664,
@@ -14013,8 +13350,7 @@
         "name": "Spewpa",
         "method": "lvl up: lvl 9"
       }
-    ],
-    "base_species_id": 664
+    ]
   },
   {
     "species_id": 665,
@@ -14037,8 +13373,7 @@
         "name": "Vivillon",
         "method": "lvl up: lvl 12"
       }
-    ],
-    "base_species_id": 664
+    ]
   },
   {
     "species_id": 666,
@@ -14055,8 +13390,7 @@
     "weight_kg": 17.0,
     "height_m": 1.2,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 664
+    "evolutions": []
   },
   {
     "species_id": 667,
@@ -14079,8 +13413,7 @@
         "name": "Pyroar",
         "method": "lvl up: lvl 35"
       }
-    ],
-    "base_species_id": 667
+    ]
   },
   {
     "species_id": 668,
@@ -14097,8 +13430,7 @@
     "weight_kg": 81.5,
     "height_m": 1.5,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 667
+    "evolutions": []
   },
   {
     "species_id": 669,
@@ -14121,8 +13453,7 @@
         "name": "Floette",
         "method": "lvl up: lvl 19"
       }
-    ],
-    "base_species_id": 669
+    ]
   },
   {
     "species_id": 670,
@@ -14145,8 +13476,7 @@
         "name": "Florges",
         "method": "item: Shiny Stone"
       }
-    ],
-    "base_species_id": 669
+    ]
   },
   {
     "species_id": 671,
@@ -14163,8 +13493,7 @@
     "weight_kg": 10.0,
     "height_m": 1.1,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 669
+    "evolutions": []
   },
   {
     "species_id": 672,
@@ -14187,8 +13516,7 @@
         "name": "Gogoat",
         "method": "lvl up: lvl 32"
       }
-    ],
-    "base_species_id": 672
+    ]
   },
   {
     "species_id": 673,
@@ -14205,8 +13533,7 @@
     "weight_kg": 91.0,
     "height_m": 1.7,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 672
+    "evolutions": []
   },
   {
     "species_id": 674,
@@ -14229,8 +13556,7 @@
         "name": "Pangoro",
         "method": "lvl up: lvl 32"
       }
-    ],
-    "base_species_id": 674
+    ]
   },
   {
     "species_id": 675,
@@ -14247,8 +13573,7 @@
     "weight_kg": 136.0,
     "height_m": 2.1,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 674
+    "evolutions": []
   },
   {
     "species_id": 676,
@@ -14265,8 +13590,7 @@
     "weight_kg": 28.0,
     "height_m": 1.2,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 676
+    "evolutions": []
   },
   {
     "species_id": 677,
@@ -14289,8 +13613,7 @@
         "name": "Meowstic",
         "method": "lvl up: lvl 25"
       }
-    ],
-    "base_species_id": 677
+    ]
   },
   {
     "species_id": 678,
@@ -14307,8 +13630,7 @@
     "weight_kg": 8.5,
     "height_m": 0.6,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 677
+    "evolutions": []
   },
   {
     "species_id": 679,
@@ -14331,8 +13653,7 @@
         "name": "Doublade",
         "method": "lvl up: lvl 35"
       }
-    ],
-    "base_species_id": 679
+    ]
   },
   {
     "species_id": 680,
@@ -14355,8 +13676,7 @@
         "name": "Aegislash",
         "method": "item: Dusk Stone"
       }
-    ],
-    "base_species_id": 679
+    ]
   },
   {
     "species_id": 681,
@@ -14373,8 +13693,7 @@
     "weight_kg": 53.0,
     "height_m": 1.7,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 679
+    "evolutions": []
   },
   {
     "species_id": 682,
@@ -14397,8 +13716,7 @@
         "name": "Aromatisse",
         "method": "troca segurando Sachet"
       }
-    ],
-    "base_species_id": 682
+    ]
   },
   {
     "species_id": 683,
@@ -14415,8 +13733,7 @@
     "weight_kg": 15.5,
     "height_m": 0.8,
     "color": "pink",
-    "evolutions": [],
-    "base_species_id": 682
+    "evolutions": []
   },
   {
     "species_id": 684,
@@ -14439,8 +13756,7 @@
         "name": "Slurpuff",
         "method": "troca segurando Whipped Dream"
       }
-    ],
-    "base_species_id": 684
+    ]
   },
   {
     "species_id": 685,
@@ -14457,8 +13773,7 @@
     "weight_kg": 5.0,
     "height_m": 0.8,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 684
+    "evolutions": []
   },
   {
     "species_id": 686,
@@ -14481,8 +13796,7 @@
         "name": "Malamar",
         "method": "virar de ponta cabeça (lvl 30+)"
       }
-    ],
-    "base_species_id": 686
+    ]
   },
   {
     "species_id": 687,
@@ -14499,8 +13813,7 @@
     "weight_kg": 47.0,
     "height_m": 1.5,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 686
+    "evolutions": []
   },
   {
     "species_id": 688,
@@ -14523,8 +13836,7 @@
         "name": "Barbaracle",
         "method": "lvl up: lvl 39"
       }
-    ],
-    "base_species_id": 688
+    ]
   },
   {
     "species_id": 689,
@@ -14541,8 +13853,7 @@
     "weight_kg": 96.0,
     "height_m": 1.3,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 688
+    "evolutions": []
   },
   {
     "species_id": 690,
@@ -14565,8 +13876,7 @@
         "name": "Dragalge",
         "method": "lvl up: lvl 48"
       }
-    ],
-    "base_species_id": 690
+    ]
   },
   {
     "species_id": 691,
@@ -14583,8 +13893,7 @@
     "weight_kg": 81.5,
     "height_m": 1.8,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 690
+    "evolutions": []
   },
   {
     "species_id": 692,
@@ -14607,8 +13916,7 @@
         "name": "Clawitzer",
         "method": "lvl up: lvl 37"
       }
-    ],
-    "base_species_id": 692
+    ]
   },
   {
     "species_id": 693,
@@ -14625,8 +13933,7 @@
     "weight_kg": 35.3,
     "height_m": 1.3,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 692
+    "evolutions": []
   },
   {
     "species_id": 694,
@@ -14649,8 +13956,7 @@
         "name": "Heliolisk",
         "method": "item: Sun Stone"
       }
-    ],
-    "base_species_id": 694
+    ]
   },
   {
     "species_id": 695,
@@ -14667,8 +13973,7 @@
     "weight_kg": 21.0,
     "height_m": 1.0,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 694
+    "evolutions": []
   },
   {
     "species_id": 696,
@@ -14691,8 +13996,7 @@
         "name": "Tyrantrum",
         "method": "lvl up: lvl 39, de dia"
       }
-    ],
-    "base_species_id": 696
+    ]
   },
   {
     "species_id": 697,
@@ -14709,8 +14013,7 @@
     "weight_kg": 270.0,
     "height_m": 2.5,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 696
+    "evolutions": []
   },
   {
     "species_id": 698,
@@ -14733,8 +14036,7 @@
         "name": "Aurorus",
         "method": "lvl up: lvl 39, de noite"
       }
-    ],
-    "base_species_id": 698
+    ]
   },
   {
     "species_id": 699,
@@ -14751,8 +14053,7 @@
     "weight_kg": 225.0,
     "height_m": 2.7,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 698
+    "evolutions": []
   },
   {
     "species_id": 700,
@@ -14769,8 +14070,7 @@
     "weight_kg": 23.5,
     "height_m": 1.0,
     "color": "pink",
-    "evolutions": [],
-    "base_species_id": 133
+    "evolutions": []
   },
   {
     "species_id": 701,
@@ -14787,8 +14087,7 @@
     "weight_kg": 21.5,
     "height_m": 0.8,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 701
+    "evolutions": []
   },
   {
     "species_id": 702,
@@ -14805,8 +14104,7 @@
     "weight_kg": 2.2,
     "height_m": 0.2,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 702
+    "evolutions": []
   },
   {
     "species_id": 703,
@@ -14823,8 +14121,7 @@
     "weight_kg": 5.7,
     "height_m": 0.3,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 703
+    "evolutions": []
   },
   {
     "species_id": 704,
@@ -14847,8 +14144,7 @@
         "name": "Sliggoo",
         "method": "lvl up: lvl 40"
       }
-    ],
-    "base_species_id": 704
+    ]
   },
   {
     "species_id": 705,
@@ -14871,8 +14167,7 @@
         "name": "Goodra",
         "method": "lvl up: lvl 50"
       }
-    ],
-    "base_species_id": 704
+    ]
   },
   {
     "species_id": 706,
@@ -14889,8 +14184,7 @@
     "weight_kg": 150.5,
     "height_m": 2.0,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 704
+    "evolutions": []
   },
   {
     "species_id": 707,
@@ -14907,8 +14201,7 @@
     "weight_kg": 3.0,
     "height_m": 0.2,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 707
+    "evolutions": []
   },
   {
     "species_id": 708,
@@ -14931,8 +14224,7 @@
         "name": "Trevenant",
         "method": "troca"
       }
-    ],
-    "base_species_id": 708
+    ]
   },
   {
     "species_id": 709,
@@ -14949,8 +14241,7 @@
     "weight_kg": 71.0,
     "height_m": 1.5,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 708
+    "evolutions": []
   },
   {
     "species_id": 710,
@@ -14973,8 +14264,7 @@
         "name": "Gourgeist",
         "method": "troca"
       }
-    ],
-    "base_species_id": 710
+    ]
   },
   {
     "species_id": 711,
@@ -14991,8 +14281,7 @@
     "weight_kg": 12.5,
     "height_m": 0.9,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 710
+    "evolutions": []
   },
   {
     "species_id": 712,
@@ -15015,8 +14304,7 @@
         "name": "Avalugg",
         "method": "lvl up: lvl 37"
       }
-    ],
-    "base_species_id": 712
+    ]
   },
   {
     "species_id": 713,
@@ -15033,8 +14321,7 @@
     "weight_kg": 505.0,
     "height_m": 2.0,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 712
+    "evolutions": []
   },
   {
     "species_id": 714,
@@ -15057,8 +14344,7 @@
         "name": "Noivern",
         "method": "lvl up: lvl 48"
       }
-    ],
-    "base_species_id": 714
+    ]
   },
   {
     "species_id": 715,
@@ -15075,8 +14361,7 @@
     "weight_kg": 85.0,
     "height_m": 1.5,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 714
+    "evolutions": []
   },
   {
     "species_id": 716,
@@ -15093,8 +14378,7 @@
     "weight_kg": 215.0,
     "height_m": 3.0,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 716
+    "evolutions": []
   },
   {
     "species_id": 717,
@@ -15111,8 +14395,7 @@
     "weight_kg": 203.0,
     "height_m": 5.8,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 717
+    "evolutions": []
   },
   {
     "species_id": 718,
@@ -15129,8 +14412,7 @@
     "weight_kg": 305.0,
     "height_m": 5.0,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 718
+    "evolutions": []
   },
   {
     "species_id": 719,
@@ -15147,8 +14429,7 @@
     "weight_kg": 8.8,
     "height_m": 0.7,
     "color": "pink",
-    "evolutions": [],
-    "base_species_id": 719
+    "evolutions": []
   },
   {
     "species_id": 720,
@@ -15165,8 +14446,7 @@
     "weight_kg": 9.0,
     "height_m": 0.5,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 720
+    "evolutions": []
   },
   {
     "species_id": 721,
@@ -15183,8 +14463,7 @@
     "weight_kg": 195.0,
     "height_m": 1.7,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 721
+    "evolutions": []
   },
   {
     "species_id": 722,
@@ -15207,8 +14486,7 @@
         "name": "Dartrix",
         "method": "lvl up: lvl 17"
       }
-    ],
-    "base_species_id": 722
+    ]
   },
   {
     "species_id": 723,
@@ -15231,8 +14509,7 @@
         "name": "Decidueye",
         "method": "lvl up: lvl 34"
       }
-    ],
-    "base_species_id": 722
+    ]
   },
   {
     "species_id": 724,
@@ -15249,8 +14526,7 @@
     "weight_kg": 36.6,
     "height_m": 1.6,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 722
+    "evolutions": []
   },
   {
     "species_id": 725,
@@ -15273,8 +14549,7 @@
         "name": "Torracat",
         "method": "lvl up: lvl 17"
       }
-    ],
-    "base_species_id": 725
+    ]
   },
   {
     "species_id": 726,
@@ -15297,8 +14572,7 @@
         "name": "Incineroar",
         "method": "lvl up: lvl 34"
       }
-    ],
-    "base_species_id": 725
+    ]
   },
   {
     "species_id": 727,
@@ -15315,8 +14589,7 @@
     "weight_kg": 83.0,
     "height_m": 1.8,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 725
+    "evolutions": []
   },
   {
     "species_id": 728,
@@ -15339,8 +14612,7 @@
         "name": "Brionne",
         "method": "lvl up: lvl 17"
       }
-    ],
-    "base_species_id": 728
+    ]
   },
   {
     "species_id": 729,
@@ -15363,8 +14635,7 @@
         "name": "Primarina",
         "method": "lvl up: lvl 34"
       }
-    ],
-    "base_species_id": 728
+    ]
   },
   {
     "species_id": 730,
@@ -15381,8 +14652,7 @@
     "weight_kg": 44.0,
     "height_m": 1.8,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 728
+    "evolutions": []
   },
   {
     "species_id": 731,
@@ -15405,8 +14675,7 @@
         "name": "Trumbeak",
         "method": "lvl up: lvl 14"
       }
-    ],
-    "base_species_id": 731
+    ]
   },
   {
     "species_id": 732,
@@ -15429,8 +14698,7 @@
         "name": "Toucannon",
         "method": "lvl up: lvl 28"
       }
-    ],
-    "base_species_id": 731
+    ]
   },
   {
     "species_id": 733,
@@ -15447,8 +14715,7 @@
     "weight_kg": 26.0,
     "height_m": 1.1,
     "color": "black",
-    "evolutions": [],
-    "base_species_id": 731
+    "evolutions": []
   },
   {
     "species_id": 734,
@@ -15471,8 +14738,7 @@
         "name": "Gumshoos",
         "method": "lvl up: lvl 20, de dia"
       }
-    ],
-    "base_species_id": 734
+    ]
   },
   {
     "species_id": 735,
@@ -15489,8 +14755,7 @@
     "weight_kg": 14.2,
     "height_m": 0.7,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 734
+    "evolutions": []
   },
   {
     "species_id": 736,
@@ -15513,8 +14778,7 @@
         "name": "Charjabug",
         "method": "lvl up: lvl 20"
       }
-    ],
-    "base_species_id": 736
+    ]
   },
   {
     "species_id": 737,
@@ -15537,8 +14801,7 @@
         "name": "Vikavolt",
         "method": "lvl up"
       }
-    ],
-    "base_species_id": 736
+    ]
   },
   {
     "species_id": 738,
@@ -15555,8 +14818,7 @@
     "weight_kg": 45.0,
     "height_m": 1.5,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 736
+    "evolutions": []
   },
   {
     "species_id": 739,
@@ -15579,8 +14841,7 @@
         "name": "Crabominable",
         "method": "lvl up: local especial: Mount Lanakila"
       }
-    ],
-    "base_species_id": 739
+    ]
   },
   {
     "species_id": 740,
@@ -15597,8 +14858,7 @@
     "weight_kg": 180.0,
     "height_m": 1.7,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 739
+    "evolutions": []
   },
   {
     "species_id": 741,
@@ -15615,8 +14875,7 @@
     "weight_kg": 3.4,
     "height_m": 0.6,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 741
+    "evolutions": []
   },
   {
     "species_id": 742,
@@ -15639,8 +14898,7 @@
         "name": "Ribombee",
         "method": "lvl up: lvl 25"
       }
-    ],
-    "base_species_id": 742
+    ]
   },
   {
     "species_id": 743,
@@ -15657,8 +14915,7 @@
     "weight_kg": 0.5,
     "height_m": 0.2,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 742
+    "evolutions": []
   },
   {
     "species_id": 744,
@@ -15681,8 +14938,7 @@
         "name": "Lycanroc",
         "method": "lvl up: lvl 25, de dia"
       }
-    ],
-    "base_species_id": 744
+    ]
   },
   {
     "species_id": 745,
@@ -15699,8 +14955,7 @@
     "weight_kg": 25.0,
     "height_m": 0.8,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 744
+    "evolutions": []
   },
   {
     "species_id": 746,
@@ -15717,8 +14972,7 @@
     "weight_kg": 0.3,
     "height_m": 0.2,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 746
+    "evolutions": []
   },
   {
     "species_id": 747,
@@ -15741,8 +14995,7 @@
         "name": "Toxapex",
         "method": "lvl up: lvl 38"
       }
-    ],
-    "base_species_id": 747
+    ]
   },
   {
     "species_id": 748,
@@ -15759,8 +15012,7 @@
     "weight_kg": 14.5,
     "height_m": 0.7,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 747
+    "evolutions": []
   },
   {
     "species_id": 749,
@@ -15783,8 +15035,7 @@
         "name": "Mudsdale",
         "method": "lvl up: lvl 30"
       }
-    ],
-    "base_species_id": 749
+    ]
   },
   {
     "species_id": 750,
@@ -15801,8 +15052,7 @@
     "weight_kg": 920.0,
     "height_m": 2.5,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 749
+    "evolutions": []
   },
   {
     "species_id": 751,
@@ -15825,8 +15075,7 @@
         "name": "Araquanid",
         "method": "lvl up: lvl 22"
       }
-    ],
-    "base_species_id": 751
+    ]
   },
   {
     "species_id": 752,
@@ -15843,8 +15092,7 @@
     "weight_kg": 82.0,
     "height_m": 1.8,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 751
+    "evolutions": []
   },
   {
     "species_id": 753,
@@ -15867,8 +15115,7 @@
         "name": "Lurantis",
         "method": "lvl up: lvl 34, de dia"
       }
-    ],
-    "base_species_id": 753
+    ]
   },
   {
     "species_id": 754,
@@ -15885,8 +15132,7 @@
     "weight_kg": 18.5,
     "height_m": 0.9,
     "color": "pink",
-    "evolutions": [],
-    "base_species_id": 753
+    "evolutions": []
   },
   {
     "species_id": 755,
@@ -15909,8 +15155,7 @@
         "name": "Shiinotic",
         "method": "lvl up: lvl 24"
       }
-    ],
-    "base_species_id": 755
+    ]
   },
   {
     "species_id": 756,
@@ -15927,8 +15172,7 @@
     "weight_kg": 11.5,
     "height_m": 1.0,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 755
+    "evolutions": []
   },
   {
     "species_id": 757,
@@ -15951,8 +15195,7 @@
         "name": "Salazzle",
         "method": "lvl up: lvl 33, só macho"
       }
-    ],
-    "base_species_id": 757
+    ]
   },
   {
     "species_id": 758,
@@ -15969,8 +15212,7 @@
     "weight_kg": 22.2,
     "height_m": 1.2,
     "color": "black",
-    "evolutions": [],
-    "base_species_id": 757
+    "evolutions": []
   },
   {
     "species_id": 759,
@@ -15993,8 +15235,7 @@
         "name": "Bewear",
         "method": "lvl up: lvl 27"
       }
-    ],
-    "base_species_id": 759
+    ]
   },
   {
     "species_id": 760,
@@ -16011,8 +15252,7 @@
     "weight_kg": 135.0,
     "height_m": 2.1,
     "color": "pink",
-    "evolutions": [],
-    "base_species_id": 759
+    "evolutions": []
   },
   {
     "species_id": 761,
@@ -16035,8 +15275,7 @@
         "name": "Steenee",
         "method": "lvl up: lvl 18"
       }
-    ],
-    "base_species_id": 761
+    ]
   },
   {
     "species_id": 762,
@@ -16059,8 +15298,7 @@
         "name": "Tsareena",
         "method": "lvl up: sabendo golpe Stomp"
       }
-    ],
-    "base_species_id": 761
+    ]
   },
   {
     "species_id": 763,
@@ -16077,8 +15315,7 @@
     "weight_kg": 21.4,
     "height_m": 1.2,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 761
+    "evolutions": []
   },
   {
     "species_id": 764,
@@ -16095,8 +15332,7 @@
     "weight_kg": 0.3,
     "height_m": 0.1,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 764
+    "evolutions": []
   },
   {
     "species_id": 765,
@@ -16113,8 +15349,7 @@
     "weight_kg": 76.0,
     "height_m": 1.5,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 765
+    "evolutions": []
   },
   {
     "species_id": 766,
@@ -16131,8 +15366,7 @@
     "weight_kg": 82.8,
     "height_m": 2.0,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 766
+    "evolutions": []
   },
   {
     "species_id": 767,
@@ -16155,8 +15389,7 @@
         "name": "Golisopod",
         "method": "lvl up: lvl 30"
       }
-    ],
-    "base_species_id": 767
+    ]
   },
   {
     "species_id": 768,
@@ -16173,8 +15406,7 @@
     "weight_kg": 108.0,
     "height_m": 2.0,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 767
+    "evolutions": []
   },
   {
     "species_id": 769,
@@ -16197,8 +15429,7 @@
         "name": "Palossand",
         "method": "lvl up: lvl 42"
       }
-    ],
-    "base_species_id": 769
+    ]
   },
   {
     "species_id": 770,
@@ -16215,8 +15446,7 @@
     "weight_kg": 250.0,
     "height_m": 1.3,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 769
+    "evolutions": []
   },
   {
     "species_id": 771,
@@ -16233,8 +15463,7 @@
     "weight_kg": 1.2,
     "height_m": 0.3,
     "color": "black",
-    "evolutions": [],
-    "base_species_id": 771
+    "evolutions": []
   },
   {
     "species_id": 772,
@@ -16257,8 +15486,7 @@
         "name": "Silvally",
         "method": "lvl up: amizade 160"
       }
-    ],
-    "base_species_id": 772
+    ]
   },
   {
     "species_id": 773,
@@ -16275,8 +15503,7 @@
     "weight_kg": 100.5,
     "height_m": 2.3,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 772
+    "evolutions": []
   },
   {
     "species_id": 774,
@@ -16293,8 +15520,7 @@
     "weight_kg": 40.0,
     "height_m": 0.3,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 774
+    "evolutions": []
   },
   {
     "species_id": 775,
@@ -16311,8 +15537,7 @@
     "weight_kg": 19.9,
     "height_m": 0.4,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 775
+    "evolutions": []
   },
   {
     "species_id": 776,
@@ -16329,8 +15554,7 @@
     "weight_kg": 212.0,
     "height_m": 2.0,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 776
+    "evolutions": []
   },
   {
     "species_id": 777,
@@ -16347,8 +15571,7 @@
     "weight_kg": 3.3,
     "height_m": 0.3,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 777
+    "evolutions": []
   },
   {
     "species_id": 778,
@@ -16365,8 +15588,7 @@
     "weight_kg": 0.7,
     "height_m": 0.2,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 778
+    "evolutions": []
   },
   {
     "species_id": 779,
@@ -16383,8 +15605,7 @@
     "weight_kg": 19.0,
     "height_m": 0.9,
     "color": "pink",
-    "evolutions": [],
-    "base_species_id": 779
+    "evolutions": []
   },
   {
     "species_id": 780,
@@ -16401,8 +15622,7 @@
     "weight_kg": 185.0,
     "height_m": 3.0,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 780
+    "evolutions": []
   },
   {
     "species_id": 781,
@@ -16419,8 +15639,7 @@
     "weight_kg": 210.0,
     "height_m": 3.9,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 781
+    "evolutions": []
   },
   {
     "species_id": 782,
@@ -16443,8 +15662,7 @@
         "name": "Hakamo-o",
         "method": "lvl up: lvl 35"
       }
-    ],
-    "base_species_id": 782
+    ]
   },
   {
     "species_id": 783,
@@ -16467,8 +15685,7 @@
         "name": "Kommo-o",
         "method": "lvl up: lvl 45"
       }
-    ],
-    "base_species_id": 782
+    ]
   },
   {
     "species_id": 784,
@@ -16485,8 +15702,7 @@
     "weight_kg": 78.2,
     "height_m": 1.6,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 782
+    "evolutions": []
   },
   {
     "species_id": 785,
@@ -16503,8 +15719,7 @@
     "weight_kg": 20.5,
     "height_m": 1.8,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 785
+    "evolutions": []
   },
   {
     "species_id": 786,
@@ -16521,8 +15736,7 @@
     "weight_kg": 18.6,
     "height_m": 1.2,
     "color": "pink",
-    "evolutions": [],
-    "base_species_id": 786
+    "evolutions": []
   },
   {
     "species_id": 787,
@@ -16539,8 +15753,7 @@
     "weight_kg": 45.5,
     "height_m": 1.9,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 787
+    "evolutions": []
   },
   {
     "species_id": 788,
@@ -16557,8 +15770,7 @@
     "weight_kg": 21.2,
     "height_m": 1.3,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 788
+    "evolutions": []
   },
   {
     "species_id": 789,
@@ -16581,8 +15793,7 @@
         "name": "Cosmoem",
         "method": "lvl up: lvl 43"
       }
-    ],
-    "base_species_id": 789
+    ]
   },
   {
     "species_id": 790,
@@ -16610,8 +15821,7 @@
         "name": "Lunala",
         "method": "lvl up: lvl 53"
       }
-    ],
-    "base_species_id": 789
+    ]
   },
   {
     "species_id": 791,
@@ -16628,8 +15838,7 @@
     "weight_kg": 230.0,
     "height_m": 3.4,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 789
+    "evolutions": []
   },
   {
     "species_id": 792,
@@ -16646,8 +15855,7 @@
     "weight_kg": 120.0,
     "height_m": 4.0,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 789
+    "evolutions": []
   },
   {
     "species_id": 793,
@@ -16664,8 +15872,7 @@
     "weight_kg": 55.5,
     "height_m": 1.2,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 793
+    "evolutions": []
   },
   {
     "species_id": 794,
@@ -16682,8 +15889,7 @@
     "weight_kg": 333.6,
     "height_m": 2.4,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 794
+    "evolutions": []
   },
   {
     "species_id": 795,
@@ -16700,8 +15906,7 @@
     "weight_kg": 25.0,
     "height_m": 1.8,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 795
+    "evolutions": []
   },
   {
     "species_id": 796,
@@ -16718,8 +15923,7 @@
     "weight_kg": 100.0,
     "height_m": 3.8,
     "color": "black",
-    "evolutions": [],
-    "base_species_id": 796
+    "evolutions": []
   },
   {
     "species_id": 797,
@@ -16736,8 +15940,7 @@
     "weight_kg": 999.9,
     "height_m": 9.2,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 797
+    "evolutions": []
   },
   {
     "species_id": 798,
@@ -16754,8 +15957,7 @@
     "weight_kg": 0.1,
     "height_m": 0.3,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 798
+    "evolutions": []
   },
   {
     "species_id": 799,
@@ -16772,8 +15974,7 @@
     "weight_kg": 888.0,
     "height_m": 5.5,
     "color": "black",
-    "evolutions": [],
-    "base_species_id": 799
+    "evolutions": []
   },
   {
     "species_id": 800,
@@ -16790,8 +15991,7 @@
     "weight_kg": 230.0,
     "height_m": 2.4,
     "color": "black",
-    "evolutions": [],
-    "base_species_id": 800
+    "evolutions": []
   },
   {
     "species_id": 801,
@@ -16808,8 +16008,7 @@
     "weight_kg": 80.5,
     "height_m": 1.0,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 801
+    "evolutions": []
   },
   {
     "species_id": 802,
@@ -16826,8 +16025,7 @@
     "weight_kg": 22.2,
     "height_m": 0.7,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 802
+    "evolutions": []
   },
   {
     "species_id": 803,
@@ -16850,8 +16048,7 @@
         "name": "Naganadel",
         "method": "lvl up: sabendo golpe Dragon Pulse"
       }
-    ],
-    "base_species_id": 803
+    ]
   },
   {
     "species_id": 804,
@@ -16868,8 +16065,7 @@
     "weight_kg": 150.0,
     "height_m": 3.6,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 803
+    "evolutions": []
   },
   {
     "species_id": 805,
@@ -16886,8 +16082,7 @@
     "weight_kg": 820.0,
     "height_m": 5.5,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 805
+    "evolutions": []
   },
   {
     "species_id": 806,
@@ -16904,8 +16099,7 @@
     "weight_kg": 13.0,
     "height_m": 1.8,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 806
+    "evolutions": []
   },
   {
     "species_id": 807,
@@ -16922,8 +16116,7 @@
     "weight_kg": 44.5,
     "height_m": 1.5,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 807
+    "evolutions": []
   },
   {
     "species_id": 808,
@@ -16946,8 +16139,7 @@
         "name": "Melmetal",
         "method": null
       }
-    ],
-    "base_species_id": 808
+    ]
   },
   {
     "species_id": 809,
@@ -16964,8 +16156,7 @@
     "weight_kg": 800.0,
     "height_m": 2.5,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 809
+    "evolutions": []
   },
   {
     "species_id": 810,
@@ -16988,8 +16179,7 @@
         "name": "Thwackey",
         "method": "lvl up: lvl 16"
       }
-    ],
-    "base_species_id": 810
+    ]
   },
   {
     "species_id": 811,
@@ -17012,8 +16202,7 @@
         "name": "Rillaboom",
         "method": "lvl up: lvl 35"
       }
-    ],
-    "base_species_id": 810
+    ]
   },
   {
     "species_id": 812,
@@ -17030,8 +16219,7 @@
     "weight_kg": 90.0,
     "height_m": 2.1,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 810
+    "evolutions": []
   },
   {
     "species_id": 813,
@@ -17054,8 +16242,7 @@
         "name": "Raboot",
         "method": "lvl up: lvl 16"
       }
-    ],
-    "base_species_id": 813
+    ]
   },
   {
     "species_id": 814,
@@ -17078,8 +16265,7 @@
         "name": "Cinderace",
         "method": "lvl up: lvl 35"
       }
-    ],
-    "base_species_id": 813
+    ]
   },
   {
     "species_id": 815,
@@ -17096,8 +16282,7 @@
     "weight_kg": 33.0,
     "height_m": 1.4,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 813
+    "evolutions": []
   },
   {
     "species_id": 816,
@@ -17120,8 +16305,7 @@
         "name": "Drizzile",
         "method": "lvl up: lvl 16"
       }
-    ],
-    "base_species_id": 816
+    ]
   },
   {
     "species_id": 817,
@@ -17144,8 +16328,7 @@
         "name": "Inteleon",
         "method": "lvl up: lvl 35"
       }
-    ],
-    "base_species_id": 816
+    ]
   },
   {
     "species_id": 818,
@@ -17162,8 +16345,7 @@
     "weight_kg": 45.2,
     "height_m": 1.9,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 816
+    "evolutions": []
   },
   {
     "species_id": 819,
@@ -17186,8 +16368,7 @@
         "name": "Greedent",
         "method": "lvl up: lvl 24"
       }
-    ],
-    "base_species_id": 819
+    ]
   },
   {
     "species_id": 820,
@@ -17204,8 +16385,7 @@
     "weight_kg": 6.0,
     "height_m": 0.6,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 819
+    "evolutions": []
   },
   {
     "species_id": 821,
@@ -17228,8 +16408,7 @@
         "name": "Corvisquire",
         "method": "lvl up: lvl 18"
       }
-    ],
-    "base_species_id": 821
+    ]
   },
   {
     "species_id": 822,
@@ -17252,8 +16431,7 @@
         "name": "Corviknight",
         "method": "lvl up: lvl 38"
       }
-    ],
-    "base_species_id": 821
+    ]
   },
   {
     "species_id": 823,
@@ -17270,8 +16448,7 @@
     "weight_kg": 75.0,
     "height_m": 2.2,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 821
+    "evolutions": []
   },
   {
     "species_id": 824,
@@ -17294,8 +16471,7 @@
         "name": "Dottler",
         "method": "lvl up: lvl 10"
       }
-    ],
-    "base_species_id": 824
+    ]
   },
   {
     "species_id": 825,
@@ -17318,8 +16494,7 @@
         "name": "Orbeetle",
         "method": "lvl up: lvl 30"
       }
-    ],
-    "base_species_id": 824
+    ]
   },
   {
     "species_id": 826,
@@ -17336,8 +16511,7 @@
     "weight_kg": 40.8,
     "height_m": 0.4,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 824
+    "evolutions": []
   },
   {
     "species_id": 827,
@@ -17360,8 +16534,7 @@
         "name": "Thievul",
         "method": "lvl up: lvl 18"
       }
-    ],
-    "base_species_id": 827
+    ]
   },
   {
     "species_id": 828,
@@ -17378,8 +16551,7 @@
     "weight_kg": 19.9,
     "height_m": 1.2,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 827
+    "evolutions": []
   },
   {
     "species_id": 829,
@@ -17402,8 +16574,7 @@
         "name": "Eldegoss",
         "method": "lvl up: lvl 20"
       }
-    ],
-    "base_species_id": 829
+    ]
   },
   {
     "species_id": 830,
@@ -17420,8 +16591,7 @@
     "weight_kg": 2.5,
     "height_m": 0.5,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 829
+    "evolutions": []
   },
   {
     "species_id": 831,
@@ -17444,8 +16614,7 @@
         "name": "Dubwool",
         "method": "lvl up: lvl 24"
       }
-    ],
-    "base_species_id": 831
+    ]
   },
   {
     "species_id": 832,
@@ -17462,8 +16631,7 @@
     "weight_kg": 43.0,
     "height_m": 1.3,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 831
+    "evolutions": []
   },
   {
     "species_id": 833,
@@ -17486,8 +16654,7 @@
         "name": "Drednaw",
         "method": "lvl up: lvl 22"
       }
-    ],
-    "base_species_id": 833
+    ]
   },
   {
     "species_id": 834,
@@ -17504,8 +16671,7 @@
     "weight_kg": 115.5,
     "height_m": 1.0,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 833
+    "evolutions": []
   },
   {
     "species_id": 835,
@@ -17528,8 +16694,7 @@
         "name": "Boltund",
         "method": "lvl up: lvl 25"
       }
-    ],
-    "base_species_id": 835
+    ]
   },
   {
     "species_id": 836,
@@ -17546,8 +16711,7 @@
     "weight_kg": 34.0,
     "height_m": 1.0,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 835
+    "evolutions": []
   },
   {
     "species_id": 837,
@@ -17570,8 +16734,7 @@
         "name": "Carkol",
         "method": "lvl up: lvl 18"
       }
-    ],
-    "base_species_id": 837
+    ]
   },
   {
     "species_id": 838,
@@ -17594,8 +16757,7 @@
         "name": "Coalossal",
         "method": "lvl up: lvl 34"
       }
-    ],
-    "base_species_id": 837
+    ]
   },
   {
     "species_id": 839,
@@ -17612,8 +16774,7 @@
     "weight_kg": 310.5,
     "height_m": 2.8,
     "color": "black",
-    "evolutions": [],
-    "base_species_id": 837
+    "evolutions": []
   },
   {
     "species_id": 840,
@@ -17646,8 +16807,7 @@
         "name": "Dipplin",
         "method": null
       }
-    ],
-    "base_species_id": 840
+    ]
   },
   {
     "species_id": 841,
@@ -17664,8 +16824,7 @@
     "weight_kg": 1.0,
     "height_m": 0.3,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 840
+    "evolutions": []
   },
   {
     "species_id": 842,
@@ -17682,8 +16841,7 @@
     "weight_kg": 13.0,
     "height_m": 0.4,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 840
+    "evolutions": []
   },
   {
     "species_id": 843,
@@ -17706,8 +16864,7 @@
         "name": "Sandaconda",
         "method": "lvl up: lvl 36"
       }
-    ],
-    "base_species_id": 843
+    ]
   },
   {
     "species_id": 844,
@@ -17724,8 +16881,7 @@
     "weight_kg": 65.5,
     "height_m": 3.8,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 843
+    "evolutions": []
   },
   {
     "species_id": 845,
@@ -17742,8 +16898,7 @@
     "weight_kg": 18.0,
     "height_m": 0.8,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 845
+    "evolutions": []
   },
   {
     "species_id": 846,
@@ -17766,8 +16921,7 @@
         "name": "Barraskewda",
         "method": "lvl up: lvl 26"
       }
-    ],
-    "base_species_id": 846
+    ]
   },
   {
     "species_id": 847,
@@ -17784,8 +16938,7 @@
     "weight_kg": 30.0,
     "height_m": 1.3,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 846
+    "evolutions": []
   },
   {
     "species_id": 848,
@@ -17808,8 +16961,7 @@
         "name": "Toxtricity",
         "method": "lvl up: lvl 30"
       }
-    ],
-    "base_species_id": 848
+    ]
   },
   {
     "species_id": 849,
@@ -17826,8 +16978,7 @@
     "weight_kg": 40.0,
     "height_m": 1.6,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 848
+    "evolutions": []
   },
   {
     "species_id": 850,
@@ -17850,8 +17001,7 @@
         "name": "Centiskorch",
         "method": "lvl up: lvl 28"
       }
-    ],
-    "base_species_id": 850
+    ]
   },
   {
     "species_id": 851,
@@ -17868,8 +17018,7 @@
     "weight_kg": 120.0,
     "height_m": 3.0,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 850
+    "evolutions": []
   },
   {
     "species_id": 852,
@@ -17892,8 +17041,7 @@
         "name": "Grapploct",
         "method": "lvl up: sabendo golpe Taunt"
       }
-    ],
-    "base_species_id": 852
+    ]
   },
   {
     "species_id": 853,
@@ -17910,8 +17058,7 @@
     "weight_kg": 39.0,
     "height_m": 1.6,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 852
+    "evolutions": []
   },
   {
     "species_id": 854,
@@ -17934,8 +17081,7 @@
         "name": "Polteageist",
         "method": "item: Cracked Pot"
       }
-    ],
-    "base_species_id": 854
+    ]
   },
   {
     "species_id": 855,
@@ -17952,8 +17098,7 @@
     "weight_kg": 0.4,
     "height_m": 0.2,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 854
+    "evolutions": []
   },
   {
     "species_id": 856,
@@ -17976,8 +17121,7 @@
         "name": "Hattrem",
         "method": "lvl up: lvl 32"
       }
-    ],
-    "base_species_id": 856
+    ]
   },
   {
     "species_id": 857,
@@ -18000,8 +17144,7 @@
         "name": "Hatterene",
         "method": "lvl up: lvl 42"
       }
-    ],
-    "base_species_id": 856
+    ]
   },
   {
     "species_id": 858,
@@ -18018,8 +17161,7 @@
     "weight_kg": 5.1,
     "height_m": 2.1,
     "color": "pink",
-    "evolutions": [],
-    "base_species_id": 856
+    "evolutions": []
   },
   {
     "species_id": 859,
@@ -18042,8 +17184,7 @@
         "name": "Morgrem",
         "method": "lvl up: lvl 32"
       }
-    ],
-    "base_species_id": 859
+    ]
   },
   {
     "species_id": 860,
@@ -18066,8 +17207,7 @@
         "name": "Grimmsnarl",
         "method": "lvl up: lvl 42"
       }
-    ],
-    "base_species_id": 859
+    ]
   },
   {
     "species_id": 861,
@@ -18084,8 +17224,7 @@
     "weight_kg": 61.0,
     "height_m": 1.5,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 859
+    "evolutions": []
   },
   {
     "species_id": 862,
@@ -18102,8 +17241,7 @@
     "weight_kg": 46.0,
     "height_m": 1.6,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 263
+    "evolutions": []
   },
   {
     "species_id": 863,
@@ -18120,8 +17258,7 @@
     "weight_kg": 28.0,
     "height_m": 0.8,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 52
+    "evolutions": []
   },
   {
     "species_id": 864,
@@ -18138,8 +17275,7 @@
     "weight_kg": 0.4,
     "height_m": 1.0,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 222
+    "evolutions": []
   },
   {
     "species_id": 865,
@@ -18156,8 +17292,7 @@
     "weight_kg": 117.0,
     "height_m": 0.8,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 83
+    "evolutions": []
   },
   {
     "species_id": 866,
@@ -18174,8 +17309,7 @@
     "weight_kg": 58.2,
     "height_m": 1.5,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 122
+    "evolutions": []
   },
   {
     "species_id": 867,
@@ -18192,8 +17326,7 @@
     "weight_kg": 66.6,
     "height_m": 1.6,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 562
+    "evolutions": []
   },
   {
     "species_id": 868,
@@ -18216,8 +17349,7 @@
         "name": "Alcremie",
         "method": "spin"
       }
-    ],
-    "base_species_id": 868
+    ]
   },
   {
     "species_id": 869,
@@ -18234,8 +17366,7 @@
     "weight_kg": 0.5,
     "height_m": 0.3,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 868
+    "evolutions": []
   },
   {
     "species_id": 870,
@@ -18252,8 +17383,7 @@
     "weight_kg": 62.0,
     "height_m": 3.0,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 870
+    "evolutions": []
   },
   {
     "species_id": 871,
@@ -18270,8 +17400,7 @@
     "weight_kg": 1.0,
     "height_m": 0.3,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 871
+    "evolutions": []
   },
   {
     "species_id": 872,
@@ -18294,8 +17423,7 @@
         "name": "Frosmoth",
         "method": "lvl up: amizade 160, de noite"
       }
-    ],
-    "base_species_id": 872
+    ]
   },
   {
     "species_id": 873,
@@ -18312,8 +17440,7 @@
     "weight_kg": 42.0,
     "height_m": 1.3,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 872
+    "evolutions": []
   },
   {
     "species_id": 874,
@@ -18330,8 +17457,7 @@
     "weight_kg": 520.0,
     "height_m": 2.5,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 874
+    "evolutions": []
   },
   {
     "species_id": 875,
@@ -18348,8 +17474,7 @@
     "weight_kg": 89.0,
     "height_m": 1.4,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 875
+    "evolutions": []
   },
   {
     "species_id": 876,
@@ -18366,8 +17491,7 @@
     "weight_kg": 28.0,
     "height_m": 0.9,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 876
+    "evolutions": []
   },
   {
     "species_id": 877,
@@ -18384,8 +17508,7 @@
     "weight_kg": 3.0,
     "height_m": 0.3,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 877
+    "evolutions": []
   },
   {
     "species_id": 878,
@@ -18408,8 +17531,7 @@
         "name": "Copperajah",
         "method": "lvl up: lvl 34"
       }
-    ],
-    "base_species_id": 878
+    ]
   },
   {
     "species_id": 879,
@@ -18426,8 +17548,7 @@
     "weight_kg": 650.0,
     "height_m": 3.0,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 878
+    "evolutions": []
   },
   {
     "species_id": 880,
@@ -18444,8 +17565,7 @@
     "weight_kg": 190.0,
     "height_m": 1.8,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 880
+    "evolutions": []
   },
   {
     "species_id": 881,
@@ -18462,8 +17582,7 @@
     "weight_kg": 150.0,
     "height_m": 2.3,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 881
+    "evolutions": []
   },
   {
     "species_id": 882,
@@ -18480,8 +17599,7 @@
     "weight_kg": 215.0,
     "height_m": 2.3,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 882
+    "evolutions": []
   },
   {
     "species_id": 883,
@@ -18498,8 +17616,7 @@
     "weight_kg": 175.0,
     "height_m": 2.0,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 883
+    "evolutions": []
   },
   {
     "species_id": 884,
@@ -18522,8 +17639,7 @@
         "name": "Archaludon",
         "method": null
       }
-    ],
-    "base_species_id": 884
+    ]
   },
   {
     "species_id": 885,
@@ -18546,8 +17662,7 @@
         "name": "Drakloak",
         "method": "lvl up: lvl 50"
       }
-    ],
-    "base_species_id": 885
+    ]
   },
   {
     "species_id": 886,
@@ -18570,8 +17685,7 @@
         "name": "Dragapult",
         "method": "lvl up: lvl 60"
       }
-    ],
-    "base_species_id": 885
+    ]
   },
   {
     "species_id": 887,
@@ -18588,8 +17702,7 @@
     "weight_kg": 50.0,
     "height_m": 3.0,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 885
+    "evolutions": []
   },
   {
     "species_id": 888,
@@ -18606,8 +17719,7 @@
     "weight_kg": 110.0,
     "height_m": 2.8,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 888
+    "evolutions": []
   },
   {
     "species_id": 889,
@@ -18624,8 +17736,7 @@
     "weight_kg": 210.0,
     "height_m": 2.9,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 889
+    "evolutions": []
   },
   {
     "species_id": 890,
@@ -18642,8 +17753,7 @@
     "weight_kg": 950.0,
     "height_m": 20.0,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 890
+    "evolutions": []
   },
   {
     "species_id": 891,
@@ -18666,8 +17776,7 @@
         "name": "Urshifu",
         "method": "tower-of-darkness"
       }
-    ],
-    "base_species_id": 891
+    ]
   },
   {
     "species_id": 892,
@@ -18684,8 +17793,7 @@
     "weight_kg": 105.0,
     "height_m": 1.9,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 891
+    "evolutions": []
   },
   {
     "species_id": 893,
@@ -18702,8 +17810,7 @@
     "weight_kg": 70.0,
     "height_m": 1.8,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 893
+    "evolutions": []
   },
   {
     "species_id": 894,
@@ -18720,8 +17827,7 @@
     "weight_kg": 145.0,
     "height_m": 1.2,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 894
+    "evolutions": []
   },
   {
     "species_id": 895,
@@ -18738,8 +17844,7 @@
     "weight_kg": 200.0,
     "height_m": 2.1,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 895
+    "evolutions": []
   },
   {
     "species_id": 896,
@@ -18756,8 +17861,7 @@
     "weight_kg": 800.0,
     "height_m": 2.2,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 896
+    "evolutions": []
   },
   {
     "species_id": 897,
@@ -18774,8 +17878,7 @@
     "weight_kg": 44.5,
     "height_m": 2.0,
     "color": "black",
-    "evolutions": [],
-    "base_species_id": 897
+    "evolutions": []
   },
   {
     "species_id": 898,
@@ -18792,8 +17895,7 @@
     "weight_kg": 7.7,
     "height_m": 1.1,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 898
+    "evolutions": []
   },
   {
     "species_id": 899,
@@ -18810,8 +17912,7 @@
     "weight_kg": 95.1,
     "height_m": 1.8,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 234
+    "evolutions": []
   },
   {
     "species_id": 900,
@@ -18828,8 +17929,7 @@
     "weight_kg": 89.0,
     "height_m": 1.8,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 123
+    "evolutions": []
   },
   {
     "species_id": 901,
@@ -18846,8 +17946,7 @@
     "weight_kg": 290.0,
     "height_m": 2.4,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 216
+    "evolutions": []
   },
   {
     "species_id": 902,
@@ -18864,8 +17963,7 @@
     "weight_kg": 110.0,
     "height_m": 3.0,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 550
+    "evolutions": []
   },
   {
     "species_id": 903,
@@ -18882,8 +17980,7 @@
     "weight_kg": 43.0,
     "height_m": 1.3,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 215
+    "evolutions": []
   },
   {
     "species_id": 904,
@@ -18900,8 +17997,7 @@
     "weight_kg": 60.5,
     "height_m": 2.5,
     "color": "black",
-    "evolutions": [],
-    "base_species_id": 211
+    "evolutions": []
   },
   {
     "species_id": 905,
@@ -18918,8 +18014,7 @@
     "weight_kg": 48.0,
     "height_m": 1.6,
     "color": "pink",
-    "evolutions": [],
-    "base_species_id": 905
+    "evolutions": []
   },
   {
     "species_id": 906,
@@ -18942,8 +18037,7 @@
         "name": "Floragato",
         "method": "lvl up: lvl 16"
       }
-    ],
-    "base_species_id": 906
+    ]
   },
   {
     "species_id": 907,
@@ -18966,8 +18060,7 @@
         "name": "Meowscarada",
         "method": "lvl up: lvl 36"
       }
-    ],
-    "base_species_id": 906
+    ]
   },
   {
     "species_id": 908,
@@ -18984,8 +18077,7 @@
     "weight_kg": 31.2,
     "height_m": 1.5,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 906
+    "evolutions": []
   },
   {
     "species_id": 909,
@@ -19008,8 +18100,7 @@
         "name": "Crocalor",
         "method": "lvl up: lvl 16"
       }
-    ],
-    "base_species_id": 909
+    ]
   },
   {
     "species_id": 910,
@@ -19032,8 +18123,7 @@
         "name": "Skeledirge",
         "method": "lvl up: lvl 36"
       }
-    ],
-    "base_species_id": 909
+    ]
   },
   {
     "species_id": 911,
@@ -19050,8 +18140,7 @@
     "weight_kg": 326.5,
     "height_m": 1.6,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 909
+    "evolutions": []
   },
   {
     "species_id": 912,
@@ -19074,8 +18163,7 @@
         "name": "Quaxwell",
         "method": "lvl up: lvl 16"
       }
-    ],
-    "base_species_id": 912
+    ]
   },
   {
     "species_id": 913,
@@ -19098,8 +18186,7 @@
         "name": "Quaquaval",
         "method": "lvl up: lvl 36"
       }
-    ],
-    "base_species_id": 912
+    ]
   },
   {
     "species_id": 914,
@@ -19116,8 +18203,7 @@
     "weight_kg": 61.9,
     "height_m": 1.8,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 912
+    "evolutions": []
   },
   {
     "species_id": 915,
@@ -19140,8 +18226,7 @@
         "name": "Oinkologne",
         "method": "lvl up: lvl 18"
       }
-    ],
-    "base_species_id": 915
+    ]
   },
   {
     "species_id": 916,
@@ -19158,8 +18243,7 @@
     "weight_kg": 120.0,
     "height_m": 1.0,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 915
+    "evolutions": []
   },
   {
     "species_id": 917,
@@ -19182,8 +18266,7 @@
         "name": "Spidops",
         "method": "lvl up: lvl 15"
       }
-    ],
-    "base_species_id": 917
+    ]
   },
   {
     "species_id": 918,
@@ -19200,8 +18283,7 @@
     "weight_kg": 16.5,
     "height_m": 1.0,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 917
+    "evolutions": []
   },
   {
     "species_id": 919,
@@ -19224,8 +18306,7 @@
         "name": "Lokix",
         "method": "lvl up: lvl 24"
       }
-    ],
-    "base_species_id": 919
+    ]
   },
   {
     "species_id": 920,
@@ -19242,8 +18323,7 @@
     "weight_kg": 17.5,
     "height_m": 1.0,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 919
+    "evolutions": []
   },
   {
     "species_id": 921,
@@ -19266,8 +18346,7 @@
         "name": "Pawmo",
         "method": "lvl up: lvl 18"
       }
-    ],
-    "base_species_id": 921
+    ]
   },
   {
     "species_id": 922,
@@ -19290,8 +18369,7 @@
         "name": "Pawmot",
         "method": "other"
       }
-    ],
-    "base_species_id": 921
+    ]
   },
   {
     "species_id": 923,
@@ -19308,8 +18386,7 @@
     "weight_kg": 41.0,
     "height_m": 0.9,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 921
+    "evolutions": []
   },
   {
     "species_id": 924,
@@ -19332,8 +18409,7 @@
         "name": "Maushold",
         "method": "other"
       }
-    ],
-    "base_species_id": 924
+    ]
   },
   {
     "species_id": 925,
@@ -19350,8 +18426,7 @@
     "weight_kg": 2.3,
     "height_m": 0.3,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 924
+    "evolutions": []
   },
   {
     "species_id": 926,
@@ -19374,8 +18449,7 @@
         "name": "Dachsbun",
         "method": "lvl up: lvl 26"
       }
-    ],
-    "base_species_id": 926
+    ]
   },
   {
     "species_id": 927,
@@ -19392,8 +18466,7 @@
     "weight_kg": 14.9,
     "height_m": 0.5,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 926
+    "evolutions": []
   },
   {
     "species_id": 928,
@@ -19416,8 +18489,7 @@
         "name": "Dolliv",
         "method": "lvl up: lvl 25"
       }
-    ],
-    "base_species_id": 928
+    ]
   },
   {
     "species_id": 929,
@@ -19440,8 +18512,7 @@
         "name": "Arboliva",
         "method": "lvl up: lvl 35"
       }
-    ],
-    "base_species_id": 928
+    ]
   },
   {
     "species_id": 930,
@@ -19458,8 +18529,7 @@
     "weight_kg": 48.2,
     "height_m": 1.4,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 928
+    "evolutions": []
   },
   {
     "species_id": 931,
@@ -19476,8 +18546,7 @@
     "weight_kg": 2.4,
     "height_m": 0.6,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 931
+    "evolutions": []
   },
   {
     "species_id": 932,
@@ -19500,8 +18569,7 @@
         "name": "Naclstack",
         "method": "lvl up: lvl 24"
       }
-    ],
-    "base_species_id": 932
+    ]
   },
   {
     "species_id": 933,
@@ -19524,8 +18592,7 @@
         "name": "Garganacl",
         "method": "lvl up: lvl 38"
       }
-    ],
-    "base_species_id": 932
+    ]
   },
   {
     "species_id": 934,
@@ -19542,8 +18609,7 @@
     "weight_kg": 240.0,
     "height_m": 2.3,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 932
+    "evolutions": []
   },
   {
     "species_id": 935,
@@ -19571,8 +18637,7 @@
         "name": "Ceruledge",
         "method": "item: Malicious Armor"
       }
-    ],
-    "base_species_id": 935
+    ]
   },
   {
     "species_id": 936,
@@ -19589,8 +18654,7 @@
     "weight_kg": 85.0,
     "height_m": 1.5,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 935
+    "evolutions": []
   },
   {
     "species_id": 937,
@@ -19607,8 +18671,7 @@
     "weight_kg": 62.0,
     "height_m": 1.6,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 935
+    "evolutions": []
   },
   {
     "species_id": 938,
@@ -19631,8 +18694,7 @@
         "name": "Bellibolt",
         "method": "item: Thunder Stone"
       }
-    ],
-    "base_species_id": 938
+    ]
   },
   {
     "species_id": 939,
@@ -19649,8 +18711,7 @@
     "weight_kg": 113.0,
     "height_m": 1.2,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 938
+    "evolutions": []
   },
   {
     "species_id": 940,
@@ -19673,8 +18734,7 @@
         "name": "Kilowattrel",
         "method": "lvl up: lvl 25"
       }
-    ],
-    "base_species_id": 940
+    ]
   },
   {
     "species_id": 941,
@@ -19691,8 +18751,7 @@
     "weight_kg": 38.6,
     "height_m": 1.4,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 940
+    "evolutions": []
   },
   {
     "species_id": 942,
@@ -19715,8 +18774,7 @@
         "name": "Mabosstiff",
         "method": "lvl up: lvl 30"
       }
-    ],
-    "base_species_id": 942
+    ]
   },
   {
     "species_id": 943,
@@ -19733,8 +18791,7 @@
     "weight_kg": 61.0,
     "height_m": 1.1,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 942
+    "evolutions": []
   },
   {
     "species_id": 944,
@@ -19757,8 +18814,7 @@
         "name": "Grafaiai",
         "method": "lvl up: lvl 28"
       }
-    ],
-    "base_species_id": 944
+    ]
   },
   {
     "species_id": 945,
@@ -19775,8 +18831,7 @@
     "weight_kg": 27.2,
     "height_m": 0.7,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 944
+    "evolutions": []
   },
   {
     "species_id": 946,
@@ -19799,8 +18854,7 @@
         "name": "Brambleghast",
         "method": "other"
       }
-    ],
-    "base_species_id": 946
+    ]
   },
   {
     "species_id": 947,
@@ -19817,8 +18871,7 @@
     "weight_kg": 6.0,
     "height_m": 1.2,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 946
+    "evolutions": []
   },
   {
     "species_id": 948,
@@ -19841,8 +18894,7 @@
         "name": "Toedscruel",
         "method": "lvl up: lvl 30"
       }
-    ],
-    "base_species_id": 948
+    ]
   },
   {
     "species_id": 949,
@@ -19859,8 +18911,7 @@
     "weight_kg": 58.0,
     "height_m": 1.9,
     "color": "black",
-    "evolutions": [],
-    "base_species_id": 948
+    "evolutions": []
   },
   {
     "species_id": 950,
@@ -19877,8 +18928,7 @@
     "weight_kg": 79.0,
     "height_m": 1.3,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 950
+    "evolutions": []
   },
   {
     "species_id": 951,
@@ -19901,8 +18951,7 @@
         "name": "Scovillain",
         "method": "item: Fire Stone"
       }
-    ],
-    "base_species_id": 951
+    ]
   },
   {
     "species_id": 952,
@@ -19919,8 +18968,7 @@
     "weight_kg": 15.0,
     "height_m": 0.9,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 951
+    "evolutions": []
   },
   {
     "species_id": 953,
@@ -19943,8 +18991,7 @@
         "name": "Rabsca",
         "method": "other"
       }
-    ],
-    "base_species_id": 953
+    ]
   },
   {
     "species_id": 954,
@@ -19961,8 +19008,7 @@
     "weight_kg": 3.5,
     "height_m": 0.3,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 953
+    "evolutions": []
   },
   {
     "species_id": 955,
@@ -19985,8 +19031,7 @@
         "name": "Espathra",
         "method": "lvl up: lvl 35"
       }
-    ],
-    "base_species_id": 955
+    ]
   },
   {
     "species_id": 956,
@@ -20003,8 +19048,7 @@
     "weight_kg": 90.0,
     "height_m": 1.9,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 955
+    "evolutions": []
   },
   {
     "species_id": 957,
@@ -20027,8 +19071,7 @@
         "name": "Tinkatuff",
         "method": "lvl up: lvl 24"
       }
-    ],
-    "base_species_id": 957
+    ]
   },
   {
     "species_id": 958,
@@ -20051,8 +19094,7 @@
         "name": "Tinkaton",
         "method": "lvl up: lvl 38"
       }
-    ],
-    "base_species_id": 957
+    ]
   },
   {
     "species_id": 959,
@@ -20069,8 +19111,7 @@
     "weight_kg": 112.8,
     "height_m": 0.7,
     "color": "pink",
-    "evolutions": [],
-    "base_species_id": 957
+    "evolutions": []
   },
   {
     "species_id": 960,
@@ -20093,8 +19134,7 @@
         "name": "Wugtrio",
         "method": "lvl up: lvl 26"
       }
-    ],
-    "base_species_id": 960
+    ]
   },
   {
     "species_id": 961,
@@ -20111,8 +19151,7 @@
     "weight_kg": 5.4,
     "height_m": 1.2,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 960
+    "evolutions": []
   },
   {
     "species_id": 962,
@@ -20129,8 +19168,7 @@
     "weight_kg": 42.9,
     "height_m": 1.5,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 962
+    "evolutions": []
   },
   {
     "species_id": 963,
@@ -20153,8 +19191,7 @@
         "name": "Palafin",
         "method": "other"
       }
-    ],
-    "base_species_id": 963
+    ]
   },
   {
     "species_id": 964,
@@ -20171,8 +19208,7 @@
     "weight_kg": 60.2,
     "height_m": 1.3,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 963
+    "evolutions": []
   },
   {
     "species_id": 965,
@@ -20195,8 +19231,7 @@
         "name": "Revavroom",
         "method": "lvl up: lvl 40"
       }
-    ],
-    "base_species_id": 965
+    ]
   },
   {
     "species_id": 966,
@@ -20213,8 +19248,7 @@
     "weight_kg": 120.0,
     "height_m": 1.8,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 965
+    "evolutions": []
   },
   {
     "species_id": 967,
@@ -20231,8 +19265,7 @@
     "weight_kg": 63.0,
     "height_m": 1.6,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 967
+    "evolutions": []
   },
   {
     "species_id": 968,
@@ -20249,8 +19282,7 @@
     "weight_kg": 310.0,
     "height_m": 2.5,
     "color": "pink",
-    "evolutions": [],
-    "base_species_id": 968
+    "evolutions": []
   },
   {
     "species_id": 969,
@@ -20273,8 +19305,7 @@
         "name": "Glimmora",
         "method": "lvl up: lvl 35"
       }
-    ],
-    "base_species_id": 969
+    ]
   },
   {
     "species_id": 970,
@@ -20291,8 +19322,7 @@
     "weight_kg": 45.0,
     "height_m": 1.5,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 969
+    "evolutions": []
   },
   {
     "species_id": 971,
@@ -20315,8 +19345,7 @@
         "name": "Houndstone",
         "method": "lvl up: lvl 30, de noite"
       }
-    ],
-    "base_species_id": 971
+    ]
   },
   {
     "species_id": 972,
@@ -20333,8 +19362,7 @@
     "weight_kg": 15.0,
     "height_m": 2.0,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 971
+    "evolutions": []
   },
   {
     "species_id": 973,
@@ -20351,8 +19379,7 @@
     "weight_kg": 37.0,
     "height_m": 1.6,
     "color": "pink",
-    "evolutions": [],
-    "base_species_id": 973
+    "evolutions": []
   },
   {
     "species_id": 974,
@@ -20375,8 +19402,7 @@
         "name": "Cetitan",
         "method": "item: Ice Stone"
       }
-    ],
-    "base_species_id": 974
+    ]
   },
   {
     "species_id": 975,
@@ -20393,8 +19419,7 @@
     "weight_kg": 700.0,
     "height_m": 4.5,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 974
+    "evolutions": []
   },
   {
     "species_id": 976,
@@ -20411,8 +19436,7 @@
     "weight_kg": 90.0,
     "height_m": 2.5,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 976
+    "evolutions": []
   },
   {
     "species_id": 977,
@@ -20429,8 +19453,7 @@
     "weight_kg": 220.0,
     "height_m": 12.0,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 977
+    "evolutions": []
   },
   {
     "species_id": 978,
@@ -20447,8 +19470,7 @@
     "weight_kg": 8.0,
     "height_m": 0.3,
     "color": "pink",
-    "evolutions": [],
-    "base_species_id": 978
+    "evolutions": []
   },
   {
     "species_id": 979,
@@ -20465,8 +19487,7 @@
     "weight_kg": 56.0,
     "height_m": 1.2,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 56
+    "evolutions": []
   },
   {
     "species_id": 980,
@@ -20483,8 +19504,7 @@
     "weight_kg": 223.0,
     "height_m": 1.8,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 194
+    "evolutions": []
   },
   {
     "species_id": 981,
@@ -20501,8 +19521,7 @@
     "weight_kg": 160.0,
     "height_m": 3.2,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 203
+    "evolutions": []
   },
   {
     "species_id": 982,
@@ -20519,8 +19538,7 @@
     "weight_kg": 39.2,
     "height_m": 3.6,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 206
+    "evolutions": []
   },
   {
     "species_id": 983,
@@ -20537,8 +19555,7 @@
     "weight_kg": 120.0,
     "height_m": 2.0,
     "color": "black",
-    "evolutions": [],
-    "base_species_id": 624
+    "evolutions": []
   },
   {
     "species_id": 984,
@@ -20555,8 +19572,7 @@
     "weight_kg": 320.0,
     "height_m": 2.2,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 984
+    "evolutions": []
   },
   {
     "species_id": 985,
@@ -20573,8 +19589,7 @@
     "weight_kg": 8.0,
     "height_m": 1.2,
     "color": "pink",
-    "evolutions": [],
-    "base_species_id": 985
+    "evolutions": []
   },
   {
     "species_id": 986,
@@ -20591,8 +19606,7 @@
     "weight_kg": 21.0,
     "height_m": 1.2,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 986
+    "evolutions": []
   },
   {
     "species_id": 987,
@@ -20609,8 +19623,7 @@
     "weight_kg": 4.0,
     "height_m": 1.4,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 987
+    "evolutions": []
   },
   {
     "species_id": 988,
@@ -20627,8 +19640,7 @@
     "weight_kg": 92.0,
     "height_m": 3.2,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 988
+    "evolutions": []
   },
   {
     "species_id": 989,
@@ -20645,8 +19657,7 @@
     "weight_kg": 60.0,
     "height_m": 2.3,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 989
+    "evolutions": []
   },
   {
     "species_id": 990,
@@ -20663,8 +19674,7 @@
     "weight_kg": 240.0,
     "height_m": 0.9,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 990
+    "evolutions": []
   },
   {
     "species_id": 991,
@@ -20681,8 +19691,7 @@
     "weight_kg": 11.0,
     "height_m": 0.6,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 991
+    "evolutions": []
   },
   {
     "species_id": 992,
@@ -20699,8 +19708,7 @@
     "weight_kg": 380.7,
     "height_m": 1.8,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 992
+    "evolutions": []
   },
   {
     "species_id": 993,
@@ -20717,8 +19725,7 @@
     "weight_kg": 111.0,
     "height_m": 1.3,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 993
+    "evolutions": []
   },
   {
     "species_id": 994,
@@ -20735,8 +19742,7 @@
     "weight_kg": 36.0,
     "height_m": 1.2,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 994
+    "evolutions": []
   },
   {
     "species_id": 995,
@@ -20753,8 +19759,7 @@
     "weight_kg": 303.0,
     "height_m": 1.6,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 995
+    "evolutions": []
   },
   {
     "species_id": 996,
@@ -20777,8 +19782,7 @@
         "name": "Arctibax",
         "method": "lvl up: lvl 35"
       }
-    ],
-    "base_species_id": 996
+    ]
   },
   {
     "species_id": 997,
@@ -20801,8 +19805,7 @@
         "name": "Baxcalibur",
         "method": "lvl up: lvl 54"
       }
-    ],
-    "base_species_id": 996
+    ]
   },
   {
     "species_id": 998,
@@ -20819,8 +19822,7 @@
     "weight_kg": 210.0,
     "height_m": 2.1,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 996
+    "evolutions": []
   },
   {
     "species_id": 999,
@@ -20843,8 +19845,7 @@
         "name": "Gholdengo",
         "method": "other"
       }
-    ],
-    "base_species_id": 999
+    ]
   },
   {
     "species_id": 1000,
@@ -20861,8 +19862,7 @@
     "weight_kg": 30.0,
     "height_m": 1.2,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 999
+    "evolutions": []
   },
   {
     "species_id": 1001,
@@ -20879,8 +19879,7 @@
     "weight_kg": 74.2,
     "height_m": 1.5,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 1001
+    "evolutions": []
   },
   {
     "species_id": 1002,
@@ -20897,8 +19896,7 @@
     "weight_kg": 152.2,
     "height_m": 1.9,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 1002
+    "evolutions": []
   },
   {
     "species_id": 1003,
@@ -20915,8 +19913,7 @@
     "weight_kg": 699.7,
     "height_m": 2.7,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 1003
+    "evolutions": []
   },
   {
     "species_id": 1004,
@@ -20933,8 +19930,7 @@
     "weight_kg": 4.9,
     "height_m": 0.4,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 1004
+    "evolutions": []
   },
   {
     "species_id": 1005,
@@ -20951,8 +19947,7 @@
     "weight_kg": 380.0,
     "height_m": 2.0,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 1005
+    "evolutions": []
   },
   {
     "species_id": 1006,
@@ -20969,8 +19964,7 @@
     "weight_kg": 35.0,
     "height_m": 1.4,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 1006
+    "evolutions": []
   },
   {
     "species_id": 1007,
@@ -20987,8 +19981,7 @@
     "weight_kg": 303.0,
     "height_m": 2.5,
     "color": "red",
-    "evolutions": [],
-    "base_species_id": 1007
+    "evolutions": []
   },
   {
     "species_id": 1008,
@@ -21005,8 +19998,7 @@
     "weight_kg": 240.0,
     "height_m": 3.5,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 1008
+    "evolutions": []
   },
   {
     "species_id": 1009,
@@ -21023,8 +20015,7 @@
     "weight_kg": 280.0,
     "height_m": 3.5,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 1009
+    "evolutions": []
   },
   {
     "species_id": 1010,
@@ -21041,8 +20032,7 @@
     "weight_kg": 125.0,
     "height_m": 1.5,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 1010
+    "evolutions": []
   },
   {
     "species_id": 1011,
@@ -21065,8 +20055,7 @@
         "name": "Hydrapple",
         "method": null
       }
-    ],
-    "base_species_id": 840
+    ]
   },
   {
     "species_id": 1012,
@@ -21089,8 +20078,7 @@
         "name": "Sinistcha",
         "method": null
       }
-    ],
-    "base_species_id": 1012
+    ]
   },
   {
     "species_id": 1013,
@@ -21107,8 +20095,7 @@
     "weight_kg": 2.2,
     "height_m": 0.2,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 1012
+    "evolutions": []
   },
   {
     "species_id": 1014,
@@ -21125,8 +20112,7 @@
     "weight_kg": 92.2,
     "height_m": 1.8,
     "color": "black",
-    "evolutions": [],
-    "base_species_id": 1014
+    "evolutions": []
   },
   {
     "species_id": 1015,
@@ -21143,8 +20129,7 @@
     "weight_kg": 12.2,
     "height_m": 1.0,
     "color": "black",
-    "evolutions": [],
-    "base_species_id": 1015
+    "evolutions": []
   },
   {
     "species_id": 1016,
@@ -21161,8 +20146,7 @@
     "weight_kg": 30.1,
     "height_m": 1.4,
     "color": "black",
-    "evolutions": [],
-    "base_species_id": 1016
+    "evolutions": []
   },
   {
     "species_id": 1017,
@@ -21179,8 +20163,7 @@
     "weight_kg": 39.8,
     "height_m": 1.2,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 1017
+    "evolutions": []
   },
   {
     "species_id": 1018,
@@ -21197,8 +20180,7 @@
     "weight_kg": 60.0,
     "height_m": 2.0,
     "color": "white",
-    "evolutions": [],
-    "base_species_id": 884
+    "evolutions": []
   },
   {
     "species_id": 1019,
@@ -21215,8 +20197,7 @@
     "weight_kg": 93.0,
     "height_m": 1.8,
     "color": "green",
-    "evolutions": [],
-    "base_species_id": 840
+    "evolutions": []
   },
   {
     "species_id": 1020,
@@ -21233,8 +20214,7 @@
     "weight_kg": 590.0,
     "height_m": 3.5,
     "color": "brown",
-    "evolutions": [],
-    "base_species_id": 1020
+    "evolutions": []
   },
   {
     "species_id": 1021,
@@ -21251,8 +20231,7 @@
     "weight_kg": 480.0,
     "height_m": 5.2,
     "color": "yellow",
-    "evolutions": [],
-    "base_species_id": 1021
+    "evolutions": []
   },
   {
     "species_id": 1022,
@@ -21269,8 +20248,7 @@
     "weight_kg": 162.5,
     "height_m": 1.5,
     "color": "gray",
-    "evolutions": [],
-    "base_species_id": 1022
+    "evolutions": []
   },
   {
     "species_id": 1023,
@@ -21287,8 +20265,7 @@
     "weight_kg": 156.0,
     "height_m": 1.6,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 1023
+    "evolutions": []
   },
   {
     "species_id": 1024,
@@ -21305,8 +20282,7 @@
     "weight_kg": 6.5,
     "height_m": 0.2,
     "color": "blue",
-    "evolutions": [],
-    "base_species_id": 1024
+    "evolutions": []
   },
   {
     "species_id": 1025,
@@ -21323,7 +20299,6 @@
     "weight_kg": 0.3,
     "height_m": 0.3,
     "color": "purple",
-    "evolutions": [],
-    "base_species_id": 1025
+    "evolutions": []
   }
 ]

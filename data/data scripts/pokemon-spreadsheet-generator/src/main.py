@@ -103,10 +103,6 @@ def main():
             continue
         chain_id = row['evolution_chain_id'] if 'evolution_chain_id' in row else None
         evolutions = []
-        base_species_id = None
-        if chain_id and chain_id in chain_to_species:
-            chain_species = chain_to_species[chain_id]
-            base_species_id = chain_species[0] if chain_species else None
         evol_ids = set()
         for _, evo_species in species[species['evolves_from_species_id'] == species_id].iterrows():
             evo_sid = int(evo_species['id'])
@@ -205,8 +201,7 @@ def main():
             'weight_kg': float(row['weight_kg']) if not pd.isnull(row['weight_kg']) else None,
             'height_m': float(row['height_m']) if not pd.isnull(row['height_m']) else None,
             'color': row['color_name'] if not pd.isnull(row['color_name']) else '',
-            'evolutions': evolutions,
-            'base_species_id': base_species_id
+            'evolutions': evolutions
         }
         result.append(poke_obj)
 
