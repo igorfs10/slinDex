@@ -19,21 +19,43 @@ export struct EvolutionEdgeSlint {  // opcional (para desenhar linhas)
     method: string,
 }
 
-component EvolutionGraphView inherits HorizontalLayout {
+export struct EvolutionLineSlint {
+    x1: length,
+    y1: length,
+    x2: length,
+    y2: length,
+    method: string,
+}
+
+component EvolutionGraphView inherits Rectangle {
     in property <[EvolutionNodeSlint]> nodes;
     in property <[EvolutionEdgeSlint]> edges;      // pode deixar vazio se não for desenhar conexões
     in property <int> max-stage;
+    in property <[EvolutionLineSlint]> lines;
 
     property <length> name-size:15px;
     property <length> method-size:12px;
 
-    spacing: 60px;
-    alignment: LayoutAlignment.center;
+    // container principal
+    background: transparent;
+
+    // layout de colunas
+    // largura total calculada (colunas * node + espaçamentos)
+    property <length> total-width: ((max-stage + 1) * 96px) + (max-stage * 60px);
+
+    content_layout := HorizontalLayout {
+        spacing: 60px;
+        alignment: LayoutAlignment.start; // evitamos padding interno adicional
+        width: total-width;
+        x: (parent.width - self.width)/2; // centraliza bloco
+        // altura se adapta aos filhos
 
     // Stage 0
     VerticalLayout {
+        spacing: 20px; // ROW_H - NODE_H
         for n in nodes : VerticalLayout {
             if (n.stage == 0) : Rectangle {
+                width: 96px; height: 120px;
                 border-radius: 8px;
                 VerticalLayout {
                     alignment: LayoutAlignment.center;
@@ -53,8 +75,10 @@ component EvolutionGraphView inherits HorizontalLayout {
     }
     // Stage 1
     if(max-stage >= 1) : VerticalLayout {
+        spacing: 20px;
         for n in nodes : VerticalLayout {
             if (n.stage == 1) : Rectangle {
+                width: 96px; height: 120px;
                 border-radius: 8px;
                 VerticalLayout {
                     alignment: LayoutAlignment.center;
@@ -73,8 +97,10 @@ component EvolutionGraphView inherits HorizontalLayout {
         }
     }
     if(max-stage >= 2) : VerticalLayout {
+        spacing: 20px;
         for n in nodes : VerticalLayout {
             if (n.stage == 2) : Rectangle {
+                width: 96px; height: 120px;
                 border-radius: 8px;
                 VerticalLayout {
                     alignment: LayoutAlignment.center;
@@ -93,8 +119,10 @@ component EvolutionGraphView inherits HorizontalLayout {
         }
     }
     if(max-stage >= 3) : VerticalLayout {
+        spacing: 20px;
         for n in nodes : VerticalLayout {
             if (n.stage == 3) : Rectangle {
+                width: 96px; height: 120px;
                 border-radius: 8px;
                 VerticalLayout {
                     alignment: LayoutAlignment.center;
@@ -113,8 +141,10 @@ component EvolutionGraphView inherits HorizontalLayout {
         }
     }
     if(max-stage >= 4) : VerticalLayout {
+        spacing: 20px;
         for n in nodes : VerticalLayout {
             if (n.stage == 4) : Rectangle {
+                width: 96px; height: 120px;
                 border-radius: 8px;
                 VerticalLayout {
                     alignment: LayoutAlignment.center;
@@ -133,8 +163,10 @@ component EvolutionGraphView inherits HorizontalLayout {
         }
     }
     if(max-stage >= 5) : VerticalLayout {
+        spacing: 20px;
         for n in nodes : VerticalLayout {
             if (n.stage == 5) : Rectangle {
+                width: 96px; height: 120px;
                 border-radius: 8px;
                 VerticalLayout {
                     alignment: LayoutAlignment.center;
@@ -149,6 +181,42 @@ component EvolutionGraphView inherits HorizontalLayout {
                     Text { text: n.name; color: #e5e7eb; font-size: name-size; horizontal-alignment: center; }
                     if (n.method != "") : Text { text: n.method; color: #9ca3af; font-size: method-size; horizontal-alignment: center; }
                 }
+            }
+        }
+        }
+    }
+
+    // Overlay fora do layout para não deslocar colunas
+    line_overlay := Rectangle {
+        x: content_layout.x; y: content_layout.y;
+        width: content_layout.width;
+        height: content_layout.height;
+        z: -1;
+        background: transparent;
+        // linhas
+        for l in lines : Rectangle {
+            Rectangle { // horizontal
+                x: min(l.x1, l.x2);
+                y: l.y1 - 1px;
+                width: abs(l.x2 - l.x1);
+                height: 2px;
+                background: #94a3b8;
+            }
+            if (abs(l.y2 - l.y1) > 4px) : Rectangle { // vertical
+                x: l.x2 - 1px;
+                y: min(l.y1, l.y2);
+                width: 2px;
+                height: abs(l.y2 - l.y1);
+                background: #94a3b8;
+            }
+            // seta simples (triângulo fake com 3 pixels) apontando para a direita
+            Rectangle {
+                x: l.x2 - 2px;
+                y: l.y2 - 2px;
+                width: 4px;
+                height: 4px;
+                border-radius: 2px;
+                background: #94a3b8;
             }
         }
     }
@@ -176,6 +244,7 @@ export struct PokemonDetail {
     color: brush,
     nodes: [EvolutionNodeSlint],
     edges: [EvolutionEdgeSlint],
+    lines: [EvolutionLineSlint],
     max-stage: int,
 }
 
@@ -497,7 +566,10 @@ component DetailPanel inherits Rectangle {
                     nodes: root.detail.nodes;
                     edges: root.detail.edges;
                     max-stage: root.detail.max-stage;
+                    lines: root.detail.lines; // adiciona binding das linhas
                 }
+                // Debug: quantidade de linhas
+                Text { text: "Linhas: " + root.detail.lines.length; color: #94a3b8; font-size: 12px; }
             }
         }
     }

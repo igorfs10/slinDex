@@ -130,7 +130,7 @@ fn build_graph(selected_id: u32) -> EvolutionGraph {
     }
 }
 
-fn to_slint(g: &EvolutionGraph) -> (Vec<EvolutionNodeSlint>, Vec<EvolutionEdgeSlint>, i32) {
+fn to_slint(g: &EvolutionGraph) -> (Vec<EvolutionNodeSlint>, Vec<EvolutionEdgeSlint>, Vec<EvolutionLineSlint>, i32) {
     // Agrupa ids por stage para calcular row
     let mut stage_lists = g.stages.clone(); // Vec<Vec<u32>>
     for list in &mut stage_lists {
@@ -168,8 +168,36 @@ fn to_slint(g: &EvolutionGraph) -> (Vec<EvolutionNodeSlint>, Vec<EvolutionEdgeSl
             method: e.method.into(),
         })
         .collect();
+    // Linhas (coordenadas simples em grid)
+    const COL_W: f32 = 156.0; // 96 (sprite) + 60 (spacing)
+    const ROW_H: f32 = 140.0; // 120 (NODE_H) + 20 (spacing em VerticalLayout)
+    const NODE_W: f32 = 96.0; // largura aprox sprite
+    const NODE_H: f32 = 120.0; // altura aproxima
+    let mut idx_map: std::collections::HashMap<(i32, i32), (f32, f32)> = std::collections::HashMap::new();
+    // offset horizontal para alinhar com content_layout (primeira coluna começa em 0 dentro do layout)
+    // offset para alinhar com centralização do layout (será calculado na UI, então aqui mantemos 0)
+    let x_offset: f32 = 0.0;
+    for n in &nodes_out {
+    let cx = n.stage as f32 * COL_W + NODE_W / 2.0 + x_offset;
+        let cy = n.row as f32 * ROW_H + NODE_H / 2.0;
+        idx_map.insert((n.id, n.stage), (cx, cy));
+    }
+    let mut lines_out: Vec<EvolutionLineSlint> = Vec::new();
+    for e in &g.edges {
+        let from_stage = g.nodes.iter().find(|n| n.id == e.from).map(|n| n.stage as i32).unwrap_or(0);
+        let to_stage = g.nodes.iter().find(|n| n.id == e.to).map(|n| n.stage as i32).unwrap_or(from_stage + 1);
+        if let (Some(&(fx, fy)), Some(&(tx, ty))) = (
+            idx_map.get(&(e.from as i32, from_stage)),
+            idx_map.get(&(e.to as i32, to_stage)),
+        ) {
+            // saída pela borda direita do nó origem até centro do destino
+            let x1 = fx + NODE_W / 2.0;
+            let x2 = tx - NODE_W / 2.0;
+            lines_out.push(EvolutionLineSlint { x1, y1: fy, x2, y2: ty, method: e.method.into() });
+        }
+    }
     let max_stage = g.stages.len() as i32 - 1;
-    (nodes_out, edges_out, max_stage)
+    (nodes_out, edges_out, lines_out, max_stage)
 }
 
 // Dado um species_id, encontra o base_id (primeira forma da cadeia)
@@ -248,7 +276,14 @@ fn make_detail_for_ui(detail: &Pokemon, artwork_bytes: Option<&[u8]>) -> Pokemon
         .unwrap_or_default();
     // Evolução
     let graph = build_graph(detail.species_id);
-    let (nodes_model, edges_model, max_stage) = to_slint(&graph);
+    let (nodes_model, edges_model, lines_model, max_stage) = to_slint(&graph);
+    #[cfg(debug_assertions)]
+    {
+        eprintln!("evolution debug: nodes={} edges={} lines={} max_stage={}", nodes_model.len(), edges_model.len(), lines_model.len(), max_stage);
+        if let Some(first) = lines_model.first() {
+            eprintln!("first line: x1={:.1} y1={:.1} x2={:.1} y2={:.1}", first.x1, first.y1, first.x2, first.y2);
+        }
+    }
     PokemonDetail {
         name: detail.name.into(),
         id: detail.species_id as i32,
@@ -270,6 +305,7 @@ fn make_detail_for_ui(detail: &Pokemon, artwork_bytes: Option<&[u8]>) -> Pokemon
         color: pokemon_color(detail.color),
         nodes: ModelRc::new(VecModel::from(nodes_model)),
         edges: ModelRc::new(VecModel::from(edges_model)),
+        lines: ModelRc::new(VecModel::from(lines_model)),
         max_stage,
     }
 }
@@ -296,6 +332,7 @@ fn set_detail_error(app: &App, msg: &str) {
         color: Brush::from(Color::from_argb_encoded(0x00000000)),
         nodes: ModelRc::new(VecModel::from(Vec::<EvolutionNodeSlint>::new())),
         edges: ModelRc::new(VecModel::from(Vec::<EvolutionEdgeSlint>::new())),
+        lines: ModelRc::new(VecModel::from(Vec::<EvolutionLineSlint>::new())),
         max_stage: 0,
     });
 }
@@ -322,6 +359,7 @@ fn set_detail_empty(app: &App) {
         color: Brush::from(Color::from_argb_encoded(0x00000000)),
         nodes: ModelRc::new(VecModel::from(Vec::<EvolutionNodeSlint>::new())),
         edges: ModelRc::new(VecModel::from(Vec::<EvolutionEdgeSlint>::new())),
+        lines: ModelRc::new(VecModel::from(Vec::<EvolutionLineSlint>::new())),
         max_stage: 0,
     });
 }
