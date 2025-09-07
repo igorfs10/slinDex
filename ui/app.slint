@@ -56,8 +56,9 @@ component EvolutionGraphView inherits Rectangle {
         background: transparent;
         // coloca cada node por stage/row
         for n in nodes : Rectangle {
-            x: (n.stage * col-width) + (node-w/2);
-            y: (n.row * row-height) + 10px; // 10px topo
+            // top-left alinhado à grade; linhas usam centro = stage*col-width + node-w/2
+            x: n.stage * col-width;
+            y: n.row * row-height;
             width: node-w;
             height: node-h;
             if (true) : Rectangle {
@@ -83,27 +84,20 @@ component EvolutionGraphView inherits Rectangle {
         background: transparent;
         // linhas
         for l in lines : Rectangle {
-            Rectangle { // horizontal
-                x: min(l.x1, l.x2);
-                y: l.y1 - 1px;
-                width: abs(l.x2 - l.x1);
-                height: 2px;
-                background: #94a3b8;
-            }
-            if (abs(l.y2 - l.y1) > 4px) : Rectangle { // vertical
-                x: l.x2 - 1px;
+            // se linha vertical (x1==x2) desenha vertical
+            if (abs(l.x2 - l.x1) < 1px) : Rectangle {
+                x: l.x1 - 1px;
                 y: min(l.y1, l.y2);
                 width: 2px;
                 height: abs(l.y2 - l.y1);
                 background: #94a3b8;
             }
-            // seta simples (triângulo fake com 3 pixels) apontando para a direita
-            Rectangle {
-                x: l.x2 - 2px;
-                y: l.y2 - 2px;
-                width: 4px;
-                height: 4px;
-                border-radius: 2px;
+            // horizontal
+            if (abs(l.x2 - l.x1) >= 1px) : Rectangle {
+                x: min(l.x1, l.x2);
+                y: l.y1 - 1px;
+                width: abs(l.x2 - l.x1);
+                height: 2px;
                 background: #94a3b8;
             }
         }

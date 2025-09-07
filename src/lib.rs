@@ -178,22 +178,60 @@ fn to_slint(g: &EvolutionGraph) -> (Vec<EvolutionNodeSlint>, Vec<EvolutionEdgeSl
     // offset para alinhar com centralização do layout (será calculado na UI, então aqui mantemos 0)
     let x_offset: f32 = 0.0;
     for n in &nodes_out {
-    let cx = n.stage as f32 * COL_W + NODE_W / 2.0 + x_offset;
+        // centro agora calculado a partir do topo-esquerdo da célula
+        let cx = n.stage as f32 * COL_W + NODE_W / 2.0 + x_offset;
         let cy = n.row as f32 * ROW_H + NODE_H / 2.0;
         idx_map.insert((n.id, n.stage), (cx, cy));
     }
     let mut lines_out: Vec<EvolutionLineSlint> = Vec::new();
-    for e in &g.edges {
-        let from_stage = g.nodes.iter().find(|n| n.id == e.from).map(|n| n.stage as i32).unwrap_or(0);
-        let to_stage = g.nodes.iter().find(|n| n.id == e.to).map(|n| n.stage as i32).unwrap_or(from_stage + 1);
-        if let (Some(&(fx, fy)), Some(&(tx, ty))) = (
-            idx_map.get(&(e.from as i32, from_stage)),
-            idx_map.get(&(e.to as i32, to_stage)),
-        ) {
-            // saída pela borda direita do nó origem até centro do destino
-            let x1 = fx + NODE_W / 2.0;
-            let x2 = tx - NODE_W / 2.0;
-            lines_out.push(EvolutionLineSlint { x1, y1: fy, x2, y2: ty, method: e.method.into() });
+    use std::collections::HashMap;
+    let mut children_map: HashMap<u32, Vec<u32>> = HashMap::new();
+    for e in &g.edges { children_map.entry(e.from).or_default().push(e.to); }
+
+    for (parent, kids) in children_map.into_iter() {
+        // coordenadas do pai
+        let from_stage = g.nodes.iter().find(|n| n.id == parent).map(|n| n.stage as i32).unwrap_or(0);
+    let (fx_c, fy) = match idx_map.get(&(parent as i32, from_stage)) { Some(c) => *c, None => continue };
+    let fx_right = fx_c + NODE_W / 2.0; // centro + metade = borda direita
+    const BRANCH_GAP: f32 = 10.0; // espaço antes do sprite destino
+
+    if kids.len() == 1 {
+            let child = kids[0];
+            let to_stage = g.nodes.iter().find(|n| n.id == child).map(|n| n.stage as i32).unwrap_or(from_stage + 1);
+            if let Some(&(tx, ty)) = idx_map.get(&(child as i32, to_stage)) {
+        let x1 = fx_right; // borda direita origem
+        let mut x2 = tx - NODE_W / 2.0; // borda esquerda destino
+        if x2 - x1 > BRANCH_GAP { x2 -= BRANCH_GAP; }
+                lines_out.push(EvolutionLineSlint { x1, y1: fy, x2, y2: ty, method: "".into() });
+            }
+            continue;
+        }
+
+        // múltiplos filhos -> tronco (horizontal + vertical) + ramificações horizontais
+        let mut child_coords: Vec<(f32,f32)> = Vec::new();
+        for kid in &kids {
+            let to_stage = g.nodes.iter().find(|n| n.id == *kid).map(|n| n.stage as i32).unwrap_or(from_stage + 1);
+            if let Some(&(tx, ty)) = idx_map.get(&(*kid as i32, to_stage)) { child_coords.push((tx, ty)); }
+        }
+        if child_coords.is_empty() { continue; }
+        child_coords.sort_by(|a,b| a.1.partial_cmp(&b.1).unwrap());
+        let min_y = child_coords.first().unwrap().1;
+        let max_y = child_coords.last().unwrap().1;
+
+    let trunk_start_x = fx_right;
+        let trunk_x = trunk_start_x + 30.0; // distância fixa antes de descer/subir
+
+        // tronco horizontal
+        lines_out.push(EvolutionLineSlint { x1: trunk_start_x, y1: fy, x2: trunk_x, y2: fy, method: "".into() });
+        // tronco vertical
+        if (max_y - min_y).abs() > 4.0 {
+            lines_out.push(EvolutionLineSlint { x1: trunk_x, y1: min_y, x2: trunk_x, y2: max_y, method: "".into() });
+        }
+        // ramos horizontais
+        for (tx, ty) in child_coords {
+            let mut branch_end = tx - NODE_W / 2.0; // entrada esquerda do filho
+            if branch_end - trunk_x > BRANCH_GAP { branch_end -= BRANCH_GAP; }
+            lines_out.push(EvolutionLineSlint { x1: trunk_x, y1: ty, x2: branch_end, y2: ty, method: "".into() });
         }
     }
     let max_stage = g.stages.len() as i32 - 1;
