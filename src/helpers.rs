@@ -9,24 +9,24 @@ struct TypeIcons;
 /// Cor por tipo
 pub fn type_color(t: &str) -> Brush {
     let c = match t {
-        "normal" => Color::from_rgb_u8(145, 154, 162),
-        "fire" => Color::from_rgb_u8(255, 157, 85),
-        "water" => Color::from_rgb_u8(80, 144, 214),
-        "electric" => Color::from_rgb_u8(244, 210, 60),
-        "grass" => Color::from_rgb_u8(99, 188, 90),
-        "ice" => Color::from_rgb_u8(115, 206, 192),
-        "fighting" => Color::from_rgb_u8(206, 65, 107),
-        "poison" => Color::from_rgb_u8(170, 107, 200),
-        "ground" => Color::from_rgb_u8(217, 120, 69),
-        "flying" => Color::from_rgb_u8(143, 169, 222),
-        "psychic" => Color::from_rgb_u8(250, 113, 121),
-        "bug" => Color::from_rgb_u8(145, 193, 47),
-        "rock" => Color::from_rgb_u8(197, 183, 140),
-        "ghost" => Color::from_rgb_u8(82, 105, 173),
-        "dragon" => Color::from_rgb_u8(11, 109, 195),
-        "dark" => Color::from_rgb_u8(90, 84, 101),
-        "steel" => Color::from_rgb_u8(90, 142, 162),
-        "fairy" => Color::from_rgb_u8(236, 143, 230),
+        "Normal" => Color::from_rgb_u8(145, 154, 162),
+        "Fire" => Color::from_rgb_u8(255, 157, 85),
+        "Water" => Color::from_rgb_u8(80, 144, 214),
+        "Electric" => Color::from_rgb_u8(244, 210, 60),
+        "Grass" => Color::from_rgb_u8(99, 188, 90),
+        "Ice" => Color::from_rgb_u8(115, 206, 192),
+        "Fighting" => Color::from_rgb_u8(206, 65, 107),
+        "Poison" => Color::from_rgb_u8(170, 107, 200),
+        "Ground" => Color::from_rgb_u8(217, 120, 69),
+        "Flying" => Color::from_rgb_u8(143, 169, 222),
+        "Psychic" => Color::from_rgb_u8(250, 113, 121),
+        "Bug" => Color::from_rgb_u8(145, 193, 47),
+        "Rock" => Color::from_rgb_u8(197, 183, 140),
+        "Ghost" => Color::from_rgb_u8(82, 105, 173),
+        "Dragon" => Color::from_rgb_u8(11, 109, 195),
+        "Dark" => Color::from_rgb_u8(90, 84, 101),
+        "Steel" => Color::from_rgb_u8(90, 142, 162),
+        "Fairy" => Color::from_rgb_u8(236, 143, 230),
         _ => Color::from_rgb_u8(145, 154, 162),
     };
     Brush::from(c)
@@ -35,24 +35,24 @@ pub fn type_color(t: &str) -> Brush {
 /// Rótulo PT-BR dos tipos
 pub fn type_label_pt(t: &str) -> &'static str {
     match t {
-        "normal" => "Normal",
-        "fire" => "Fogo",
-        "water" => "Água",
-        "electric" => "Elétrico",
-        "grass" => "Grama",
-        "ice" => "Gelo",
-        "fighting" => "Lutador",
-        "poison" => "Venenoso",
-        "ground" => "Terrestre",
-        "flying" => "Voador",
-        "psychic" => "Psíquico",
-        "bug" => "Inseto",
-        "rock" => "Pedra",
-        "ghost" => "Fantasma",
-        "dragon" => "Dragão",
-        "dark" => "Noturno",
-        "steel" => "Aço",
-        "fairy" => "Fada",
+        "Normal" => "Normal",
+        "Fire" => "Fogo",
+        "Water" => "Água",
+        "Electric" => "Elétrico",
+        "Grass" => "Grama",
+        "Ice" => "Gelo",
+        "Fighting" => "Lutador",
+        "Poison" => "Venenoso",
+        "Ground" => "Terrestre",
+        "Flying" => "Voador",
+        "Psychic" => "Psíquico",
+        "Bug" => "Inseto",
+        "Rock" => "Pedra",
+        "Ghost" => "Fantasma",
+        "Dragon" => "Dragão",
+        "Dark" => "Noturno",
+        "Steel" => "Aço",
+        "Fairy" => "Fada",
         _ => "Desconhecido",
     }
 }
@@ -71,34 +71,20 @@ pub fn type_icon(t: &str) -> slint::Image {
     }
 }
 
-/// Cor por stat
-pub fn stat_color(k: &str) -> Brush {
-    let c = match k {
-        "hp" => Color::from_rgb_u8(105, 220, 18),
-        "attack" => Color::from_rgb_u8(239, 204, 24),
-        "defense" => Color::from_rgb_u8(232, 100, 18),
-        "special-attack" => Color::from_rgb_u8(20, 195, 241),
-        "special-defense" => Color::from_rgb_u8(74, 106, 223),
-        "speed" => Color::from_rgb_u8(239, 99, 200),
-        _ => Color::from_rgb_u8(213, 29, 173),
-    };
-    Brush::from(c)
-}
-
 /// Cor pokemon
 pub fn pokemon_color(k: &str) -> Brush {
     let c = match k {
         "black" => Color::from_rgb_u8(43, 43, 43),    // Black
-        "blue" => Color::from_rgb_u8(0, 149, 217),   // Blue
+        "blue" => Color::from_rgb_u8(0, 149, 217),    // Blue
         "brown" => Color::from_rgb_u8(150, 80, 66),   // Brown
-        "gray" => Color::from_rgb_u8(125, 125, 125), // Gray
+        "gray" => Color::from_rgb_u8(125, 125, 125),  // Gray
         "green" => Color::from_rgb_u8(62, 179, 112),  // Green
-        "pink" => Color::from_rgb_u8(227, 134, 152), // Pink
-        "purple" => Color::from_rgb_u8(136, 72, 152),  // Purple
-        "red" => Color::from_rgb_u8(230, 0, 51),    // Red
+        "pink" => Color::from_rgb_u8(227, 134, 152),  // Pink
+        "purple" => Color::from_rgb_u8(136, 72, 152), // Purple
+        "red" => Color::from_rgb_u8(230, 0, 51),      // Red
         "white" => Color::from_rgb_u8(255, 255, 255), // White
         "yellow" => Color::from_rgb_u8(255, 217, 0),  // Yellow
-        _ => Color::from_rgb_u8(0, 0, 0),         // Default: Black
+        _ => Color::from_rgb_u8(0, 0, 0),             // Default: Black
     };
     Brush::from(c)
 }
@@ -111,25 +97,4 @@ pub fn png_to_image(bytes: &[u8]) -> Result<slint::Image, String> {
     let mut buf = slint::SharedPixelBuffer::<slint::Rgba8Pixel>::new(w, h);
     buf.make_mut_bytes().copy_from_slice(rgba.as_raw());
     Ok(slint::Image::from_rgba8(buf))
-}
-
-/// Capitaliza palavras e substitui hífens por espaço
-pub fn cap_words_and_spaces(s: &str) -> String {
-    let mut out = String::with_capacity(s.len());
-    let mut cap_next = true;
-    for ch in s.chars() {
-        if ch == '-' {
-            out.push(' ');
-            cap_next = true;
-        } else if ch.is_whitespace() {
-            out.push(ch);
-            cap_next = true;
-        } else if cap_next {
-            out.extend(ch.to_uppercase());
-            cap_next = false;
-        } else {
-            out.push(ch);
-        }
-    }
-    out
 }

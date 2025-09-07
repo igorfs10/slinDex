@@ -39,6 +39,7 @@ fn main() {
     out.push_str("    pub weight_kg: f64,\n");
     out.push_str("    pub height_m: f64,\n");
     out.push_str("    pub color: &'static str,\n");
+    out.push_str("    pub types: &'static [&'static str],\n");
     out.push_str("    pub evolutions: &'static [Evolution],\n");
     out.push_str("}\n");
     out.push_str("#[derive(Copy, Clone)]\n");
@@ -47,7 +48,10 @@ fn main() {
 
     for poke in pokemons.as_array().expect("JSON root is not array") {
         let empty_evolutions = Vec::new();
-        let evolutions = poke.get("evolutions").and_then(|ev| ev.as_array()).unwrap_or(&empty_evolutions);
+        let evolutions = poke
+            .get("evolutions")
+            .and_then(|ev| ev.as_array())
+            .unwrap_or(&empty_evolutions);
         let mut evo_str = String::from("&[]");
         if !evolutions.is_empty() {
             evo_str = String::from("&[");
@@ -55,14 +59,37 @@ fn main() {
                 let to = evo.get("to").and_then(|v| v.as_u64()).unwrap_or(0);
                 let name = evo.get("name").and_then(|v| v.as_str()).unwrap_or("");
                 let method = evo.get("method").and_then(|v| v.as_str()).unwrap_or("");
-                evo_str.push_str(&format!("Evolution {{ to: {}, name: \"{}\", method: \"{}\" }},", to, name, method));
+                evo_str.push_str(&format!(
+                    "Evolution {{ to: {}, name: \"{}\", method: \"{}\" }},",
+                    to, name, method
+                ));
             }
             evo_str.push_str("]");
         }
-        let weight = poke.get("weight_kg").and_then(|v| v.as_f64()).unwrap_or(0.0);
+        // Tipos
+        let empty_types = Vec::new();
+        let types_arr = poke
+            .get("types")
+            .and_then(|t| t.as_array())
+            .unwrap_or(&empty_types);
+        let mut types_str = String::from("&[]");
+        if !types_arr.is_empty() {
+            types_str = String::from("&[");
+            for t in types_arr {
+                if let Some(ts) = t.as_str() {
+                    let ts = ts.replace('"', "\\\"");
+                    types_str.push_str(&format!("\"{}\",", ts));
+                }
+            }
+            types_str.push_str("]");
+        }
+        let weight = poke
+            .get("weight_kg")
+            .and_then(|v| v.as_f64())
+            .unwrap_or(0.0);
         let height = poke.get("height_m").and_then(|v| v.as_f64()).unwrap_or(0.0);
         out.push_str(&format!(
-            "    Pokemon {{ species_id: {}, name: \"{}\", hp: {}, atk: {}, def: {}, sp_atk: {}, sp_def: {}, speed: {}, ability1: \"{}\", ability2: \"{}\", hidden: \"{}\", weight_kg: {:.1}, height_m: {:.1}, color: \"{}\", evolutions: {} }},\n",
+            "    Pokemon {{ species_id: {}, name: \"{}\", hp: {}, atk: {}, def: {}, sp_atk: {}, sp_def: {}, speed: {}, ability1: \"{}\", ability2: \"{}\", hidden: \"{}\", weight_kg: {:.1}, height_m: {:.1}, color: \"{}\", types: {}, evolutions: {} }},\n",
             poke.get("species_id").and_then(|v| v.as_u64()).unwrap_or(0),
             poke.get("name").and_then(|v| v.as_str()).unwrap_or("").replace('"', "\\\""),
             poke.get("HP").and_then(|v| v.as_u64()).unwrap_or(0),
@@ -77,6 +104,7 @@ fn main() {
             weight,
             height,
             poke.get("color").and_then(|v| v.as_str()).unwrap_or("").replace('"', "\\\""),
+            types_str,
             evo_str
         ));
     }

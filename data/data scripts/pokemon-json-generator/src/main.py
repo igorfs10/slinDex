@@ -21,6 +21,7 @@ def main():
     move_names = pd.read_csv(os.path.join(folder_path, 'move_names.csv'))
     type_names = pd.read_csv(os.path.join(folder_path, 'type_names.csv'))
     location_names = pd.read_csv(os.path.join(folder_path, 'location_names.csv'))
+    pokemon_types = pd.read_csv(os.path.join(folder_path, 'pokemon_types.csv'))
     # Pega apenas nomes em ingleês (local_language_id == 9)
     location_id_to_name = location_names[location_names['local_language_id'] == 9].set_index('location_id')['name'].to_dict()
     type_names_pt = type_names[type_names['local_language_id'] == 9]
@@ -30,6 +31,7 @@ def main():
     species_id_to_name = species_names_en[species_names_en['local_language_id'] == 9].set_index('pokemon_species_id')['name'].to_dict()
     ability_id_to_name = ability_names_en[ability_names_en['local_language_id'] == 9].set_index('ability_id')['name'].to_dict()
     type_id_to_name = dict(zip(type_names_pt['type_id'], type_names_pt['name']))
+    types_grouped = pokemon_types.groupby('pokemon_id')['type_id'].apply(list).to_dict()
     # Dicionário de para: inglês -> português
     type_en_to_pt = {
         'normal': 'normal',
@@ -95,6 +97,8 @@ def main():
     result = []
     for _, row in df.iterrows():
         species_id = int(row['id'])
+        poke_types_ids = types_grouped.get(species_id, [])
+        poke_types_names = [type_id_to_name.get(tid, str(tid)) for tid in poke_types_ids]
         # Filtra apenas formas padrão (ignora formas alternativas, mega, gigantamax, etc)
         if species_id >= 10000:
             continue
@@ -189,6 +193,7 @@ def main():
         poke_obj = {
             'species_id': species_id,
             'name': species_id_to_name.get(species_id, row['identifier']),
+            'types': poke_types_names,
             'HP': int(row['HP']) if not pd.isnull(row['HP']) else None,
             'Atk': int(row['Atk']) if not pd.isnull(row['Atk']) else None,
             'Def': int(row['Def']) if not pd.isnull(row['Def']) else None,

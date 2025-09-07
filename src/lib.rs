@@ -17,9 +17,8 @@ type StateHandle = Arc<Mutex<State>>;
 /// Estado compartilhado da aplicação
 struct State {
     view: Vec<Pokemon>,
-    details: LruCache<u32, service::Detail>, // cache detalhes
-    sprites: LruCache<u32, Vec<u8>>,         // cache de bytes da sprite
-    selected: i32,                           // índice selecionado
+    sprites: LruCache<u32, Vec<u8>>, // cache de bytes da sprite
+    selected: i32,                   // índice selecionado
 }
 
 // =================== UI Utils ===================
@@ -59,7 +58,7 @@ fn apply_filter(app: &App, state: &StateHandle, filter: &str) {
     set_rows_from_pokemon(app, &filtered_list);
 }
 
-fn make_detail_for_ui(detail: &service::Detail, artwork_bytes: Option<&[u8]>) -> PokemonDetail {
+fn make_detail_for_ui(detail: &Pokemon, artwork_bytes: Option<&[u8]>) -> PokemonDetail {
     // Monta chips de tipo
     let types_vec: Vec<TypeTag> = detail
         .types
@@ -73,26 +72,8 @@ fn make_detail_for_ui(detail: &service::Detail, artwork_bytes: Option<&[u8]>) ->
     let types_model = ModelRc::new(VecModel::from(types_vec));
 
     // Monta stats
-    let mut total: i32 = 0;
-    let mut stats_vec: Vec<StatBar> = Vec::with_capacity(detail.stats.len());
-    for (k, v) in &detail.stats {
-        total += *v as i32;
-        let label = match k.as_str() {
-            "hp" => "Pontos de Vida",
-            "attack" => "Ataque",
-            "defense" => "Defesa",
-            "special-attack" => "Ataque Especial",
-            "special-defense" => "Defesa Especial",
-            "speed" => "Velocidade",
-            _ => k.as_str(),
-        };
-        stats_vec.push(StatBar {
-            name: label.into(),
-            value: *v as i32,
-            bg: stat_color(k),
-        });
-    }
-    let stats_model = ModelRc::new(VecModel::from(stats_vec));
+    let total: i32 =
+        (detail.hp + detail.atk + detail.def + detail.sp_atk + detail.sp_def + detail.speed) as i32;
 
     // Artwork
     let artwork_img = artwork_bytes
@@ -100,30 +81,24 @@ fn make_detail_for_ui(detail: &service::Detail, artwork_bytes: Option<&[u8]>) ->
         .unwrap_or_default();
 
     PokemonDetail {
-        name: POKEMON_LIST
-            .iter()
-            .find(|p| p.species_id == detail.id)
-            .map(|p| p.name)
-            .unwrap_or_default()
-            .into(),
-        id: detail.id as i32,
-        height: detail.height as i32,
-        weight: detail.weight as i32,
+        name: detail.name.into(),
+        id: detail.species_id as i32,
+        height: detail.height_m as i32,
+        weight: detail.weight_kg as i32,
         types: types_model,
-        stats: stats_model,
         artwork: artwork_img,
+        hp: detail.hp as i32,
+        specialAttack: detail.sp_atk as i32,
+        specialDefense: detail.sp_def as i32,
+        attack: detail.atk as i32,
+        defense: detail.def as i32,
+        speed: detail.speed as i32,
         total,
-        ability1: cap_words_and_spaces(&detail.ability1).into(),
-        ability2: cap_words_and_spaces(&detail.ability2).into(),
-        hiddenAbility: cap_words_and_spaces(&detail.hidden_ability).into(),
+        ability1: detail.ability1.into(),
+        ability2: detail.ability2.into(),
+        hiddenAbility: detail.hidden.into(),
         error: "".into(),
-        color: pokemon_color(
-            POKEMON_LIST
-                .iter()
-                .find(|p| p.species_id == detail.id)
-                .map(|p| p.color)
-                .unwrap_or("11"),
-        ), // default
+        color: pokemon_color(detail.color),
     }
 }
 
@@ -134,7 +109,12 @@ fn set_detail_error(app: &App, msg: &str) {
         height: 0,
         weight: 0,
         types: ModelRc::new(VecModel::from(Vec::<TypeTag>::new())),
-        stats: ModelRc::new(VecModel::from(Vec::<StatBar>::new())),
+        hp: 0,
+        specialAttack: 0,
+        specialDefense: 0,
+        attack: 0,
+        defense: 0,
+        speed: 0,
         artwork: slint::Image::default(),
         total: 0,
         ability1: "".into(),
@@ -152,7 +132,12 @@ fn set_detail_empty(app: &App) {
         height: 0,
         weight: 0,
         types: ModelRc::new(VecModel::from(Vec::<TypeTag>::new())),
-        stats: ModelRc::new(VecModel::from(Vec::<StatBar>::new())),
+        hp: 0,
+        specialAttack: 0,
+        specialDefense: 0,
+        attack: 0,
+        defense: 0,
+        speed: 0,
         artwork: slint::Image::default(),
         total: 0,
         ability1: "".into(),
@@ -168,7 +153,6 @@ fn wire_app_common(app: &App) -> StateHandle {
     let cap = NonZeroUsize::new(50).unwrap();
     let state = Arc::new(Mutex::new(State {
         view: POKEMON_LIST.iter().copied().collect(),
-        details: LruCache::new(cap),
         sprites: LruCache::new(cap),
         selected: -1,
     }));
@@ -185,23 +169,19 @@ async fn fetch_and_update(
     state_sel2: StateHandle,
     poke_service: service::PokemonService,
 ) {
-    let detail_result = poke_service.fetch_pokemon_detail(id_pokemon).await;
-    let (detail, sprite_bytes): (Option<service::Detail>, Option<Vec<u8>>) = match detail_result {
-        Ok(detail) => {
-            let bytes = match detail.artwork_url.as_deref() {
-                Some(url) => poke_service.fetch_image(url).await.ok(),
-                None => None,
-            };
-            (Some(detail), bytes)
+    let detail_result = POKEMON_LIST.iter().find(|p| p.species_id == id_pokemon);
+    let (detail, sprite_bytes): (Option<Pokemon>, Option<Vec<u8>>) = match detail_result {
+        Some(detail) => {
+            let bytes = poke_service.fetch_image(detail.species_id).await.ok();
+            (Some(*detail), bytes)
         }
-        Err(_) => (None, None),
+        None => (None, None),
     };
     slint::invoke_from_event_loop(move || {
         if let Some(app) = app_w2.upgrade() {
             match detail {
                 Some(detail) => {
                     let mut state = state_sel2.lock().unwrap();
-                    state.details.put(id_pokemon, detail.clone());
                     if let Some(b) = &sprite_bytes {
                         state.sprites.put(id_pokemon, b.clone());
                     }
@@ -256,7 +236,9 @@ fn setup_common_handlers<SpawnFn>(
     let spawn_fetch_closure = spawn_fetch.clone();
     let poke_service_sel = poke_service.clone();
     app.on_select(move |idx| {
-        if idx < 0 { return; }
+        if idx < 0 {
+            return;
+        }
         state_sel.lock().unwrap().selected = idx;
         if let Some(app) = app_w.upgrade() {
             app.set_carregando(true);
@@ -267,20 +249,21 @@ fn setup_common_handlers<SpawnFn>(
         let id_pokemon = {
             let state = state_sel.lock().unwrap();
             match state.view.get(idx as usize) {
-                Some(&pokemon) => pokemon.species_id, // unificado
+                Some(&pokemon) => pokemon.species_id,
                 None => return,
             }
         };
         if let Some(app) = app_w.upgrade() {
-            let (maybe_detail, maybe_bytes) = {
+            let maybe_bytes = {
                 let mut state = state_sel.lock().unwrap();
-                (
-                    state.details.get(&id_pokemon).cloned(),
-                    state.sprites.get(&id_pokemon).cloned(),
-                )
+                state.sprites.get(&id_pokemon).cloned()
             };
-            if let Some(detail) = maybe_detail {
-                let ui_detail = make_detail_for_ui(&detail, maybe_bytes.as_deref());
+            if maybe_bytes.is_some() {
+                let detail = POKEMON_LIST
+                    .iter()
+                    .find(|p| p.species_id == id_pokemon)
+                    .expect("pokemon not found");
+                let ui_detail = make_detail_for_ui(detail, maybe_bytes.as_deref());
                 app.set_detail(ui_detail);
                 app.set_carregando(false);
                 return;
@@ -308,19 +291,29 @@ fn setup_common_handlers<SpawnFn>(
 // =================== Desktop ===================
 #[cfg(not(target_arch = "wasm32"))]
 pub fn start_desktop() -> Result<(), slint::PlatformError> {
-    let rt = tokio::runtime::Builder::new_multi_thread().enable_all().build().unwrap();
+    let rt = tokio::runtime::Builder::new_multi_thread()
+        .enable_all()
+        .build()
+        .unwrap();
     let handle = rt.handle().clone();
     let poke_service = service::PokemonService::new();
     let app = App::new()?;
     let state = wire_app_common(&app);
 
-    setup_common_handlers(&app, &state, poke_service.clone(), move |id, app_w2, state_sel2, poke_service| {
-        let handle = handle.clone();
-        handle.spawn(fetch_and_update(id, app_w2, state_sel2, poke_service));
-    });
+    setup_common_handlers(
+        &app,
+        &state,
+        poke_service.clone(),
+        move |id, app_w2, state_sel2, poke_service| {
+            let handle = handle.clone();
+            handle.spawn(fetch_and_update(id, app_w2, state_sel2, poke_service));
+        },
+    );
 
     // Inicial
-    if let Some(app0) = app.as_weak().upgrade() { app0.invoke_request_load(); }
+    if let Some(app0) = app.as_weak().upgrade() {
+        app0.invoke_request_load();
+    }
 
     app.run()
 }
@@ -337,11 +330,23 @@ pub fn start_wasm() {
     let state = wire_app_common(&app);
     let poke_service = service::PokemonService::new();
 
-    setup_common_handlers(&app, &state, poke_service.clone(), move |id, app_w2, state_sel2, poke_service| {
-        wasm_bindgen_futures::spawn_local(fetch_and_update(id, app_w2, state_sel2, poke_service));
-    });
+    setup_common_handlers(
+        &app,
+        &state,
+        poke_service.clone(),
+        move |id, app_w2, state_sel2, poke_service| {
+            wasm_bindgen_futures::spawn_local(fetch_and_update(
+                id,
+                app_w2,
+                state_sel2,
+                poke_service,
+            ));
+        },
+    );
 
-    if let Some(app0) = app.as_weak().upgrade() { app0.invoke_request_load(); }
+    if let Some(app0) = app.as_weak().upgrade() {
+        app0.invoke_request_load();
+    }
 
     app.run().expect("run app");
 }

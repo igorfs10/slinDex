@@ -3,14 +3,18 @@ import { LineEdit, ListView, Button, ScrollView, AboutSlint, VerticalBox } from 
 // ====== MODELOS ======
 export struct PokemonRow { name: string }
 export struct TypeTag { label: string, bg: brush, icon:  image}
-export struct StatBar { name: string, value: int, bg: brush }
 export struct PokemonDetail {
     name: string,
     id: int,
     height: int,
     weight: int,
     types: [TypeTag],
-    stats: [StatBar],
+    hp: int,
+    attack: int,
+    defense: int,
+    specialAttack: int,
+    specialDefense: int,
+    speed: int,
     artwork: image,
     total: int,
     ability1: string,
@@ -229,19 +233,96 @@ component DetailPanel inherits Rectangle {
                 padding-top: 10px;
                 spacing: 10px;
 
-                for s in root.detail.stats: HorizontalLayout {
+                // vida
+                HorizontalLayout {
                     spacing: 8px;
-                    Text { text: s.name; width: 120px; color: #9ca3af; }
+                    Text { text: "Vida"; width: 120px; color: #9ca3af; }
                     Rectangle { // trilho
                         height: 12px; border-radius: 6px; background: #1f2937; horizontal-stretch: 1;
                         Rectangle { // preenchimento
                             height: 12px; border-radius: 6px; x: 0px;
                             // limita entre 0 e 1
-                            width: parent.width * min((s.value / 255.0), 1.0);
-                            background: s.bg;
+                            width: parent.width * min((root.detail.hp / 255.0), 1.0);
+                            background: rgb(105, 220, 18);
                         }
                     }
-                    Text { text: s.value; width: 44px; color: #e5e7eb; }
+                    Text { text: root.detail.hp; width: 44px; color: #e5e7eb; }
+                }
+
+                // ataque
+                HorizontalLayout {
+                    spacing: 8px;
+                    Text { text: "Ataque"; width: 120px; color: #9ca3af; }
+                    Rectangle { // trilho
+                        height: 12px; border-radius: 6px; background: #1f2937; horizontal-stretch: 1;
+                        Rectangle { // preenchimento
+                            height: 12px; border-radius: 6px; x: 0px;
+                            // limita entre 0 e 1
+                            width: parent.width * min((root.detail.attack / 255.0), 1.0);
+                            background: rgb(239, 204, 24);
+                        }
+                    }
+                    Text { text: root.detail.attack; width: 44px; color: #e5e7eb; }
+                }
+                // defesa
+                HorizontalLayout {
+                    spacing: 8px;
+                    Text { text: "Defesa"; width: 120px; color: #9ca3af; }
+                    Rectangle { // trilho
+                        height: 12px; border-radius: 6px; background: #1f2937; horizontal-stretch: 1;
+                        Rectangle { // preenchimento
+                            height: 12px; border-radius: 6px; x: 0px;
+                            // limita entre 0 e 1
+                            width: parent.width * min((root.detail.defense / 255.0), 1.0);
+                            background: rgb(232, 100, 18);
+                        }
+                    }
+                    Text { text: root.detail.defense; width: 44px; color: #e5e7eb; }
+                }
+                // ataque especial
+                HorizontalLayout {
+                    spacing: 8px;
+                    Text { text: "Ataque Especial"; width: 120px; color: #9ca3af; }
+                    Rectangle { // trilho
+                        height: 12px; border-radius: 6px; background: #1f2937; horizontal-stretch: 1;
+                        Rectangle { // preenchimento
+                            height: 12px; border-radius: 6px; x: 0px;
+                            // limita entre 0 e 1
+                            width: parent.width * min((root.detail.specialAttack / 255.0), 1.0);
+                            background: rgb(20, 195, 241);
+                        }
+                    }
+                    Text { text: root.detail.specialAttack; width: 44px; color: #e5e7eb; }
+                }
+                // defesa especial
+                HorizontalLayout {
+                    spacing: 8px;
+                    Text { text: "Defesa Especial"; width: 120px; color: #9ca3af; }
+                    Rectangle { // trilho
+                        height: 12px; border-radius: 6px; background: #1f2937; horizontal-stretch: 1;
+                        Rectangle { // preenchimento
+                            height: 12px; border-radius: 6px; x: 0px;
+                            // limita entre 0 e 1
+                            width: parent.width * min((root.detail.specialDefense / 255.0), 1.0);
+                            background: rgb(74, 106, 223);
+                        }
+                    }
+                    Text { text: root.detail.specialDefense; width: 44px; color: #e5e7eb; }
+                }
+                // velocidade
+                HorizontalLayout {
+                    spacing: 8px;
+                    Text { text: "Velocidade"; width: 120px; color: #9ca3af; }
+                    Rectangle { // trilho
+                        height: 12px; border-radius: 6px; background: #1f2937; horizontal-stretch: 1;
+                        Rectangle { // preenchimento
+                            height: 12px; border-radius: 6px; x: 0px;
+                            // limita entre 0 e 1
+                            width: parent.width * min((root.detail.speed / 255.0), 1.0);
+                            background: rgb(239, 99, 200);
+                        }
+                    }
+                    Text { text: root.detail.speed; width: 44px; color: #e5e7eb; }
                 }
 
                 // total
