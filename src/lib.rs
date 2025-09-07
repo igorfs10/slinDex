@@ -278,13 +278,6 @@ fn make_detail_for_ui(detail: &Pokemon, artwork_bytes: Option<&[u8]>) -> Pokemon
     // Evolução
     let graph = build_graph(detail.species_id);
     let (nodes_model, edges_model, lines_model, max_stage, max_rows) = to_slint(&graph);
-    #[cfg(debug_assertions)]
-    {
-        eprintln!("evolution debug: nodes={} edges={} lines={} max_stage={}", nodes_model.len(), edges_model.len(), lines_model.len(), max_stage);
-        if let Some(first) = lines_model.first() {
-            eprintln!("first line: x1={:.1} y1={:.1} x2={:.1} y2={:.1}", first.x1, first.y1, first.x2, first.y2);
-        }
-    }
     PokemonDetail {
         name: detail.name.into(),
         id: detail.species_id as i32,
