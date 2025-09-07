@@ -6,10 +6,10 @@ use slint::{Brush, Color};
 #[folder = "imagens/tipos/"] // embute toda a pasta
 struct TypeIcons;
 
-// Artwork dos Pokémons
+// Sprites dos Pokémons
 #[derive(Embed)]
-#[folder = "imagens/official-artwork/"] // embute toda a pasta
-struct OfficialArtworks;
+#[folder = "imagens/sprites/"] // embute toda a pasta
+struct Sprites;
 
 /// Cor por tipo
 pub fn type_color(t: &str) -> Brush {
@@ -77,8 +77,8 @@ pub fn type_icon(t: &str) -> slint::Image {
 }
 
 // carrega um ícone de tipo pelo nome (ex.: "poison" -> "poison.png")
-pub fn artwork_img(species_id: u32) -> slint::Image {
-    if let Some(embeded_file) = OfficialArtworks::get(&format!("{species_id}.png")) {
+pub fn sprite_img(species_id: u32) -> slint::Image {
+    if let Some(embeded_file) = Sprites::get(&format!("{species_id}.png")) {
         load_embedded_image(embeded_file.data.as_ref())
     } else {
         slint::Image::default() // fallback

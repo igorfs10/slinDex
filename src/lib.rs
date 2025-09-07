@@ -145,7 +145,7 @@ fn to_slint(g: &EvolutionGraph) -> (Vec<EvolutionNodeSlint>, Vec<EvolutionEdgeSl
                 name: node.name.into(),
                 stage: node.stage as i32,
                 row: row as i32,
-                artwork: artwork_img(node.id),
+                artwork: sprite_img(node.id),
                 method: if node.stage == 0 {
                     "".into()
                 } else {
