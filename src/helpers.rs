@@ -76,7 +76,7 @@ pub fn type_icon(t: &str) -> slint::Image {
     }
 }
 
-// carrega um ícone de tipo pelo nome (ex.: "poison" -> "poison.png")
+// carrega uma sprite de Pokémon pelo ID (ex.: 25 -> "25.png")
 pub fn sprite_img(species_id: u32) -> slint::Image {
     if let Some(embeded_file) = Sprites::get(&format!("{species_id}.png")) {
         load_embedded_image(embeded_file.data.as_ref())
