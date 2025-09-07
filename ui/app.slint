@@ -11,6 +11,7 @@ export struct EvolutionNodeSlint {
     row: int,
     method: string,      // "" para a base
     artwork: image,
+    types: [TypeTag],
 }
 
 export struct EvolutionEdgeSlint {  // opcional (para desenhar linhas)
@@ -40,9 +41,9 @@ component EvolutionGraphView inherits Rectangle {
 
     // métricas
     property <length> col-width: 156px; // 96 + 60
-    property <length> row-height: 140px; // 120 + 20
+    property <length> row-height: 160px; // node-h (140) + 20
     property <length> node-w: 96px;
-    property <length> node-h: 120px;
+    property <length> node-h: 140px; // imagem + nome + ícones + método
     property <length> total-width: (max-stage + 1) * col-width;
     property <length> total-height: max(max-rows,1) * row-height;
     height: total-height; // garante que o ScrollView considere a área completa
@@ -62,13 +63,19 @@ component EvolutionGraphView inherits Rectangle {
             width: node-w;
             height: node-h;
             if (true) : Rectangle {
-                width: 96px; height: 120px;
+                width: 96px; height: node-h;
                 background: transparent;
                 VerticalLayout {
                     alignment: LayoutAlignment.center;
                     HorizontalLayout { alignment: center; Image { source: n.artwork; width: 96px; height:96px; } }
                     Text { text: n.name; color: #e5e7eb; font-size: name-size; horizontal-alignment: center; }
-                    if (n.method != "") : Text { text: n.method; color: #9ca3af; font-size: method-size; horizontal-alignment: center; }
+                    // ícones tiny de tipos
+                    if (n.types.length > 0) : HorizontalLayout {
+                        spacing: 4px;
+                        alignment: center;
+                        for t in n.types : Image { source: t.icon; width: 16px; height: 16px; }
+                    }
+                    if (n.method != "") : Text { text: n.method; color: #9ca3af; font-size: method-size; horizontal-alignment: center; wrap: word-wrap; }
                 }
             }
         }

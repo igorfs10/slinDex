@@ -140,6 +140,14 @@ fn to_slint(g: &EvolutionGraph) -> (Vec<EvolutionNodeSlint>, Vec<EvolutionEdgeSl
     for list in &stage_lists {
         for (row, id) in list.iter().enumerate() {
             let node = g.nodes.iter().find(|n| n.id == *id).unwrap();
+            // tiny icons list
+            let types_for_node = POKEMON_LIST.iter()
+                .find(|p| p.species_id == node.id)
+                .map(|p| {
+                    let v: Vec<TypeTag> = p.types.iter().map(|t| TypeTag { label: type_label_pt(t).into(), bg: type_color(t), icon: type_icon(t) }).collect();
+                    ModelRc::new(VecModel::from(v))
+                })
+                .unwrap_or_else(|| ModelRc::new(VecModel::from(Vec::<TypeTag>::new())));
             nodes_out.push(EvolutionNodeSlint {
                 id: node.id as i32,
                 name: node.name.into(),
@@ -156,6 +164,7 @@ fn to_slint(g: &EvolutionGraph) -> (Vec<EvolutionNodeSlint>, Vec<EvolutionEdgeSl
                         .map(|e| e.method.into())
                         .unwrap_or_else(|| "".into())
                 },
+                types: types_for_node,
             });
         }
     }
@@ -170,9 +179,9 @@ fn to_slint(g: &EvolutionGraph) -> (Vec<EvolutionNodeSlint>, Vec<EvolutionEdgeSl
         .collect();
     // Linhas (coordenadas simples em grid)
     const COL_W: f32 = 156.0; // 96 (sprite) + 60 (spacing)
-    const ROW_H: f32 = 140.0; // 120 (NODE_H) + 20 (spacing em VerticalLayout)
-    const NODE_W: f32 = 96.0; // largura aprox sprite
-    const NODE_H: f32 = 120.0; // altura aproxima
+    const ROW_H: f32 = 160.0; // node-h (140) + 20 spacing
+    const NODE_W: f32 = 96.0; // largura sprite
+    const NODE_H: f32 = 140.0; // altura com ícones tiny
     let mut idx_map: std::collections::HashMap<(i32, i32), (f32, f32)> = std::collections::HashMap::new();
     // offset horizontal para alinhar com content_layout (primeira coluna começa em 0 dentro do layout)
     // offset para alinhar com centralização do layout (será calculado na UI, então aqui mantemos 0)
