@@ -130,7 +130,7 @@ fn build_graph(selected_id: u32) -> EvolutionGraph {
     }
 }
 
-fn to_slint(g: &EvolutionGraph) -> (Vec<EvolutionNodeSlint>, Vec<EvolutionEdgeSlint>, Vec<EvolutionLineSlint>, i32) {
+fn to_slint(g: &EvolutionGraph) -> (Vec<EvolutionNodeSlint>, Vec<EvolutionEdgeSlint>, Vec<EvolutionLineSlint>, i32, i32) {
     // Agrupa ids por stage para calcular row
     let mut stage_lists = g.stages.clone(); // Vec<Vec<u32>>
     for list in &mut stage_lists {
@@ -197,7 +197,8 @@ fn to_slint(g: &EvolutionGraph) -> (Vec<EvolutionNodeSlint>, Vec<EvolutionEdgeSl
         }
     }
     let max_stage = g.stages.len() as i32 - 1;
-    (nodes_out, edges_out, lines_out, max_stage)
+    let max_rows = stage_lists.iter().map(|l| l.len()).max().unwrap_or(0) as i32;
+    (nodes_out, edges_out, lines_out, max_stage, max_rows)
 }
 
 // Dado um species_id, encontra o base_id (primeira forma da cadeia)
@@ -276,7 +277,7 @@ fn make_detail_for_ui(detail: &Pokemon, artwork_bytes: Option<&[u8]>) -> Pokemon
         .unwrap_or_default();
     // Evolução
     let graph = build_graph(detail.species_id);
-    let (nodes_model, edges_model, lines_model, max_stage) = to_slint(&graph);
+    let (nodes_model, edges_model, lines_model, max_stage, max_rows) = to_slint(&graph);
     #[cfg(debug_assertions)]
     {
         eprintln!("evolution debug: nodes={} edges={} lines={} max_stage={}", nodes_model.len(), edges_model.len(), lines_model.len(), max_stage);
@@ -306,7 +307,8 @@ fn make_detail_for_ui(detail: &Pokemon, artwork_bytes: Option<&[u8]>) -> Pokemon
         nodes: ModelRc::new(VecModel::from(nodes_model)),
         edges: ModelRc::new(VecModel::from(edges_model)),
         lines: ModelRc::new(VecModel::from(lines_model)),
-        max_stage,
+    max_stage,
+    max_rows,
     }
 }
 
@@ -334,6 +336,7 @@ fn set_detail_error(app: &App, msg: &str) {
         edges: ModelRc::new(VecModel::from(Vec::<EvolutionEdgeSlint>::new())),
         lines: ModelRc::new(VecModel::from(Vec::<EvolutionLineSlint>::new())),
         max_stage: 0,
+    max_rows: 0,
     });
 }
 
@@ -361,6 +364,7 @@ fn set_detail_empty(app: &App) {
         edges: ModelRc::new(VecModel::from(Vec::<EvolutionEdgeSlint>::new())),
         lines: ModelRc::new(VecModel::from(Vec::<EvolutionLineSlint>::new())),
         max_stage: 0,
+    max_rows: 0,
     });
 }
 

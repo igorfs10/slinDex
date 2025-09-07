@@ -32,158 +32,45 @@ component EvolutionGraphView inherits Rectangle {
     in property <[EvolutionEdgeSlint]> edges;      // pode deixar vazio se não for desenhar conexões
     in property <int> max-stage;
     in property <[EvolutionLineSlint]> lines;
+    in property <int> max-rows;
 
-    property <length> name-size:15px;
-    property <length> method-size:12px;
+    // tamanhos de fonte
+    property <length> name-size: 15px;
+    property <length> method-size: 12px;
 
-    // container principal
-    background: transparent;
+    // métricas
+    property <length> col-width: 156px; // 96 + 60
+    property <length> row-height: 140px; // 120 + 20
+    property <length> node-w: 96px;
+    property <length> node-h: 120px;
+    property <length> total-width: (max-stage + 1) * col-width;
+    property <length> total-height: max(max-rows,1) * row-height;
 
-    // layout de colunas
-    // largura total calculada (colunas * node + espaçamentos)
-    property <length> total-width: ((max-stage + 1) * 96px) + (max-stage * 60px);
-
-    content_layout := HorizontalLayout {
-        spacing: 60px;
-        alignment: LayoutAlignment.start; // evitamos padding interno adicional
+    // container absoluto
+    content_layout := Rectangle {
         width: total-width;
-        x: (parent.width - self.width)/2; // centraliza bloco
-        // altura se adapta aos filhos
+        height: total-height;
+        x: (parent.width - self.width)/2;
+        y: 0px;
+        background: transparent;
+        // coloca cada node por stage/row
+        for n in nodes : Rectangle {
+            x: (n.stage * col-width) + (node-w/2);
+            y: (n.row * row-height) + 10px; // 10px topo
+            width: node-w;
+            height: node-h;
+            if (true) : Rectangle {
+                width: 96px; height: 120px;
+                background: transparent;
+                VerticalLayout {
+                    alignment: LayoutAlignment.center;
+                    HorizontalLayout { alignment: center; Image { source: n.artwork; width: 96px; height:96px; } }
+                    Text { text: n.name; color: #e5e7eb; font-size: name-size; horizontal-alignment: center; }
+                    if (n.method != "") : Text { text: n.method; color: #9ca3af; font-size: method-size; horizontal-alignment: center; }
+                }
+            }
+        }
 
-    // Stage 0
-    VerticalLayout {
-        spacing: 20px; // ROW_H - NODE_H
-        for n in nodes : VerticalLayout {
-            if (n.stage == 0) : Rectangle {
-                width: 96px; height: 120px;
-                border-radius: 8px;
-                VerticalLayout {
-                    alignment: LayoutAlignment.center;
-                    HorizontalLayout {
-                        alignment: center;
-                        Image {
-                            source: n.artwork;
-                            width: 96px;
-                            height: 96px;
-                        }
-                    }
-                    Text { text: n.name; color: #e5e7eb; font-size: name-size; horizontal-alignment: center; }
-                    if (n.method != "") : Text { text: n.method; color: #9ca3af; font-size: method-size; horizontal-alignment: center; }
-                }
-            }
-        }
-    }
-    // Stage 1
-    if(max-stage >= 1) : VerticalLayout {
-        spacing: 20px;
-        for n in nodes : VerticalLayout {
-            if (n.stage == 1) : Rectangle {
-                width: 96px; height: 120px;
-                border-radius: 8px;
-                VerticalLayout {
-                    alignment: LayoutAlignment.center;
-                    HorizontalLayout {
-                        alignment: center;
-                        Image {
-                            source: n.artwork;
-                            width: 96px;
-                            height: 96px;
-                        }
-                    }
-                    Text { text: n.name; color: #e5e7eb; font-size: name-size; horizontal-alignment: center; }
-                    if (n.method != "") : Text { text: n.method; color: #9ca3af; font-size: method-size; horizontal-alignment: center; }
-                }
-            }
-        }
-    }
-    if(max-stage >= 2) : VerticalLayout {
-        spacing: 20px;
-        for n in nodes : VerticalLayout {
-            if (n.stage == 2) : Rectangle {
-                width: 96px; height: 120px;
-                border-radius: 8px;
-                VerticalLayout {
-                    alignment: LayoutAlignment.center;
-                    HorizontalLayout {
-                        alignment: center;
-                        Image {
-                            source: n.artwork;
-                            width: 96px;
-                            height: 96px;
-                        }
-                    }
-                    Text { text: n.name; color: #e5e7eb; font-size: name-size; horizontal-alignment: center; }
-                    if (n.method != "") : Text { text: n.method; color: #9ca3af; font-size: method-size; horizontal-alignment: center; }
-                }
-            }
-        }
-    }
-    if(max-stage >= 3) : VerticalLayout {
-        spacing: 20px;
-        for n in nodes : VerticalLayout {
-            if (n.stage == 3) : Rectangle {
-                width: 96px; height: 120px;
-                border-radius: 8px;
-                VerticalLayout {
-                    alignment: LayoutAlignment.center;
-                    HorizontalLayout {
-                        alignment: center;
-                        Image {
-                            source: n.artwork;
-                            width: 96px;
-                            height: 96px;
-                        }
-                    }
-                    Text { text: n.name; color: #e5e7eb; font-size: name-size; horizontal-alignment: center; }
-                    if (n.method != "") : Text { text: n.method; color: #9ca3af; font-size: method-size; horizontal-alignment: center; }
-                }
-            }
-        }
-    }
-    if(max-stage >= 4) : VerticalLayout {
-        spacing: 20px;
-        for n in nodes : VerticalLayout {
-            if (n.stage == 4) : Rectangle {
-                width: 96px; height: 120px;
-                border-radius: 8px;
-                VerticalLayout {
-                    alignment: LayoutAlignment.center;
-                    HorizontalLayout {
-                        alignment: center;
-                        Image {
-                            source: n.artwork;
-                            width: 96px;
-                            height: 96px;
-                        }
-                    }
-                    Text { text: n.name; color: #e5e7eb; font-size: name-size; horizontal-alignment: center; }
-                    if (n.method != "") : Text { text: n.method; color: #9ca3af; font-size: method-size; horizontal-alignment: center; }
-                }
-            }
-        }
-    }
-    if(max-stage >= 5) : VerticalLayout {
-        spacing: 20px;
-        for n in nodes : VerticalLayout {
-            if (n.stage == 5) : Rectangle {
-                width: 96px; height: 120px;
-                border-radius: 8px;
-                VerticalLayout {
-                    alignment: LayoutAlignment.center;
-                    HorizontalLayout {
-                        alignment: center;
-                        Image {
-                            source: n.artwork;
-                            width: 96px;
-                            height: 96px;
-                        }
-                    }
-                    Text { text: n.name; color: #e5e7eb; font-size: name-size; horizontal-alignment: center; }
-                    if (n.method != "") : Text { text: n.method; color: #9ca3af; font-size: method-size; horizontal-alignment: center; }
-                }
-            }
-        }
-        }
     }
 
     // Overlay fora do layout para não deslocar colunas
@@ -246,6 +133,7 @@ export struct PokemonDetail {
     edges: [EvolutionEdgeSlint],
     lines: [EvolutionLineSlint],
     max-stage: int,
+    max-rows: int,
 }
 
 // ====== Componene lista de pokémon ======
@@ -567,6 +455,7 @@ component DetailPanel inherits Rectangle {
                     edges: root.detail.edges;
                     max-stage: root.detail.max-stage;
                     lines: root.detail.lines; // adiciona binding das linhas
+                    max-rows: root.detail.max-rows;
                 }
                 // Debug: quantidade de linhas
                 Text { text: "Linhas: " + root.detail.lines.length; color: #94a3b8; font-size: 12px; }
