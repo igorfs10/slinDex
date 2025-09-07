@@ -195,14 +195,29 @@ fn to_slint(g: &EvolutionGraph) -> (Vec<EvolutionNodeSlint>, Vec<EvolutionEdgeSl
     let fx_right = fx_c + NODE_W / 2.0; // centro + metade = borda direita
     const BRANCH_GAP: f32 = 10.0; // espaço antes do sprite destino
 
-    if kids.len() == 1 {
+        if kids.len() == 1 {
             let child = kids[0];
             let to_stage = g.nodes.iter().find(|n| n.id == child).map(|n| n.stage as i32).unwrap_or(from_stage + 1);
             if let Some(&(tx, ty)) = idx_map.get(&(child as i32, to_stage)) {
-        let x1 = fx_right; // borda direita origem
-        let mut x2 = tx - NODE_W / 2.0; // borda esquerda destino
-        if x2 - x1 > BRANCH_GAP { x2 -= BRANCH_GAP; }
-                lines_out.push(EvolutionLineSlint { x1, y1: fy, x2, y2: ty, method: "".into() });
+                let child_left = tx - NODE_W / 2.0;
+                // Se mesma linha (y próximo), linha direta horizontal com gap
+                if (fy - ty).abs() < 4.0 {
+                    let mut x2 = child_left;
+                    if x2 - fx_right > BRANCH_GAP { x2 -= BRANCH_GAP; }
+                    lines_out.push(EvolutionLineSlint { x1: fx_right, y1: fy, x2, y2: fy, method: "".into() });
+                } else {
+                    // L-shaped: horizontal até trunk, vertical, horizontal até filho
+                    let trunk_start_x = fx_right;
+                    let trunk_x = trunk_start_x + 30.0;
+                    // horizontal saída
+                    lines_out.push(EvolutionLineSlint { x1: trunk_start_x, y1: fy, x2: trunk_x, y2: fy, method: "".into() });
+                    // vertical
+                    lines_out.push(EvolutionLineSlint { x1: trunk_x, y1: fy.min(ty), x2: trunk_x, y2: fy.max(ty), method: "".into() });
+                    // horizontal entrada (gap)
+                    let mut branch_end = child_left;
+                    if branch_end - trunk_x > BRANCH_GAP { branch_end -= BRANCH_GAP; }
+                    lines_out.push(EvolutionLineSlint { x1: trunk_x, y1: ty, x2: branch_end, y2: ty, method: "".into() });
+                }
             }
             continue;
         }
