@@ -3,6 +3,115 @@ import { LineEdit, ListView, Button, ScrollView, AboutSlint, VerticalBox } from 
 // ====== MODELOS ======
 export struct PokemonRow { name: string }
 export struct TypeTag { label: string, bg: brush, icon:  image}
+
+export struct EvolutionNodeSlint {
+    id: int,
+    name: string,
+    stage: int,
+    row: int,
+    method: string,      // "" para a base
+}
+
+export struct EvolutionEdgeSlint {  // opcional (para desenhar linhas)
+    from: int,
+    to: int,
+    method: string,
+}
+
+component EvolutionGraphView inherits HorizontalLayout {
+    in property <[EvolutionNodeSlint]> nodes;
+    in property <[EvolutionEdgeSlint]> edges;      // pode deixar vazio se não for desenhar conexões
+    in property <int> max-stage;
+
+    property <length> name-size:15px;
+    property <length> method-size:12px;
+
+    spacing: 24px;
+    alignment: LayoutAlignment.center;
+
+    // Stage 0
+    VerticalLayout {
+        for n in nodes : VerticalLayout {
+            if (n.stage == 0) : Rectangle {
+                background: #141a22;
+                border-radius: 8px;
+                VerticalLayout {
+                    alignment: LayoutAlignment.center;
+                    Text { text: n.name; color: #e5e7eb; font-size: name-size; horizontal-alignment: center; }
+                    if (n.method != "") : Text { text: n.method; color: #9ca3af; font-size: method-size; horizontal-alignment: center; }
+                }
+            }
+        }
+    }
+    // Stage 1
+    if(max-stage >= 1) : VerticalLayout {
+        for n in nodes : VerticalLayout {
+            if (n.stage == 1) : Rectangle {
+                background: #141a22;
+                border-radius: 8px;
+                VerticalLayout {
+                    alignment: LayoutAlignment.center;
+                    Text { text: n.name; color: #e5e7eb; font-size: name-size; horizontal-alignment: center; }
+                    if (n.method != "") : Text { text: n.method; color: #9ca3af; font-size: method-size; horizontal-alignment: center; }
+                }
+            }
+        }
+    }
+    if(max-stage >= 2) : VerticalLayout {
+        for n in nodes : VerticalLayout {
+            if (n.stage == 2) : Rectangle {
+                background: #141a22;
+                border-radius: 8px;
+                VerticalLayout {
+                    alignment: LayoutAlignment.center;
+                    Text { text: n.name; color: #e5e7eb; font-size: name-size; horizontal-alignment: center; }
+                    if (n.method != "") : Text { text: n.method; color: #9ca3af; font-size: method-size; horizontal-alignment: center; }
+                }
+            }
+        }
+    }
+    if(max-stage >= 3) : VerticalLayout {
+        for n in nodes : VerticalLayout {
+            if (n.stage == 3) : Rectangle {
+                background: #141a22;
+                border-radius: 8px;
+                VerticalLayout {
+                    alignment: LayoutAlignment.center;
+                    Text { text: n.name; color: #e5e7eb; font-size: name-size; horizontal-alignment: center; }
+                    if (n.method != "") : Text { text: n.method; color: #9ca3af; font-size: method-size; horizontal-alignment: center; }
+                }
+            }
+        }
+    }
+    if(max-stage >= 4) : VerticalLayout {
+        for n in nodes : VerticalLayout {
+            if (n.stage == 4) : Rectangle {
+                background: #141a22;
+                border-radius: 8px;
+                VerticalLayout {
+                    alignment: LayoutAlignment.center;
+                    Text { text: n.name; color: #e5e7eb; font-size: name-size; horizontal-alignment: center; }
+                    if (n.method != "") : Text { text: n.method; color: #9ca3af; font-size: method-size; horizontal-alignment: center; }
+                }
+            }
+        }
+    }
+    if(max-stage >= 5) : VerticalLayout {
+        for n in nodes : VerticalLayout {
+            if (n.stage == 5) : Rectangle {
+                background: #141a22;
+                border-radius: 8px;
+                VerticalLayout {
+                    alignment: LayoutAlignment.center;
+                    Text { text: n.name; color: #e5e7eb; font-size: name-size; horizontal-alignment: center; }
+                    if (n.method != "") : Text { text: n.method; color: #9ca3af; font-size: method-size; horizontal-alignment: center; }
+                }
+            }
+        }
+    }
+
+}
+
 export struct PokemonDetail {
     name: string,
     id: int,
@@ -22,6 +131,9 @@ export struct PokemonDetail {
     hiddenAbility: string,
     error: string,
     color: brush,
+    nodes: [EvolutionNodeSlint],
+    edges: [EvolutionEdgeSlint],
+    max-stage: int,
 }
 
 // ====== Componene lista de pokémon ======
@@ -123,8 +235,7 @@ component PokemonList inherits Rectangle {
 
 // ====== PAINEL DE DETALHES ======
 component DetailPanel inherits Rectangle {
-    in property <PokemonDetail> detail;
-
+    in property <PokemonDetail> detail;    
     background: transparent;
 
     ScrollView {
@@ -338,6 +449,12 @@ component DetailPanel inherits Rectangle {
                     }
                     Text { text: root.detail.total; width: 44px; color: #fef3c7; }
                 }
+                // evoluções
+                EvolutionGraphView {
+                    nodes: root.detail.nodes;
+                    edges: root.detail.edges;
+                    max-stage: root.detail.max-stage;
+                }
             }
         }
     }
@@ -436,7 +553,7 @@ export component App inherits Window {
                     horizontal-stretch: 1;
                     accepted(text) => { root.apply-filter(text); }
                 }
-                Button { text: "Filtrar";          clicked => { root.apply-filter(root.filter); } }
+                Button { text: "Filtrar"; clicked => { root.apply-filter(root.filter); } }
             }
 
             // Versão compacta com "Voltar"
@@ -485,7 +602,6 @@ export component App inherits Window {
                 x: root.compact ? 0px : (list_pane.width + 12px);
                 width: root.compact ? parent.width : (parent.width - (list_pane.width + 12px));
                 height: parent.height;
-
                 detail: root.detail;
 
                 // visibilidade: no compacto alterna com a lista; no amplo fica sempre visível

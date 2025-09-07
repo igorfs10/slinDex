@@ -2,8 +2,7 @@ use helpers::*;
 use lru::LruCache;
 use slint::{Brush, Color, ModelRc, SharedString, VecModel};
 use std::{
-    num::NonZeroUsize,
-    sync::{Arc, Mutex},
+    collections::{HashMap, HashSet, VecDeque}, num::NonZeroUsize, sync::{Arc, Mutex}
 };
 
 mod helpers;
@@ -19,6 +18,177 @@ struct State {
     view: Vec<Pokemon>,
     sprites: LruCache<u32, Vec<u8>>, // cache de bytes da sprite
     selected: i32,                   // índice selecionado
+}
+
+#[derive(Debug, Copy, Clone)]
+pub struct EvolutionEdge {
+    pub from: u32,
+    pub to: u32,
+    pub method: &'static str,
+}
+
+#[derive(Debug)]
+pub struct EvolutionNode {
+    pub id: u32,
+    pub name: &'static str,
+    pub stage: u32,
+    pub parents: Vec<u32>,
+    pub children: Vec<u32>,
+}
+
+pub struct EvolutionGraph {
+    pub nodes: Vec<EvolutionNode>,
+    pub edges: Vec<EvolutionEdge>,
+    // opcional: agrupado por estágio pra UI rápida
+    pub stages: Vec<Vec<u32>>, // ids por estágio
+}
+
+
+fn build_graph(selected_id: u32) -> EvolutionGraph {
+    let base = find_base_id(selected_id);
+    let mut queue = VecDeque::new();
+    queue.push_back((base, 0u32));
+
+    let mut stage_map: HashMap<u32, u32> = HashMap::new();
+    let mut nodes_map: HashMap<u32, EvolutionNode> = HashMap::new();
+    let mut edges: Vec<EvolutionEdge> = Vec::new();
+    let mut seen_edge = HashSet::new();
+
+    while let Some((current, stage)) = queue.pop_front() {
+        // menor estágio vence (evita loops)
+        if stage_map.get(&current).map(|&s| stage < s).unwrap_or(true) {
+            stage_map.insert(current, stage);
+        }
+        let p = match POKEMON_LIST.iter().find(|pp| pp.species_id == current) {
+            Some(x) => x,
+            None => continue,
+        };
+        nodes_map.entry(current).or_insert_with(|| EvolutionNode {
+            id: p.species_id,
+            name: p.name,
+            stage,
+            parents: Vec::new(),
+            children: Vec::new(),
+        });
+
+        for ev in p.evolutions {
+            let edge_key = (p.species_id, ev.to);
+            if seen_edge.insert(edge_key) {
+                edges.push(EvolutionEdge {
+                    from: p.species_id,
+                    to: ev.to,
+                    method: ev.method,
+                });
+            }
+            // Atualiza children / parents (cria placeholder se necessário)
+            nodes_map
+                .entry(p.species_id)
+                .and_modify(|n| {
+                    if !n.children.contains(&ev.to) { n.children.push(ev.to); }
+                });
+
+            nodes_map
+                .entry(ev.to)
+                .or_insert(EvolutionNode {
+                    id: ev.to,
+                    name: POKEMON_LIST
+                        .iter()
+                        .find(|pp| pp.species_id == ev.to)
+                        .map(|pp| pp.name)
+                        .unwrap_or("?"),
+                    stage: stage + 1, // inicial
+                    parents: vec![p.species_id],
+                    children: Vec::new(),
+                })
+                .parents
+                .push(p.species_id);
+
+            // enfileira próximo nível
+            queue.push_back((ev.to, stage + 1));
+        }
+    }
+
+    // Ajusta stage final em nós a partir de stage_map
+    for (id, st) in &stage_map {
+        if let Some(n) = nodes_map.get_mut(id) {
+            n.stage = *st;
+        }
+    }
+
+    // Agrupa por estágio
+    let max_stage = stage_map.values().copied().max().unwrap_or(0);
+    let mut stages: Vec<Vec<u32>> = vec![Vec::new(); (max_stage + 1) as usize];
+    for n in nodes_map.values() {
+        stages[n.stage as usize].push(n.id);
+    }
+    for v in &mut stages { v.sort(); }
+
+    EvolutionGraph {
+        nodes: nodes_map.into_values().collect(),
+        edges,
+        stages,
+    }
+}
+
+fn to_slint(g: &EvolutionGraph) -> (Vec<EvolutionNodeSlint>, Vec<EvolutionEdgeSlint>, i32) {
+    // Agrupa ids por stage para calcular row
+    let mut stage_lists = g.stages.clone(); // Vec<Vec<u32>>
+    for list in &mut stage_lists {
+        list.sort();
+    }
+    let mut nodes_out = Vec::new();
+    for list in &stage_lists {
+        for (row, id) in list.iter().enumerate() {
+            let node = g.nodes.iter().find(|n| n.id == *id).unwrap();
+            nodes_out.push(EvolutionNodeSlint {
+                id: node.id as i32,
+                name: node.name.into(),
+                stage: node.stage as i32,
+                row: row as i32,
+                method: if node.stage == 0 {
+                    "".into()
+                } else {
+                    // pega método a partir de alguma edge que chega aqui
+                    g.edges
+                        .iter()
+                        .find(|e| e.to == node.id)
+                        .map(|e| e.method.into())
+                        .unwrap_or_else(|| "".into())
+                },
+            });
+        }
+    }
+    let edges_out = g
+        .edges
+        .iter()
+        .map(|e| EvolutionEdgeSlint {
+            from: e.from as i32,
+            to: e.to as i32,
+            method: e.method.into(),
+        })
+        .collect();
+    let max_stage = g.stages.len() as i32 - 1;
+    (nodes_out, edges_out, max_stage)
+}
+
+// Dado um species_id, encontra o base_id (primeira forma da cadeia)
+pub fn find_base_id(mut id: u32) -> u32 {
+    loop {
+        // procura quem tem "id" na lista de evoluções
+        if let Some(prev) = POKEMON_LIST.iter().find(|p| p.evolutions.iter().any(|e| e.to == id)) {
+            id = prev.species_id;
+        } else {
+            return id; // ninguém evolui para ele → é base
+        }
+    }
+}
+
+// Pega evoluções de um pokémon
+pub fn get_evolutions(id: u32) -> Vec<Evolution> {
+    if let Some(pokemon) = POKEMON_LIST.iter().find(|p| p.species_id == id) {
+        return pokemon.evolutions.to_vec();
+    }
+    Vec::new()
 }
 
 // =================== UI Utils ===================
@@ -83,7 +253,9 @@ fn make_detail_for_ui(detail: &Pokemon, artwork_bytes: Option<&[u8]>) -> Pokemon
     let artwork_img = artwork_bytes
         .and_then(|b| png_to_image(b).ok())
         .unwrap_or_default();
-
+    // Evolução
+    let graph = build_graph(detail.species_id);
+    let (nodes_model, edges_model, max_stage) = to_slint(&graph);
     PokemonDetail {
         name: detail.name.into(),
         id: detail.species_id as i32,
@@ -103,6 +275,9 @@ fn make_detail_for_ui(detail: &Pokemon, artwork_bytes: Option<&[u8]>) -> Pokemon
         hiddenAbility: detail.hidden.into(),
         error: "".into(),
         color: pokemon_color(detail.color),
+        nodes: ModelRc::new(VecModel::from(nodes_model)),
+        edges: ModelRc::new(VecModel::from(edges_model)),
+        max_stage,
     }
 }
 
@@ -126,6 +301,9 @@ fn set_detail_error(app: &App, msg: &str) {
         hiddenAbility: "".into(),
         error: msg.into(),
         color: Brush::from(Color::from_argb_encoded(0x00000000)),
+        nodes: ModelRc::new(VecModel::from(Vec::<EvolutionNodeSlint>::new())),
+        edges: ModelRc::new(VecModel::from(Vec::<EvolutionEdgeSlint>::new())),
+        max_stage: 0,
     });
 }
 
@@ -149,6 +327,9 @@ fn set_detail_empty(app: &App) {
         hiddenAbility: "".into(),
         error: "".into(),
         color: Brush::from(Color::from_argb_encoded(0x00000000)),
+        nodes: ModelRc::new(VecModel::from(Vec::<EvolutionNodeSlint>::new())),
+        edges: ModelRc::new(VecModel::from(Vec::<EvolutionEdgeSlint>::new())),
+        max_stage: 0,
     });
 }
 
