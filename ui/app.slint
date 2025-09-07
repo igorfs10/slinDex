@@ -67,14 +67,28 @@ component EvolutionGraphView inherits Rectangle {
                 background: transparent;
                 VerticalLayout {
                     alignment: LayoutAlignment.center;
+                    spacing: 4px; // adiciona espaço entre imagem e ícones
                     HorizontalLayout { alignment: center; Image { source: n.artwork; width: 96px; height:96px; } }
-                    Text { text: n.name; color: #e5e7eb; font-size: name-size; horizontal-alignment: center; }
-                    // ícones tiny de tipos
+                    // ícones tiny de tipos acima do nome com borda curva
                     if (n.types.length > 0) : HorizontalLayout {
                         spacing: 4px;
                         alignment: center;
-                        for t in n.types : Image { source: t.icon; width: 16px; height: 16px; }
+                        for t in n.types : Rectangle {
+                            width: 22px; height: 22px;
+                            border-radius: 8px;
+                            background: t.bg;
+                            border-width: 1px;
+                            border-color: #ffffff20;
+                            // centraliza a imagem manualmente para evitar corte superior
+                            Image { 
+                                source: t.icon; 
+                                width: 16px; height: 16px;
+                                x: (parent.width - self.width)/2;
+                                y: (parent.height - self.height)/2;
+                            }
+                        }
                     }
+                    Text { text: n.name; color: #e5e7eb; font-size: name-size; horizontal-alignment: center; }
                     if (n.method != "") : Text { text: n.method; color: #9ca3af; font-size: method-size; horizontal-alignment: center; wrap: word-wrap; }
                 }
             }
