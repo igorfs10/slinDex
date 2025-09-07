@@ -27,23 +27,23 @@ fn main() {
     out.push_str("pub struct Pokemon {\n");
     out.push_str("    pub species_id: u32,\n");
     out.push_str("    pub name: &'static str,\n");
-    out.push_str("    pub hp: u16,\n");
-    out.push_str("    pub atk: u16,\n");
-    out.push_str("    pub def: u16,\n");
-    out.push_str("    pub sp_atk: u16,\n");
-    out.push_str("    pub sp_def: u16,\n");
-    out.push_str("    pub speed: u16,\n");
+    out.push_str("    pub hp: u8,\n");
+    out.push_str("    pub atk: u8,\n");
+    out.push_str("    pub def: u8,\n");
+    out.push_str("    pub sp_atk: u8,\n");
+    out.push_str("    pub sp_def: u8,\n");
+    out.push_str("    pub speed: u8,\n");
     out.push_str("    pub ability1: &'static str,\n");
     out.push_str("    pub ability2: &'static str,\n");
     out.push_str("    pub hidden: &'static str,\n");
-    out.push_str("    pub weight_kg: f64,\n");
-    out.push_str("    pub height_m: f64,\n");
+    out.push_str("    pub weight_kg: f32,\n");
+    out.push_str("    pub height_m: f32,\n");
     out.push_str("    pub color: &'static str,\n");
     out.push_str("    pub types: &'static [&'static str],\n");
     out.push_str("    pub evolutions: &'static [Evolution],\n");
     out.push_str("}\n");
     out.push_str("#[derive(Copy, Clone)]\n");
-    out.push_str("pub struct Evolution {\n    pub to: u32,\n    pub name: &'static str,\n    pub method: &'static str,\n}\n");
+    out.push_str("pub struct Evolution {\n    pub to: u32,\n    pub method: &'static str,\n}\n");
     out.push_str("pub const POKEMON_LIST: &[Pokemon] = &[\n");
 
     for poke in pokemons.as_array().expect("JSON root is not array") {
@@ -57,11 +57,10 @@ fn main() {
             evo_str = String::from("&[");
             for evo in evolutions {
                 let to = evo.get("to").and_then(|v| v.as_u64()).unwrap_or(0);
-                let name = evo.get("name").and_then(|v| v.as_str()).unwrap_or("");
                 let method = evo.get("method").and_then(|v| v.as_str()).unwrap_or("");
                 evo_str.push_str(&format!(
-                    "Evolution {{ to: {}, name: \"{}\", method: \"{}\" }},",
-                    to, name, method
+                    "Evolution {{ to: {}, method: \"{}\" }},",
+                    to, method
                 ));
             }
             evo_str.push_str("]");

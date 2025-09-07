@@ -6,8 +6,8 @@ export struct TypeTag { label: string, bg: brush, icon:  image}
 export struct PokemonDetail {
     name: string,
     id: int,
-    height: int,
-    weight: int,
+    height: float,
+    weight: float,
     types: [TypeTag],
     hp: int,
     attack: int,
@@ -213,8 +213,8 @@ component DetailPanel inherits Rectangle {
                 // infos básicas
                 HorizontalLayout {
                     Text { text: "ID: " + (root.detail.id == 0 ? "-" : root.detail.id); color: #e5e7eb;  font-size: 14px; }
-                    Text { text: "Altura: " + (root.detail.height == 0 ? "-" : (root.detail.height / 10.0) + " m"); color: #e5e7eb;  font-size: 14px; }
-                    Text { text: "Peso: " + (root.detail.weight == 0 ? "-" : (root.detail.weight / 10.0) + " kg"); color: #e5e7eb;  font-size: 14px; }
+                    Text { text: "Altura: " + (root.detail.height == 0.0 ? "-" : root.detail.height + " m"); color: #e5e7eb;  font-size: 14px; }
+                    Text { text: "Peso: " + (root.detail.weight == 0.0 ? "-" : root.detail.weight + " kg"); color: #e5e7eb;  font-size: 14px; }
                 }
 
                 HorizontalLayout {

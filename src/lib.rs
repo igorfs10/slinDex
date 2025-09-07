@@ -72,8 +72,12 @@ fn make_detail_for_ui(detail: &Pokemon, artwork_bytes: Option<&[u8]>) -> Pokemon
     let types_model = ModelRc::new(VecModel::from(types_vec));
 
     // Monta stats
-    let total: i32 =
-        (detail.hp + detail.atk + detail.def + detail.sp_atk + detail.sp_def + detail.speed) as i32;
+    let total: i32 = detail.hp as i32
+        + detail.atk as i32
+        + detail.def as i32
+        + detail.sp_atk as i32
+        + detail.sp_def as i32
+        + detail.speed as i32;
 
     // Artwork
     let artwork_img = artwork_bytes
@@ -83,8 +87,8 @@ fn make_detail_for_ui(detail: &Pokemon, artwork_bytes: Option<&[u8]>) -> Pokemon
     PokemonDetail {
         name: detail.name.into(),
         id: detail.species_id as i32,
-        height: detail.height_m as i32,
-        weight: detail.weight_kg as i32,
+        height: detail.height_m as f32,
+        weight: detail.weight_kg as f32,
         types: types_model,
         artwork: artwork_img,
         hp: detail.hp as i32,
@@ -106,8 +110,8 @@ fn set_detail_error(app: &App, msg: &str) {
     app.set_detail(PokemonDetail {
         name: "".into(),
         id: 0,
-        height: 0,
-        weight: 0,
+        height: 0.0,
+        weight: 0.0,
         types: ModelRc::new(VecModel::from(Vec::<TypeTag>::new())),
         hp: 0,
         specialAttack: 0,
@@ -129,8 +133,8 @@ fn set_detail_empty(app: &App) {
     app.set_detail(PokemonDetail {
         name: "Carregando...".into(),
         id: 0,
-        height: 0,
-        weight: 0,
+        height: 0.0,
+        weight: 0.0,
         types: ModelRc::new(VecModel::from(Vec::<TypeTag>::new())),
         hp: 0,
         specialAttack: 0,

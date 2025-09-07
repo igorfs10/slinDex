@@ -187,7 +187,6 @@ def main():
                     method = trigger if trigger else 'desconhecido'
             evolutions.append({
                 'to': evo_sid,
-                'name': species_id_to_name.get(evo_sid, evo_species['identifier']),
                 'method': method
             })
         poke_obj = {

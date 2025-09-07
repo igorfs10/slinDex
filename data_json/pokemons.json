@@ -21,7 +21,6 @@
     "evolutions": [
       {
         "to": 2,
-        "name": "Ivysaur",
         "method": "lvl up: lvl 16"
       }
     ]
@@ -48,7 +47,6 @@
     "evolutions": [
       {
         "to": 3,
-        "name": "Venusaur",
         "method": "lvl up: lvl 32"
       }
     ]
@@ -95,7 +93,6 @@
     "evolutions": [
       {
         "to": 5,
-        "name": "Charmeleon",
         "method": "lvl up: lvl 16"
       }
     ]
@@ -121,7 +118,6 @@
     "evolutions": [
       {
         "to": 6,
-        "name": "Charizard",
         "method": "lvl up: lvl 36"
       }
     ]
@@ -168,7 +164,6 @@
     "evolutions": [
       {
         "to": 8,
-        "name": "Wartortle",
         "method": "lvl up: lvl 16"
       }
     ]
@@ -194,7 +189,6 @@
     "evolutions": [
       {
         "to": 9,
-        "name": "Blastoise",
         "method": "lvl up: lvl 36"
       }
     ]
@@ -240,7 +234,6 @@
     "evolutions": [
       {
         "to": 11,
-        "name": "Metapod",
         "method": "lvl up: lvl 7"
       }
     ]
@@ -266,7 +259,6 @@
     "evolutions": [
       {
         "to": 12,
-        "name": "Butterfree",
         "method": "lvl up: lvl 10"
       }
     ]
@@ -314,7 +306,6 @@
     "evolutions": [
       {
         "to": 14,
-        "name": "Kakuna",
         "method": "lvl up: lvl 7"
       }
     ]
@@ -341,7 +332,6 @@
     "evolutions": [
       {
         "to": 15,
-        "name": "Beedrill",
         "method": "lvl up: lvl 10"
       }
     ]
@@ -389,7 +379,6 @@
     "evolutions": [
       {
         "to": 17,
-        "name": "Pidgeotto",
         "method": "lvl up: lvl 18"
       }
     ]
@@ -416,7 +405,6 @@
     "evolutions": [
       {
         "to": 18,
-        "name": "Pidgeot",
         "method": "lvl up: lvl 36"
       }
     ]
@@ -463,7 +451,6 @@
     "evolutions": [
       {
         "to": 20,
-        "name": "Raticate",
         "method": "lvl up: lvl 20"
       }
     ]
@@ -510,7 +497,6 @@
     "evolutions": [
       {
         "to": 22,
-        "name": "Fearow",
         "method": "lvl up: lvl 20"
       }
     ]
@@ -557,7 +543,6 @@
     "evolutions": [
       {
         "to": 24,
-        "name": "Arbok",
         "method": "lvl up: lvl 22"
       }
     ]
@@ -603,7 +588,6 @@
     "evolutions": [
       {
         "to": 26,
-        "name": "Raichu",
         "method": "item: Thunder Stone"
       }
     ]
@@ -649,7 +633,6 @@
     "evolutions": [
       {
         "to": 28,
-        "name": "Sandslash",
         "method": "lvl up: lvl 22"
       }
     ]
@@ -695,7 +678,6 @@
     "evolutions": [
       {
         "to": 30,
-        "name": "Nidorina",
         "method": "lvl up: lvl 16"
       }
     ]
@@ -721,7 +703,6 @@
     "evolutions": [
       {
         "to": 31,
-        "name": "Nidoqueen",
         "method": "item: Moon Stone"
       }
     ]
@@ -768,7 +749,6 @@
     "evolutions": [
       {
         "to": 33,
-        "name": "Nidorino",
         "method": "lvl up: lvl 16"
       }
     ]
@@ -794,7 +774,6 @@
     "evolutions": [
       {
         "to": 34,
-        "name": "Nidoking",
         "method": "item: Moon Stone"
       }
     ]
@@ -841,7 +820,6 @@
     "evolutions": [
       {
         "to": 36,
-        "name": "Clefable",
         "method": "item: Moon Stone"
       }
     ]
@@ -887,7 +865,6 @@
     "evolutions": [
       {
         "to": 38,
-        "name": "Ninetales",
         "method": "item: Fire Stone"
       }
     ]
@@ -934,7 +911,6 @@
     "evolutions": [
       {
         "to": 40,
-        "name": "Wigglytuff",
         "method": "item: Moon Stone"
       }
     ]
@@ -982,7 +958,6 @@
     "evolutions": [
       {
         "to": 42,
-        "name": "Golbat",
         "method": "lvl up: lvl 22"
       }
     ]
@@ -1009,7 +984,6 @@
     "evolutions": [
       {
         "to": 169,
-        "name": "Crobat",
         "method": "lvl up: amizade 160"
       }
     ]
@@ -1036,7 +1010,6 @@
     "evolutions": [
       {
         "to": 44,
-        "name": "Gloom",
         "method": "lvl up: lvl 21"
       }
     ]
@@ -1063,12 +1036,10 @@
     "evolutions": [
       {
         "to": 45,
-        "name": "Vileplume",
         "method": "item: Leaf Stone"
       },
       {
         "to": 182,
-        "name": "Bellossom",
         "method": "item: Sun Stone"
       }
     ]
@@ -1116,7 +1087,6 @@
     "evolutions": [
       {
         "to": 47,
-        "name": "Parasect",
         "method": "lvl up: lvl 24"
       }
     ]
@@ -1164,7 +1134,6 @@
     "evolutions": [
       {
         "to": 49,
-        "name": "Venomoth",
         "method": "lvl up: lvl 31"
       }
     ]
@@ -1211,7 +1180,6 @@
     "evolutions": [
       {
         "to": 51,
-        "name": "Dugtrio",
         "method": "lvl up: lvl 26"
       }
     ]
@@ -1257,12 +1225,10 @@
     "evolutions": [
       {
         "to": 53,
-        "name": "Persian",
         "method": "lvl up: lvl 28"
       },
       {
         "to": 863,
-        "name": "Perrserker",
         "method": "lvl up: lvl 28"
       }
     ]
@@ -1308,7 +1274,6 @@
     "evolutions": [
       {
         "to": 55,
-        "name": "Golduck",
         "method": "lvl up: lvl 33"
       }
     ]
@@ -1354,7 +1319,6 @@
     "evolutions": [
       {
         "to": 57,
-        "name": "Primeape",
         "method": "lvl up: lvl 28"
       }
     ]
@@ -1380,7 +1344,6 @@
     "evolutions": [
       {
         "to": 979,
-        "name": "Annihilape",
         "method": "other"
       }
     ]
@@ -1406,7 +1369,6 @@
     "evolutions": [
       {
         "to": 59,
-        "name": "Arcanine",
         "method": "item: Fire Stone"
       }
     ]
@@ -1452,7 +1414,6 @@
     "evolutions": [
       {
         "to": 61,
-        "name": "Poliwhirl",
         "method": "lvl up: lvl 25"
       }
     ]
@@ -1478,12 +1439,10 @@
     "evolutions": [
       {
         "to": 62,
-        "name": "Poliwrath",
         "method": "item: Water Stone"
       },
       {
         "to": 186,
-        "name": "Politoed",
         "method": "troca segurando King’s Rock"
       }
     ]
@@ -1530,7 +1489,6 @@
     "evolutions": [
       {
         "to": 64,
-        "name": "Kadabra",
         "method": "lvl up: lvl 16"
       }
     ]
@@ -1556,7 +1514,6 @@
     "evolutions": [
       {
         "to": 65,
-        "name": "Alakazam",
         "method": "troca"
       }
     ]
@@ -1602,7 +1559,6 @@
     "evolutions": [
       {
         "to": 67,
-        "name": "Machoke",
         "method": "lvl up: lvl 28"
       }
     ]
@@ -1628,7 +1584,6 @@
     "evolutions": [
       {
         "to": 68,
-        "name": "Machamp",
         "method": "troca"
       }
     ]
@@ -1675,7 +1630,6 @@
     "evolutions": [
       {
         "to": 70,
-        "name": "Weepinbell",
         "method": "lvl up: lvl 21"
       }
     ]
@@ -1702,7 +1656,6 @@
     "evolutions": [
       {
         "to": 71,
-        "name": "Victreebel",
         "method": "item: Leaf Stone"
       }
     ]
@@ -1750,7 +1703,6 @@
     "evolutions": [
       {
         "to": 73,
-        "name": "Tentacruel",
         "method": "lvl up: lvl 30"
       }
     ]
@@ -1798,7 +1750,6 @@
     "evolutions": [
       {
         "to": 75,
-        "name": "Graveler",
         "method": "lvl up: lvl 25"
       }
     ]
@@ -1825,7 +1776,6 @@
     "evolutions": [
       {
         "to": 76,
-        "name": "Golem",
         "method": "troca"
       }
     ]
@@ -1872,7 +1822,6 @@
     "evolutions": [
       {
         "to": 78,
-        "name": "Rapidash",
         "method": "lvl up: lvl 40"
       }
     ]
@@ -1919,12 +1868,10 @@
     "evolutions": [
       {
         "to": 80,
-        "name": "Slowbro",
         "method": "lvl up: lvl 37"
       },
       {
         "to": 199,
-        "name": "Slowking",
         "method": "troca segurando King’s Rock"
       }
     ]
@@ -1972,7 +1919,6 @@
     "evolutions": [
       {
         "to": 82,
-        "name": "Magneton",
         "method": "lvl up: lvl 30"
       }
     ]
@@ -1999,7 +1945,6 @@
     "evolutions": [
       {
         "to": 462,
-        "name": "Magnezone",
         "method": "lvl up: local especial: Mt. Coronet"
       }
     ]
@@ -2026,7 +1971,6 @@
     "evolutions": [
       {
         "to": 865,
-        "name": "Sirfetch’d",
         "method": "three-critical-hits"
       }
     ]
@@ -2053,7 +1997,6 @@
     "evolutions": [
       {
         "to": 85,
-        "name": "Dodrio",
         "method": "lvl up: lvl 31"
       }
     ]
@@ -2100,7 +2043,6 @@
     "evolutions": [
       {
         "to": 87,
-        "name": "Dewgong",
         "method": "lvl up: lvl 34"
       }
     ]
@@ -2147,7 +2089,6 @@
     "evolutions": [
       {
         "to": 89,
-        "name": "Muk",
         "method": "lvl up: lvl 38"
       }
     ]
@@ -2193,7 +2134,6 @@
     "evolutions": [
       {
         "to": 91,
-        "name": "Cloyster",
         "method": "item: Water Stone"
       }
     ]
@@ -2241,7 +2181,6 @@
     "evolutions": [
       {
         "to": 93,
-        "name": "Haunter",
         "method": "lvl up: lvl 25"
       }
     ]
@@ -2268,7 +2207,6 @@
     "evolutions": [
       {
         "to": 94,
-        "name": "Gengar",
         "method": "troca"
       }
     ]
@@ -2316,7 +2254,6 @@
     "evolutions": [
       {
         "to": 208,
-        "name": "Steelix",
         "method": "troca segurando Metal Coat"
       }
     ]
@@ -2342,7 +2279,6 @@
     "evolutions": [
       {
         "to": 97,
-        "name": "Hypno",
         "method": "lvl up: lvl 26"
       }
     ]
@@ -2388,7 +2324,6 @@
     "evolutions": [
       {
         "to": 99,
-        "name": "Kingler",
         "method": "lvl up: lvl 28"
       }
     ]
@@ -2434,7 +2369,6 @@
     "evolutions": [
       {
         "to": 101,
-        "name": "Electrode",
         "method": "lvl up: lvl 30"
       }
     ]
@@ -2481,7 +2415,6 @@
     "evolutions": [
       {
         "to": 103,
-        "name": "Exeggutor",
         "method": "item: Leaf Stone"
       }
     ]
@@ -2528,7 +2461,6 @@
     "evolutions": [
       {
         "to": 105,
-        "name": "Marowak",
         "method": "lvl up: lvl 28"
       }
     ]
@@ -2614,7 +2546,6 @@
     "evolutions": [
       {
         "to": 463,
-        "name": "Lickilicky",
         "method": "lvl up: sabendo golpe Rollout"
       }
     ]
@@ -2640,7 +2571,6 @@
     "evolutions": [
       {
         "to": 110,
-        "name": "Weezing",
         "method": "lvl up: lvl 35"
       }
     ]
@@ -2687,7 +2617,6 @@
     "evolutions": [
       {
         "to": 112,
-        "name": "Rhydon",
         "method": "lvl up: lvl 42"
       }
     ]
@@ -2714,7 +2643,6 @@
     "evolutions": [
       {
         "to": 464,
-        "name": "Rhyperior",
         "method": "troca segurando Protector"
       }
     ]
@@ -2740,7 +2668,6 @@
     "evolutions": [
       {
         "to": 242,
-        "name": "Blissey",
         "method": "lvl up: amizade 160"
       }
     ]
@@ -2766,7 +2693,6 @@
     "evolutions": [
       {
         "to": 465,
-        "name": "Tangrowth",
         "method": "lvl up: sabendo golpe Ancient Power"
       }
     ]
@@ -2812,7 +2738,6 @@
     "evolutions": [
       {
         "to": 117,
-        "name": "Seadra",
         "method": "lvl up: lvl 32"
       }
     ]
@@ -2838,7 +2763,6 @@
     "evolutions": [
       {
         "to": 230,
-        "name": "Kingdra",
         "method": "troca segurando Dragon Scale"
       }
     ]
@@ -2864,7 +2788,6 @@
     "evolutions": [
       {
         "to": 119,
-        "name": "Seaking",
         "method": "lvl up: lvl 33"
       }
     ]
@@ -2910,7 +2833,6 @@
     "evolutions": [
       {
         "to": 121,
-        "name": "Starmie",
         "method": "item: Water Stone"
       }
     ]
@@ -2958,7 +2880,6 @@
     "evolutions": [
       {
         "to": 866,
-        "name": "Mr. Rime",
         "method": "lvl up: lvl 42"
       }
     ]
@@ -2985,12 +2906,10 @@
     "evolutions": [
       {
         "to": 212,
-        "name": "Scizor",
         "method": "troca segurando Metal Coat"
       },
       {
         "to": 900,
-        "name": "Kleavor",
         "method": "item: "
       }
     ]
@@ -3037,7 +2956,6 @@
     "evolutions": [
       {
         "to": 466,
-        "name": "Electivire",
         "method": "troca segurando Electirizer"
       }
     ]
@@ -3063,7 +2981,6 @@
     "evolutions": [
       {
         "to": 467,
-        "name": "Magmortar",
         "method": "troca segurando Magmarizer"
       }
     ]
@@ -3129,7 +3046,6 @@
     "evolutions": [
       {
         "to": 130,
-        "name": "Gyarados",
         "method": "lvl up: lvl 20"
       }
     ]
@@ -3217,42 +3133,34 @@
     "evolutions": [
       {
         "to": 134,
-        "name": "Vaporeon",
         "method": "item: Water Stone"
       },
       {
         "to": 135,
-        "name": "Jolteon",
         "method": "item: Thunder Stone"
       },
       {
         "to": 136,
-        "name": "Flareon",
         "method": "item: Fire Stone"
       },
       {
         "to": 196,
-        "name": "Espeon",
         "method": "lvl up: amizade 160, de dia"
       },
       {
         "to": 197,
-        "name": "Umbreon",
         "method": "lvl up: amizade 160, de noite"
       },
       {
         "to": 470,
-        "name": "Leafeon",
         "method": "lvl up: local especial: Eterna Forest"
       },
       {
         "to": 471,
-        "name": "Glaceon",
         "method": "lvl up: local especial: Route 217"
       },
       {
         "to": 700,
-        "name": "Sylveon",
         "method": "lvl up: afeição 2, sabendo golpe tipo fada"
       }
     ]
@@ -3338,7 +3246,6 @@
     "evolutions": [
       {
         "to": 233,
-        "name": "Porygon2",
         "method": "troca segurando Upgrade"
       }
     ]
@@ -3365,7 +3272,6 @@
     "evolutions": [
       {
         "to": 139,
-        "name": "Omastar",
         "method": "lvl up: lvl 40"
       }
     ]
@@ -3413,7 +3319,6 @@
     "evolutions": [
       {
         "to": 141,
-        "name": "Kabutops",
         "method": "lvl up: lvl 40"
       }
     ]
@@ -3564,7 +3469,6 @@
     "evolutions": [
       {
         "to": 148,
-        "name": "Dragonair",
         "method": "lvl up: lvl 30"
       }
     ]
@@ -3590,7 +3494,6 @@
     "evolutions": [
       {
         "to": 149,
-        "name": "Dragonite",
         "method": "lvl up: lvl 55"
       }
     ]
@@ -3677,7 +3580,6 @@
     "evolutions": [
       {
         "to": 153,
-        "name": "Bayleef",
         "method": "lvl up: lvl 16"
       }
     ]
@@ -3703,7 +3605,6 @@
     "evolutions": [
       {
         "to": 154,
-        "name": "Meganium",
         "method": "lvl up: lvl 32"
       }
     ]
@@ -3749,7 +3650,6 @@
     "evolutions": [
       {
         "to": 156,
-        "name": "Quilava",
         "method": "lvl up: lvl 14"
       }
     ]
@@ -3775,7 +3675,6 @@
     "evolutions": [
       {
         "to": 157,
-        "name": "Typhlosion",
         "method": "lvl up: lvl 36"
       }
     ]
@@ -3821,7 +3720,6 @@
     "evolutions": [
       {
         "to": 159,
-        "name": "Croconaw",
         "method": "lvl up: lvl 18"
       }
     ]
@@ -3847,7 +3745,6 @@
     "evolutions": [
       {
         "to": 160,
-        "name": "Feraligatr",
         "method": "lvl up: lvl 30"
       }
     ]
@@ -3893,7 +3790,6 @@
     "evolutions": [
       {
         "to": 162,
-        "name": "Furret",
         "method": "lvl up: lvl 15"
       }
     ]
@@ -3940,7 +3836,6 @@
     "evolutions": [
       {
         "to": 164,
-        "name": "Noctowl",
         "method": "lvl up: lvl 20"
       }
     ]
@@ -3988,7 +3883,6 @@
     "evolutions": [
       {
         "to": 166,
-        "name": "Ledian",
         "method": "lvl up: lvl 18"
       }
     ]
@@ -4036,7 +3930,6 @@
     "evolutions": [
       {
         "to": 168,
-        "name": "Ariados",
         "method": "lvl up: lvl 22"
       }
     ]
@@ -4105,7 +3998,6 @@
     "evolutions": [
       {
         "to": 171,
-        "name": "Lanturn",
         "method": "lvl up: lvl 27"
       }
     ]
@@ -4152,7 +4044,6 @@
     "evolutions": [
       {
         "to": 25,
-        "name": "Pikachu",
         "method": "lvl up: amizade 220"
       }
     ]
@@ -4178,7 +4069,6 @@
     "evolutions": [
       {
         "to": 35,
-        "name": "Clefairy",
         "method": "lvl up: amizade 160"
       }
     ]
@@ -4205,7 +4095,6 @@
     "evolutions": [
       {
         "to": 39,
-        "name": "Jigglypuff",
         "method": "lvl up: amizade 160"
       }
     ]
@@ -4231,7 +4120,6 @@
     "evolutions": [
       {
         "to": 176,
-        "name": "Togetic",
         "method": "lvl up: amizade 160"
       }
     ]
@@ -4258,7 +4146,6 @@
     "evolutions": [
       {
         "to": 468,
-        "name": "Togekiss",
         "method": "item: Shiny Stone"
       }
     ]
@@ -4285,7 +4172,6 @@
     "evolutions": [
       {
         "to": 178,
-        "name": "Xatu",
         "method": "lvl up: lvl 25"
       }
     ]
@@ -4332,7 +4218,6 @@
     "evolutions": [
       {
         "to": 180,
-        "name": "Flaaffy",
         "method": "lvl up: lvl 15"
       }
     ]
@@ -4358,7 +4243,6 @@
     "evolutions": [
       {
         "to": 181,
-        "name": "Ampharos",
         "method": "lvl up: lvl 30"
       }
     ]
@@ -4425,7 +4309,6 @@
     "evolutions": [
       {
         "to": 184,
-        "name": "Azumarill",
         "method": "lvl up: lvl 18"
       }
     ]
@@ -4513,7 +4396,6 @@
     "evolutions": [
       {
         "to": 188,
-        "name": "Skiploom",
         "method": "lvl up: lvl 18"
       }
     ]
@@ -4540,7 +4422,6 @@
     "evolutions": [
       {
         "to": 189,
-        "name": "Jumpluff",
         "method": "lvl up: lvl 27"
       }
     ]
@@ -4587,7 +4468,6 @@
     "evolutions": [
       {
         "to": 424,
-        "name": "Ambipom",
         "method": "lvl up: sabendo golpe Double Hit"
       }
     ]
@@ -4613,7 +4493,6 @@
     "evolutions": [
       {
         "to": 192,
-        "name": "Sunflora",
         "method": "item: Sun Stone"
       }
     ]
@@ -4660,7 +4539,6 @@
     "evolutions": [
       {
         "to": 469,
-        "name": "Yanmega",
         "method": "lvl up: sabendo golpe Ancient Power"
       }
     ]
@@ -4687,12 +4565,10 @@
     "evolutions": [
       {
         "to": 195,
-        "name": "Quagsire",
         "method": "lvl up: lvl 20"
       },
       {
         "to": 980,
-        "name": "Clodsire",
         "method": "lvl up: lvl 20"
       }
     ]
@@ -4780,7 +4656,6 @@
     "evolutions": [
       {
         "to": 430,
-        "name": "Honchkrow",
         "method": "item: Dusk Stone"
       }
     ]
@@ -4827,7 +4702,6 @@
     "evolutions": [
       {
         "to": 429,
-        "name": "Mismagius",
         "method": "item: Dusk Stone"
       }
     ]
@@ -4894,7 +4768,6 @@
     "evolutions": [
       {
         "to": 981,
-        "name": "Farigiraf",
         "method": "lvl up: sabendo golpe Twin Beam"
       }
     ]
@@ -4920,7 +4793,6 @@
     "evolutions": [
       {
         "to": 205,
-        "name": "Forretress",
         "method": "lvl up: lvl 31"
       }
     ]
@@ -4967,7 +4839,6 @@
     "evolutions": [
       {
         "to": 982,
-        "name": "Dudunsparce",
         "method": "lvl up: sabendo golpe Hyper Drill"
       }
     ]
@@ -4994,7 +4865,6 @@
     "evolutions": [
       {
         "to": 472,
-        "name": "Gliscor",
         "method": "lvl up: de noite"
       }
     ]
@@ -5041,7 +4911,6 @@
     "evolutions": [
       {
         "to": 210,
-        "name": "Granbull",
         "method": "lvl up: lvl 23"
       }
     ]
@@ -5088,7 +4957,6 @@
     "evolutions": [
       {
         "to": 904,
-        "name": "Overqwil",
         "method": "strong-style-move"
       }
     ]
@@ -5178,12 +5046,10 @@
     "evolutions": [
       {
         "to": 461,
-        "name": "Weavile",
         "method": "lvl up: de noite"
       },
       {
         "to": 903,
-        "name": "Sneasler",
         "method": "lvl up: de dia"
       }
     ]
@@ -5209,7 +5075,6 @@
     "evolutions": [
       {
         "to": 217,
-        "name": "Ursaring",
         "method": "lvl up: lvl 30"
       }
     ]
@@ -5235,7 +5100,6 @@
     "evolutions": [
       {
         "to": 901,
-        "name": "Ursaluna",
         "method": "item: "
       }
     ]
@@ -5261,7 +5125,6 @@
     "evolutions": [
       {
         "to": 219,
-        "name": "Magcargo",
         "method": "lvl up: lvl 38"
       }
     ]
@@ -5309,7 +5172,6 @@
     "evolutions": [
       {
         "to": 221,
-        "name": "Piloswine",
         "method": "lvl up: lvl 33"
       }
     ]
@@ -5336,7 +5198,6 @@
     "evolutions": [
       {
         "to": 473,
-        "name": "Mamoswine",
         "method": "lvl up: sabendo golpe Ancient Power"
       }
     ]
@@ -5363,7 +5224,6 @@
     "evolutions": [
       {
         "to": 864,
-        "name": "Cursola",
         "method": "lvl up: lvl 38"
       }
     ]
@@ -5389,7 +5249,6 @@
     "evolutions": [
       {
         "to": 224,
-        "name": "Octillery",
         "method": "lvl up: lvl 25"
       }
     ]
@@ -5499,7 +5358,6 @@
     "evolutions": [
       {
         "to": 229,
-        "name": "Houndoom",
         "method": "lvl up: lvl 24"
       }
     ]
@@ -5567,7 +5425,6 @@
     "evolutions": [
       {
         "to": 232,
-        "name": "Donphan",
         "method": "lvl up: lvl 25"
       }
     ]
@@ -5613,7 +5470,6 @@
     "evolutions": [
       {
         "to": 474,
-        "name": "Porygon-Z",
         "method": "troca segurando Dubious Disc"
       }
     ]
@@ -5639,7 +5495,6 @@
     "evolutions": [
       {
         "to": 899,
-        "name": "Wyrdeer",
         "method": "agile-style-move"
       }
     ]
@@ -5685,17 +5540,14 @@
     "evolutions": [
       {
         "to": 106,
-        "name": "Hitmonlee",
         "method": "lvl up: lvl 20"
       },
       {
         "to": 107,
-        "name": "Hitmonchan",
         "method": "lvl up: lvl 20"
       },
       {
         "to": 237,
-        "name": "Hitmontop",
         "method": "lvl up: lvl 20"
       }
     ]
@@ -5742,7 +5594,6 @@
     "evolutions": [
       {
         "to": 124,
-        "name": "Jynx",
         "method": "lvl up: lvl 30"
       }
     ]
@@ -5768,7 +5619,6 @@
     "evolutions": [
       {
         "to": 125,
-        "name": "Electabuzz",
         "method": "lvl up: lvl 30"
       }
     ]
@@ -5794,7 +5644,6 @@
     "evolutions": [
       {
         "to": 126,
-        "name": "Magmar",
         "method": "lvl up: lvl 30"
       }
     ]
@@ -5921,7 +5770,6 @@
     "evolutions": [
       {
         "to": 247,
-        "name": "Pupitar",
         "method": "lvl up: lvl 30"
       }
     ]
@@ -5948,7 +5796,6 @@
     "evolutions": [
       {
         "to": 248,
-        "name": "Tyranitar",
         "method": "lvl up: lvl 55"
       }
     ]
@@ -6058,7 +5905,6 @@
     "evolutions": [
       {
         "to": 253,
-        "name": "Grovyle",
         "method": "lvl up: lvl 16"
       }
     ]
@@ -6084,7 +5930,6 @@
     "evolutions": [
       {
         "to": 254,
-        "name": "Sceptile",
         "method": "lvl up: lvl 36"
       }
     ]
@@ -6130,7 +5975,6 @@
     "evolutions": [
       {
         "to": 256,
-        "name": "Combusken",
         "method": "lvl up: lvl 16"
       }
     ]
@@ -6157,7 +6001,6 @@
     "evolutions": [
       {
         "to": 257,
-        "name": "Blaziken",
         "method": "lvl up: lvl 36"
       }
     ]
@@ -6204,7 +6047,6 @@
     "evolutions": [
       {
         "to": 259,
-        "name": "Marshtomp",
         "method": "lvl up: lvl 16"
       }
     ]
@@ -6231,7 +6073,6 @@
     "evolutions": [
       {
         "to": 260,
-        "name": "Swampert",
         "method": "lvl up: lvl 36"
       }
     ]
@@ -6278,7 +6119,6 @@
     "evolutions": [
       {
         "to": 262,
-        "name": "Mightyena",
         "method": "lvl up: lvl 18"
       }
     ]
@@ -6324,7 +6164,6 @@
     "evolutions": [
       {
         "to": 264,
-        "name": "Linoone",
         "method": "lvl up: lvl 20"
       }
     ]
@@ -6350,7 +6189,6 @@
     "evolutions": [
       {
         "to": 862,
-        "name": "Obstagoon",
         "method": "lvl up: lvl 35, de noite"
       }
     ]
@@ -6376,12 +6214,10 @@
     "evolutions": [
       {
         "to": 266,
-        "name": "Silcoon",
         "method": "lvl up: lvl 7"
       },
       {
         "to": 268,
-        "name": "Cascoon",
         "method": "lvl up: lvl 7"
       }
     ]
@@ -6407,7 +6243,6 @@
     "evolutions": [
       {
         "to": 267,
-        "name": "Beautifly",
         "method": "lvl up: lvl 10"
       }
     ]
@@ -6454,7 +6289,6 @@
     "evolutions": [
       {
         "to": 269,
-        "name": "Dustox",
         "method": "lvl up: lvl 10"
       }
     ]
@@ -6502,7 +6336,6 @@
     "evolutions": [
       {
         "to": 271,
-        "name": "Lombre",
         "method": "lvl up: lvl 14"
       }
     ]
@@ -6529,7 +6362,6 @@
     "evolutions": [
       {
         "to": 272,
-        "name": "Ludicolo",
         "method": "item: Water Stone"
       }
     ]
@@ -6576,7 +6408,6 @@
     "evolutions": [
       {
         "to": 274,
-        "name": "Nuzleaf",
         "method": "lvl up: lvl 14"
       }
     ]
@@ -6603,7 +6434,6 @@
     "evolutions": [
       {
         "to": 275,
-        "name": "Shiftry",
         "method": "item: Leaf Stone"
       }
     ]
@@ -6651,7 +6481,6 @@
     "evolutions": [
       {
         "to": 277,
-        "name": "Swellow",
         "method": "lvl up: lvl 22"
       }
     ]
@@ -6699,7 +6528,6 @@
     "evolutions": [
       {
         "to": 279,
-        "name": "Pelipper",
         "method": "lvl up: lvl 25"
       }
     ]
@@ -6747,7 +6575,6 @@
     "evolutions": [
       {
         "to": 281,
-        "name": "Kirlia",
         "method": "lvl up: lvl 20"
       }
     ]
@@ -6774,12 +6601,10 @@
     "evolutions": [
       {
         "to": 282,
-        "name": "Gardevoir",
         "method": "lvl up: lvl 30"
       },
       {
         "to": 475,
-        "name": "Gallade",
         "method": "item: Dawn Stone, só fêmea"
       }
     ]
@@ -6827,7 +6652,6 @@
     "evolutions": [
       {
         "to": 284,
-        "name": "Masquerain",
         "method": "lvl up: lvl 22"
       }
     ]
@@ -6874,7 +6698,6 @@
     "evolutions": [
       {
         "to": 286,
-        "name": "Breloom",
         "method": "lvl up: lvl 23"
       }
     ]
@@ -6921,7 +6744,6 @@
     "evolutions": [
       {
         "to": 288,
-        "name": "Vigoroth",
         "method": "lvl up: lvl 18"
       }
     ]
@@ -6947,7 +6769,6 @@
     "evolutions": [
       {
         "to": 289,
-        "name": "Slaking",
         "method": "lvl up: lvl 36"
       }
     ]
@@ -6994,12 +6815,10 @@
     "evolutions": [
       {
         "to": 291,
-        "name": "Ninjask",
         "method": "lvl up: lvl 20"
       },
       {
         "to": 292,
-        "name": "Shedinja",
         "method": "shed"
       }
     ]
@@ -7067,7 +6886,6 @@
     "evolutions": [
       {
         "to": 294,
-        "name": "Loudred",
         "method": "lvl up: lvl 20"
       }
     ]
@@ -7093,7 +6911,6 @@
     "evolutions": [
       {
         "to": 295,
-        "name": "Exploud",
         "method": "lvl up: lvl 40"
       }
     ]
@@ -7139,7 +6956,6 @@
     "evolutions": [
       {
         "to": 297,
-        "name": "Hariyama",
         "method": "lvl up: lvl 24"
       }
     ]
@@ -7186,7 +7002,6 @@
     "evolutions": [
       {
         "to": 183,
-        "name": "Marill",
         "method": "lvl up: amizade 160"
       }
     ]
@@ -7212,7 +7027,6 @@
     "evolutions": [
       {
         "to": 476,
-        "name": "Probopass",
         "method": "lvl up: local especial: Mt. Coronet"
       }
     ]
@@ -7238,7 +7052,6 @@
     "evolutions": [
       {
         "to": 301,
-        "name": "Delcatty",
         "method": "item: Moon Stone"
       }
     ]
@@ -7327,7 +7140,6 @@
     "evolutions": [
       {
         "to": 305,
-        "name": "Lairon",
         "method": "lvl up: lvl 32"
       }
     ]
@@ -7354,7 +7166,6 @@
     "evolutions": [
       {
         "to": 306,
-        "name": "Aggron",
         "method": "lvl up: lvl 42"
       }
     ]
@@ -7402,7 +7213,6 @@
     "evolutions": [
       {
         "to": 308,
-        "name": "Medicham",
         "method": "lvl up: lvl 37"
       }
     ]
@@ -7449,7 +7259,6 @@
     "evolutions": [
       {
         "to": 310,
-        "name": "Manectric",
         "method": "lvl up: lvl 26"
       }
     ]
@@ -7576,7 +7385,6 @@
     "evolutions": [
       {
         "to": 407,
-        "name": "Roserade",
         "method": "item: Shiny Stone"
       }
     ]
@@ -7602,7 +7410,6 @@
     "evolutions": [
       {
         "to": 317,
-        "name": "Swalot",
         "method": "lvl up: lvl 26"
       }
     ]
@@ -7649,7 +7456,6 @@
     "evolutions": [
       {
         "to": 319,
-        "name": "Sharpedo",
         "method": "lvl up: lvl 30"
       }
     ]
@@ -7696,7 +7502,6 @@
     "evolutions": [
       {
         "to": 321,
-        "name": "Wailord",
         "method": "lvl up: lvl 40"
       }
     ]
@@ -7743,7 +7548,6 @@
     "evolutions": [
       {
         "to": 323,
-        "name": "Camerupt",
         "method": "lvl up: lvl 33"
       }
     ]
@@ -7810,7 +7614,6 @@
     "evolutions": [
       {
         "to": 326,
-        "name": "Grumpig",
         "method": "lvl up: lvl 32"
       }
     ]
@@ -7876,7 +7679,6 @@
     "evolutions": [
       {
         "to": 329,
-        "name": "Vibrava",
         "method": "lvl up: lvl 35"
       }
     ]
@@ -7903,7 +7705,6 @@
     "evolutions": [
       {
         "to": 330,
-        "name": "Flygon",
         "method": "lvl up: lvl 45"
       }
     ]
@@ -7950,7 +7751,6 @@
     "evolutions": [
       {
         "to": 332,
-        "name": "Cacturne",
         "method": "lvl up: lvl 32"
       }
     ]
@@ -7998,7 +7798,6 @@
     "evolutions": [
       {
         "to": 334,
-        "name": "Altaria",
         "method": "lvl up: lvl 35"
       }
     ]
@@ -8128,7 +7927,6 @@
     "evolutions": [
       {
         "to": 340,
-        "name": "Whiscash",
         "method": "lvl up: lvl 30"
       }
     ]
@@ -8175,7 +7973,6 @@
     "evolutions": [
       {
         "to": 342,
-        "name": "Crawdaunt",
         "method": "lvl up: lvl 30"
       }
     ]
@@ -8223,7 +8020,6 @@
     "evolutions": [
       {
         "to": 344,
-        "name": "Claydol",
         "method": "lvl up: lvl 36"
       }
     ]
@@ -8271,7 +8067,6 @@
     "evolutions": [
       {
         "to": 346,
-        "name": "Cradily",
         "method": "lvl up: lvl 40"
       }
     ]
@@ -8319,7 +8114,6 @@
     "evolutions": [
       {
         "to": 348,
-        "name": "Armaldo",
         "method": "lvl up: lvl 40"
       }
     ]
@@ -8366,7 +8160,6 @@
     "evolutions": [
       {
         "to": 350,
-        "name": "Milotic",
         "method": "lvl up: beleza 171"
       }
     ]
@@ -8452,7 +8245,6 @@
     "evolutions": [
       {
         "to": 354,
-        "name": "Banette",
         "method": "lvl up: lvl 37"
       }
     ]
@@ -8498,7 +8290,6 @@
     "evolutions": [
       {
         "to": 356,
-        "name": "Dusclops",
         "method": "lvl up: lvl 37"
       }
     ]
@@ -8524,7 +8315,6 @@
     "evolutions": [
       {
         "to": 477,
-        "name": "Dusknoir",
         "method": "troca segurando Reaper Cloth"
       }
     ]
@@ -8611,7 +8401,6 @@
     "evolutions": [
       {
         "to": 202,
-        "name": "Wobbuffet",
         "method": "lvl up: lvl 15"
       }
     ]
@@ -8637,12 +8426,10 @@
     "evolutions": [
       {
         "to": 362,
-        "name": "Glalie",
         "method": "lvl up: lvl 42"
       },
       {
         "to": 478,
-        "name": "Froslass",
         "method": "item: Dawn Stone, só macho"
       }
     ]
@@ -8689,7 +8476,6 @@
     "evolutions": [
       {
         "to": 364,
-        "name": "Sealeo",
         "method": "lvl up: lvl 32"
       }
     ]
@@ -8716,7 +8502,6 @@
     "evolutions": [
       {
         "to": 365,
-        "name": "Walrein",
         "method": "lvl up: lvl 44"
       }
     ]
@@ -8763,12 +8548,10 @@
     "evolutions": [
       {
         "to": 367,
-        "name": "Huntail",
         "method": "troca segurando Deep Sea Tooth"
       },
       {
         "to": 368,
-        "name": "Gorebyss",
         "method": "troca segurando Deep Sea Scale"
       }
     ]
@@ -8875,7 +8658,6 @@
     "evolutions": [
       {
         "to": 372,
-        "name": "Shelgon",
         "method": "lvl up: lvl 30"
       }
     ]
@@ -8901,7 +8683,6 @@
     "evolutions": [
       {
         "to": 373,
-        "name": "Salamence",
         "method": "lvl up: lvl 50"
       }
     ]
@@ -8949,7 +8730,6 @@
     "evolutions": [
       {
         "to": 375,
-        "name": "Metang",
         "method": "lvl up: lvl 20"
       }
     ]
@@ -8976,7 +8756,6 @@
     "evolutions": [
       {
         "to": 376,
-        "name": "Metagross",
         "method": "lvl up: lvl 45"
       }
     ]
@@ -9227,7 +9006,6 @@
     "evolutions": [
       {
         "to": 388,
-        "name": "Grotle",
         "method": "lvl up: lvl 18"
       }
     ]
@@ -9253,7 +9031,6 @@
     "evolutions": [
       {
         "to": 389,
-        "name": "Torterra",
         "method": "lvl up: lvl 32"
       }
     ]
@@ -9300,7 +9077,6 @@
     "evolutions": [
       {
         "to": 391,
-        "name": "Monferno",
         "method": "lvl up: lvl 14"
       }
     ]
@@ -9327,7 +9103,6 @@
     "evolutions": [
       {
         "to": 392,
-        "name": "Infernape",
         "method": "lvl up: lvl 36"
       }
     ]
@@ -9374,7 +9149,6 @@
     "evolutions": [
       {
         "to": 394,
-        "name": "Prinplup",
         "method": "lvl up: lvl 16"
       }
     ]
@@ -9400,7 +9174,6 @@
     "evolutions": [
       {
         "to": 395,
-        "name": "Empoleon",
         "method": "lvl up: lvl 36"
       }
     ]
@@ -9448,7 +9221,6 @@
     "evolutions": [
       {
         "to": 397,
-        "name": "Staravia",
         "method": "lvl up: lvl 14"
       }
     ]
@@ -9475,7 +9247,6 @@
     "evolutions": [
       {
         "to": 398,
-        "name": "Staraptor",
         "method": "lvl up: lvl 34"
       }
     ]
@@ -9522,7 +9293,6 @@
     "evolutions": [
       {
         "to": 400,
-        "name": "Bibarel",
         "method": "lvl up: lvl 15"
       }
     ]
@@ -9569,7 +9339,6 @@
     "evolutions": [
       {
         "to": 402,
-        "name": "Kricketune",
         "method": "lvl up: lvl 10"
       }
     ]
@@ -9615,7 +9384,6 @@
     "evolutions": [
       {
         "to": 404,
-        "name": "Luxio",
         "method": "lvl up: lvl 15"
       }
     ]
@@ -9641,7 +9409,6 @@
     "evolutions": [
       {
         "to": 405,
-        "name": "Luxray",
         "method": "lvl up: lvl 30"
       }
     ]
@@ -9688,7 +9455,6 @@
     "evolutions": [
       {
         "to": 315,
-        "name": "Roselia",
         "method": "lvl up: amizade 160, de dia"
       }
     ]
@@ -9735,7 +9501,6 @@
     "evolutions": [
       {
         "to": 409,
-        "name": "Rampardos",
         "method": "lvl up: lvl 30"
       }
     ]
@@ -9782,7 +9547,6 @@
     "evolutions": [
       {
         "to": 411,
-        "name": "Bastiodon",
         "method": "lvl up: lvl 30"
       }
     ]
@@ -9829,12 +9593,10 @@
     "evolutions": [
       {
         "to": 413,
-        "name": "Wormadam",
         "method": "lvl up: lvl 20, só macho"
       },
       {
         "to": 414,
-        "name": "Mothim",
         "method": "lvl up: lvl 20, só fêmea"
       }
     ]
@@ -9903,7 +9665,6 @@
     "evolutions": [
       {
         "to": 416,
-        "name": "Vespiquen",
         "method": "lvl up: lvl 21, só macho"
       }
     ]
@@ -9970,7 +9731,6 @@
     "evolutions": [
       {
         "to": 419,
-        "name": "Floatzel",
         "method": "lvl up: lvl 26"
       }
     ]
@@ -10016,7 +9776,6 @@
     "evolutions": [
       {
         "to": 421,
-        "name": "Cherrim",
         "method": "lvl up: lvl 25"
       }
     ]
@@ -10062,7 +9821,6 @@
     "evolutions": [
       {
         "to": 423,
-        "name": "Gastrodon",
         "method": "lvl up: lvl 30"
       }
     ]
@@ -10130,7 +9888,6 @@
     "evolutions": [
       {
         "to": 426,
-        "name": "Drifblim",
         "method": "lvl up: lvl 28"
       }
     ]
@@ -10177,7 +9934,6 @@
     "evolutions": [
       {
         "to": 428,
-        "name": "Lopunny",
         "method": "lvl up: amizade 160"
       }
     ]
@@ -10264,7 +10020,6 @@
     "evolutions": [
       {
         "to": 432,
-        "name": "Purugly",
         "method": "lvl up: lvl 38"
       }
     ]
@@ -10310,7 +10065,6 @@
     "evolutions": [
       {
         "to": 358,
-        "name": "Chimecho",
         "method": "lvl up: amizade 220, de noite"
       }
     ]
@@ -10337,7 +10091,6 @@
     "evolutions": [
       {
         "to": 435,
-        "name": "Skuntank",
         "method": "lvl up: lvl 34"
       }
     ]
@@ -10385,7 +10138,6 @@
     "evolutions": [
       {
         "to": 437,
-        "name": "Bronzong",
         "method": "lvl up: lvl 33"
       }
     ]
@@ -10432,7 +10184,6 @@
     "evolutions": [
       {
         "to": 185,
-        "name": "Sudowoodo",
         "method": "lvl up: sabendo golpe Mimic"
       }
     ]
@@ -10459,7 +10210,6 @@
     "evolutions": [
       {
         "to": 122,
-        "name": "Mr. Mime",
         "method": "lvl up: sabendo golpe Mimic"
       }
     ]
@@ -10485,7 +10235,6 @@
     "evolutions": [
       {
         "to": 113,
-        "name": "Chansey",
         "method": "lvl up: de dia"
       }
     ]
@@ -10554,7 +10303,6 @@
     "evolutions": [
       {
         "to": 444,
-        "name": "Gabite",
         "method": "lvl up: lvl 24"
       }
     ]
@@ -10581,7 +10329,6 @@
     "evolutions": [
       {
         "to": 445,
-        "name": "Garchomp",
         "method": "lvl up: lvl 48"
       }
     ]
@@ -10628,7 +10375,6 @@
     "evolutions": [
       {
         "to": 143,
-        "name": "Snorlax",
         "method": "lvl up: amizade 160"
       }
     ]
@@ -10654,7 +10400,6 @@
     "evolutions": [
       {
         "to": 448,
-        "name": "Lucario",
         "method": "lvl up: amizade 160, de dia"
       }
     ]
@@ -10701,7 +10446,6 @@
     "evolutions": [
       {
         "to": 450,
-        "name": "Hippowdon",
         "method": "lvl up: lvl 34"
       }
     ]
@@ -10748,7 +10492,6 @@
     "evolutions": [
       {
         "to": 452,
-        "name": "Drapion",
         "method": "lvl up: lvl 40"
       }
     ]
@@ -10796,7 +10539,6 @@
     "evolutions": [
       {
         "to": 454,
-        "name": "Toxicroak",
         "method": "lvl up: lvl 37"
       }
     ]
@@ -10863,7 +10605,6 @@
     "evolutions": [
       {
         "to": 457,
-        "name": "Lumineon",
         "method": "lvl up: lvl 31"
       }
     ]
@@ -10910,7 +10651,6 @@
     "evolutions": [
       {
         "to": 226,
-        "name": "Mantine",
         "method": "lvl up"
       }
     ]
@@ -10937,7 +10677,6 @@
     "evolutions": [
       {
         "to": 460,
-        "name": "Abomasnow",
         "method": "lvl up: lvl 40"
       }
     ]
@@ -11680,7 +11419,6 @@
     "evolutions": [
       {
         "to": 496,
-        "name": "Servine",
         "method": "lvl up: lvl 17"
       }
     ]
@@ -11706,7 +11444,6 @@
     "evolutions": [
       {
         "to": 497,
-        "name": "Serperior",
         "method": "lvl up: lvl 36"
       }
     ]
@@ -11752,7 +11489,6 @@
     "evolutions": [
       {
         "to": 499,
-        "name": "Pignite",
         "method": "lvl up: lvl 17"
       }
     ]
@@ -11779,7 +11515,6 @@
     "evolutions": [
       {
         "to": 500,
-        "name": "Emboar",
         "method": "lvl up: lvl 36"
       }
     ]
@@ -11826,7 +11561,6 @@
     "evolutions": [
       {
         "to": 502,
-        "name": "Dewott",
         "method": "lvl up: lvl 17"
       }
     ]
@@ -11852,7 +11586,6 @@
     "evolutions": [
       {
         "to": 503,
-        "name": "Samurott",
         "method": "lvl up: lvl 36"
       }
     ]
@@ -11898,7 +11631,6 @@
     "evolutions": [
       {
         "to": 505,
-        "name": "Watchog",
         "method": "lvl up: lvl 20"
       }
     ]
@@ -11944,7 +11676,6 @@
     "evolutions": [
       {
         "to": 507,
-        "name": "Herdier",
         "method": "lvl up: lvl 16"
       }
     ]
@@ -11970,7 +11701,6 @@
     "evolutions": [
       {
         "to": 508,
-        "name": "Stoutland",
         "method": "lvl up: lvl 32"
       }
     ]
@@ -12016,7 +11746,6 @@
     "evolutions": [
       {
         "to": 510,
-        "name": "Liepard",
         "method": "lvl up: lvl 20"
       }
     ]
@@ -12062,7 +11791,6 @@
     "evolutions": [
       {
         "to": 512,
-        "name": "Simisage",
         "method": "item: Leaf Stone"
       }
     ]
@@ -12108,7 +11836,6 @@
     "evolutions": [
       {
         "to": 514,
-        "name": "Simisear",
         "method": "item: Fire Stone"
       }
     ]
@@ -12154,7 +11881,6 @@
     "evolutions": [
       {
         "to": 516,
-        "name": "Simipour",
         "method": "item: Water Stone"
       }
     ]
@@ -12200,7 +11926,6 @@
     "evolutions": [
       {
         "to": 518,
-        "name": "Musharna",
         "method": "item: Moon Stone"
       }
     ]
@@ -12247,7 +11972,6 @@
     "evolutions": [
       {
         "to": 520,
-        "name": "Tranquill",
         "method": "lvl up: lvl 21"
       }
     ]
@@ -12274,7 +11998,6 @@
     "evolutions": [
       {
         "to": 521,
-        "name": "Unfezant",
         "method": "lvl up: lvl 32"
       }
     ]
@@ -12321,7 +12044,6 @@
     "evolutions": [
       {
         "to": 523,
-        "name": "Zebstrika",
         "method": "lvl up: lvl 27"
       }
     ]
@@ -12367,7 +12089,6 @@
     "evolutions": [
       {
         "to": 525,
-        "name": "Boldore",
         "method": "lvl up: lvl 25"
       }
     ]
@@ -12393,7 +12114,6 @@
     "evolutions": [
       {
         "to": 526,
-        "name": "Gigalith",
         "method": "troca"
       }
     ]
@@ -12440,7 +12160,6 @@
     "evolutions": [
       {
         "to": 528,
-        "name": "Swoobat",
         "method": "lvl up: amizade 160"
       }
     ]
@@ -12487,7 +12206,6 @@
     "evolutions": [
       {
         "to": 530,
-        "name": "Excadrill",
         "method": "lvl up: lvl 31"
       }
     ]
@@ -12554,7 +12272,6 @@
     "evolutions": [
       {
         "to": 533,
-        "name": "Gurdurr",
         "method": "lvl up: lvl 25"
       }
     ]
@@ -12580,7 +12297,6 @@
     "evolutions": [
       {
         "to": 534,
-        "name": "Conkeldurr",
         "method": "troca"
       }
     ]
@@ -12626,7 +12342,6 @@
     "evolutions": [
       {
         "to": 536,
-        "name": "Palpitoad",
         "method": "lvl up: lvl 25"
       }
     ]
@@ -12653,7 +12368,6 @@
     "evolutions": [
       {
         "to": 537,
-        "name": "Seismitoad",
         "method": "lvl up: lvl 36"
       }
     ]
@@ -12741,7 +12455,6 @@
     "evolutions": [
       {
         "to": 541,
-        "name": "Swadloon",
         "method": "lvl up: lvl 20"
       }
     ]
@@ -12768,7 +12481,6 @@
     "evolutions": [
       {
         "to": 542,
-        "name": "Leavanny",
         "method": "lvl up: amizade 220"
       }
     ]
@@ -12816,7 +12528,6 @@
     "evolutions": [
       {
         "to": 544,
-        "name": "Whirlipede",
         "method": "lvl up: lvl 22"
       }
     ]
@@ -12843,7 +12554,6 @@
     "evolutions": [
       {
         "to": 545,
-        "name": "Scolipede",
         "method": "lvl up: lvl 30"
       }
     ]
@@ -12891,7 +12601,6 @@
     "evolutions": [
       {
         "to": 547,
-        "name": "Whimsicott",
         "method": "item: Sun Stone"
       }
     ]
@@ -12938,7 +12647,6 @@
     "evolutions": [
       {
         "to": 549,
-        "name": "Lilligant",
         "method": "item: Sun Stone"
       }
     ]
@@ -12984,7 +12692,6 @@
     "evolutions": [
       {
         "to": 902,
-        "name": "Basculegion",
         "method": "recoil-damage"
       }
     ]
@@ -13011,7 +12718,6 @@
     "evolutions": [
       {
         "to": 552,
-        "name": "Krokorok",
         "method": "lvl up: lvl 29"
       }
     ]
@@ -13038,7 +12744,6 @@
     "evolutions": [
       {
         "to": 553,
-        "name": "Krookodile",
         "method": "lvl up: lvl 40"
       }
     ]
@@ -13085,7 +12790,6 @@
     "evolutions": [
       {
         "to": 555,
-        "name": "Darmanitan",
         "method": "lvl up: lvl 35"
       }
     ]
@@ -13152,7 +12856,6 @@
     "evolutions": [
       {
         "to": 558,
-        "name": "Crustle",
         "method": "lvl up: lvl 34"
       }
     ]
@@ -13200,7 +12903,6 @@
     "evolutions": [
       {
         "to": 560,
-        "name": "Scrafty",
         "method": "lvl up: lvl 39"
       }
     ]
@@ -13268,12 +12970,10 @@
     "evolutions": [
       {
         "to": 563,
-        "name": "Cofagrigus",
         "method": "lvl up: lvl 34"
       },
       {
         "to": 867,
-        "name": "Runerigus",
         "method": "take-damage"
       }
     ]
@@ -13320,7 +13020,6 @@
     "evolutions": [
       {
         "to": 565,
-        "name": "Carracosta",
         "method": "lvl up: lvl 37"
       }
     ]
@@ -13368,7 +13067,6 @@
     "evolutions": [
       {
         "to": 567,
-        "name": "Archeops",
         "method": "lvl up: lvl 37"
       }
     ]
@@ -13415,7 +13113,6 @@
     "evolutions": [
       {
         "to": 569,
-        "name": "Garbodor",
         "method": "lvl up: lvl 36"
       }
     ]
@@ -13461,7 +13158,6 @@
     "evolutions": [
       {
         "to": 571,
-        "name": "Zoroark",
         "method": "lvl up: lvl 30"
       }
     ]
@@ -13507,7 +13203,6 @@
     "evolutions": [
       {
         "to": 573,
-        "name": "Cinccino",
         "method": "item: Shiny Stone"
       }
     ]
@@ -13553,7 +13248,6 @@
     "evolutions": [
       {
         "to": 575,
-        "name": "Gothorita",
         "method": "lvl up: lvl 32"
       }
     ]
@@ -13579,7 +13273,6 @@
     "evolutions": [
       {
         "to": 576,
-        "name": "Gothitelle",
         "method": "lvl up: lvl 41"
       }
     ]
@@ -13625,7 +13318,6 @@
     "evolutions": [
       {
         "to": 578,
-        "name": "Duosion",
         "method": "lvl up: lvl 32"
       }
     ]
@@ -13651,7 +13343,6 @@
     "evolutions": [
       {
         "to": 579,
-        "name": "Reuniclus",
         "method": "lvl up: lvl 41"
       }
     ]
@@ -13698,7 +13389,6 @@
     "evolutions": [
       {
         "to": 581,
-        "name": "Swanna",
         "method": "lvl up: lvl 35"
       }
     ]
@@ -13745,7 +13435,6 @@
     "evolutions": [
       {
         "to": 583,
-        "name": "Vanillish",
         "method": "lvl up: lvl 35"
       }
     ]
@@ -13771,7 +13460,6 @@
     "evolutions": [
       {
         "to": 584,
-        "name": "Vanilluxe",
         "method": "lvl up: lvl 47"
       }
     ]
@@ -13818,7 +13506,6 @@
     "evolutions": [
       {
         "to": 586,
-        "name": "Sawsbuck",
         "method": "lvl up: lvl 34"
       }
     ]
@@ -13886,7 +13573,6 @@
     "evolutions": [
       {
         "to": 589,
-        "name": "Escavalier",
         "method": "troca"
       }
     ]
@@ -13934,7 +13620,6 @@
     "evolutions": [
       {
         "to": 591,
-        "name": "Amoonguss",
         "method": "lvl up: lvl 39"
       }
     ]
@@ -13982,7 +13667,6 @@
     "evolutions": [
       {
         "to": 593,
-        "name": "Jellicent",
         "method": "lvl up: lvl 40"
       }
     ]
@@ -14050,7 +13734,6 @@
     "evolutions": [
       {
         "to": 596,
-        "name": "Galvantula",
         "method": "lvl up: lvl 36"
       }
     ]
@@ -14098,7 +13781,6 @@
     "evolutions": [
       {
         "to": 598,
-        "name": "Ferrothorn",
         "method": "lvl up: lvl 40"
       }
     ]
@@ -14145,7 +13827,6 @@
     "evolutions": [
       {
         "to": 600,
-        "name": "Klang",
         "method": "lvl up: lvl 38"
       }
     ]
@@ -14171,7 +13852,6 @@
     "evolutions": [
       {
         "to": 601,
-        "name": "Klinklang",
         "method": "lvl up: lvl 49"
       }
     ]
@@ -14217,7 +13897,6 @@
     "evolutions": [
       {
         "to": 603,
-        "name": "Eelektrik",
         "method": "lvl up: lvl 39"
       }
     ]
@@ -14243,7 +13922,6 @@
     "evolutions": [
       {
         "to": 604,
-        "name": "Eelektross",
         "method": "item: Thunder Stone"
       }
     ]
@@ -14289,7 +13967,6 @@
     "evolutions": [
       {
         "to": 606,
-        "name": "Beheeyem",
         "method": "lvl up: lvl 42"
       }
     ]
@@ -14336,7 +14013,6 @@
     "evolutions": [
       {
         "to": 608,
-        "name": "Lampent",
         "method": "lvl up: lvl 41"
       }
     ]
@@ -14363,7 +14039,6 @@
     "evolutions": [
       {
         "to": 609,
-        "name": "Chandelure",
         "method": "item: Dusk Stone"
       }
     ]
@@ -14410,7 +14085,6 @@
     "evolutions": [
       {
         "to": 611,
-        "name": "Fraxure",
         "method": "lvl up: lvl 38"
       }
     ]
@@ -14436,7 +14110,6 @@
     "evolutions": [
       {
         "to": 612,
-        "name": "Haxorus",
         "method": "lvl up: lvl 48"
       }
     ]
@@ -14482,7 +14155,6 @@
     "evolutions": [
       {
         "to": 614,
-        "name": "Beartic",
         "method": "lvl up: lvl 37"
       }
     ]
@@ -14548,7 +14220,6 @@
     "evolutions": [
       {
         "to": 617,
-        "name": "Accelgor",
         "method": "troca"
       }
     ]
@@ -14615,7 +14286,6 @@
     "evolutions": [
       {
         "to": 620,
-        "name": "Mienshao",
         "method": "lvl up: lvl 50"
       }
     ]
@@ -14682,7 +14352,6 @@
     "evolutions": [
       {
         "to": 623,
-        "name": "Golurk",
         "method": "lvl up: lvl 43"
       }
     ]
@@ -14730,7 +14399,6 @@
     "evolutions": [
       {
         "to": 625,
-        "name": "Bisharp",
         "method": "lvl up: lvl 52"
       }
     ]
@@ -14757,7 +14425,6 @@
     "evolutions": [
       {
         "to": 983,
-        "name": "Kingambit",
         "method": "other"
       }
     ]
@@ -14804,7 +14471,6 @@
     "evolutions": [
       {
         "to": 628,
-        "name": "Braviary",
         "method": "lvl up: lvl 54"
       }
     ]
@@ -14852,7 +14518,6 @@
     "evolutions": [
       {
         "to": 630,
-        "name": "Mandibuzz",
         "method": "lvl up: lvl 54"
       }
     ]
@@ -14941,7 +14606,6 @@
     "evolutions": [
       {
         "to": 634,
-        "name": "Zweilous",
         "method": "lvl up: lvl 50"
       }
     ]
@@ -14968,7 +14632,6 @@
     "evolutions": [
       {
         "to": 635,
-        "name": "Hydreigon",
         "method": "lvl up: lvl 64"
       }
     ]
@@ -15016,7 +14679,6 @@
     "evolutions": [
       {
         "to": 637,
-        "name": "Volcarona",
         "method": "lvl up: lvl 59"
       }
     ]
@@ -15314,7 +14976,6 @@
     "evolutions": [
       {
         "to": 651,
-        "name": "Quilladin",
         "method": "lvl up: lvl 16"
       }
     ]
@@ -15340,7 +15001,6 @@
     "evolutions": [
       {
         "to": 652,
-        "name": "Chesnaught",
         "method": "lvl up: lvl 36"
       }
     ]
@@ -15387,7 +15047,6 @@
     "evolutions": [
       {
         "to": 654,
-        "name": "Braixen",
         "method": "lvl up: lvl 16"
       }
     ]
@@ -15413,7 +15072,6 @@
     "evolutions": [
       {
         "to": 655,
-        "name": "Delphox",
         "method": "lvl up: lvl 36"
       }
     ]
@@ -15460,7 +15118,6 @@
     "evolutions": [
       {
         "to": 657,
-        "name": "Frogadier",
         "method": "lvl up: lvl 16"
       }
     ]
@@ -15486,7 +15143,6 @@
     "evolutions": [
       {
         "to": 658,
-        "name": "Greninja",
         "method": "lvl up: lvl 36"
       }
     ]
@@ -15533,7 +15189,6 @@
     "evolutions": [
       {
         "to": 660,
-        "name": "Diggersby",
         "method": "lvl up: lvl 20"
       }
     ]
@@ -15581,7 +15236,6 @@
     "evolutions": [
       {
         "to": 662,
-        "name": "Fletchinder",
         "method": "lvl up: lvl 17"
       }
     ]
@@ -15608,7 +15262,6 @@
     "evolutions": [
       {
         "to": 663,
-        "name": "Talonflame",
         "method": "lvl up: lvl 35"
       }
     ]
@@ -15655,7 +15308,6 @@
     "evolutions": [
       {
         "to": 665,
-        "name": "Spewpa",
         "method": "lvl up: lvl 9"
       }
     ]
@@ -15681,7 +15333,6 @@
     "evolutions": [
       {
         "to": 666,
-        "name": "Vivillon",
         "method": "lvl up: lvl 12"
       }
     ]
@@ -15729,7 +15380,6 @@
     "evolutions": [
       {
         "to": 668,
-        "name": "Pyroar",
         "method": "lvl up: lvl 35"
       }
     ]
@@ -15776,7 +15426,6 @@
     "evolutions": [
       {
         "to": 670,
-        "name": "Floette",
         "method": "lvl up: lvl 19"
       }
     ]
@@ -15802,7 +15451,6 @@
     "evolutions": [
       {
         "to": 671,
-        "name": "Florges",
         "method": "item: Shiny Stone"
       }
     ]
@@ -15848,7 +15496,6 @@
     "evolutions": [
       {
         "to": 673,
-        "name": "Gogoat",
         "method": "lvl up: lvl 32"
       }
     ]
@@ -15894,7 +15541,6 @@
     "evolutions": [
       {
         "to": 675,
-        "name": "Pangoro",
         "method": "lvl up: lvl 32"
       }
     ]
@@ -15961,7 +15607,6 @@
     "evolutions": [
       {
         "to": 678,
-        "name": "Meowstic",
         "method": "lvl up: lvl 25"
       }
     ]
@@ -16008,7 +15653,6 @@
     "evolutions": [
       {
         "to": 680,
-        "name": "Doublade",
         "method": "lvl up: lvl 35"
       }
     ]
@@ -16035,7 +15679,6 @@
     "evolutions": [
       {
         "to": 681,
-        "name": "Aegislash",
         "method": "item: Dusk Stone"
       }
     ]
@@ -16082,7 +15725,6 @@
     "evolutions": [
       {
         "to": 683,
-        "name": "Aromatisse",
         "method": "troca segurando Sachet"
       }
     ]
@@ -16128,7 +15770,6 @@
     "evolutions": [
       {
         "to": 685,
-        "name": "Slurpuff",
         "method": "troca segurando Whipped Dream"
       }
     ]
@@ -16175,7 +15816,6 @@
     "evolutions": [
       {
         "to": 687,
-        "name": "Malamar",
         "method": "virar de ponta cabeça (lvl 30+)"
       }
     ]
@@ -16223,7 +15863,6 @@
     "evolutions": [
       {
         "to": 689,
-        "name": "Barbaracle",
         "method": "lvl up: lvl 39"
       }
     ]
@@ -16271,7 +15910,6 @@
     "evolutions": [
       {
         "to": 691,
-        "name": "Dragalge",
         "method": "lvl up: lvl 48"
       }
     ]
@@ -16318,7 +15956,6 @@
     "evolutions": [
       {
         "to": 693,
-        "name": "Clawitzer",
         "method": "lvl up: lvl 37"
       }
     ]
@@ -16365,7 +16002,6 @@
     "evolutions": [
       {
         "to": 695,
-        "name": "Heliolisk",
         "method": "item: Sun Stone"
       }
     ]
@@ -16413,7 +16049,6 @@
     "evolutions": [
       {
         "to": 697,
-        "name": "Tyrantrum",
         "method": "lvl up: lvl 39, de dia"
       }
     ]
@@ -16461,7 +16096,6 @@
     "evolutions": [
       {
         "to": 699,
-        "name": "Aurorus",
         "method": "lvl up: lvl 39, de noite"
       }
     ]
@@ -16591,7 +16225,6 @@
     "evolutions": [
       {
         "to": 705,
-        "name": "Sliggoo",
         "method": "lvl up: lvl 40"
       }
     ]
@@ -16617,7 +16250,6 @@
     "evolutions": [
       {
         "to": 706,
-        "name": "Goodra",
         "method": "lvl up: lvl 50"
       }
     ]
@@ -16685,7 +16317,6 @@
     "evolutions": [
       {
         "to": 709,
-        "name": "Trevenant",
         "method": "troca"
       }
     ]
@@ -16733,7 +16364,6 @@
     "evolutions": [
       {
         "to": 711,
-        "name": "Gourgeist",
         "method": "troca"
       }
     ]
@@ -16780,7 +16410,6 @@
     "evolutions": [
       {
         "to": 713,
-        "name": "Avalugg",
         "method": "lvl up: lvl 37"
       }
     ]
@@ -16827,7 +16456,6 @@
     "evolutions": [
       {
         "to": 715,
-        "name": "Noivern",
         "method": "lvl up: lvl 48"
       }
     ]
@@ -17000,7 +16628,6 @@
     "evolutions": [
       {
         "to": 723,
-        "name": "Dartrix",
         "method": "lvl up: lvl 17"
       }
     ]
@@ -17027,7 +16654,6 @@
     "evolutions": [
       {
         "to": 724,
-        "name": "Decidueye",
         "method": "lvl up: lvl 34"
       }
     ]
@@ -17074,7 +16700,6 @@
     "evolutions": [
       {
         "to": 726,
-        "name": "Torracat",
         "method": "lvl up: lvl 17"
       }
     ]
@@ -17100,7 +16725,6 @@
     "evolutions": [
       {
         "to": 727,
-        "name": "Incineroar",
         "method": "lvl up: lvl 34"
       }
     ]
@@ -17147,7 +16771,6 @@
     "evolutions": [
       {
         "to": 729,
-        "name": "Brionne",
         "method": "lvl up: lvl 17"
       }
     ]
@@ -17173,7 +16796,6 @@
     "evolutions": [
       {
         "to": 730,
-        "name": "Primarina",
         "method": "lvl up: lvl 34"
       }
     ]
@@ -17221,7 +16843,6 @@
     "evolutions": [
       {
         "to": 732,
-        "name": "Trumbeak",
         "method": "lvl up: lvl 14"
       }
     ]
@@ -17248,7 +16869,6 @@
     "evolutions": [
       {
         "to": 733,
-        "name": "Toucannon",
         "method": "lvl up: lvl 28"
       }
     ]
@@ -17295,7 +16915,6 @@
     "evolutions": [
       {
         "to": 735,
-        "name": "Gumshoos",
         "method": "lvl up: lvl 20, de dia"
       }
     ]
@@ -17341,7 +16960,6 @@
     "evolutions": [
       {
         "to": 737,
-        "name": "Charjabug",
         "method": "lvl up: lvl 20"
       }
     ]
@@ -17368,7 +16986,6 @@
     "evolutions": [
       {
         "to": 738,
-        "name": "Vikavolt",
         "method": "lvl up"
       }
     ]
@@ -17415,7 +17032,6 @@
     "evolutions": [
       {
         "to": 740,
-        "name": "Crabominable",
         "method": "lvl up: local especial: Mount Lanakila"
       }
     ]
@@ -17484,7 +17100,6 @@
     "evolutions": [
       {
         "to": 743,
-        "name": "Ribombee",
         "method": "lvl up: lvl 25"
       }
     ]
@@ -17531,7 +17146,6 @@
     "evolutions": [
       {
         "to": 745,
-        "name": "Lycanroc",
         "method": "lvl up: lvl 25, de dia"
       }
     ]
@@ -17598,7 +17212,6 @@
     "evolutions": [
       {
         "to": 748,
-        "name": "Toxapex",
         "method": "lvl up: lvl 38"
       }
     ]
@@ -17645,7 +17258,6 @@
     "evolutions": [
       {
         "to": 750,
-        "name": "Mudsdale",
         "method": "lvl up: lvl 30"
       }
     ]
@@ -17692,7 +17304,6 @@
     "evolutions": [
       {
         "to": 752,
-        "name": "Araquanid",
         "method": "lvl up: lvl 22"
       }
     ]
@@ -17739,7 +17350,6 @@
     "evolutions": [
       {
         "to": 754,
-        "name": "Lurantis",
         "method": "lvl up: lvl 34, de dia"
       }
     ]
@@ -17786,7 +17396,6 @@
     "evolutions": [
       {
         "to": 756,
-        "name": "Shiinotic",
         "method": "lvl up: lvl 24"
       }
     ]
@@ -17834,7 +17443,6 @@
     "evolutions": [
       {
         "to": 758,
-        "name": "Salazzle",
         "method": "lvl up: lvl 33, só macho"
       }
     ]
@@ -17882,7 +17490,6 @@
     "evolutions": [
       {
         "to": 760,
-        "name": "Bewear",
         "method": "lvl up: lvl 27"
       }
     ]
@@ -17929,7 +17536,6 @@
     "evolutions": [
       {
         "to": 762,
-        "name": "Steenee",
         "method": "lvl up: lvl 18"
       }
     ]
@@ -17955,7 +17561,6 @@
     "evolutions": [
       {
         "to": 763,
-        "name": "Tsareena",
         "method": "lvl up: sabendo golpe Stomp"
       }
     ]
@@ -18063,7 +17668,6 @@
     "evolutions": [
       {
         "to": 768,
-        "name": "Golisopod",
         "method": "lvl up: lvl 30"
       }
     ]
@@ -18111,7 +17715,6 @@
     "evolutions": [
       {
         "to": 770,
-        "name": "Palossand",
         "method": "lvl up: lvl 42"
       }
     ]
@@ -18178,7 +17781,6 @@
     "evolutions": [
       {
         "to": 773,
-        "name": "Silvally",
         "method": "lvl up: amizade 160"
       }
     ]
@@ -18391,7 +17993,6 @@
     "evolutions": [
       {
         "to": 783,
-        "name": "Hakamo-o",
         "method": "lvl up: lvl 35"
       }
     ]
@@ -18418,7 +18019,6 @@
     "evolutions": [
       {
         "to": 784,
-        "name": "Kommo-o",
         "method": "lvl up: lvl 45"
       }
     ]
@@ -18549,7 +18149,6 @@
     "evolutions": [
       {
         "to": 790,
-        "name": "Cosmoem",
         "method": "lvl up: lvl 43"
       }
     ]
@@ -18575,12 +18174,10 @@
     "evolutions": [
       {
         "to": 791,
-        "name": "Solgaleo",
         "method": "lvl up: lvl 53"
       },
       {
         "to": 792,
-        "name": "Lunala",
         "method": "lvl up: lvl 53"
       }
     ]
@@ -18856,7 +18453,6 @@
     "evolutions": [
       {
         "to": 804,
-        "name": "Naganadel",
         "method": "lvl up: sabendo golpe Dragon Pulse"
       }
     ]
@@ -18965,7 +18561,6 @@
     "evolutions": [
       {
         "to": 809,
-        "name": "Melmetal",
         "method": null
       }
     ]
@@ -19011,7 +18606,6 @@
     "evolutions": [
       {
         "to": 811,
-        "name": "Thwackey",
         "method": "lvl up: lvl 16"
       }
     ]
@@ -19037,7 +18631,6 @@
     "evolutions": [
       {
         "to": 812,
-        "name": "Rillaboom",
         "method": "lvl up: lvl 35"
       }
     ]
@@ -19083,7 +18676,6 @@
     "evolutions": [
       {
         "to": 814,
-        "name": "Raboot",
         "method": "lvl up: lvl 16"
       }
     ]
@@ -19109,7 +18701,6 @@
     "evolutions": [
       {
         "to": 815,
-        "name": "Cinderace",
         "method": "lvl up: lvl 35"
       }
     ]
@@ -19155,7 +18746,6 @@
     "evolutions": [
       {
         "to": 817,
-        "name": "Drizzile",
         "method": "lvl up: lvl 16"
       }
     ]
@@ -19181,7 +18771,6 @@
     "evolutions": [
       {
         "to": 818,
-        "name": "Inteleon",
         "method": "lvl up: lvl 35"
       }
     ]
@@ -19227,7 +18816,6 @@
     "evolutions": [
       {
         "to": 820,
-        "name": "Greedent",
         "method": "lvl up: lvl 24"
       }
     ]
@@ -19273,7 +18861,6 @@
     "evolutions": [
       {
         "to": 822,
-        "name": "Corvisquire",
         "method": "lvl up: lvl 18"
       }
     ]
@@ -19299,7 +18886,6 @@
     "evolutions": [
       {
         "to": 823,
-        "name": "Corviknight",
         "method": "lvl up: lvl 38"
       }
     ]
@@ -19346,7 +18932,6 @@
     "evolutions": [
       {
         "to": 825,
-        "name": "Dottler",
         "method": "lvl up: lvl 10"
       }
     ]
@@ -19373,7 +18958,6 @@
     "evolutions": [
       {
         "to": 826,
-        "name": "Orbeetle",
         "method": "lvl up: lvl 30"
       }
     ]
@@ -19420,7 +19004,6 @@
     "evolutions": [
       {
         "to": 828,
-        "name": "Thievul",
         "method": "lvl up: lvl 18"
       }
     ]
@@ -19466,7 +19049,6 @@
     "evolutions": [
       {
         "to": 830,
-        "name": "Eldegoss",
         "method": "lvl up: lvl 20"
       }
     ]
@@ -19512,7 +19094,6 @@
     "evolutions": [
       {
         "to": 832,
-        "name": "Dubwool",
         "method": "lvl up: lvl 24"
       }
     ]
@@ -19558,7 +19139,6 @@
     "evolutions": [
       {
         "to": 834,
-        "name": "Drednaw",
         "method": "lvl up: lvl 22"
       }
     ]
@@ -19605,7 +19185,6 @@
     "evolutions": [
       {
         "to": 836,
-        "name": "Boltund",
         "method": "lvl up: lvl 25"
       }
     ]
@@ -19651,7 +19230,6 @@
     "evolutions": [
       {
         "to": 838,
-        "name": "Carkol",
         "method": "lvl up: lvl 18"
       }
     ]
@@ -19678,7 +19256,6 @@
     "evolutions": [
       {
         "to": 839,
-        "name": "Coalossal",
         "method": "lvl up: lvl 34"
       }
     ]
@@ -19726,17 +19303,14 @@
     "evolutions": [
       {
         "to": 841,
-        "name": "Flapple",
         "method": "item: Tart Apple"
       },
       {
         "to": 842,
-        "name": "Appletun",
         "method": "item: Sweet Apple"
       },
       {
         "to": 1011,
-        "name": "Dipplin",
         "method": null
       }
     ]
@@ -19804,7 +19378,6 @@
     "evolutions": [
       {
         "to": 844,
-        "name": "Sandaconda",
         "method": "lvl up: lvl 36"
       }
     ]
@@ -19871,7 +19444,6 @@
     "evolutions": [
       {
         "to": 847,
-        "name": "Barraskewda",
         "method": "lvl up: lvl 26"
       }
     ]
@@ -19918,7 +19490,6 @@
     "evolutions": [
       {
         "to": 849,
-        "name": "Toxtricity",
         "method": "lvl up: lvl 30"
       }
     ]
@@ -19966,7 +19537,6 @@
     "evolutions": [
       {
         "to": 851,
-        "name": "Centiskorch",
         "method": "lvl up: lvl 28"
       }
     ]
@@ -20013,7 +19583,6 @@
     "evolutions": [
       {
         "to": 853,
-        "name": "Grapploct",
         "method": "lvl up: sabendo golpe Taunt"
       }
     ]
@@ -20059,7 +19628,6 @@
     "evolutions": [
       {
         "to": 855,
-        "name": "Polteageist",
         "method": "item: Cracked Pot"
       }
     ]
@@ -20105,7 +19673,6 @@
     "evolutions": [
       {
         "to": 857,
-        "name": "Hattrem",
         "method": "lvl up: lvl 32"
       }
     ]
@@ -20131,7 +19698,6 @@
     "evolutions": [
       {
         "to": 858,
-        "name": "Hatterene",
         "method": "lvl up: lvl 42"
       }
     ]
@@ -20179,7 +19745,6 @@
     "evolutions": [
       {
         "to": 860,
-        "name": "Morgrem",
         "method": "lvl up: lvl 32"
       }
     ]
@@ -20206,7 +19771,6 @@
     "evolutions": [
       {
         "to": 861,
-        "name": "Grimmsnarl",
         "method": "lvl up: lvl 42"
       }
     ]
@@ -20376,7 +19940,6 @@
     "evolutions": [
       {
         "to": 869,
-        "name": "Alcremie",
         "method": "spin"
       }
     ]
@@ -20463,7 +20026,6 @@
     "evolutions": [
       {
         "to": 873,
-        "name": "Frosmoth",
         "method": "lvl up: amizade 160, de noite"
       }
     ]
@@ -20592,7 +20154,6 @@
     "evolutions": [
       {
         "to": 879,
-        "name": "Copperajah",
         "method": "lvl up: lvl 34"
       }
     ]
@@ -20723,7 +20284,6 @@
     "evolutions": [
       {
         "to": 1018,
-        "name": "Archaludon",
         "method": null
       }
     ]
@@ -20750,7 +20310,6 @@
     "evolutions": [
       {
         "to": 886,
-        "name": "Drakloak",
         "method": "lvl up: lvl 50"
       }
     ]
@@ -20777,7 +20336,6 @@
     "evolutions": [
       {
         "to": 887,
-        "name": "Dragapult",
         "method": "lvl up: lvl 60"
       }
     ]
@@ -20885,7 +20443,6 @@
     "evolutions": [
       {
         "to": 892,
-        "name": "Urshifu",
         "method": "tower-of-darkness"
       }
     ]
@@ -21201,7 +20758,6 @@
     "evolutions": [
       {
         "to": 907,
-        "name": "Floragato",
         "method": "lvl up: lvl 16"
       }
     ]
@@ -21227,7 +20783,6 @@
     "evolutions": [
       {
         "to": 908,
-        "name": "Meowscarada",
         "method": "lvl up: lvl 36"
       }
     ]
@@ -21274,7 +20829,6 @@
     "evolutions": [
       {
         "to": 910,
-        "name": "Crocalor",
         "method": "lvl up: lvl 16"
       }
     ]
@@ -21300,7 +20854,6 @@
     "evolutions": [
       {
         "to": 911,
-        "name": "Skeledirge",
         "method": "lvl up: lvl 36"
       }
     ]
@@ -21347,7 +20900,6 @@
     "evolutions": [
       {
         "to": 913,
-        "name": "Quaxwell",
         "method": "lvl up: lvl 16"
       }
     ]
@@ -21373,7 +20925,6 @@
     "evolutions": [
       {
         "to": 914,
-        "name": "Quaquaval",
         "method": "lvl up: lvl 36"
       }
     ]
@@ -21420,7 +20971,6 @@
     "evolutions": [
       {
         "to": 916,
-        "name": "Oinkologne",
         "method": "lvl up: lvl 18"
       }
     ]
@@ -21466,7 +21016,6 @@
     "evolutions": [
       {
         "to": 918,
-        "name": "Spidops",
         "method": "lvl up: lvl 15"
       }
     ]
@@ -21512,7 +21061,6 @@
     "evolutions": [
       {
         "to": 920,
-        "name": "Lokix",
         "method": "lvl up: lvl 24"
       }
     ]
@@ -21559,7 +21107,6 @@
     "evolutions": [
       {
         "to": 922,
-        "name": "Pawmo",
         "method": "lvl up: lvl 18"
       }
     ]
@@ -21586,7 +21133,6 @@
     "evolutions": [
       {
         "to": 923,
-        "name": "Pawmot",
         "method": "other"
       }
     ]
@@ -21633,7 +21179,6 @@
     "evolutions": [
       {
         "to": 925,
-        "name": "Maushold",
         "method": "other"
       }
     ]
@@ -21679,7 +21224,6 @@
     "evolutions": [
       {
         "to": 927,
-        "name": "Dachsbun",
         "method": "lvl up: lvl 26"
       }
     ]
@@ -21726,7 +21270,6 @@
     "evolutions": [
       {
         "to": 929,
-        "name": "Dolliv",
         "method": "lvl up: lvl 25"
       }
     ]
@@ -21753,7 +21296,6 @@
     "evolutions": [
       {
         "to": 930,
-        "name": "Arboliva",
         "method": "lvl up: lvl 35"
       }
     ]
@@ -21821,7 +21363,6 @@
     "evolutions": [
       {
         "to": 933,
-        "name": "Naclstack",
         "method": "lvl up: lvl 24"
       }
     ]
@@ -21847,7 +21388,6 @@
     "evolutions": [
       {
         "to": 934,
-        "name": "Garganacl",
         "method": "lvl up: lvl 38"
       }
     ]
@@ -21893,12 +21433,10 @@
     "evolutions": [
       {
         "to": 936,
-        "name": "Armarouge",
         "method": "item: Auspicious Armor"
       },
       {
         "to": 937,
-        "name": "Ceruledge",
         "method": "item: Malicious Armor"
       }
     ]
@@ -21966,7 +21504,6 @@
     "evolutions": [
       {
         "to": 939,
-        "name": "Bellibolt",
         "method": "item: Thunder Stone"
       }
     ]
@@ -22013,7 +21550,6 @@
     "evolutions": [
       {
         "to": 941,
-        "name": "Kilowattrel",
         "method": "lvl up: lvl 25"
       }
     ]
@@ -22060,7 +21596,6 @@
     "evolutions": [
       {
         "to": 943,
-        "name": "Mabosstiff",
         "method": "lvl up: lvl 30"
       }
     ]
@@ -22107,7 +21642,6 @@
     "evolutions": [
       {
         "to": 945,
-        "name": "Grafaiai",
         "method": "lvl up: lvl 28"
       }
     ]
@@ -22155,7 +21689,6 @@
     "evolutions": [
       {
         "to": 947,
-        "name": "Brambleghast",
         "method": "other"
       }
     ]
@@ -22203,7 +21736,6 @@
     "evolutions": [
       {
         "to": 949,
-        "name": "Toedscruel",
         "method": "lvl up: lvl 30"
       }
     ]
@@ -22270,7 +21802,6 @@
     "evolutions": [
       {
         "to": 952,
-        "name": "Scovillain",
         "method": "item: Fire Stone"
       }
     ]
@@ -22317,7 +21848,6 @@
     "evolutions": [
       {
         "to": 954,
-        "name": "Rabsca",
         "method": "other"
       }
     ]
@@ -22364,7 +21894,6 @@
     "evolutions": [
       {
         "to": 956,
-        "name": "Espathra",
         "method": "lvl up: lvl 35"
       }
     ]
@@ -22411,7 +21940,6 @@
     "evolutions": [
       {
         "to": 958,
-        "name": "Tinkatuff",
         "method": "lvl up: lvl 24"
       }
     ]
@@ -22438,7 +21966,6 @@
     "evolutions": [
       {
         "to": 959,
-        "name": "Tinkaton",
         "method": "lvl up: lvl 38"
       }
     ]
@@ -22485,7 +22012,6 @@
     "evolutions": [
       {
         "to": 961,
-        "name": "Wugtrio",
         "method": "lvl up: lvl 26"
       }
     ]
@@ -22552,7 +22078,6 @@
     "evolutions": [
       {
         "to": 964,
-        "name": "Palafin",
         "method": "other"
       }
     ]
@@ -22599,7 +22124,6 @@
     "evolutions": [
       {
         "to": 966,
-        "name": "Revavroom",
         "method": "lvl up: lvl 40"
       }
     ]
@@ -22688,7 +22212,6 @@
     "evolutions": [
       {
         "to": 970,
-        "name": "Glimmora",
         "method": "lvl up: lvl 35"
       }
     ]
@@ -22735,7 +22258,6 @@
     "evolutions": [
       {
         "to": 972,
-        "name": "Houndstone",
         "method": "lvl up: lvl 30, de noite"
       }
     ]
@@ -22802,7 +22324,6 @@
     "evolutions": [
       {
         "to": 975,
-        "name": "Cetitan",
         "method": "item: Ice Stone"
       }
     ]
@@ -23267,7 +22788,6 @@
     "evolutions": [
       {
         "to": 997,
-        "name": "Arctibax",
         "method": "lvl up: lvl 35"
       }
     ]
@@ -23294,7 +22814,6 @@
     "evolutions": [
       {
         "to": 998,
-        "name": "Baxcalibur",
         "method": "lvl up: lvl 54"
       }
     ]
@@ -23341,7 +22860,6 @@
     "evolutions": [
       {
         "to": 1000,
-        "name": "Gholdengo",
         "method": "other"
       }
     ]
@@ -23599,7 +23117,6 @@
     "evolutions": [
       {
         "to": 1019,
-        "name": "Hydrapple",
         "method": null
       }
     ]
@@ -23626,7 +23143,6 @@
     "evolutions": [
       {
         "to": 1013,
-        "name": "Sinistcha",
         "method": null
       }
     ]
