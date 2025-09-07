@@ -10,6 +10,7 @@ export struct EvolutionNodeSlint {
     stage: int,
     row: int,
     method: string,      // "" para a base
+    artwork: image,
 }
 
 export struct EvolutionEdgeSlint {  // opcional (para desenhar linhas)
@@ -26,17 +27,24 @@ component EvolutionGraphView inherits HorizontalLayout {
     property <length> name-size:15px;
     property <length> method-size:12px;
 
-    spacing: 24px;
+    spacing: 60px;
     alignment: LayoutAlignment.center;
 
     // Stage 0
     VerticalLayout {
         for n in nodes : VerticalLayout {
             if (n.stage == 0) : Rectangle {
-                background: #141a22;
                 border-radius: 8px;
                 VerticalLayout {
                     alignment: LayoutAlignment.center;
+                    HorizontalLayout {
+                        alignment: center;
+                        Image {
+                            source: n.artwork;
+                            width: 96px;
+                            height: 96px;
+                        }
+                    }
                     Text { text: n.name; color: #e5e7eb; font-size: name-size; horizontal-alignment: center; }
                     if (n.method != "") : Text { text: n.method; color: #9ca3af; font-size: method-size; horizontal-alignment: center; }
                 }
@@ -47,10 +55,17 @@ component EvolutionGraphView inherits HorizontalLayout {
     if(max-stage >= 1) : VerticalLayout {
         for n in nodes : VerticalLayout {
             if (n.stage == 1) : Rectangle {
-                background: #141a22;
                 border-radius: 8px;
                 VerticalLayout {
                     alignment: LayoutAlignment.center;
+                    HorizontalLayout {
+                        alignment: center;
+                        Image {
+                            source: n.artwork;
+                            width: 96px;
+                            height: 96px;
+                        }
+                    }
                     Text { text: n.name; color: #e5e7eb; font-size: name-size; horizontal-alignment: center; }
                     if (n.method != "") : Text { text: n.method; color: #9ca3af; font-size: method-size; horizontal-alignment: center; }
                 }
@@ -60,10 +75,17 @@ component EvolutionGraphView inherits HorizontalLayout {
     if(max-stage >= 2) : VerticalLayout {
         for n in nodes : VerticalLayout {
             if (n.stage == 2) : Rectangle {
-                background: #141a22;
                 border-radius: 8px;
                 VerticalLayout {
                     alignment: LayoutAlignment.center;
+                    HorizontalLayout {
+                        alignment: center;
+                        Image {
+                            source: n.artwork;
+                            width: 96px;
+                            height: 96px;
+                        }
+                    }
                     Text { text: n.name; color: #e5e7eb; font-size: name-size; horizontal-alignment: center; }
                     if (n.method != "") : Text { text: n.method; color: #9ca3af; font-size: method-size; horizontal-alignment: center; }
                 }
@@ -73,10 +95,17 @@ component EvolutionGraphView inherits HorizontalLayout {
     if(max-stage >= 3) : VerticalLayout {
         for n in nodes : VerticalLayout {
             if (n.stage == 3) : Rectangle {
-                background: #141a22;
                 border-radius: 8px;
                 VerticalLayout {
                     alignment: LayoutAlignment.center;
+                    HorizontalLayout {
+                        alignment: center;
+                        Image {
+                            source: n.artwork;
+                            width: 96px;
+                            height: 96px;
+                        }
+                    }
                     Text { text: n.name; color: #e5e7eb; font-size: name-size; horizontal-alignment: center; }
                     if (n.method != "") : Text { text: n.method; color: #9ca3af; font-size: method-size; horizontal-alignment: center; }
                 }
@@ -86,10 +115,17 @@ component EvolutionGraphView inherits HorizontalLayout {
     if(max-stage >= 4) : VerticalLayout {
         for n in nodes : VerticalLayout {
             if (n.stage == 4) : Rectangle {
-                background: #141a22;
                 border-radius: 8px;
                 VerticalLayout {
                     alignment: LayoutAlignment.center;
+                    HorizontalLayout {
+                        alignment: center;
+                        Image {
+                            source: n.artwork;
+                            width: 96px;
+                            height: 96px;
+                        }
+                    }
                     Text { text: n.name; color: #e5e7eb; font-size: name-size; horizontal-alignment: center; }
                     if (n.method != "") : Text { text: n.method; color: #9ca3af; font-size: method-size; horizontal-alignment: center; }
                 }
@@ -99,10 +135,17 @@ component EvolutionGraphView inherits HorizontalLayout {
     if(max-stage >= 5) : VerticalLayout {
         for n in nodes : VerticalLayout {
             if (n.stage == 5) : Rectangle {
-                background: #141a22;
                 border-radius: 8px;
                 VerticalLayout {
                     alignment: LayoutAlignment.center;
+                    HorizontalLayout {
+                        alignment: center;
+                        Image {
+                            source: n.artwork;
+                            width: 96px;
+                            height: 96px;
+                        }
+                    }
                     Text { text: n.name; color: #e5e7eb; font-size: name-size; horizontal-alignment: center; }
                     if (n.method != "") : Text { text: n.method; color: #9ca3af; font-size: method-size; horizontal-alignment: center; }
                 }

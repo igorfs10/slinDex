@@ -145,6 +145,7 @@ fn to_slint(g: &EvolutionGraph) -> (Vec<EvolutionNodeSlint>, Vec<EvolutionEdgeSl
                 name: node.name.into(),
                 stage: node.stage as i32,
                 row: row as i32,
+                artwork: artwork_img(node.id),
                 method: if node.stage == 0 {
                     "".into()
                 } else {
@@ -181,14 +182,6 @@ pub fn find_base_id(mut id: u32) -> u32 {
             return id; // ninguém evolui para ele → é base
         }
     }
-}
-
-// Pega evoluções de um pokémon
-pub fn get_evolutions(id: u32) -> Vec<Evolution> {
-    if let Some(pokemon) = POKEMON_LIST.iter().find(|p| p.species_id == id) {
-        return pokemon.evolutions.to_vec();
-    }
-    Vec::new()
 }
 
 // =================== UI Utils ===================
