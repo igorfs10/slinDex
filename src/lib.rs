@@ -24,7 +24,7 @@ pub struct EvolutionEdge {
     pub method: &'static str,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct EvolutionNode {
     pub id: u32,
     pub name: &'static str,
@@ -133,16 +133,44 @@ fn to_slint(g: &EvolutionGraph) -> (Vec<EvolutionNodeSlint>, Vec<EvolutionEdgeSl
     for list in &mut stage_lists {
         list.sort();
     }
-    // Detecta cadeias lineares (pai único -> filho único) e aplica deslocamento apenas ao nó filho
+    // Detecta cadeias lineares e aplica deslocamento cumulativo (cada passo adicional aproxima mais)
     use std::collections::HashMap as _HashMap;
     let mut parent_count: _HashMap<u32, u32> = _HashMap::new();
     let mut child_count: _HashMap<u32, u32> = _HashMap::new();
-    for e in &g.edges { *parent_count.entry(e.to).or_insert(0) += 1; *child_count.entry(e.from).or_insert(0) += 1; }
-    const LINEAR_REDUCE: f32 = 40.0;
-    let mut node_dx: _HashMap<u32, f32> = _HashMap::new();
+    let mut children_map_full: _HashMap<u32, Vec<u32>> = _HashMap::new();
     for e in &g.edges {
-        if child_count.get(&e.from).copied().unwrap_or(0) == 1 && parent_count.get(&e.to).copied().unwrap_or(0) == 1 {
-            node_dx.entry(e.to).or_insert(-LINEAR_REDUCE);
+        *parent_count.entry(e.to).or_insert(0) += 1;
+        *child_count.entry(e.from).or_insert(0) += 1;
+        children_map_full.entry(e.from).or_default().push(e.to);
+    }
+    const LINEAR_REDUCE: f32 = 40.0; // deslocamento incremental por segmento linear
+    let mut node_dx: _HashMap<u32, f32> = _HashMap::new();
+    // Ordena nós por stage para garantir processamento base->frente
+    let mut nodes_sorted = g.nodes.clone();
+    nodes_sorted.sort_by_key(|n| n.stage);
+    for n in nodes_sorted {
+        // identifica início de cadeia: não tem exatamente 1 pai ou é base
+        if parent_count.get(&n.id).copied().unwrap_or(0) != 1 {
+            let mut depth = 0u32;
+            let mut current = n.id;
+            loop {
+                // único filho?
+                let kids = children_map_full.get(&current);
+                if let Some(k) = kids {
+                    if k.len() == 1 {
+                        let next = k[0];
+                        // next tem exatamente um pai?
+                        if parent_count.get(&next).copied().unwrap_or(0) == 1 && child_count.get(&current).copied().unwrap_or(0) == 1 {
+                            depth += 1;
+                            // deslocamento cumulativo: -depth * LINEAR_REDUCE
+                            node_dx.entry(next).or_insert(-(depth as f32) * LINEAR_REDUCE);
+                            current = next;
+                            continue;
+                        }
+                    }
+                }
+                break; // termina cadeia
+            }
         }
     }
 
