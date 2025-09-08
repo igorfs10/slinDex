@@ -133,6 +133,19 @@ fn to_slint(g: &EvolutionGraph) -> (Vec<EvolutionNodeSlint>, Vec<EvolutionEdgeSl
     for list in &mut stage_lists {
         list.sort();
     }
+    // Detecta cadeias lineares (pai único -> filho único) e aplica deslocamento apenas ao nó filho
+    use std::collections::HashMap as _HashMap;
+    let mut parent_count: _HashMap<u32, u32> = _HashMap::new();
+    let mut child_count: _HashMap<u32, u32> = _HashMap::new();
+    for e in &g.edges { *parent_count.entry(e.to).or_insert(0) += 1; *child_count.entry(e.from).or_insert(0) += 1; }
+    const LINEAR_REDUCE: f32 = 40.0;
+    let mut node_dx: _HashMap<u32, f32> = _HashMap::new();
+    for e in &g.edges {
+        if child_count.get(&e.from).copied().unwrap_or(0) == 1 && parent_count.get(&e.to).copied().unwrap_or(0) == 1 {
+            node_dx.entry(e.to).or_insert(-LINEAR_REDUCE);
+        }
+    }
+
     let mut nodes_out = Vec::new();
     for list in &stage_lists {
         for (row, id) in list.iter().enumerate() {
@@ -145,23 +158,16 @@ fn to_slint(g: &EvolutionGraph) -> (Vec<EvolutionNodeSlint>, Vec<EvolutionEdgeSl
                     ModelRc::new(VecModel::from(v))
                 })
                 .unwrap_or_else(|| ModelRc::new(VecModel::from(Vec::<TypeTag>::new())));
+            let dx = node_dx.get(&node.id).copied().unwrap_or(0.0);
             nodes_out.push(EvolutionNodeSlint {
                 id: node.id as i32,
                 name: node.name.into(),
                 stage: node.stage as i32,
                 row: row as i32,
                 artwork: artwork_img(node.id),
-                method: if node.stage == 0 {
-                    "".into()
-                } else {
-                    // pega método a partir de alguma edge que chega aqui
-                    g.edges
-                        .iter()
-                        .find(|e| e.to == node.id)
-                        .map(|e| e.method.into())
-                        .unwrap_or_else(|| "".into())
-                },
+                method: if node.stage == 0 { "".into() } else { g.edges.iter().find(|e| e.to == node.id).map(|e| e.method.into()).unwrap_or_else(|| "".into()) },
                 types: types_for_node,
+                dx: dx as f32,
             });
         }
     }
@@ -184,8 +190,8 @@ fn to_slint(g: &EvolutionGraph) -> (Vec<EvolutionNodeSlint>, Vec<EvolutionEdgeSl
     // offset para alinhar com centralização do layout (será calculado na UI, então aqui mantemos 0)
     let x_offset: f32 = 0.0;
     for n in &nodes_out {
-        // centro agora calculado a partir do topo-esquerdo da célula
-        let cx = n.stage as f32 * COL_W + NODE_W / 2.0 + x_offset;
+        // centro calculado com deslocamento dx
+        let cx = n.stage as f32 * COL_W + n.dx + NODE_W / 2.0 + x_offset;
         let cy = n.row as f32 * ROW_H + NODE_H / 2.0;
         idx_map.insert((n.id, n.stage), (cx, cy));
     }
@@ -201,6 +207,8 @@ fn to_slint(g: &EvolutionGraph) -> (Vec<EvolutionNodeSlint>, Vec<EvolutionEdgeSl
     let fx_right = fx_c + NODE_W / 2.0; // centro + metade = borda direita
     const BRANCH_GAP: f32 = 7.0; // leve ajuste com redução
     const H_SEG: f32 = 9.0; // horizontais um pouco menores
+    // Ajuste adicional para linhas horizontais diretas: usar segmento curto centralizado
+    const DIRECT_SHORT: f32 = 18.0; // comprimento total desejado para linhas diretas
 
         if kids.len() == 1 {
             let child = kids[0];
@@ -209,8 +217,9 @@ fn to_slint(g: &EvolutionGraph) -> (Vec<EvolutionNodeSlint>, Vec<EvolutionEdgeSl
                 let child_left = tx - NODE_W / 2.0;
                 // Se mesma linha (y próximo), linha direta horizontal com gap
                 if (fy - ty).abs() < 4.0 {
-                    let mut x2 = child_left;
-                    if x2 - fx_right > BRANCH_GAP { x2 -= BRANCH_GAP; }
+                    // linha direta encurtada: desenha apenas perto do pai e perto do filho? Para simplicidade, um único segmento curto a partir da borda do pai
+                    let desired = DIRECT_SHORT.min(child_left - fx_right - BRANCH_GAP);
+                    let x2 = fx_right + desired.max(4.0); // garante mínimo
                     lines_out.push(EvolutionLineSlint { x1: fx_right, y1: fy, x2, y2: fy, method: "".into() });
                 } else {
                     // L-shaped: horizontal até trunk, vertical, horizontal até filho

@@ -12,6 +12,7 @@ export struct EvolutionNodeSlint {
     method: string,      // "" para a base
     artwork: image,
     types: [TypeTag],
+    dx: length,          // deslocamento horizontal opcional para encurtar cadeias lineares
 }
 
 export struct EvolutionEdgeSlint {  // opcional (para desenhar linhas)
@@ -59,7 +60,7 @@ component EvolutionGraphView inherits Rectangle {
         // coloca cada node por stage/row
         for n in nodes : Rectangle {
             // top-left alinhado à grade; linhas usam centro = stage*col-width + node-w/2
-            x: n.stage * col-width;
+            x: n.stage * col-width + n.dx; // aplica deslocamento para cadeias lineares
             y: n.row * row-height;
             width: node-w;
             height: node-h;
