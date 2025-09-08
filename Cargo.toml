@@ -13,7 +13,6 @@ path = "src/main.rs"
 [dependencies]
 slint = { version = "1.13", features = ["std","compat-1-2", "image-default-formats"] }
 image = { version = "0.25.8", default-features = false, features = ["png", "jpeg"] }
-reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
 
 [target.'cfg(target_os = "android")'.dependencies]
 slint = { version = "1.13", default-features = false, features = ["backend-android-activity-06"] }
@@ -22,12 +21,8 @@ rust-embed = { version = "8", default-features = false, features = ["debug-embed
 [target.'cfg(not(target_os = "android"))'.dependencies]
 rust-embed = { version = "8", default-features = false}
 
-[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
-tokio = { version = "1.47", features = ["full"] }
-
 [target.'cfg(target_arch = "wasm32")'.dependencies]
 wasm-bindgen = "0.2.101"
-wasm-bindgen-futures = "0.4.51"
 console_error_panic_hook = "0.1"
 
 [build-dependencies]

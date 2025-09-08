@@ -394,34 +394,6 @@ fn set_detail_error(app: &App, msg: &str) {
     });
 }
 
-fn set_detail_empty(app: &App) {
-    app.set_detail(PokemonDetail {
-        name: "Carregando...".into(),
-        id: 0,
-        height: 0.0,
-        weight: 0.0,
-        types: ModelRc::new(VecModel::from(Vec::<TypeTag>::new())),
-        hp: 0,
-        specialAttack: 0,
-        specialDefense: 0,
-        attack: 0,
-        defense: 0,
-        speed: 0,
-        artwork: slint::Image::default(),
-        total: 0,
-        ability1: "".into(),
-        ability2: "".into(),
-        hiddenAbility: "".into(),
-        error: "".into(),
-        color: Brush::from(Color::from_argb_encoded(0x00000000)),
-        nodes: ModelRc::new(VecModel::from(Vec::<EvolutionNodeSlint>::new())),
-        edges: ModelRc::new(VecModel::from(Vec::<EvolutionEdgeSlint>::new())),
-        lines: ModelRc::new(VecModel::from(Vec::<EvolutionLineSlint>::new())),
-        max_stage: 0,
-    max_rows: 0,
-    });
-}
-
 // =================== Estado base ===================
 fn wire_app_common(app: &App) -> StateHandle {
     let state = Arc::new(Mutex::new(State {
@@ -434,51 +406,8 @@ fn wire_app_common(app: &App) -> StateHandle {
     state
 }
 
-// =================== Async Fetch (compartilhado) ===================
-async fn fetch_and_update(
-    id_pokemon: u32,
-    app_w2: slint::Weak<App>,
-    state_sel2: StateHandle,
-    poke_service: service::PokemonService,
-) {
-    let detail_result = POKEMON_LIST.iter().find(|p| p.species_id == id_pokemon);
-    let (detail, sprite_bytes): (Option<Pokemon>, Option<Vec<u8>>) = match detail_result {
-        Some(detail) => {
-            let bytes = poke_service.fetch_image(detail.species_id).await.ok();
-            (Some(*detail), bytes)
-        }
-        None => (None, None),
-    };
-    slint::invoke_from_event_loop(move || {
-        if let Some(app) = app_w2.upgrade() {
-            match detail {
-                Some(detail) => {
-                    let state = state_sel2.lock().unwrap();
-                    if let Some(b) = &sprite_bytes {
-                    }
-                    let ui_detail = make_detail_for_ui(&detail);
-                    app.set_detail(ui_detail);
-                    app.set_carregando(false);
-                }
-                None => {
-                    set_detail_error(&app, "Falha ao carregar detalhes");
-                    app.set_carregando(false);
-                }
-            }
-        }
-    })
-    .ok();
-}
-
 // =================== Lógica comum de handlers ===================
-fn setup_common_handlers<SpawnFn>(
-    app: &App,
-    state: &StateHandle,
-    poke_service: service::PokemonService,
-    spawn_fetch: SpawnFn,
-) where
-    SpawnFn: Fn(u32, slint::Weak<App>, StateHandle, service::PokemonService) + 'static + Clone,
-{
+fn setup_common_handlers(app: &App, state: &StateHandle) {
     // Splash
     let app_w = app.as_weak();
     let app_w_2 = app_w.clone();
@@ -504,16 +433,13 @@ fn setup_common_handlers<SpawnFn>(
     // Seleção
     let state_sel = state.clone();
     let app_w = app.as_weak();
-    let spawn_fetch_closure = spawn_fetch.clone();
-    let poke_service_sel = poke_service.clone();
     app.on_select(move |idx| {
         if idx < 0 {
             return;
         }
         state_sel.lock().unwrap().selected = idx;
         if let Some(app) = app_w.upgrade() {
-            app.set_carregando(true);
-            set_detail_empty(&app);
+            app.set_carregando(true); // mostra loading rápido
             app.set_visualiza_pokemon(true);
             app.set_selected_index(idx);
         }
@@ -525,28 +451,14 @@ fn setup_common_handlers<SpawnFn>(
             }
         };
         if let Some(app) = app_w.upgrade() {
-            let maybe_bytes = {
-                let mut state = state_sel.lock().unwrap();
-                state.sprites.get(&id_pokemon).cloned()
-            };
-            if maybe_bytes.is_some() {
-                let detail = POKEMON_LIST
-                    .iter()
-                    .find(|p| p.species_id == id_pokemon)
-                    .expect("pokemon not found");
+            if let Some(detail) = POKEMON_LIST.iter().find(|p| p.species_id == id_pokemon) {
                 let ui_detail = make_detail_for_ui(detail);
                 app.set_detail(ui_detail);
-                app.set_carregando(false);
-                return;
+            } else {
+                set_detail_error(&app, "Pokémon não encontrado");
             }
+            app.set_carregando(false);
         }
-        // dispara fetch assíncrono
-        spawn_fetch_closure(
-            id_pokemon,
-            app_w.clone(),
-            state_sel.clone(),
-            poke_service_sel.clone(),
-        );
     });
 
     // Filtro
@@ -562,30 +474,10 @@ fn setup_common_handlers<SpawnFn>(
 // =================== Desktop ===================
 #[cfg(not(target_arch = "wasm32"))]
 pub fn start_desktop() -> Result<(), slint::PlatformError> {
-    let rt = tokio::runtime::Builder::new_multi_thread()
-        .enable_all()
-        .build()
-        .unwrap();
-    let handle = rt.handle().clone();
-    let poke_service = service::PokemonService::new();
     let app = App::new()?;
     let state = wire_app_common(&app);
-
-    setup_common_handlers(
-        &app,
-        &state,
-        poke_service.clone(),
-        move |id, app_w2, state_sel2, poke_service| {
-            let handle = handle.clone();
-            handle.spawn(fetch_and_update(id, app_w2, state_sel2, poke_service));
-        },
-    );
-
-    // Inicial
-    if let Some(app0) = app.as_weak().upgrade() {
-        app0.invoke_request_load();
-    }
-
+    setup_common_handlers(&app, &state);
+    if let Some(app0) = app.as_weak().upgrade() { app0.invoke_request_load(); }
     app.run()
 }
 
@@ -599,26 +491,8 @@ pub fn start_wasm() {
     console_error_panic_hook::set_once();
     let app = App::new().expect("create app");
     let state = wire_app_common(&app);
-    let poke_service = service::PokemonService::new();
-
-    setup_common_handlers(
-        &app,
-        &state,
-        poke_service.clone(),
-        move |id, app_w2, state_sel2, poke_service| {
-            wasm_bindgen_futures::spawn_local(fetch_and_update(
-                id,
-                app_w2,
-                state_sel2,
-                poke_service,
-            ));
-        },
-    );
-
-    if let Some(app0) = app.as_weak().upgrade() {
-        app0.invoke_request_load();
-    }
-
+    setup_common_handlers(&app, &state);
+    if let Some(app0) = app.as_weak().upgrade() { app0.invoke_request_load(); }
     app.run().expect("run app");
 }
 
