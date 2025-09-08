@@ -143,7 +143,7 @@ fn to_slint(g: &EvolutionGraph) -> (Vec<EvolutionNodeSlint>, Vec<EvolutionEdgeSl
         *child_count.entry(e.from).or_insert(0) += 1;
         children_map_full.entry(e.from).or_default().push(e.to);
     }
-    const LINEAR_REDUCE: f32 = 40.0; // deslocamento incremental por segmento linear
+    const LINEAR_REDUCE: f32 = 26.0; // compressão mais suave
     let mut node_dx: _HashMap<u32, f32> = _HashMap::new();
     // Ordena nós por stage para garantir processamento base->frente
     let mut nodes_sorted = g.nodes.clone();
@@ -174,6 +174,12 @@ fn to_slint(g: &EvolutionGraph) -> (Vec<EvolutionNodeSlint>, Vec<EvolutionEdgeSl
         }
     }
 
+    // Centraliza cadeia linear: desloca tudo meio caminho para a direita se houver dx negativo.
+    let mut min_dx = 0.0f32;
+    for v in node_dx.values() { if *v < min_dx { min_dx = *v; } }
+    const LEFT_PAD: f32 = 12.0; // margem esquerda extra
+    let center_shift = if min_dx < 0.0 { (-min_dx * 0.5) + LEFT_PAD } else { LEFT_PAD }; // sempre aplica padding
+
     let mut nodes_out = Vec::new();
     for list in &stage_lists {
         for (row, id) in list.iter().enumerate() {
@@ -186,7 +192,7 @@ fn to_slint(g: &EvolutionGraph) -> (Vec<EvolutionNodeSlint>, Vec<EvolutionEdgeSl
                     ModelRc::new(VecModel::from(v))
                 })
                 .unwrap_or_else(|| ModelRc::new(VecModel::from(Vec::<TypeTag>::new())));
-            let dx = node_dx.get(&node.id).copied().unwrap_or(0.0);
+            let dx = node_dx.get(&node.id).copied().unwrap_or(0.0) + center_shift;
             nodes_out.push(EvolutionNodeSlint {
                 id: node.id as i32,
                 name: node.name.into(),
@@ -236,7 +242,7 @@ fn to_slint(g: &EvolutionGraph) -> (Vec<EvolutionNodeSlint>, Vec<EvolutionEdgeSl
     const BRANCH_GAP: f32 = 7.0; // leve ajuste com redução
     const H_SEG: f32 = 9.0; // horizontais um pouco menores
     // Ajuste adicional para linhas horizontais diretas: usar segmento curto centralizado
-    const DIRECT_SHORT: f32 = 18.0; // comprimento total desejado para linhas diretas
+    const DIRECT_SHORT: f32 = 24.0; // ligeiramente maior
 
         if kids.len() == 1 {
             let child = kids[0];
