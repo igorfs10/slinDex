@@ -1,12 +1,10 @@
 use helpers::*;
-use lru::LruCache;
 use slint::{Brush, Color, ModelRc, SharedString, VecModel};
 use std::{
-    collections::{HashMap, HashSet, VecDeque}, num::NonZeroUsize, sync::{Arc, Mutex}
+    collections::{HashMap, HashSet, VecDeque}, sync::{Arc, Mutex}
 };
 
 mod helpers;
-mod service;
 slint::include_modules!(); // App, PokemonRow, PokemonDetail, TypeTag, StatBar...
 
 include!(concat!(env!("OUT_DIR"), "/pokemon_list.rs")); // add lista constante com todos os pokémons
@@ -16,7 +14,6 @@ type StateHandle = Arc<Mutex<State>>;
 /// Estado compartilhado da aplicação
 struct State {
     view: Vec<Pokemon>,
-    sprites: LruCache<u32, Vec<u8>>, // cache de bytes da sprite
     selected: i32,                   // índice selecionado
 }
 
@@ -153,7 +150,7 @@ fn to_slint(g: &EvolutionGraph) -> (Vec<EvolutionNodeSlint>, Vec<EvolutionEdgeSl
                 name: node.name.into(),
                 stage: node.stage as i32,
                 row: row as i32,
-                artwork: sprite_img(node.id),
+                artwork: artwork_img(node.id),
                 method: if node.stage == 0 {
                     "".into()
                 } else {
@@ -312,7 +309,7 @@ fn apply_filter(app: &App, state: &StateHandle, filter: &str) {
     set_rows_from_pokemon(app, &filtered_list);
 }
 
-fn make_detail_for_ui(detail: &Pokemon, artwork_bytes: Option<&[u8]>) -> PokemonDetail {
+fn make_detail_for_ui(detail: &Pokemon) -> PokemonDetail {
     // Monta chips de tipo
     let types_vec: Vec<TypeTag> = detail
         .types
@@ -334,9 +331,11 @@ fn make_detail_for_ui(detail: &Pokemon, artwork_bytes: Option<&[u8]>) -> Pokemon
         + detail.speed as i32;
 
     // Artwork
-    let artwork_img = artwork_bytes
-        .and_then(|b| png_to_image(b).ok())
-        .unwrap_or_default();
+    let artwork_img = if detail.species_id > 0{
+        artwork_img(detail.species_id)
+    }else{
+        slint::Image::default()
+    };
     // Evolução
     let graph = build_graph(detail.species_id);
     let (nodes_model, edges_model, lines_model, max_stage, max_rows) = to_slint(&graph);
@@ -425,10 +424,8 @@ fn set_detail_empty(app: &App) {
 
 // =================== Estado base ===================
 fn wire_app_common(app: &App) -> StateHandle {
-    let cap = NonZeroUsize::new(50).unwrap();
     let state = Arc::new(Mutex::new(State {
         view: POKEMON_LIST.iter().copied().collect(),
-        sprites: LruCache::new(cap),
         selected: -1,
     }));
     app.set_filter(SharedString::from(""));
@@ -456,11 +453,10 @@ async fn fetch_and_update(
         if let Some(app) = app_w2.upgrade() {
             match detail {
                 Some(detail) => {
-                    let mut state = state_sel2.lock().unwrap();
+                    let state = state_sel2.lock().unwrap();
                     if let Some(b) = &sprite_bytes {
-                        state.sprites.put(id_pokemon, b.clone());
                     }
-                    let ui_detail = make_detail_for_ui(&detail, sprite_bytes.as_deref());
+                    let ui_detail = make_detail_for_ui(&detail);
                     app.set_detail(ui_detail);
                     app.set_carregando(false);
                 }
@@ -538,7 +534,7 @@ fn setup_common_handlers<SpawnFn>(
                     .iter()
                     .find(|p| p.species_id == id_pokemon)
                     .expect("pokemon not found");
-                let ui_detail = make_detail_for_ui(detail, maybe_bytes.as_deref());
+                let ui_detail = make_detail_for_ui(detail);
                 app.set_detail(ui_detail);
                 app.set_carregando(false);
                 return;

@@ -8,8 +8,8 @@ struct TypeIcons;
 
 // Sprites dos Pokémons
 #[derive(Embed)]
-#[folder = "imagens/sprites/"] // embute toda a pasta
-struct Sprites;
+#[folder = "imagens/artworks/"] // embute toda a pasta
+struct PokemonArtworks;
 
 /// Cor por tipo
 pub fn type_color(t: &str) -> Brush {
@@ -63,8 +63,8 @@ pub fn type_label_pt(t: &str) -> &'static str {
 }
 
 fn load_embedded_image(bytes: &[u8]) -> slint::Image {
-    // usa seu png_to_image; se quiser suportar .webp também, o `image` já lida
-    png_to_image(bytes).unwrap_or_default()
+    // usa seu bytes_to_slint_image; se quiser suportar .webp também, o `image` já lida
+    bytes_to_slint_image(bytes).unwrap_or_default()
 }
 
 // carrega um ícone de tipo pelo nome (ex.: "poison" -> "poison.png")
@@ -76,9 +76,9 @@ pub fn type_icon(t: &str) -> slint::Image {
     }
 }
 
-// carrega uma sprite de Pokémon pelo ID (ex.: 25 -> "25.png")
-pub fn sprite_img(species_id: u32) -> slint::Image {
-    if let Some(embeded_file) = Sprites::get(&format!("{species_id}.png")) {
+// carrega uma artwork de Pokémon pelo ID (ex.: 25 -> "25.png")
+pub fn artwork_img(species_id: u32) -> slint::Image {
+    if let Some(embeded_file) = PokemonArtworks::get(&format!("{species_id}.webp")) {
         load_embedded_image(embeded_file.data.as_ref())
     } else {
         slint::Image::default() // fallback
@@ -103,9 +103,9 @@ pub fn pokemon_color(k: &str) -> Brush {
     Brush::from(c)
 }
 
-/// Converte bytes PNG -> Image
-pub fn png_to_image(bytes: &[u8]) -> Result<slint::Image, String> {
-    let img = image::load_from_memory(bytes).map_err(|e| e.to_string())?;
+/// Converte bytes -> slint Image
+pub fn bytes_to_slint_image(bytes: &[u8]) -> Result<slint::Image, String> {
+    let img = image::load_from_memory(bytes).map_err(|e: image::ImageError| e.to_string())?;
     let rgba = img.to_rgba8();
     let (w, h) = rgba.dimensions();
     let mut buf = slint::SharedPixelBuffer::<slint::Rgba8Pixel>::new(w, h);
