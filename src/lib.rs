@@ -11,6 +11,8 @@ include!(concat!(env!("OUT_DIR"), "/pokemon_list.rs")); // add lista constante c
 
 type StateHandle = Arc<Mutex<State>>;
 
+const APP_VERSION: &str = env!("CARGO_PKG_VERSION");
+
 /// Estado compartilhado da aplicação
 struct State {
     view: Vec<Pokemon>,
@@ -459,6 +461,7 @@ fn setup_common_handlers(app: &App, state: &StateHandle) {
     // Splash
     let app_w = app.as_weak();
     let app_w_2 = app_w.clone();
+    app.set_app_version(APP_VERSION.into());
     slint::Timer::single_shot(std::time::Duration::from_secs(2), move || {
         if let Some(s) = app_w_2.upgrade() {
             s.set_splash(false);

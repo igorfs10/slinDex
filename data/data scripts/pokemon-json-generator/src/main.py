@@ -160,9 +160,9 @@ def main():
                     if 'gender_id' in evo_row and pd.notnull(evo_row['gender_id']):
                         gender_id = int(evo_row['gender_id'])
                         if gender_id == 1:
-                            parts.append('só macho')
+                            parts.append('fêmea')
                         elif gender_id == 2:
-                            parts.append('só fêmea')
+                            parts.append('macho')
                     if parts:
                         method = 'lvl up: ' + ', '.join(parts)
                     else:
@@ -179,9 +179,9 @@ def main():
                     if 'gender_id' in evo_row and pd.notnull(evo_row['gender_id']):
                         gender_id = int(evo_row['gender_id'])
                         if gender_id == 1:
-                            gender_txt = ', só macho'
+                            gender_txt = ', fêmea'
                         elif gender_id == 2:
-                            gender_txt = ', só fêmea'
+                            gender_txt = ', macho'
                     method = f'item: {item_name}{gender_txt}'
                 else:
                     method = trigger if trigger else 'desconhecido'

@@ -6605,7 +6605,7 @@
       },
       {
         "to": 475,
-        "method": "item: Dawn Stone, só fêmea"
+        "method": "item: Dawn Stone, macho"
       }
     ]
   },
@@ -8430,7 +8430,7 @@
       },
       {
         "to": 478,
-        "method": "item: Dawn Stone, só macho"
+        "method": "item: Dawn Stone, fêmea"
       }
     ]
   },
@@ -9593,11 +9593,11 @@
     "evolutions": [
       {
         "to": 413,
-        "method": "lvl up: lvl 20, só macho"
+        "method": "lvl up: lvl 20, fêmea"
       },
       {
         "to": 414,
-        "method": "lvl up: lvl 20, só fêmea"
+        "method": "lvl up: lvl 20, macho"
       }
     ]
   },
@@ -9665,7 +9665,7 @@
     "evolutions": [
       {
         "to": 416,
-        "method": "lvl up: lvl 21, só macho"
+        "method": "lvl up: lvl 21, fêmea"
       }
     ]
   },
@@ -17443,7 +17443,7 @@
     "evolutions": [
       {
         "to": 758,
-        "method": "lvl up: lvl 33, só macho"
+        "method": "lvl up: lvl 33, fêmea"
       }
     ]
   },
