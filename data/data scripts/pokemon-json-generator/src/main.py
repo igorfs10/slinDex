@@ -5,7 +5,7 @@ import json
 
 def main():    
     print('Iniciando script Pokémon')
-    folder_path = r'd:\slinDex\data'
+    folder_path = r'../../../../data'
     # Carregar arquivos principais
     pokemon = pd.read_csv(os.path.join(folder_path, 'pokemon.csv'))
     stats = pd.read_csv(os.path.join(folder_path, 'pokemon_stats.csv'))
