@@ -175,7 +175,7 @@ fn to_slint(g: &EvolutionGraph) -> (Vec<EvolutionNodeSlint>, Vec<EvolutionEdgeSl
         })
         .collect();
     // Linhas (coordenadas simples em grid)
-    const COL_W: f32 = 140.0; // ajuste intermediário: 96 sprite + 44 gap
+    const COL_W: f32 = 140.0; // largura de coluna
     const ROW_H: f32 = 220.0; // node-h (200) + 20 spacing (maior para texto longo)
     const NODE_W: f32 = 96.0; // largura sprite
     const NODE_H: f32 = 200.0; // altura aumentada para evitar sobreposição de texto
@@ -200,6 +200,7 @@ fn to_slint(g: &EvolutionGraph) -> (Vec<EvolutionNodeSlint>, Vec<EvolutionEdgeSl
     let (fx_c, fy) = match idx_map.get(&(parent as i32, from_stage)) { Some(c) => *c, None => continue };
     let fx_right = fx_c + NODE_W / 2.0; // centro + metade = borda direita
     const BRANCH_GAP: f32 = 10.0; // espaço antes do sprite destino
+    const H_SEG: f32 = 18.0; // comprimento padrão das horizontais (ambos os lados)
 
         if kids.len() == 1 {
             let child = kids[0];
@@ -215,14 +216,15 @@ fn to_slint(g: &EvolutionGraph) -> (Vec<EvolutionNodeSlint>, Vec<EvolutionEdgeSl
                     // L-shaped: horizontal até trunk, vertical, horizontal até filho
                     let trunk_start_x = fx_right;
                     // offset menor para reduzir "saída" horizontal antes da curva
-                    let trunk_x = trunk_start_x + 22.0;
+                    let trunk_x = trunk_start_x + H_SEG; // usa comprimento padrão
                     // horizontal saída
                     lines_out.push(EvolutionLineSlint { x1: trunk_start_x, y1: fy, x2: trunk_x, y2: fy, method: "".into() });
                     // vertical
                     lines_out.push(EvolutionLineSlint { x1: trunk_x, y1: fy.min(ty), x2: trunk_x, y2: fy.max(ty), method: "".into() });
                     // horizontal entrada (gap)
                     let mut branch_end = child_left;
-                    if branch_end - trunk_x > BRANCH_GAP { branch_end -= BRANCH_GAP; }
+                    if branch_end - trunk_x > BRANCH_GAP + H_SEG { branch_end = trunk_x + H_SEG; }
+                    else if branch_end - trunk_x > BRANCH_GAP { branch_end -= BRANCH_GAP; }
                     lines_out.push(EvolutionLineSlint { x1: trunk_x, y1: ty, x2: branch_end, y2: ty, method: "".into() });
                 }
             }
@@ -241,7 +243,7 @@ fn to_slint(g: &EvolutionGraph) -> (Vec<EvolutionNodeSlint>, Vec<EvolutionEdgeSl
         let max_y = child_coords.last().unwrap().1;
 
     let trunk_start_x = fx_right;
-        let trunk_x = trunk_start_x + 20.0; // encurta saída esquerda mantendo ramos aceitáveis
+        let trunk_x = trunk_start_x + H_SEG; // uniformiza segmento esquerdo
 
         // tronco horizontal
         lines_out.push(EvolutionLineSlint { x1: trunk_start_x, y1: fy, x2: trunk_x, y2: fy, method: "".into() });
@@ -252,7 +254,9 @@ fn to_slint(g: &EvolutionGraph) -> (Vec<EvolutionNodeSlint>, Vec<EvolutionEdgeSl
         // ramos horizontais
         for (tx, ty) in child_coords {
             let mut branch_end = tx - NODE_W / 2.0; // entrada esquerda do filho
-            if branch_end - trunk_x > BRANCH_GAP { branch_end -= BRANCH_GAP; }
+            let max_end = trunk_x + H_SEG; // limita horizontal direita
+            if branch_end - trunk_x > BRANCH_GAP + H_SEG { branch_end = max_end; }
+            else if branch_end - trunk_x > BRANCH_GAP { branch_end -= BRANCH_GAP; }
             lines_out.push(EvolutionLineSlint { x1: trunk_x, y1: ty, x2: branch_end, y2: ty, method: "".into() });
         }
     }
