@@ -199,8 +199,8 @@ fn to_slint(g: &EvolutionGraph) -> (Vec<EvolutionNodeSlint>, Vec<EvolutionEdgeSl
         let from_stage = g.nodes.iter().find(|n| n.id == parent).map(|n| n.stage as i32).unwrap_or(0);
     let (fx_c, fy) = match idx_map.get(&(parent as i32, from_stage)) { Some(c) => *c, None => continue };
     let fx_right = fx_c + NODE_W / 2.0; // centro + metade = borda direita
-    const BRANCH_GAP: f32 = 10.0; // espaço antes do sprite destino
-    const H_SEG: f32 = 18.0; // comprimento padrão das horizontais (ambos os lados)
+    const BRANCH_GAP: f32 = 7.0; // leve ajuste com redução
+    const H_SEG: f32 = 9.0; // horizontais um pouco menores
 
         if kids.len() == 1 {
             let child = kids[0];

@@ -36,14 +36,14 @@ component EvolutionGraphView inherits Rectangle {
     in property <int> max-rows;
 
     // tamanhos de fonte
-    property <length> name-size: 15px;
-    property <length> method-size: 12px;
+    property <length> name-size: 14px;
+    property <length> method-size: 11px;
 
     // métricas
     // largura intermediária (desktop 156 era longa, 126 ficou curta demais)
     property <length> col-width: 140px; // 96 + 44 gap
     property <length> row-height: 220px; // node-h (200) + 20
-    property <length> node-w: 96px;
+    property <length> node-w: 90px;
     property <length> node-h: 200px; // altura maior para métodos longos
     property <length> total-width: (max-stage + 1) * col-width;
     property <length> total-height: max(max-rows,1) * row-height;
@@ -64,12 +64,12 @@ component EvolutionGraphView inherits Rectangle {
             width: node-w;
             height: node-h;
             if (true) : Rectangle {
-                width: 96px; height: node-h;
+                width: 90px; height: node-h;
                 background: transparent;
                 VerticalLayout {
                     alignment: LayoutAlignment.center;
                     spacing: 4px; // adiciona espaço entre imagem e ícones
-                    HorizontalLayout { alignment: center; Image { source: n.artwork; width: 96px; height:96px; } }
+                    HorizontalLayout { alignment: center; Image { source: n.artwork; width: 90px; height:90px; } }
                     // ícones tiny de tipos acima do nome com borda curva
                     if (n.types.length > 0) : HorizontalLayout {
                         spacing: 4px;
@@ -271,7 +271,7 @@ component DetailPanel inherits Rectangle {
                 width: parent.width;
                 height: 260px;
                 Rectangle {
-                    width: 150px; height: 150px;
+                    width: 170px; height: 170px;
                     x: (parent.width - self.width) / 2;
                     y: (parent.height - self.height) / 2;
                     border-radius: 10px; 
