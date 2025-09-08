@@ -2,6 +2,10 @@
 name = "slindex"
 version = "1.1.1"
 edition = "2024"
+description = "Pequena Pokédex com Rust + Slint que roda em Desktop, WebAssembly e Android utilizando dados da PokeAPI."
+license = "MIT"
+repository = "https://github.com/igorfs10/slinDex"
+authors = ["Igorfs10"]
 
 [lib]
 crate-type = ["rlib", "cdylib"]

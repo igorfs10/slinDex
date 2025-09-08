@@ -1,6 +1,6 @@
 # SlinDex — Rust (desktop + WASM + Android)
 
-Pequena Pokédex com **Rust + Slint** que roda em Desktop, WebAssembly e Android, consumindo a **PokeAPI**.  
+Pequena Pokédex com **Rust + Slint** que roda em Desktop, WebAssembly e Android, utilizando dados da **PokeAPI**.
 Versão web: https://igorfs10.github.io/slinDex/web/
 
 ## Pré-requisitos
