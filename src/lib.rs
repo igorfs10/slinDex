@@ -175,7 +175,7 @@ fn to_slint(g: &EvolutionGraph) -> (Vec<EvolutionNodeSlint>, Vec<EvolutionEdgeSl
         })
         .collect();
     // Linhas (coordenadas simples em grid)
-    const COL_W: f32 = 156.0; // 96 (sprite) + 60 (spacing)
+    const COL_W: f32 = 140.0; // ajuste intermediário: 96 sprite + 44 gap
     const ROW_H: f32 = 220.0; // node-h (200) + 20 spacing (maior para texto longo)
     const NODE_W: f32 = 96.0; // largura sprite
     const NODE_H: f32 = 200.0; // altura aumentada para evitar sobreposição de texto
@@ -214,7 +214,8 @@ fn to_slint(g: &EvolutionGraph) -> (Vec<EvolutionNodeSlint>, Vec<EvolutionEdgeSl
                 } else {
                     // L-shaped: horizontal até trunk, vertical, horizontal até filho
                     let trunk_start_x = fx_right;
-                    let trunk_x = trunk_start_x + 30.0;
+                    // offset menor para reduzir "saída" horizontal antes da curva
+                    let trunk_x = trunk_start_x + 22.0;
                     // horizontal saída
                     lines_out.push(EvolutionLineSlint { x1: trunk_start_x, y1: fy, x2: trunk_x, y2: fy, method: "".into() });
                     // vertical
@@ -240,7 +241,7 @@ fn to_slint(g: &EvolutionGraph) -> (Vec<EvolutionNodeSlint>, Vec<EvolutionEdgeSl
         let max_y = child_coords.last().unwrap().1;
 
     let trunk_start_x = fx_right;
-        let trunk_x = trunk_start_x + 30.0; // distância fixa antes de descer/subir
+        let trunk_x = trunk_start_x + 20.0; // encurta saída esquerda mantendo ramos aceitáveis
 
         // tronco horizontal
         lines_out.push(EvolutionLineSlint { x1: trunk_start_x, y1: fy, x2: trunk_x, y2: fy, method: "".into() });

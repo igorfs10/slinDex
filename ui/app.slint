@@ -40,7 +40,8 @@ component EvolutionGraphView inherits Rectangle {
     property <length> method-size: 12px;
 
     // métricas
-    property <length> col-width: 156px; // 96 + 60
+    // largura intermediária (desktop 156 era longa, 126 ficou curta demais)
+    property <length> col-width: 140px; // 96 + 44 gap
     property <length> row-height: 220px; // node-h (200) + 20
     property <length> node-w: 96px;
     property <length> node-h: 200px; // altura maior para métodos longos
