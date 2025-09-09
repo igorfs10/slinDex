@@ -174,7 +174,7 @@ export struct PokemonDetail {
     max-rows: int,
 }
 
-// ====== Componene lista de pokémon ======
+// ====== Componente lista de pokémon ======
 component PokemonList inherits Rectangle {
     in property <[PokemonRow]> rows;
     in-out property <int> selected-index: -1;
@@ -185,6 +185,12 @@ component PokemonList inherits Rectangle {
     callback selected(index: int);
     callback request-focus();
     request-focus() => { list-scope.focus(); }
+
+    public function scroll_to_index(index: int) {
+        if (index >= 0) {
+            list.viewport-y = (((index + 1) * item-height) - (list.height / 2)) * (-1);
+        }
+    }
 
     background: transparent;
     border-radius: 6px;
@@ -672,7 +678,10 @@ export component App inherits Window {
 
                 carregando: carregando;
                 selected_index: selected_index;
-                selected(id) => { root.select(id); }
+                selected(id) => { 
+                    root.select(id);
+                    list_pane.scroll_to_index(id - 1);
+                }
                 apply-filter(value) => { root.apply-filter(value);}
             }
         }
