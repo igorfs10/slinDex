@@ -36,6 +36,11 @@ component EvolutionGraphView inherits Rectangle {
     in property <[EvolutionLineSlint]> lines;
     in property <int> max-rows;
 
+    in property <bool> carregando;
+    in-out property <int> selected_index;
+    callback selected(id: int);
+    callback apply-filter(value: string);
+
     // tamanhos de fonte
     property <length> name-size: 14px;
     property <length> method-size: 11px;
@@ -70,7 +75,21 @@ component EvolutionGraphView inherits Rectangle {
                 VerticalLayout {
                     alignment: LayoutAlignment.center;
                     spacing: 4px; // adiciona espaço entre imagem e ícones
-                    HorizontalLayout { alignment: center; Image { source: n.artwork; width: 90px; height:90px; } }
+                    HorizontalLayout {
+                        alignment: center;
+                        Image {
+                            source: n.artwork; width: 90px; height:90px; 
+                            TouchArea {
+                                clicked => {
+                                    if(!carregando){
+                                        apply-filter("");
+                                        selected_index = n.id - 1;
+                                        root.selected(n.id - 1);
+                                    }
+                                }
+                            }
+                        } 
+                    }
                     // ícones tiny de tipos acima do nome com borda curva
                     if (n.types.length > 0) : HorizontalLayout {
                         spacing: 4px;
@@ -253,7 +272,11 @@ component PokemonList inherits Rectangle {
 
 // ====== PAINEL DE DETALHES ======
 component DetailPanel inherits Rectangle {
-    in property <PokemonDetail> detail;    
+    in property <PokemonDetail> detail;
+    in property <bool> carregando;
+    in-out property <int> selected_index;
+    callback selected(id: int);
+    callback apply-filter(value: string);
     background: transparent;
 
     ScrollView {
@@ -474,6 +497,10 @@ component DetailPanel inherits Rectangle {
                     max-stage: root.detail.max-stage;
                     lines: root.detail.lines; // adiciona binding das linhas
                     max-rows: root.detail.max-rows;
+                    carregando: carregando;
+                    selected_index: selected_index;
+                    selected(id) => { root.selected(id);}
+                    apply-filter(value) => { root.apply-filter(value);}
                 }
             }
         }
@@ -640,6 +667,11 @@ export component App inherits Window {
 
                 // visibilidade: no compacto alterna com a lista; no amplo fica sempre visível
                 visible: root.compact ? root.visualiza_pokemon : true;
+
+                carregando: carregando;
+                selected_index: selected_index;
+                selected(id) => { root.select(id); }
+                apply-filter(value) => { root.apply-filter(value);}
             }
         }
     }
