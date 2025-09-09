@@ -38,6 +38,7 @@ component EvolutionGraphView inherits Rectangle {
 
     in property <bool> carregando;
     in-out property <int> selected_index;
+    in property <int> select_pokemon_id;
     callback selected(id: int);
     callback apply-filter(value: string);
 
@@ -81,7 +82,7 @@ component EvolutionGraphView inherits Rectangle {
                             source: n.artwork; width: 90px; height:90px; 
                             TouchArea {
                                 clicked => {
-                                    if(!carregando){
+                                    if(!carregando && n.id != select_pokemon_id){
                                         apply-filter("");
                                         selected_index = n.id - 1;
                                         root.selected(n.id - 1);
@@ -499,6 +500,7 @@ component DetailPanel inherits Rectangle {
                     max-rows: root.detail.max-rows;
                     carregando: carregando;
                     selected_index: selected_index;
+                    select_pokemon_id: detail.id;
                     selected(id) => { root.selected(id);}
                     apply-filter(value) => { root.apply-filter(value);}
                 }
