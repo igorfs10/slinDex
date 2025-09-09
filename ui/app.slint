@@ -81,6 +81,7 @@ component EvolutionGraphView inherits Rectangle {
                         Image {
                             source: n.artwork; width: 90px; height:90px; 
                             TouchArea {
+                                mouse-cursor: (!carregando && n.id != select_pokemon_id) ? pointer : default;
                                 clicked => {
                                     if(!carregando && n.id != select_pokemon_id){
                                         apply-filter("");
