@@ -539,7 +539,6 @@ use wasm_bindgen::prelude::*;
 #[cfg(target_arch = "wasm32")]
 #[wasm_bindgen(start)]
 pub fn start_wasm() {
-    console_error_panic_hook::set_once();
     let app = App::new().expect("create app");
     let state = wire_app_common(&app);
     setup_common_handlers(&app, &state);

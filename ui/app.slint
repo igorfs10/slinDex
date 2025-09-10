@@ -682,7 +682,7 @@ export component App inherits Window {
                 selected_index: selected_index;
                 selected(id) => { 
                     root.select(id);
-                    list_pane.scroll_to_index(id - 1);
+                    list_pane.scroll_to_index(id);
                 }
                 apply-filter(value) => { root.apply-filter(value);}
             }
