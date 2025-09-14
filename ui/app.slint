@@ -575,6 +575,9 @@ export component App inherits Window {
     preferred-width: 900px;
     preferred-height: 700px;
 
+    // breakpoint simples
+    property <bool> compact: self.width < 720px;
+
     in-out property <string> filter;
     in-out property <int> selected_index; // mantém seleção na lista
     in-out property <bool> visualiza_pokemon: false;
@@ -595,9 +598,6 @@ export component App inherits Window {
             root.visualiza_pokemon = false;
         }
     }
-
-    // breakpoint simples
-    property <bool> compact: self.width < 720px;
 
     if(splash):Splash
     {
