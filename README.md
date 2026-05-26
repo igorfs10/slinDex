@@ -14,8 +14,8 @@ Versão web: https://igorfs10.github.io/slinDex/web/
     rustup target add x86_64-linux-android aarch64-linux-android armv7-linux-androideabi
     ```
   - Variáveis de ambiente (o `cargo-apk` costuma detectar sozinho se você instalou o SDK/NDK pelo Android Studio, mas se precisar):
-    - `ANDROID_SDK_ROOT` = caminho do SDK (ex.: `~/Android/Sdk`)
-    - `ANDROID_NDK_HOME` = caminho do NDK dentro do SDK
+    - `ANDROID_SDK_HOME` = caminho do SDK (ex.: `~/Android/Sdk`)
+    - `ANDROID_NDK_ROOT` = caminho do NDK dentro do SDK
 
 ---
 

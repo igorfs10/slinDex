@@ -12,7 +12,7 @@ fn main() {
         }
     }
 
-    let cfg = slint_build::CompilerConfiguration::new().with_style("cosmic-dark".into());
+    let cfg = slint_build::CompilerConfiguration::new().with_style("fluent-dark".into());
     slint_build::compile_with_config("ui/app.slint", cfg).expect("Failed to compile Slint UI");
 
     // Adiciona dependências: serde = { version = "1", features = ["derive"] }, serde_json = "1" em [build-dependencies] no Cargo.toml
