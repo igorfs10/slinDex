@@ -214,6 +214,10 @@ component PokemonList inherits Rectangle {
         }
     }
 
+    public function focus_list() {
+        list-scope.focus();
+    }
+
     background: transparent;
     border-radius: 6px;
 
@@ -793,16 +797,17 @@ export component App inherits Window {
     back-to-list() => {
         if (!carregando) {
             root.visualiza_pokemon = false;
+            my-key-handler.focus();
         }
     }
 
     forward-focus: my-key-handler;
     my-key-handler := FocusScope {
         key-pressed(event) => {
-            debug(event);
-            debug(Key.Back);
             if (event.text == Key.Back) {
-                root.back-to-list();
+                if (root.compact && root.visualiza_pokemon && !carregando) {
+                    root.back-to-list();
+                }
                 return accept;
             }
             return reject;
@@ -918,6 +923,7 @@ export component App inherits Window {
                     }
                     back-to-list() => {
                         root.back-to-list();
+                        list_pane.focus_list();
                     }
                 }
             }
