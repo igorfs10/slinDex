@@ -255,6 +255,9 @@ component PokemonList inherits Rectangle {
 
         // navegação por teclado + rolagem automática
         key-pressed(event) => {
+            if (event.text == Key.Back) {
+                return accept;
+            }
             if (!compact && !carregando) {
                 if (event.text == Key.UpArrow) {
                     if (rows.length > 0) {
@@ -304,377 +307,398 @@ component PokemonList inherits Rectangle {
 component DetailPanel inherits Rectangle {
     in property <PokemonDetail> detail;
     in property <bool> carregando;
+    in property <bool> compact;
     in-out property <int> selected_index;
     callback selected(id: int);
     callback apply-filter(value: string);
     callback back-to-list();
+
+    public function focus_panel() {
+        detail-scope.focus();
+    }
+
     background: transparent;
 
-    ScrollView {
+    detail-scope := FocusScope {
         width: parent.width;
         height: parent.height;
-        viewport-width: parent.width;
-        mouse-drag-pan-enabled: true;
 
-        VerticalBox {
+        key-pressed(event) => {
+            if (event.text == Key.Back) {
+                if (!carregando && compact) {
+                    root.back-to-list();
+                }
+                return accept;
+            }
+            return reject;
+        }
+
+        ScrollView {
             width: parent.width;
-            alignment: LayoutAlignment.start;
-            spacing: 10px;
+            height: parent.height;
+            viewport-width: parent.width;
+            mouse-drag-pan-enabled: true;
 
-            // sprite centralizada
-            Rectangle {
+            VerticalBox {
                 width: parent.width;
-                height: 260px;
-                Rectangle {
-                    width: 170px;
-                    height: 170px;
-                    x: (parent.width - self.width) / 2;
-                    y: (parent.height - self.height) / 2;
-                    border-radius: 10px;
-                    background: @radial-gradient(circle, detail.color 0%, detail.color 20%, detail.color 20%, detail.color 30%, transparent 75%, transparent 100%);
-                    Image {
-                        source: root.detail.artwork;
-                        width: parent.width;
-                        height: parent.height;
+                alignment: LayoutAlignment.start;
+                spacing: 10px;
+
+                // sprite centralizada
+            Rectangle {
+                    width: parent.width;
+                    height: 260px;
+                    Rectangle {
+                        width: 170px;
+                        height: 170px;
+                        x: (parent.width - self.width) / 2;
+                        y: (parent.height - self.height) / 2;
+                        border-radius: 10px;
+                        background: @radial-gradient(circle, detail.color 0%, detail.color 20%, detail.color 20%, detail.color 30%, transparent 75%, transparent 100%);
+                        Image {
+                            source: root.detail.artwork;
+                            width: parent.width;
+                            height: parent.height;
+                        }
                     }
                 }
-            }
 
-            // chips de tipos + nome + infos
+                // chips de tipos + nome + infos
             VerticalLayout {
-                visible: true;
-                alignment: LayoutAlignment.start;
-                spacing: 15px;
+                    visible: true;
+                    alignment: LayoutAlignment.start;
+                    spacing: 15px;
 
-                // chips (centralizados)
+                    // chips (centralizados)
                 HorizontalLayout {
-                    width: parent.width;
-                    Rectangle {
-                        horizontal-stretch: 1;
-                    }
+                        width: parent.width;
+                        Rectangle {
+                            horizontal-stretch: 1;
+                        }
 
-                    HorizontalLayout {
-                        spacing: 6px;
-                        for t in root.detail.types: Rectangle {
-                            height: 20px;
-                            border-radius: 8px;
-                            background: t.bg;
+                        HorizontalLayout {
+                            spacing: 6px;
+                            for t in root.detail.types: Rectangle {
+                                height: 20px;
+                                border-radius: 8px;
+                                background: t.bg;
 
-                            HorizontalLayout {
-                                padding-left: 8px;
-                                padding-right: 8px;
-                                Image {
-                                    source: t.icon;
-                                    y: parent.y + ((parent.height - self.height) / 2);
-                                    width: 18px;
-                                    height: 18px;
-                                }
+                                HorizontalLayout {
+                                    padding-left: 8px;
+                                    padding-right: 8px;
+                                    Image {
+                                        source: t.icon;
+                                        y: parent.y + ((parent.height - self.height) / 2);
+                                        width: 18px;
+                                        height: 18px;
+                                    }
 
-                                Text {
-                                    text: t.label;
-                                    color: #ffffff;
-                                    font-size: 14px;
-                                    vertical-alignment: center;
-                                    font-weight: 700;
+                                    Text {
+                                        text: t.label;
+                                        color: #ffffff;
+                                        font-size: 14px;
+                                        vertical-alignment: center;
+                                        font-weight: 700;
+                                    }
                                 }
                             }
                         }
+
+                        Rectangle {
+                            horizontal-stretch: 1;
+                        }
                     }
 
-                    Rectangle {
-                        horizontal-stretch: 1;
+                    Text {
+                        text: root.detail.name == "" ? "Selecione um Pokémon" : root.detail.name;
+                        font-size: 24px;
+                        color: #f9fafb;
+                        font-weight: 700;
+                        width: parent.width;
+                        horizontal-alignment: left;
                     }
-                }
 
-                Text {
-                    text: root.detail.name == "" ? "Selecione um Pokémon" : root.detail.name;
-                    font-size: 24px;
-                    color: #f9fafb;
-                    font-weight: 700;
-                    width: parent.width;
-                    horizontal-alignment: left;
-                }
-
-                // infos básicas
+                    // infos básicas
                 HorizontalLayout {
-                    Text {
-                        text: "ID: " + (root.detail.id == 0 ? "-" : root.detail.id);
-                        color: #e5e7eb;
-                        font-size: 14px;
+                        Text {
+                            text: "ID: " + (root.detail.id == 0 ? "-" : root.detail.id);
+                            color: #e5e7eb;
+                            font-size: 14px;
+                        }
+
+                        Text {
+                            text: "Altura: " + (root.detail.height == 0.0 ? "-" : root.detail.height + " m");
+                            color: #e5e7eb;
+                            font-size: 14px;
+                        }
+
+                        Text {
+                            text: "Peso: " + (root.detail.weight == 0.0 ? "-" : root.detail.weight + " kg");
+                            color: #e5e7eb;
+                            font-size: 14px;
+                        }
                     }
 
-                    Text {
-                        text: "Altura: " + (root.detail.height == 0.0 ? "-" : root.detail.height + " m");
-                        color: #e5e7eb;
-                        font-size: 14px;
+                    HorizontalLayout {
+                        Text {
+                            text: "Habilidade: " + (root.detail.ability1 == "" ? "-" : root.detail.ability1);
+                            color: #e5e7eb;
+                            font-size: 14px;
+                        }
+
+                        Text {
+                            text: "Habilidade 2: " + (root.detail.ability2 == "" ? "-" : root.detail.ability2);
+                            color: #e5e7eb;
+                            font-size: 14px;
+                        }
                     }
 
-                    Text {
-                        text: "Peso: " + (root.detail.weight == 0.0 ? "-" : root.detail.weight + " kg");
-                        color: #e5e7eb;
-                        font-size: 14px;
+                    HorizontalLayout {
+                        Text {
+                            text: "Hidden: " + (root.detail.hiddenAbility == "" ? "-" : root.detail.hiddenAbility);
+                            color: #e5e7eb;
+                            font-size: 14px;
+                        }
                     }
                 }
 
-                HorizontalLayout {
-                    Text {
-                        text: "Habilidade: " + (root.detail.ability1 == "" ? "-" : root.detail.ability1);
-                        color: #e5e7eb;
-                        font-size: 14px;
-                    }
-
-                    Text {
-                        text: "Habilidade 2: " + (root.detail.ability2 == "" ? "-" : root.detail.ability2);
-                        color: #e5e7eb;
-                        font-size: 14px;
-                    }
+                if (root.detail.error != ""): Text {
+                    text: root.detail.error;
+                    color: #ef4444;
                 }
 
-                HorizontalLayout {
-                    Text {
-                        text: "Hidden: " + (root.detail.hiddenAbility == "" ? "-" : root.detail.hiddenAbility);
-                        color: #e5e7eb;
-                        font-size: 14px;
-                    }
-                }
-            }
-
-            if (root.detail.error != ""): Text {
-                text: root.detail.error;
-                color: #ef4444;
-            }
-
-            // barras
+                // barras
             VerticalLayout {
-                padding-top: 10px;
-                spacing: 10px;
+                    padding-top: 10px;
+                    spacing: 10px;
 
-                // vida
+                    // vida
                 HorizontalLayout {
-                    spacing: 8px;
-                    Text {
-                        text: "Vida";
-                        width: 120px;
-                        color: #9ca3af;
-                    }
+                        spacing: 8px;
+                        Text {
+                            text: "Vida";
+                            width: 120px;
+                            color: #9ca3af;
+                        }
 
-                    Rectangle { // trilho
+                        Rectangle { // trilho
                         height: 12px;
-                        border-radius: 6px;
-                        background: #1f2937;
-                        horizontal-stretch: 1;
-                        Rectangle { // preenchimento
-                            height: 12px;
                             border-radius: 6px;
-                            x: 0px;
+                            background: #1f2937;
+                            horizontal-stretch: 1;
+                            Rectangle { // preenchimento
+                            height: 12px;
+                                border-radius: 6px;
+                                x: 0px;
                             // limita entre 0 e 1
                             width: parent.width * min((root.detail.hp / 255.0), 1.0);
-                            background: rgb(105, 220, 18);
+                                background: rgb(105, 220, 18);
+                            }
+                        }
+
+                        Text {
+                            text: root.detail.hp;
+                            width: 44px;
+                            color: #e5e7eb;
                         }
                     }
 
-                    Text {
-                        text: root.detail.hp;
-                        width: 44px;
-                        color: #e5e7eb;
-                    }
-                }
-
-                // ataque
+                    // ataque
                 HorizontalLayout {
-                    spacing: 8px;
-                    Text {
-                        text: "Ataque";
-                        width: 120px;
-                        color: #9ca3af;
-                    }
+                        spacing: 8px;
+                        Text {
+                            text: "Ataque";
+                            width: 120px;
+                            color: #9ca3af;
+                        }
 
-                    Rectangle { // trilho
+                        Rectangle { // trilho
                         height: 12px;
-                        border-radius: 6px;
-                        background: #1f2937;
-                        horizontal-stretch: 1;
-                        Rectangle { // preenchimento
-                            height: 12px;
                             border-radius: 6px;
-                            x: 0px;
+                            background: #1f2937;
+                            horizontal-stretch: 1;
+                            Rectangle { // preenchimento
+                            height: 12px;
+                                border-radius: 6px;
+                                x: 0px;
                             // limita entre 0 e 1
                             width: parent.width * min((root.detail.attack / 255.0), 1.0);
-                            background: rgb(239, 204, 24);
+                                background: rgb(239, 204, 24);
+                            }
+                        }
+
+                        Text {
+                            text: root.detail.attack;
+                            width: 44px;
+                            color: #e5e7eb;
                         }
                     }
-
-                    Text {
-                        text: root.detail.attack;
-                        width: 44px;
-                        color: #e5e7eb;
-                    }
-                }
                 // defesa
                 HorizontalLayout {
-                    spacing: 8px;
-                    Text {
-                        text: "Defesa";
-                        width: 120px;
-                        color: #9ca3af;
-                    }
+                        spacing: 8px;
+                        Text {
+                            text: "Defesa";
+                            width: 120px;
+                            color: #9ca3af;
+                        }
 
-                    Rectangle { // trilho
+                        Rectangle { // trilho
                         height: 12px;
-                        border-radius: 6px;
-                        background: #1f2937;
-                        horizontal-stretch: 1;
-                        Rectangle { // preenchimento
-                            height: 12px;
                             border-radius: 6px;
-                            x: 0px;
+                            background: #1f2937;
+                            horizontal-stretch: 1;
+                            Rectangle { // preenchimento
+                            height: 12px;
+                                border-radius: 6px;
+                                x: 0px;
                             // limita entre 0 e 1
                             width: parent.width * min((root.detail.defense / 255.0), 1.0);
-                            background: rgb(232, 100, 18);
+                                background: rgb(232, 100, 18);
+                            }
+                        }
+
+                        Text {
+                            text: root.detail.defense;
+                            width: 44px;
+                            color: #e5e7eb;
                         }
                     }
-
-                    Text {
-                        text: root.detail.defense;
-                        width: 44px;
-                        color: #e5e7eb;
-                    }
-                }
                 // ataque especial
                 HorizontalLayout {
-                    spacing: 8px;
-                    Text {
-                        text: "Ataque Especial";
-                        width: 120px;
-                        color: #9ca3af;
-                    }
+                        spacing: 8px;
+                        Text {
+                            text: "Ataque Especial";
+                            width: 120px;
+                            color: #9ca3af;
+                        }
 
-                    Rectangle { // trilho
+                        Rectangle { // trilho
                         height: 12px;
-                        border-radius: 6px;
-                        background: #1f2937;
-                        horizontal-stretch: 1;
-                        Rectangle { // preenchimento
-                            height: 12px;
                             border-radius: 6px;
-                            x: 0px;
+                            background: #1f2937;
+                            horizontal-stretch: 1;
+                            Rectangle { // preenchimento
+                            height: 12px;
+                                border-radius: 6px;
+                                x: 0px;
                             // limita entre 0 e 1
                             width: parent.width * min((root.detail.specialAttack / 255.0), 1.0);
-                            background: rgb(20, 195, 241);
+                                background: rgb(20, 195, 241);
+                            }
+                        }
+
+                        Text {
+                            text: root.detail.specialAttack;
+                            width: 44px;
+                            color: #e5e7eb;
                         }
                     }
-
-                    Text {
-                        text: root.detail.specialAttack;
-                        width: 44px;
-                        color: #e5e7eb;
-                    }
-                }
                 // defesa especial
                 HorizontalLayout {
-                    spacing: 8px;
-                    Text {
-                        text: "Defesa Especial";
-                        width: 120px;
-                        color: #9ca3af;
-                    }
+                        spacing: 8px;
+                        Text {
+                            text: "Defesa Especial";
+                            width: 120px;
+                            color: #9ca3af;
+                        }
 
-                    Rectangle { // trilho
+                        Rectangle { // trilho
                         height: 12px;
-                        border-radius: 6px;
-                        background: #1f2937;
-                        horizontal-stretch: 1;
-                        Rectangle { // preenchimento
-                            height: 12px;
                             border-radius: 6px;
-                            x: 0px;
+                            background: #1f2937;
+                            horizontal-stretch: 1;
+                            Rectangle { // preenchimento
+                            height: 12px;
+                                border-radius: 6px;
+                                x: 0px;
                             // limita entre 0 e 1
                             width: parent.width * min((root.detail.specialDefense / 255.0), 1.0);
-                            background: rgb(74, 106, 223);
+                                background: rgb(74, 106, 223);
+                            }
+                        }
+
+                        Text {
+                            text: root.detail.specialDefense;
+                            width: 44px;
+                            color: #e5e7eb;
                         }
                     }
-
-                    Text {
-                        text: root.detail.specialDefense;
-                        width: 44px;
-                        color: #e5e7eb;
-                    }
-                }
                 // velocidade
                 HorizontalLayout {
-                    spacing: 8px;
-                    Text {
-                        text: "Velocidade";
-                        width: 120px;
-                        color: #9ca3af;
-                    }
+                        spacing: 8px;
+                        Text {
+                            text: "Velocidade";
+                            width: 120px;
+                            color: #9ca3af;
+                        }
 
-                    Rectangle { // trilho
+                        Rectangle { // trilho
                         height: 12px;
-                        border-radius: 6px;
-                        background: #1f2937;
-                        horizontal-stretch: 1;
-                        Rectangle { // preenchimento
-                            height: 12px;
                             border-radius: 6px;
-                            x: 0px;
+                            background: #1f2937;
+                            horizontal-stretch: 1;
+                            Rectangle { // preenchimento
+                            height: 12px;
+                                border-radius: 6px;
+                                x: 0px;
                             // limita entre 0 e 1
                             width: parent.width * min((root.detail.speed / 255.0), 1.0);
-                            background: rgb(239, 99, 200);
+                                background: rgb(239, 99, 200);
+                            }
+                        }
+
+                        Text {
+                            text: root.detail.speed;
+                            width: 44px;
+                            color: #e5e7eb;
                         }
                     }
 
-                    Text {
-                        text: root.detail.speed;
-                        width: 44px;
-                        color: #e5e7eb;
-                    }
-                }
-
-                // total
+                    // total
                 HorizontalLayout {
-                    spacing: 8px;
-                    Text {
-                        text: "Total";
-                        width: 120px;
-                        color: #d1d5db;
-                    }
+                        spacing: 8px;
+                        Text {
+                            text: "Total";
+                            width: 120px;
+                            color: #d1d5db;
+                        }
 
-                    Rectangle {
-                        height: 14px;
-                        border-radius: 7px;
-                        background: #1f2937;
-                        horizontal-stretch: 1;
                         Rectangle {
                             height: 14px;
                             border-radius: 7px;
-                            x: 0px;
-                            width: parent.width * min((root.detail.total / 1200.0), 1.0);
-                            background: #ffffff;
+                            background: #1f2937;
+                            horizontal-stretch: 1;
+                            Rectangle {
+                                height: 14px;
+                                border-radius: 7px;
+                                x: 0px;
+                                width: parent.width * min((root.detail.total / 1200.0), 1.0);
+                                background: #ffffff;
+                            }
+                        }
+
+                        Text {
+                            text: root.detail.total;
+                            width: 44px;
+                            color: #fef3c7;
                         }
                     }
-
-                    Text {
-                        text: root.detail.total;
-                        width: 44px;
-                        color: #fef3c7;
-                    }
-                }
                 // evoluções
                 EvolutionGraphView {
-                    nodes: root.detail.nodes;
-                    edges: root.detail.edges;
-                    max-stage: root.detail.max-stage;
-                    lines: root.detail.lines; // adiciona binding das linhas
+                        nodes: root.detail.nodes;
+                        edges: root.detail.edges;
+                        max-stage: root.detail.max-stage;
+                        lines: root.detail.lines; // adiciona binding das linhas
                     max-rows: root.detail.max-rows;
-                    carregando: carregando;
-                    selected_index: selected_index;
-                    select_pokemon_id: detail.id;
-                    selected(id) => {
-                        root.selected(id);
-                    }
-                    apply-filter(value) => {
-                        root.apply-filter(value);
+                        carregando: carregando;
+                        selected_index: selected_index;
+                        select_pokemon_id: detail.id;
+                        selected(id) => {
+                            root.selected(id);
+                        }
+                        apply-filter(value) => {
+                            root.apply-filter(value);
+                        }
                     }
                 }
             }
@@ -749,7 +773,7 @@ export component App inherits Window {
     preferred-height: 700px;
 
     // breakpoint simples
-    property <bool> compact: self.width < 720px;
+    out property <bool> compact: self.width < 720px;
 
     in-out property <string> filter;
     in-out property <int> selected_index; // mantém seleção na lista
@@ -779,8 +803,9 @@ export component App inherits Window {
             debug(Key.Back);
             if (event.text == Key.Back) {
                 root.back-to-list();
+                return accept;
             }
-            accept
+            return reject;
         }
 
         if(splash):Splash {
@@ -862,6 +887,7 @@ export component App inherits Window {
                         root.select(i);
                         if (root.compact) {
                             root.visualiza_pokemon = true;
+                            detail_pane.focus_panel();
                         }
                     }
 
@@ -876,6 +902,7 @@ export component App inherits Window {
                     width: root.compact ? parent.width : (parent.width - (list_pane.width + 12px));
                     height: parent.height;
                     detail: root.detail;
+                    compact: compact;
 
                     // visibilidade: no compacto alterna com a lista; no amplo fica sempre visível
                 visible: root.compact ? root.visualiza_pokemon : true;
