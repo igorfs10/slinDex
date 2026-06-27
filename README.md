@@ -34,9 +34,6 @@ cargo build --release --bin slindex_app
 rustup target add wasm32-unknown-unknown
 
 # 2) Gere os artefatos com wasm-pack
-#Windows
-wasm-pack build --release --target web --out-dir web/pkg
-#linux
 wasm-pack build --release --target web --out-dir web/pkg
 
 # 3) Sirva a pasta web/ em um servidor estático
