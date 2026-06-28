@@ -35,9 +35,8 @@ slint-build = "1.17.0"
 winres = "0.1.12"
 
 [package.metadata.android]
-package = "com.seuapp.slindex"
+package = "com.igorfs10.slindex"
 apk_name = "SlinDex"
-# API 26+ é um bom mínimo hoje
 min_sdk_version = 26
 target_sdk_version = 34
 resources  = "android/res"
