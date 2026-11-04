@@ -1,0 +1,259 @@
+name: Release (Tag)
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  APP_NAME: slindex
+
+jobs:
+  build-windows:
+    name: Build Windows
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Extract version
+        shell: bash
+        run: echo "VERSION=${GITHUB_REF_NAME#v}" >> $GITHUB_ENV
+
+      - name: Setup Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Rust Cache
+        uses: Swatinem/rust-cache@v2
+
+      - name: Build Windows release
+        run: cargo build --release --bin slindex_app
+
+      - name: Package Windows build
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Path dist -Force
+          Copy-Item target/release/slindex_app.exe -Destination dist/${{ env.APP_NAME }}.exe
+          Compress-Archive -Path dist/* -DestinationPath ${{ env.APP_NAME }}-windows-${{ env.VERSION }}.zip
+
+      - name: Upload Windows artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows
+          path: ${{ env.APP_NAME }}-windows-${{ env.VERSION }}.zip
+
+  build-linux:
+    name: Build Linux
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Extract version
+        run: echo "VERSION=${GITHUB_REF_NAME#v}" >> $GITHUB_ENV
+
+      - name: Install Linux dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            build-essential \
+            cmake \
+            pkg-config \
+            libfontconfig1-dev \
+            libxkbcommon-dev \
+            libxkbcommon-x11-dev \
+            libwayland-dev \
+            libgl1-mesa-dev \
+            libx11-dev \
+            libxcursor-dev \
+            libxi-dev \
+            libxrandr-dev
+
+      - name: Setup Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Rust Cache
+        uses: Swatinem/rust-cache@v2
+
+      - name: Build Linux release
+        run: cargo build --release --bin slindex_app
+
+      - name: Package Linux build
+        run: |
+          mkdir -p dist
+          cp target/release/slindex_app dist/${{ env.APP_NAME }}
+          chmod +x dist/${{ env.APP_NAME }}
+          tar -czf ${{ env.APP_NAME }}-linux-${{ env.VERSION }}.tar.gz -C dist .
+
+      - name: Upload Linux artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux
+          path: ${{ env.APP_NAME }}-linux-${{ env.VERSION }}.tar.gz
+
+  build-android:
+    name: Build Android
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Extract version
+        run: echo "VERSION=${GITHUB_REF_NAME#v}" >> $GITHUB_ENV
+
+      - name: Setup Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Setup Android NDK
+        run: |
+          echo "ANDROID_HOME=$ANDROID_HOME" >> $GITHUB_ENV
+          echo "ANDROID_SDK_ROOT=$ANDROID_HOME" >> $GITHUB_ENV
+          LATEST_NDK=$(ls -d $ANDROID_HOME/ndk/*/ 2>/dev/null | sort -V | tail -1)
+          if [ -z "$LATEST_NDK" ]; then
+            echo "Installing NDK via sdkmanager..."
+            echo "y" | ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --install "ndk;26.3.11579264"
+            LATEST_NDK="${ANDROID_HOME}/ndk/26.3.11579264/"
+          fi
+          echo "ANDROID_NDK_ROOT=$LATEST_NDK" >> $GITHUB_ENV
+          echo "Using Android NDK: $LATEST_NDK"
+
+      - name: Setup Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: aarch64-linux-android
+
+      - name: Rust Cache
+        uses: Swatinem/rust-cache@v2
+
+      - name: Install cargo-apk
+        uses: taiki-e/cache-cargo-install-action@v3
+        with:
+          tool: cargo-apk
+
+      - name: Setup Android Keystore for Release
+        run: |
+          if [ -n "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" ]; then
+            echo "Using keystore from GitHub Secret"
+            echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > release.keystore
+            echo "CARGO_APK_RELEASE_KEYSTORE=release.keystore" >> $GITHUB_ENV
+            echo "CARGO_APK_RELEASE_KEYSTORE_PASSWORD=${{ secrets.ANDROID_KEYSTORE_PASSWORD }}" >> $GITHUB_ENV
+            echo "CARGO_APK_RELEASE_KEY_ALIAS=${{ secrets.ANDROID_KEY_ALIAS }}" >> $GITHUB_ENV
+            echo "CARGO_APK_RELEASE_KEY_PASSWORD=${{ secrets.ANDROID_KEY_PASSWORD }}" >> $GITHUB_ENV
+          else
+            echo "Generating self-signed release keystore for CI"
+            keytool -genkeypair -v \
+              -keystore release.keystore \
+              -alias androidkey \
+              -keyalg RSA \
+              -keysize 2048 \
+              -validity 10000 \
+              -storepass android \
+              -keypass android \
+              -dname "CN=SlinDex,O=SlinDex,C=BR"
+            echo "CARGO_APK_RELEASE_KEYSTORE=release.keystore" >> $GITHUB_ENV
+            echo "CARGO_APK_RELEASE_KEYSTORE_PASSWORD=android" >> $GITHUB_ENV
+            echo "CARGO_APK_RELEASE_KEY_ALIAS=androidkey" >> $GITHUB_ENV
+            echo "CARGO_APK_RELEASE_KEY_PASSWORD=android" >> $GITHUB_ENV
+          fi
+
+      - name: Build Android APK
+        run: cargo apk build --lib --release --target aarch64-linux-android
+
+      - name: Rename APK
+        run: |
+          APK_PATH=$(find target -name "*.apk" -type f | head -n 1)
+          if [ -z "$APK_PATH" ]; then
+            echo "Error: Nenhum APK encontrado em target/"
+            exit 1
+          fi
+          echo "APK encontrado em: $APK_PATH"
+          cp "$APK_PATH" "${{ env.APP_NAME }}-android-${{ env.VERSION }}.apk"
+
+      - name: Upload Android artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: android
+          path: ${{ env.APP_NAME }}-android-${{ env.VERSION }}.apk
+
+  build-web:
+    name: Build Web (WASM)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Extract version
+        run: echo "VERSION=${GITHUB_REF_NAME#v}" >> $GITHUB_ENV
+
+      - name: Setup Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+
+      - name: Rust Cache
+        uses: Swatinem/rust-cache@v2
+
+      - name: Install wasm-pack
+        uses: taiki-e/install-action@v2
+        with:
+          tool: wasm-pack
+
+      - name: Build WebAssembly
+        run: |
+          wasm-pack build --release --target web --out-dir web/pkg
+          rm -f web/pkg/.gitignore
+
+      - name: Package Web build
+        run: |
+          cd web && zip -r ../${{ env.APP_NAME }}-web-${{ env.VERSION }}.zip . -x ".*" && cd ..
+
+      - name: Upload Web artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: web
+          path: ${{ env.APP_NAME }}-web-${{ env.VERSION }}.zip
+
+      - name: Prepare web deployment files
+        run: |
+          # Duplica estrutura em web/web para garantir compatibilidade
+          # tanto com https://.../slinDex/ quanto https://.../slinDex/web/
+          mkdir -p web/web
+          cp -r web/pkg web/icon.svg web/index.html web/web/
+
+      - name: Deploy web to branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: web
+          publish_branch: web
+          force_orphan: true
+
+  release:
+    name: Create GitHub Release
+    needs: [build-windows, build-linux, build-android, build-web]
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: artifacts/**/*
+          generate_release_notes: true
+
