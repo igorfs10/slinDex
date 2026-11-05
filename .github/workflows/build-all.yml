@@ -145,17 +145,18 @@ jobs:
 
       - name: Setup Android Keystore for Release
         run: |
+          KEYSTORE_PATH="$GITHUB_WORKSPACE/release.keystore"
           if [ -n "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" ]; then
             echo "Using keystore from GitHub Secret"
-            echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > release.keystore
-            echo "CARGO_APK_RELEASE_KEYSTORE=release.keystore" >> $GITHUB_ENV
+            echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > "$KEYSTORE_PATH"
+            echo "CARGO_APK_RELEASE_KEYSTORE=$KEYSTORE_PATH" >> $GITHUB_ENV
             echo "CARGO_APK_RELEASE_KEYSTORE_PASSWORD=${{ secrets.ANDROID_KEYSTORE_PASSWORD }}" >> $GITHUB_ENV
             echo "CARGO_APK_RELEASE_KEY_ALIAS=${{ secrets.ANDROID_KEY_ALIAS }}" >> $GITHUB_ENV
             echo "CARGO_APK_RELEASE_KEY_PASSWORD=${{ secrets.ANDROID_KEY_PASSWORD }}" >> $GITHUB_ENV
           else
             echo "Generating self-signed release keystore for CI"
             keytool -genkeypair -v \
-              -keystore release.keystore \
+              -keystore "$KEYSTORE_PATH" \
               -alias androidkey \
               -keyalg RSA \
               -keysize 2048 \
@@ -163,14 +164,18 @@ jobs:
               -storepass android \
               -keypass android \
               -dname "CN=SlinDex,O=SlinDex,C=BR"
-            echo "CARGO_APK_RELEASE_KEYSTORE=release.keystore" >> $GITHUB_ENV
+            echo "CARGO_APK_RELEASE_KEYSTORE=$KEYSTORE_PATH" >> $GITHUB_ENV
             echo "CARGO_APK_RELEASE_KEYSTORE_PASSWORD=android" >> $GITHUB_ENV
             echo "CARGO_APK_RELEASE_KEY_ALIAS=androidkey" >> $GITHUB_ENV
             echo "CARGO_APK_RELEASE_KEY_PASSWORD=android" >> $GITHUB_ENV
           fi
 
       - name: Build Android APK
-        run: cargo apk build --lib --release --target aarch64-linux-android
+        env:
+          ANDROID_SDK_ROOT: ""
+        run: |
+          unset ANDROID_SDK_ROOT
+          cargo apk build --lib --release --target aarch64-linux-android
 
       - name: Rename APK
         run: |
