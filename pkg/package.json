@@ -1,0 +1,24 @@
+{
+  "name": "slindex",
+  "type": "module",
+  "collaborators": [
+    "Igorfs10"
+  ],
+  "description": "Pequena Pokédex com Rust + Slint que roda em Desktop, WebAssembly e Android utilizando dados da PokeAPI.",
+  "version": "1.1.7",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/igorfs10/slinDex"
+  },
+  "files": [
+    "slindex_bg.wasm",
+    "slindex.js",
+    "slindex.d.ts"
+  ],
+  "main": "slindex.js",
+  "types": "slindex.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
