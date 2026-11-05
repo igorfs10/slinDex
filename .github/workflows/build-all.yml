@@ -201,9 +201,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Extract version
-        run: echo "VERSION=${GITHUB_REF_NAME#v}" >> $GITHUB_ENV
-
       - name: Setup Rust toolchain
         uses: dtolnay/rust-toolchain@stable
         with:
@@ -221,16 +218,6 @@ jobs:
         run: |
           wasm-pack build --release --target web --out-dir web/pkg
           rm -f web/pkg/.gitignore
-
-      - name: Package Web build
-        run: |
-          cd web && zip -r ../${{ env.APP_NAME }}-web-${{ env.VERSION }}.zip . -x ".*" && cd ..
-
-      - name: Upload Web artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: web
-          path: ${{ env.APP_NAME }}-web-${{ env.VERSION }}.zip
 
       - name: Deploy web to branch
         uses: peaceiris/actions-gh-pages@v4
