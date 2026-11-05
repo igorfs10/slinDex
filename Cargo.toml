@@ -16,7 +16,7 @@ path = "src/main.rs"
 
 [dependencies]
 slint = { version = "1.18.1", features = ["std","compat-1-2", "image-default-formats"] }
-image = { version = "0.25.10", default-features = false, features = ["png", "jpeg"] }
+image = { version = "0.25.10", default-features = false, features = ["png", "jpeg", "webp"] }
 
 [target.'cfg(target_os = "android")'.dependencies]
 slint = { version = "1.18.1", default-features = false, features = ["backend-android-activity-06"] }

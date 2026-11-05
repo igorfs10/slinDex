@@ -114,26 +114,21 @@ jobs:
           distribution: temurin
           java-version: 17
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v4
-        with:
-          packages: |
-            platforms;android-34
-            platforms;android-30
-            build-tools;34.0.0
-
-      - name: Configure Android NDK
+      - name: Setup Android SDK and NDK
         run: |
-          # Define NDK estável (utiliza a versão 27 estável pré-instalada, evitando o canary/preview r30)
-          NDK_PATH="${ANDROID_NDK_HOME:-/usr/local/lib/android/sdk/ndk/27.3.13750724}"
-          if [ ! -d "$NDK_PATH" ]; then
-            NDK_PATH=$(ls -d $ANDROID_HOME/ndk/27* 2>/dev/null | tail -1)
+          echo "ANDROID_HOME=/usr/local/lib/android/sdk" >> $GITHUB_ENV
+          # Usa o NDK 27 estável pré-instalado na imagem do runner
+          if [ -d "/usr/local/lib/android/sdk/ndk/27.3.13750724" ]; then
+            echo "ANDROID_NDK_ROOT=/usr/local/lib/android/sdk/ndk/27.3.13750724" >> $GITHUB_ENV
+          elif [ -n "$ANDROID_NDK_HOME" ]; then
+            echo "ANDROID_NDK_ROOT=$ANDROID_NDK_HOME" >> $GITHUB_ENV
+          else
+            LATEST_27=$(ls -d /usr/local/lib/android/sdk/ndk/27* 2>/dev/null | tail -1)
+            echo "ANDROID_NDK_ROOT=$LATEST_27" >> $GITHUB_ENV
           fi
-          if [ -z "$NDK_PATH" ] || [ ! -d "$NDK_PATH" ]; then
-            NDK_PATH=$(ls -d $ANDROID_HOME/ndk/*/ 2>/dev/null | head -1)
-          fi
-          echo "ANDROID_NDK_ROOT=$NDK_PATH" >> $GITHUB_ENV
-          echo "Using Android NDK: $NDK_PATH"
+          # Aceita licenças de forma não-interativa e garante platform 34
+          yes | /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager --licenses >/dev/null 2>&1 || true
+          /usr/local/lib/android/sdk/cmdline-tools/latest/bin/sdkmanager "platforms;android-34" "build-tools;34.0.0" || true
 
       - name: Setup Rust toolchain
         uses: dtolnay/rust-toolchain@stable
@@ -231,13 +226,6 @@ jobs:
         with:
           name: web
           path: ${{ env.APP_NAME }}-web-${{ env.VERSION }}.zip
-
-      - name: Prepare web deployment files
-        run: |
-          # Duplica estrutura em web/web para garantir compatibilidade
-          # tanto com https://.../slinDex/ quanto https://.../slinDex/web/
-          mkdir -p web/web
-          cp -r web/pkg web/icon.svg web/index.html web/web/
 
       - name: Deploy web to branch
         uses: peaceiris/actions-gh-pages@v4
