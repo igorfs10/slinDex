@@ -114,18 +114,26 @@ jobs:
           distribution: temurin
           java-version: 17
 
-      - name: Setup Android NDK
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v4
+        with:
+          packages: |
+            platforms;android-34
+            platforms;android-30
+            build-tools;34.0.0
+
+      - name: Configure Android NDK
         run: |
-          echo "ANDROID_HOME=$ANDROID_HOME" >> $GITHUB_ENV
-          echo "ANDROID_SDK_ROOT=$ANDROID_HOME" >> $GITHUB_ENV
-          LATEST_NDK=$(ls -d $ANDROID_HOME/ndk/*/ 2>/dev/null | sort -V | tail -1)
-          if [ -z "$LATEST_NDK" ]; then
-            echo "Installing NDK via sdkmanager..."
-            echo "y" | ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --install "ndk;26.3.11579264"
-            LATEST_NDK="${ANDROID_HOME}/ndk/26.3.11579264/"
+          # Define NDK estável (utiliza a versão 27 estável pré-instalada, evitando o canary/preview r30)
+          NDK_PATH="${ANDROID_NDK_HOME:-/usr/local/lib/android/sdk/ndk/27.3.13750724}"
+          if [ ! -d "$NDK_PATH" ]; then
+            NDK_PATH=$(ls -d $ANDROID_HOME/ndk/27* 2>/dev/null | tail -1)
           fi
-          echo "ANDROID_NDK_ROOT=$LATEST_NDK" >> $GITHUB_ENV
-          echo "Using Android NDK: $LATEST_NDK"
+          if [ -z "$NDK_PATH" ] || [ ! -d "$NDK_PATH" ]; then
+            NDK_PATH=$(ls -d $ANDROID_HOME/ndk/*/ 2>/dev/null | head -1)
+          fi
+          echo "ANDROID_NDK_ROOT=$NDK_PATH" >> $GITHUB_ENV
+          echo "Using Android NDK: $NDK_PATH"
 
       - name: Setup Rust toolchain
         uses: dtolnay/rust-toolchain@stable
@@ -256,4 +264,3 @@ jobs:
         with:
           files: artifacts/**/*
           generate_release_notes: true
-

@@ -4,7 +4,7 @@ fn main() {
 
     // Só embute ícone quando o TARGET for Windows (.exe)
     if target_os == "windows" {
-        let mut res = winres::WindowsResource::new();
+        let mut res = winresource::WindowsResource::new();
         res.set_icon("app.ico"); // ajuste o caminho do seu .ico
         // Não derruba builds de outras plataformas caso falhe por algum motivo
         if let Err(e) = res.compile() {

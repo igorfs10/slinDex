@@ -210,7 +210,7 @@ component PokemonList inherits Rectangle {
 
     public function scroll_to_index(index: int) {
         if (index >= 0) {
-            list.viewport-y = (((index + 1) * item-height) - (list.height / 2)) * (-1);
+            list.content-y = (((index + 1) * item-height) - (list.height / 2)) * (-1);
         }
     }
 
@@ -267,7 +267,7 @@ component PokemonList inherits Rectangle {
                     if (rows.length > 0) {
                         selected_index = Math.max(0, selected_index - 1);
                         root.selected(selected_index);
-                        list.viewport-y = (((selected_index + 1) * item-height) - (list.height / 2)) * (-1);
+                        list.content-y = (((selected_index + 1) * item-height) - (list.height / 2)) * (-1);
                     }
                     accept
                 }
@@ -279,7 +279,7 @@ component PokemonList inherits Rectangle {
                             selected_index = Math.min(rows.length - 1, selected_index + 1);
                         }
                         root.selected(selected_index);
-                        list.viewport-y = (((selected_index + 1) * item-height) - (list.height / 2)) * (-1);
+                        list.content-y = (((selected_index + 1) * item-height) - (list.height / 2)) * (-1);
                     }
                     accept
                 }
@@ -287,7 +287,7 @@ component PokemonList inherits Rectangle {
                     if (rows.length > 0) {
                         selected_index = 0;
                         root.selected(selected_index);
-                        list.viewport-y = (((selected_index + 1) * item-height) - (list.height / 2)) * (-1);
+                        list.content-y = (((selected_index + 1) * item-height) - (list.height / 2)) * (-1);
                     }
                     accept
                 }
@@ -295,7 +295,7 @@ component PokemonList inherits Rectangle {
                     if (rows.length > 0) {
                         selected_index = rows.length - 1;
                         root.selected(selected_index);
-                        list.viewport-y = (((selected_index + 1) * item-height) - (list.height / 2)) * (-1);
+                        list.content-y = (((selected_index + 1) * item-height) - (list.height / 2)) * (-1);
                     }
                     accept
                 }
@@ -340,7 +340,7 @@ component DetailPanel inherits Rectangle {
         ScrollView {
             width: parent.width;
             height: parent.height;
-            viewport-width: parent.width;
+            content-width: parent.width;
             mouse-drag-pan-enabled: true;
 
             VerticalBox {
